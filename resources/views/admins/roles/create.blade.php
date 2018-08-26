@@ -34,14 +34,14 @@
                 </div>
             @endif
             <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">Role Name <span class="text-danger">*</span></label>
-                <div class="col-sm-10">
+                <label for="name" class="col-sm-3 control-label">Role Name <span class="text-danger">*</span></label>
+                <div class="col-sm-9">
                     <input type="text" class="form-control" required autofocus name="name" value="{{old('name')}}">
                 </div>
             </div>
             <div class="form-group">
-                <label for="name" class="col-sm-2 control-label">&nbsp;</label>
-                <div class="col-sm-10">
+                <label for="name" class="col-sm-3 control-label">&nbsp;</label>
+                <div class="col-sm-9">
                     <button class="btn btn-primary" type="submit">Save</button>
                 </div>
             </div>

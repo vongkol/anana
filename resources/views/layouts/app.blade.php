@@ -190,10 +190,13 @@
                             <a href="#"><i class="fa fa-key text-danger"></i> Security<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('anana-admin/role')}}"><i class="fa fa-th text-warning"></i> User Roles</a>
+                                    <a href="{{url('anana-admin/supply')}}"><i class="fa fa-ambulance"></i> Supply</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('anana-admin/user')}}"><i class="fa fa-user text-success"></i> Users</a>
+                                    <a href="{{url('anana-admin/role')}}"><i class="fa fa-shield"></i> User Roles</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('anana-admin/user')}}"><i class="fa fa-users"></i> Users</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -3,8 +3,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h3 class="page-header">
-            <i class="fa fa-shield"></i> Role List
-            <a href="{{url('anana-admin/role/create')}}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> New</a>
+            <i class="fa fa-ambulance"></i> Supply
         </h3>
         @if(Session::has('sms'))
             <div class="alert alert-success" role="alert">
@@ -20,7 +19,8 @@
             <thead>
                 <tr>
                     <th>&numero;</th>
-                    <th>Role Name</th>
+                    <th>Title</th>
+                    <th>Total Token</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -31,23 +31,20 @@
                     $pagex = 1;
                     $i = 18 * ($pagex - 1) + 1;
                 ?>
-                @foreach($roles as $r)
+                @foreach($supplies as $r)
                 <tr>
                     <td>{{$i++}}</td>
-                    <td>{{$r->name}}</td>
+                    <td>{{$r->title}}</td>
+                    <td>{{$r->total_token}}</td>
                     <td>
-                        <a href="#" class="btn btn-primary btn-xs" title="Permission"><i class="fa fa-key"></i></a>
-                        &nbsp;
-                        <a href="{{url('anana-admin/role/delete?id='.$r->id)}}" class="btn btn-danger btn-xs" 
-                            title="Delete" onclick="return confirm('You want to delete?')">
-                        <i class="fa fa-trash"></i></a>&nbsp;
-                        <a href="{{url('anana-admin/role/edit/'.$r->id)}}" 
+                        <a href="{{url('anana-admin/supply/edit/'.$r->id)}}" 
                             class="btn btn-success btn-xs" title="Edit"><i class="fa fa-pencil"></i></a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        {{$supplies->links()}}
     </div>
 </div>
 @endsection

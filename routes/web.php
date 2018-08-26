@@ -40,12 +40,17 @@ Route::prefix('anana-admin')->group(function () {
         return view('layouts.app');
     });
     // user and role
+
     Route::get('user', 'UserController@index');
     Route::get('role', "RoleController@index");
     Route::get('role/create', "RoleController@create");
     Route::get('role/delete', "RoleController@delete");
-    Route::get('role/edit/{id}', "RoleController@edit");
-
     Route::post('role/save', "RoleController@save");
+    Route::get('role/edit/{id}', "RoleController@edit");
     Route::post('role/update', "RoleController@update");
+
+    // supply
+    Route::get('supply', "SupplyController@index");
+    Route::get('supply/edit/{id}', "SupplyController@edit");
+    Route::post('supply/update', "SupplyController@update");
 });
