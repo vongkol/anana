@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/login', function(){
-    // some route
+    return redirect('anana-admin/login');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/sign-in', 'FrontSecurityController@sign_in');
@@ -29,9 +29,7 @@ Route::get('/reset', 'FrontSecurityController@reset');
 Route::prefix('anana-admin')->group(function () {
     Route::get('/', "DashboardController@index");
 
-    Route::get('login', function(){
-        return redirect('/login');
-    });
+    Route::view('/anana-admin/login', 'auth.login');
     Route::get('logout', "UserController@logout");
     
     Route::get('dashboard', "DashboardController@index");

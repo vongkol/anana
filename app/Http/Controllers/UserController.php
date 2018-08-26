@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         Auth::logout();
         $request->session()->flush();
-        return redirect('/login');
+        return redirect('/anana-admin/login');
     }
     public function index()
     {
