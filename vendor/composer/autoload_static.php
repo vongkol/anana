@@ -8,13 +8,12 @@ class ComposerStaticInit08e1d07297a37cdc63a4769665b1bd93
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
-        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
     );
@@ -111,8 +110,8 @@ class ComposerStaticInit08e1d07297a37cdc63a4769665b1bd93
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -323,6 +322,13 @@ class ComposerStaticInit08e1d07297a37cdc63a4769665b1bd93
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
+        'App\\Http\\Controllers\\FrontSecurityController' => __DIR__ . '/../..' . '/app/Http/Controllers/FrontSecurityController.php',
+        'App\\Http\\Controllers\\FrontUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/FrontUserController.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\Right' => __DIR__ . '/../..' . '/app/Http/Controllers/Right.php',
+        'App\\Http\\Controllers\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/RoleController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -2648,6 +2654,7 @@ class ComposerStaticInit08e1d07297a37cdc63a4769665b1bd93
         'Prophecy\\Doubler\\ClassPatch\\ProphecySubjectPatch' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/ProphecySubjectPatch.php',
         'Prophecy\\Doubler\\ClassPatch\\ReflectionClassNewInstancePatch' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/ReflectionClassNewInstancePatch.php',
         'Prophecy\\Doubler\\ClassPatch\\SplFileInfoPatch' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/SplFileInfoPatch.php',
+        'Prophecy\\Doubler\\ClassPatch\\ThrowablePatch' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/ThrowablePatch.php',
         'Prophecy\\Doubler\\ClassPatch\\TraversablePatch' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Doubler/ClassPatch/TraversablePatch.php',
         'Prophecy\\Doubler\\DoubleInterface' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Doubler/DoubleInterface.php',
         'Prophecy\\Doubler\\Doubler' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Doubler/Doubler.php',
