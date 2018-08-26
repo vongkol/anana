@@ -4,8 +4,18 @@
     <div class="col-sm-12">
         <h3 class="page-header">
             <i class="fa fa-key"></i> Role 
-            <a href="#" class="btn btn-success btn-xs"><i class="fa fa-plus"></i> New</a>
+            <a href="{{url('anana-admin/role/create')}}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> New</a>
         </h3>
+        @if(Session::has('sms'))
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div>
+                    {{session('sms')}}
+                </div>
+            </div>
+        @endif
         <table class="table table-condensed table-responsive">
             <thead>
                 <tr>
@@ -26,8 +36,13 @@
                     <td>{{$i++}}</td>
                     <td>{{$r->name}}</td>
                     <td>
-                        <a href="#" class="btn btn-danger btn-xs" title="Delete" onclick="return confirm('You want to delete?')"><i class="fa fa-trash"></i></a>&nbsp;&nbsp;
-                        <a href="#" class="btn btn-success btn-xs" title="Edit"><i class="fa fa-pencil"></i></a>
+                        <a href="#" class="btn btn-primary btn-xs" title="Permission"><i class="fa fa-key"></i></a>
+                        &nbsp;&nbsp;
+                        <a href="{{url('anana-admin/role/delete?id='.$r->id)}}" class="btn btn-danger btn-xs" 
+                            title="Delete" onclick="return confirm('You want to delete?')">
+                        <i class="fa fa-trash"></i></a>&nbsp;&nbsp;
+                        <a href="{{url('anana-admin/role/edit/'.$r->id)}}" 
+                            class="btn btn-success btn-xs" title="Edit"><i class="fa fa-pencil"></i></a>
                     </td>
                 </tr>
                 @endforeach

@@ -40,6 +40,8 @@ Route::prefix('anana-admin')->group(function () {
     Route::get('user', 'UserController@index');
     Route::get('role', "RoleController@index");
     Route::get('role/create', "RoleController@create");
+    Route::get('role/delete', "RoleController@delete");
     Route::get('role/edit/{id}', "RoleController@edit");
-    Route::get('role/delete/{id}', "RoleController@delete");
+    Route::post('role/save', "RoleController@save");
+    Route::post('role/update', "RoleController@update");
 });

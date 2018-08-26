@@ -3,14 +3,15 @@
 <div class="row">
     <div class="col-sm-12">
         <h3 class="page-header">
-            <i class="fa fa-key"></i> Create Role 
+            <i class="fa fa-key"></i> Edit Role 
             <a href="{{url('anana-admin/role')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
         </h3>
         
     </div>
 </div>
-<form action="{{url('anana-admin/role/save')}}" class="form-horizontal" method="POST">
+<form action="{{url('anana-admin/role/update')}}" class="form-horizontal" method="POST">
     {{csrf_field()}}
+    <input type="hidden" name="id" value="{{$role->id}}">
     <div class="row">
         <div class="col-sm-7">
             @if(Session::has('sms'))
@@ -36,13 +37,13 @@
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">Role Name <span class="text-danger">*</span></label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" required autofocus name="name" value="{{old('name')}}">
+                    <input type="text" class="form-control" required autofocus name="name" value="{{$role->name}}">
                 </div>
             </div>
             <div class="form-group">
                 <label for="name" class="col-sm-2 control-label">&nbsp;</label>
                 <div class="col-sm-10">
-                    <button class="btn btn-primary" type="submit">Save</button>
+                    <button class="btn btn-primary" type="submit">Save Change</button>
                 </div>
             </div>
         </div>

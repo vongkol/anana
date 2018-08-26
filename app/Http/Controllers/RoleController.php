@@ -28,11 +28,11 @@ class RoleController extends Controller
     }
     public function create()
     {
-        if(!Right::check('Role', 'i'))
-        {
-            return view('admins.permissions.no');
-        }
-        return view('roles.create');
+        // if(!Right::check('Role', 'i'))
+        // {
+        //     return view('admins.permissions.no');
+        // }
+        return view('admins.roles.create');
     }
     public function save(Request $r)
     {
@@ -40,48 +40,51 @@ class RoleController extends Controller
         $data = array(
             'name' => $r->name
         );
-        $i=DB::table('roles')->insert($data);
-        $lang = Auth::user()->language;
-        if($lang=='kh')
+        $i = DB::table('roles')->insert($data);
+        if($i)
         {
-            $r->session()->flash('sms',"តួនាទីថ្មីត្រូវបានបង្កើតដោយជោគជ័យ។");
-            return redirect('/role/create');
+            $r->session()->flash('sms', "New role has been created successfully!");
+            return redirect('anana-admin/role/create');
         }
-        $r->session()->flash('sms',"New role has been created successfully.");
-        return redirect('/role/create');
+        else{
+            $r->session()->flash('sms1', "Fail to create new role. Please check your input again!");
+            return redirect('anana-admin/role/create')->withInput();
+        }
     }
     public function update(Request $r)
     {
         $data = array(
             'name' => $r->name
         );
-        DB::table('roles')->where('id', $r->id)->update($data);
-        $lang = Auth::user()->language;
-        if($lang=='kh')
+        $i = DB::table('roles')->where('id', $r->id)->update($data);
+        if($i)
         {
-            $r->session()->flash('sms',"ទិន្នន័យត្រូវបានកែប្រែដោយជោគជ័យ។");
-            return redirect('/role/edit/'.$r->id);
+            $r->session()->flash('sms', "All changes have been saved successfully!");
+            return redirect('anana-admin/role/edit/'.$r->id);
         }
-        $r->session()->flash('sms',"All changes have been saved successfully.");
-        return redirect('/role/edit/'.$r->id);
+        else{
+            $r->session()->flash('sms1', "Fail to save changes. You might not make any change!");
+            return redirect('anana-admin/role/edit/'.$r->id);
+        }
     }
     public function edit($id)
     {
-        if(!Right::check('Role', 'u'))
-        {
-            return view('permissions.no');
-        }
+        // if(!Right::check('Role', 'u'))
+        // {
+        //     return view('permissions.no');
+        // }
         $data['role'] = DB::table('roles')->where('id', $id)->first();
-        return view('roles.edit', $data);
+        return view('admins.roles.edit', $data);
     }
     // delete a role by id
-    public function delete($id)
+    public function delete(Request $r)
     {
-        if(!Right::check('Role', 'd'))
-        {
-            return view('permissions.no');
-        }
-        DB::table('roles')->where('id', $id)->delete();
-        return redirect('/role');
+        // if(!Right::check('Role', 'd'))
+        // {
+        //     return view('permissions.no');
+        // }
+        DB::table('roles')->where('id', $r->id)->delete();
+        $r->session()->flash('sms', 'A role has been removed successfully!');
+        return redirect('anana-admin/role');
     }
 }
