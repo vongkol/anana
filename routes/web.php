@@ -20,6 +20,10 @@ Route::get('/login', function(){
     // some route
 });
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/sign-in', 'FrontSecurityController@sign_in');
+Route::get('/sign-up', 'FrontSecurityController@sign_up');
+Route::get('/forgot-password', 'FrontSecurityController@forget');
+Route::get('/reset', 'FrontSecurityController@reset');
 
 // Admin Route
 Route::prefix('anana-admin')->group(function () {
@@ -42,6 +46,7 @@ Route::prefix('anana-admin')->group(function () {
     Route::get('role/create', "RoleController@create");
     Route::get('role/delete', "RoleController@delete");
     Route::get('role/edit/{id}', "RoleController@edit");
+
     Route::post('role/save', "RoleController@save");
     Route::post('role/update', "RoleController@update");
 });

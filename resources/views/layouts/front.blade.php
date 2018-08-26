@@ -47,8 +47,12 @@
                     <i class="fa fa-search text-white"></i>
                 </form>
                 <ul class="ml-auto">
-                        <button class="btn btn-outline-primary flat" type="submit">Login</button>
-                        <button class="btn btn-outline-primary flat" type="submit">Sign Up</button>
+                    <a href="{{url('sign-in')}}" class="btn btn-outline-primary flat">
+                        Login
+                    </a>
+                    <a href="{{url('sign-up')}}" class="btn btn-outline-primary flat">
+                        Sign Up
+                    </a>
                 </ul>
                 </div>
             </div>
