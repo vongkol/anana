@@ -13,3 +13,13 @@ li.user-photo>img{
 .page-header a{
     margin-left: 22px;
 }
+a {
+    color: #464748;
+    text-decoration: none;
+}
+.navbar-default {
+    background-color: #fff;
+}
+ #side-menu > li > a, .nav-second-level > li > a {
+    padding: 5px 15px;
+}
