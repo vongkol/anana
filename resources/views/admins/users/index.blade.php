@@ -21,6 +21,8 @@
                 <tr>
                     <th>&numero;</th>
                     <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -31,23 +33,24 @@
                     $pagex = 1;
                     $i = 18 * ($pagex - 1) + 1;
                 ?>
-                @foreach($roles as $r)
+                @foreach($users as $r)
                 <tr>
                     <td>{{$i++}}</td>
                     <td>{{$r->name}}</td>
+                    <td>{{$r->email}}</td>
+                    <td>{{$r->rname}}</td>
                     <td>
-                        <a href="#" class="btn btn-primary btn-xs" title="Permission"><i class="fa fa-key"></i></a>
-                        &nbsp;&nbsp;
-                        <a href="{{url('anana-admin/role/delete?id='.$r->id)}}" class="btn btn-danger btn-xs" 
+                        <a href="{{url('anana-admin/user/delete?id='.$r->id)}}" class="btn btn-danger btn-xs" 
                             title="Delete" onclick="return confirm('You want to delete?')">
                         <i class="fa fa-trash"></i></a>&nbsp;&nbsp;
-                        <a href="{{url('anana-admin/role/edit/'.$r->id)}}" 
+                        <a href="{{url('anana-admin/user/edit/'.$r->id)}}" 
                             class="btn btn-success btn-xs" title="Edit"><i class="fa fa-pencil"></i></a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        {{$users->links()}}
     </div>
 </div>
 @endsection
