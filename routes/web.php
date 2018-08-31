@@ -45,6 +45,7 @@ Route::prefix('anana-admin')->group(function () {
     Route::get('user/create', 'UserController@create');
     Route::get('user/delete', 'UserController@delete');
     Route::get('user/edit/{id}', 'UserController@edit');
+    Route::get('user/profile/{id}', 'UserController@profile');
     Route::post('user/save', 'UserController@save');
     Route::post('user/update', 'UserController@update');
 

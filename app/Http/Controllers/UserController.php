@@ -24,7 +24,7 @@ class UserController extends Controller
             ->join('roles', 'users.role_id', 'roles.id')
             ->orderBy('users.id', 'desc')
             ->select('users.*', 'roles.name as rname')
-            ->paginate(1);
+            ->paginate(18);
         return view('admins.users.index', $data);
     }
     public function create()
@@ -61,18 +61,67 @@ class UserController extends Controller
     }
     public function edit($id)
     {
-        $dat['user'] = DB::table('user')->where('id', $id)->first();
+        $data['user'] = DB::table('users')->where('id', $id)->first();
         $data['roles'] = DB::table('roles')->get();
         return view('admins.users.edit', $data);
     }
     public function update(Request $r)
     {
+        $data = array(
+            'name' => $r->name,
+            'email' => $r->email,
+            'role_id' => $r->role
+        );
+        if($r->password!=null)
+        {
+            $data['password'] = bcrypt($r->password);
+        }
+        // check if already have user
+        $user = DB::table('users')->where('id', $r->id)->first();
+        $old_email = $user->email;
+        $new_email = $r->email;
 
+        if($old_email!=$new_email)
+        {
+            $users = DB::table('users')->where('email', $new_email)->get();
+            if(count($users)>0)
+            {
+                $r->session()->flash('sms1', 'User email already exist. Please use a different one!');
+                return redirect('anana-admin/user/edit/'.$r->id);
+            }
+            else{
+                $i = DB::table('users')->where('id', $r->id)->update($data);
+                $r->session()->flash('sms', 'All changes have been saved successfully!');
+                return redirect('anana-admin/user/edit/'.$r->id);
+            }            
+        }
+        else{
+            $i = DB::table('users')->where('id', $r->id)->update($data);
+            $r->session()->flash('sms', 'All changes have been saved successfully!');
+            return redirect('anana-admin/user/edit/'.$r->id);
+        }   
     }
     public function delete(Request $r)
     {
-        $page = $r->page;
         $id = $r->id;
-        
+        DB::table('users')->where('id', $id)->delete();
+        if($r->page>0)
+        {
+            $r->session()->flash('sms', 'A user has been removed successfully!');
+            return redirect('anana-admin/user?page='.$r->page);
+        }
+        else{
+            $r->session()->flash('sms', 'A user has been removed successfully!');
+            return redirect('anana-admin/user');
+        }
+    }
+    public function profile($id)
+    {
+        $data['user'] = DB::table('users')
+            ->join('roles', 'users.role_id', 'roles.id')
+            ->where('users.id', $id)
+            ->select('users.*', 'roles.name as rname')
+            ->first();
+        return view('admins.users.profile', $data);
     }
 }

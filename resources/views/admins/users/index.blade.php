@@ -40,7 +40,7 @@
                     <td>{{$r->email}}</td>
                     <td>{{$r->rname}}</td>
                     <td>
-                        <a href="{{url('anana-admin/user/delete?id='.$r->id)}}" class="btn btn-danger btn-xs" 
+                        <a href="{{url('anana-admin/user/delete?id='.$r->id.'&page='.@$_GET['page'])}}" class="btn btn-danger btn-xs" 
                             title="Delete" onclick="return confirm('You want to delete?')">
                         <i class="fa fa-trash"></i></a>&nbsp;&nbsp;
                         <a href="{{url('anana-admin/user/edit/'.$r->id)}}" 
