@@ -47,7 +47,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{url('anana-admin')}}">Anana Capital</a>
+                <a class="navbar-brand" href="{{url('anana-admin')}}">
+                    <img src="{{asset('admin/logo.png')}}" alt="Anana Capital" width="40" style="display: inline"> <span>Anana Capital </span>
+                </a>
             </div>
             <!-- /.navbar-header -->
 
@@ -180,9 +182,14 @@
                                     <a href="{{url('anana-admin/supply')}}"><i class="fa fa-ambulance"></i> Supply</a>
                                 </li>
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="{{url('anana-admin/block')}}"><i class="fa fa-cube"></i> Block</a>
                                 </li>
-                               
+                                <li>
+                                    <a href="{{url('anana-admin/package')}}"><i class="fa fa-upload"></i> Package</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('anana-admin/exchange')}}"><i class="fa fa-dollar"></i> Exchange</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
