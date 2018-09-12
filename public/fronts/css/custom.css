@@ -172,23 +172,13 @@ body {
   
   header.masthead {
 	background: no-repeat center center;
-	background-color: #868e96;
+	background-color: #232321;
 	background-attachment: scroll;
 	position: relative;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-  }
-  
-  header.masthead .overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	background-color: #8350ff;
-	opacity: 0.5;
   }
   
   header.masthead .page-heading,
@@ -376,7 +366,7 @@ body {
 	margin-bottom: 0;
 	text-align: center;
   }
-.btn-outline-primary {
+.btn-outline-dark {
     color: #fff;
     background-color: rgba(255, 255, 255, 0.1);
     background-image: none;
@@ -394,7 +384,7 @@ header.masthead .page-heading h1, header.masthead .site-heading h1 {
     font-size: 51px;
     z-index: 9999999999;
     opacity: 0.9;
-    font-weight: 100;
+		font-weight: 100;
 }
 
 .btn-white {
@@ -402,16 +392,8 @@ header.masthead .page-heading h1, header.masthead .site-heading h1 {
 	padding: 15px 20px;
 }
 .set {
-	background: #563d7c;
+	background: #feb82f;
 	padding: 25px;
-}
-.text1 {
-	font-weight: 800;
-	font-size: 1rem;
-	color: #fff;
-}
-.text2 {
-	color: #ccc;
 }
 .my4 {
 	margin-top: 100px;

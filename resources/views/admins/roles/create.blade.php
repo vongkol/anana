@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h3 class="page-header">
-            <i class="fa fa-key"></i> Create Role 
+            <i class="fa fa-shield"></i> Create Role 
             <a href="{{url('anana-admin/role')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
         </h3>
         

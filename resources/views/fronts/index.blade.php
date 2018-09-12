@@ -1,32 +1,31 @@
 @extends('layouts.front')
 @section('content')
    <header class="masthead">
-        <div class="overlay"></div>
         <div class="container">
             <div class="row">
             <div class="col-md-12">
                 <div class="site-heading">
-                <h1>Connecting the world to Crypto</h1>
+                <h1 class="text-warning">Connecting the world to Crypto</h1>
                 <span class="subheading">The easy way to send, receive, store, and trade digital currencies</span><br>
-                <a class="btn btn-outline-primary btn-white flat" >Create Your Wallet</a>
+                <a class="btn btn-outline-dark btn-white flat" >Create Your Wallet</a>
                 </div>
             </div>
         </div>
     </header>
     <div class="container-fluit set">
-        <section class="container text-center">
+        <section class="container text-center font-weight-bold">
             <div class="row">
                 <div class="col-md-3">
-                    <span class="text1">25M+</span><br><span class="text2">Wallets</span>
+                    <span>25M+</span><br><span>Wallets</span>
                 </div>
                 <div class="col-md-3">
-                    <span class="text1">$200B+</span><br><span class="text2">Transacted</span>
+                    <span>$200B+</span><br><span>Transacted</span>
                 </div>
                 <div class="col-md-3">
-                    <span class="text1">140</span><br><span class="text2">Countries</span>
+                    <span>140</span><br><span>Countries</span>
                 </div>
                 <div class="col-md-3">
-                    <span class="text1">2018</span><br><span class="text2">Founded</span>
+                    <span>2018</span><br><span>Founded</span>
                 </div>
             </div>
         </section>
@@ -109,7 +108,7 @@
         <div class="col-md-12 text-center">
             <h3 class="text-white">Enter the Future of Finance</h3>
             <p class="text-white">Empowering individuals, investors, and developers to join the revolution</p>
-            <a class="btn btn-outline-primary btn-white text-white  flat" >Create Your Wallet</a>
+            <a class="btn btn-outline-dark btn-white text-white  flat" >Create Your Wallet</a>
             <a class="btn btn-outline-primary btn-learn text-white flat" >Learn More <i class="fa fa-arrow-right"></i></a>
         </div>
     </div>

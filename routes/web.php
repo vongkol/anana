@@ -24,6 +24,7 @@ Route::get('/sign-in', 'FrontSecurityController@sign_in');
 Route::get('/sign-up', 'FrontSecurityController@sign_up');
 Route::get('/forgot-password', 'FrontSecurityController@forget');
 Route::get('/reset', 'FrontSecurityController@reset');
+Route::get('/admin/admin', 'FrontSecurityController@admin');
 
 // Admin Route
 Route::prefix('anana-admin')->group(function () {
