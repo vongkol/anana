@@ -68,9 +68,48 @@
                 </div>
             </div>
         </nav>
-
-        @yield('content')
-
+        <header class="masthead">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="site-heading">
+                    
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    <p></p>
+                    <ul class="list-group">
+                        <li class="list-group-item active">User Menu</li>
+                        <li class="list-group-item">
+                            <a href="{{url('/dashboard')}}" class="text-primary">Dashboard</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{url('member/profile/'.session('member')->id)}}" class="text-primary">My Profile</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="text-primary">My Investment</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="text-primary">My Wallet</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="text-primary">My Network</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="text-primary">Transaction</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-10">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
         <footer>
             <div class="container">
                 <section class="section2 text-center">

@@ -123,4 +123,10 @@ EOT;
 
         return view('fronts.members.dashboard');
     }
+    public function profile($id)
+    {
+        $data['profile'] = DB::table('members')->where('id', $id)->first();
+        $data['countries'] = DB::table('countries')->get();
+        return view('fronts.members.profile', $data);
+    }
 }

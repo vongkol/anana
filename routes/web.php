@@ -29,7 +29,7 @@ Route::get('/confirm/{id}', "MemberController@confirm");
 Route::get('/member/logout', "MemberController@logout");
 Route::post('/member/register', 'MemberController@register');
 Route::post('/member/signin', 'MemberController@signin');
-
+Route::get('/member/profile/{id}', 'MemberController@profile');
 // Admin Route
 Route::prefix('anana-admin')->group(function () {
     Route::get('/', "DashboardController@index");
