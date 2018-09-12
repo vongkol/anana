@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
-        <meta name="author" content="sorvichey">
+        <meta name="author" content="Anana Capitals">
         <title>Anana Capitals</title>
         <link href="{{asset('fronts/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('fronts/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
@@ -29,7 +29,7 @@
                         <a href="{{url('/')}}" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Investment</a>
+                        <a href="{{url('investment')}}" class="nav-link">Investment</a>
                     </li>
                    
                     <li class="nav-item">
@@ -40,9 +40,6 @@
                     </li>
                    
                 </ul>
-                {{-- <form class="form-inline my-2 my-lg-0">&nbsp; &nbsp;&nbsp;  
-                    <i class="fa fa-search text-white"></i>
-                </form> --}}
                 
                 @if(Session::has('member'))
                 <ul class="ml-auto navbar-nav">
@@ -74,65 +71,47 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Dashboard</h3>
-                <strong>D</strong>
+               <h4>Main Menu</h4>
+                <strong>M</strong>
             </div>
 
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fa    fa-home"></i>
-                        Home
+                    <a href="#" class="dropdown-toggle">
+                        <i class="fa fa-tachometer"></i>
+                        Dashboard
                     </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
                 </li>
+                
                 <li>
                     <a href="#">
                         <i class="fa fa-briefcase"></i>
-                        About
+                        Investment
                     </a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="fa fa-copy"></i>
-                        Pages
-                    </a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
-                        </li>
-                    </ul>
                 </li>
                 <li>
                     <a href="#">
+                        <i class="fa fa-copy"></i>
+                        Wallet
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="#">
                         <i class="fa fa-image"></i>
-                        Portfolio
+                        Network
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <i class="fa fa-question"></i>
-                        FAQ
+                        Profile
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="fa fa-phone"></i>
-                        Contact
+                        <i class="fa fa-sign-out"></i>
+                        Logout
                     </a>
                 </li>
             </ul>

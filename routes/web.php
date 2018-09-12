@@ -16,22 +16,21 @@ Route::get('/', function () {
 });
 Route::get('/dashboard', "MemberController@dashboard");
 Auth::routes();
-// Route::get('login', function(){
-//     return redirect('anana-admin/login');
-// });
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/sign-in', 'FrontSecurityController@sign_in');
 Route::get('/sign-up', 'FrontSecurityController@sign_up');
 Route::get('/forgot-password', 'FrontSecurityController@forget');
 Route::get('/reset', 'FrontSecurityController@reset');
-Route::get('/admin/admin', 'FrontSecurityController@admin');
-
+// investment
+Route::get('/investment', "FrontController@investment");
 // member route
 Route::get('/confirm/{id}', "MemberController@confirm");
 Route::get('/member/logout', "MemberController@logout");
 Route::post('/member/register', 'MemberController@register');
 Route::post('/member/signin', 'MemberController@signin');
 Route::get('/member/profile/{id}', 'MemberController@profile');
+
 // Admin Route
 Route::prefix('anana-admin')->group(function () {
     Route::get('/', "DashboardController@index");

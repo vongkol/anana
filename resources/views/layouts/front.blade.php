@@ -28,7 +28,7 @@
                         <a href="{{url('/')}}" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Investment</a>
+                        <a href="{{url('investment')}}" class="nav-link">Investment</a>
                     </li>
                    
                     <li class="nav-item">
