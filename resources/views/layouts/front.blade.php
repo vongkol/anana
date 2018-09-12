@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="sorvichey">
-        <title>ANANA CAPITAL</title>
+        <title>Anana Capitals</title>
         <link href="{{asset('fronts/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('fronts/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -14,38 +14,48 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="{{url('/')}}"><img src="{{asset('fronts/img/logo-anana.png')}}" width="95" alt=""></a>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{url('/')}}">
+                    <img src="{{asset('images/logo.png')}}" alt="Anana Capital" width="90"> Anana Capital
+                </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fa fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="{{url('/')}}" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Investment</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Contact Us</a>
+                    </li>
+                   
+                </ul>
+                {{-- <form class="form-inline my-2 my-lg-0">&nbsp; &nbsp;&nbsp;  
+                    <i class="fa fa-search text-white"></i>
+                </form> --}}
+                
+                @if(Session::has('member'))
+                <ul class="ml-auto navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Product 
+                        {{session('member')->first_name .' '. session('member')->last_name}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                            <a class="dropdown-item" href="{{url('/dashboard')}}">Dashboard</a>
+                            <a class="dropdown-item" href="{{url('/member/logout')}}">Logout</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Data
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                    </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">&nbsp; &nbsp;&nbsp;  
-                    <i class="fa fa-search text-white"></i>
-                </form>
+                @else
                 <ul class="ml-auto">
                     <a href="{{url('sign-in')}}" class="btn btn-outline-dark flat">
                         Login
@@ -54,6 +64,7 @@
                         Sign Up
                     </a>
                 </ul>
+                @endif
                 </div>
             </div>
         </nav>
@@ -96,7 +107,7 @@
             </section>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h2 style="color:#563d7c;padding: 20px;">NANAPAYMENT</h2>
+                        <h2 style="color:#563d7c;padding: 20px;">Anana Capitals</h2>
                     </div>
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <ul class="list-inline text-center">

@@ -21,8 +21,13 @@ class FrontSecurityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function sign_up()
+    public function sign_up(Request $r)
     {
+        if($r->ref)
+        {
+            $r->session()->put('ref', $r->ref);
+        }
+        
         return view('fronts.sign-up');
     }
 

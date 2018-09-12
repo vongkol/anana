@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('fronts.index');
 });
-
+Route::get('/dashboard', "MemberController@dashboard");
 Auth::routes();
 // Route::get('login', function(){
 //     return redirect('anana-admin/login');
@@ -26,6 +26,12 @@ Route::get('/forgot-password', 'FrontSecurityController@forget');
 Route::get('/reset', 'FrontSecurityController@reset');
 Route::get('/admin/admin', 'FrontSecurityController@admin');
 
+// member route
+Route::get('/confirm/{id}', "MemberController@confirm");
+Route::get('/member/logout', "MemberController@logout");
+Route::post('/member/register', 'MemberController@register');
+Route::post('/member/signin', 'MemberController@signin');
+Route::get('/member/profile/{id}', 'MemberController@profile');
 // Admin Route
 Route::prefix('anana-admin')->group(function () {
     Route::get('/', "DashboardController@index");
@@ -43,6 +49,13 @@ Route::prefix('anana-admin')->group(function () {
     // user and role
 
     Route::get('user', 'UserController@index');
+    Route::get('user/create', 'UserController@create');
+    Route::get('user/delete', 'UserController@delete');
+    Route::get('user/edit/{id}', 'UserController@edit');
+    Route::get('user/profile/{id}', 'UserController@profile');
+    Route::post('user/save', 'UserController@save');
+    Route::post('user/update', 'UserController@update');
+
     Route::get('role', "RoleController@index");
     Route::get('role/create', "RoleController@create");
     Route::get('role/delete', "RoleController@delete");
@@ -54,4 +67,25 @@ Route::prefix('anana-admin')->group(function () {
     Route::get('supply', "SupplyController@index");
     Route::get('supply/edit/{id}', "SupplyController@edit");
     Route::post('supply/update', "SupplyController@update");
+    // block
+    Route::get('block', "BlockController@index");
+    Route::get('block/create', "BlockController@create");
+    Route::get('block/edit/{id}', "BlockController@edit");
+    Route::get('block/delete', "BlockController@delete");
+    Route::post('block/save', "BlockController@save");
+    Route::post('block/update', "BlockController@update");
+    // package
+    Route::get('package', "PackageController@index");
+    Route::get('package/create', "PackageController@create");
+    Route::get('package/edit/{id}', "PackageController@edit");
+    Route::get('package/delete', "PackageController@delete");
+    Route::post('package/save', "PackageController@save");
+    Route::post('package/update', "PackageController@update");
+    // exchange
+    Route::get('exchange', 'ExchangeController@index');
+    Route::get('exchange/create', 'ExchangeController@create');
+    Route::get('exchange/edit/{id}', 'ExchangeController@edit');
+    Route::get('exchange/delete', 'ExchangeController@delete');
+    Route::post('exchange/save', 'ExchangeController@save');
+    Route::post('exchange/update', 'ExchangeController@update');
 });

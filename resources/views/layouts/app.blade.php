@@ -47,7 +47,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{url('anana-admin')}}">Anana Capital</a>
+                <a class="navbar-brand" href="{{url('anana-admin')}}">
+                    <img src="{{asset('admin/logo.png')}}" alt="Anana Capital" width="40" style="display: inline"> <span>Anana Capital </span>
+                </a>
             </div>
             <!-- /.navbar-header -->
 
@@ -100,7 +102,7 @@
                         <li class="user-photo">
                             <img src="{{asset('uploads/users/profiles/default.png')}}" alt="">
                         </li>
-                        <li><a href="#"><i class="fa fa-user fa-fw text-success"></i> My Profile</a>
+                        <li><a href="{{url('anana-admin/user/profile/'. Auth::user()->id)}}"><i class="fa fa-user fa-fw text-success"></i> My Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw text-warning"></i> Reset Password</a>
                         </li>
@@ -177,21 +179,23 @@
                             <a href="#"><i class="fa fa-cog text-success"></i> Settings<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="{{url('anana-admin/supply')}}"><i class="fa fa-ambulance"></i> Supply</a>
                                 </li>
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="{{url('anana-admin/block')}}"><i class="fa fa-cube"></i> Block</a>
                                 </li>
-                               
+                                <li>
+                                    <a href="{{url('anana-admin/package')}}"><i class="fa fa-upload"></i> Package</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('anana-admin/exchange')}}"><i class="fa fa-dollar"></i> Exchange</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-key text-danger"></i> Security<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{{url('anana-admin/supply')}}"><i class="fa fa-ambulance"></i> Supply</a>
-                                </li>
                                 <li>
                                     <a href="{{url('anana-admin/role')}}"><i class="fa fa-shield"></i> User Roles</a>
                                 </li>
