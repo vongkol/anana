@@ -103,7 +103,10 @@ body {
 	font-size: 1rem;
 	font-weight: 600;
 	letter-spacing: 1px;
-  }
+	}
+	.navbar {
+    padding: 0 1rem;
+}
   
   @media only screen and (min-width: 992px) {
 	#mainNav {
@@ -111,7 +114,6 @@ body {
 	  background: transparent;
 	}
 	#mainNav .navbar-brand {
-	  padding: 10px 20px;
 	  color: #fff;
 	}
 	#mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
@@ -142,11 +144,11 @@ body {
 	#mainNav.is-fixed {
 	  /* when the user scrolls down, we hide the header right above the viewport */
 	  position: fixed;
-	  top: -76px;
+	  top: -102px;
 	  -webkit-transition: -webkit-transform 0.2s;
 	  -moz-transition: -moz-transform 0.2s;
 	  transition: transform 0.2s;
-	  background-color: #563d7c;
+	  background-color: #232321;
 	}
 	#mainNav.is-fixed .navbar-brand {
 	  color: #fff;
@@ -407,13 +409,11 @@ header.masthead .page-heading h1, header.masthead .site-heading h1 {
 }
 .content2 {
 	padding: 80px 0;
-	background: #563d7c;
+	background: #feb82f;
 	margin-top: 50px;
 }
 .btn-learn {
 	padding: 15px 20px;
-	background: rgba(36, 11, 74, 0.88);
-	border-color: rgb(41, 16, 80);
 }
 aside {
 	font-weight: 100;

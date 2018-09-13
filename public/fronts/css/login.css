@@ -3,7 +3,7 @@ html,body {
 }
 
 .my-login-page {
-	background-color: #8570cb;
+	background-color: #212529;
 }
 
 .my-login-page .brand {
@@ -16,6 +16,10 @@ html,body {
 
 .my-login-page .card-wrapper {
 	width: 400px;
+}
+
+.my-sign-up .card-wrapper{
+	width: 700px;
 }
 
 .my-login-page .card {

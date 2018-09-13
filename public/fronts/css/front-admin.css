@@ -1,8 +1,6 @@
 /*
     DEMO STYLE
 */
-
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -23,7 +21,7 @@ p {
 .wrapper {
     display: flex;
     align-items: stretch;
-    margin-top: 128px;
+    margin-top: 102px;
 }
 .nv-bar {
     margin-top: -10px;
@@ -73,7 +71,7 @@ span {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #0f1119;
+    background: #272a35;
     color: #fff;
     transition: all 0.3s;
 }
@@ -125,7 +123,7 @@ span {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #0f1119;
+    background: #272a35;
 }
 
 #sidebar .sidebar-header strong {
@@ -140,7 +138,7 @@ span {
 }
 
 #sidebar ul li a:hover {    
-    background: #fed636;
+    background: #232321;
 }
 
 #sidebar ul li a i {

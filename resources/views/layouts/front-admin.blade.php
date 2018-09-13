@@ -71,7 +71,7 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-               <h4>Main Menu</h4>
+               <h3>Main Menu</h3>
                 <strong>M</strong>
             </div>
 

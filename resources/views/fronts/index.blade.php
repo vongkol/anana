@@ -106,10 +106,10 @@
     </div>
     <div class="container-fluit content2">
         <div class="col-md-12 text-center">
-            <h3 class="text-white">Enter the Future of Finance</h3>
-            <p class="text-white">Empowering individuals, investors, and developers to join the revolution</p>
-            <a class="btn btn-outline-dark btn-white text-white  flat" >Create Your Wallet</a>
-            <a class="btn btn-outline-primary btn-learn text-white flat" >Learn More <i class="fa fa-arrow-right"></i></a>
+            <h3>Enter the Future of Finance</h3>
+            <p>Empowering individuals, investors, and developers to join the revolution</p>
+            <a class="btn btn-outline-dark btn-white text-white flat" >Create Your Wallet</a>
+            <a class="btn btn-outline-dark btn-learn text-white flat" >Learn More <i class="fa fa-arrow-right"></i></a>
         </div>
     </div>
 @endsection
