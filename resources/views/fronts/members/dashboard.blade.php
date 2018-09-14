@@ -12,6 +12,7 @@
     border-radius:0;
     margin:30px 0px;
     padding: 25px;
+    background: #f5f5f5;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
 
