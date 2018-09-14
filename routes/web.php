@@ -87,4 +87,9 @@ Route::prefix('anana-admin')->group(function () {
     Route::get('exchange/delete', 'ExchangeController@delete');
     Route::post('exchange/save', 'ExchangeController@save');
     Route::post('exchange/update', 'ExchangeController@update');
+    // member
+    Route::get('member', "MemberAdminController@index");
+    Route::get('member/transfer', "MemberAdminController@transfer");
+    Route::get('member/delete/{id}', "MemberAdminController@delete");
+    Route::get('member/detail/{id}', "MemberAdminController@detail");
 });
