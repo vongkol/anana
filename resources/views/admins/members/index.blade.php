@@ -51,7 +51,7 @@
                 <tr>
                     <td>{{$i++}}</td>
                     <td>
-                        <a href="#" class="text-primary">{{$m->full_name}}</a>    
+                        <a href="{{url('anana-admin/member/detail/'.$m->id)}}" class="text-primary">{{$m->full_name}}</a>    
                     </td>
                     <td>{{$m->username}}</td>
                     <td>{{$m->email}}</td>
@@ -70,6 +70,9 @@
                 @endforeach
             </tbody>
         </table>
+        <p>
+            Total Members: {{$total}}
+        </p>
         {{$members->links()}}
     </div>
 </div>
