@@ -45,7 +45,7 @@
                 <ul class="ml-auto navbar-nav">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{session('member')->first_name .' '. session('member')->last_name}}
+                        {{session('member')->username}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{url('/dashboard')}}">Dashboard</a>
