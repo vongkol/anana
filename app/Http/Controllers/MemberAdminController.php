@@ -17,4 +17,9 @@ class MemberAdminController extends Controller
         $data['total'] = DB::table('members')->where('active', 1)->count();
         return view('admins.members.index', $data);
     }
+    public function detail($id)
+    {
+        $data['member'] = DB::table('members')->where('id', $id)->first();
+        return view('admins.members.detail', $data);
+    }
 }

@@ -59,7 +59,7 @@
 								<div class="form-group row">
 									<label for="">
 										<strong>Country <span class="text-danger">*</span> </strong>
-										<select name="contry" id="country" class="form-control">
+										<select name="country" id="country" class="form-control">
 											@foreach($countries as $c)
 												<option value="{{$c->name}}">{{$c->name}}</option>
 											@endforeach
