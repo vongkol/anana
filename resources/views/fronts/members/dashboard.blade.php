@@ -1,21 +1,107 @@
-@extends('layouts.front-admin')
+@extends('layouts.page')
 @section('content')
-       <!-- Page Content  -->
-<div id="content">
+    <style>
+    span{
+    font-size:15px;
+}
+.box{
+    padding:60px 0px;
+    background: #212529;
+}
 
-<nav class="navbar navbar-expand-lg px-0 nv-bar navbar-light bg-light">
-    <div class="container-fluid">
-        <button type="button" id="sidebarCollapse" class="btn rounded-0 btn-dark">
-            <i class="fa fa-bars"></i>
-        </button>
+.box-part{
+    background:#212529;
+    border-radius:0;
+    color: #fff;
+    margin:30px 0px;
+    padding: 25px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.box-part:hover {
+   
+}
+.text{
+    margin:20px 0px;
+}
+
+</style>
+<div class="box">
+    <div class="container">
+     	<div class="row">
+			 
+			    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+					<div class="box-part text-center">
+                        
+                        <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+                        
+						<div class="title">
+							<h4 class="text-warning">Instagram</h4>
+						</div>
+					 </div>
+				</div>	 
+				
+				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+					<div class="box-part text-center">
+					    
+					    <i class="fa fa-twitter text-warning fa-3x" aria-hidden="true"></i>
+                    
+						<div class="title">
+							<h4>Twitter</h4>
+						</div>
+					 </div>
+				</div>	 
+				
+				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+					<div class="box-part text-center">
+                        
+                        <i class="fa fa-facebook fa-3x" aria-hidden="true"></i>
+                        
+						<div class="title">
+							<h4>Facebook</h4>
+						</div>
+					 </div>
+				</div>	 
+				
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+					<div class="box-part text-center">
+                        
+                        <i class="fa fa-pinterest-p fa-3x" aria-hidden="true"></i>
+                        
+						<div class="title">
+							<h4>Pinterest</h4>
+						</div>  
+					 </div>
+				</div>	 
+				
+				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+					<div class="box-part text-center">
+					    
+					    <i class="fa fa-google-plus fa-3x" aria-hidden="true"></i>
+                    
+						<div class="title">
+							<h4>Google</h4>
+						</div>
+					 </div>
+				</div>	 
+				
+				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               
+					<div class="box-part text-center">
+                        
+                        <i class="fa fa-github fa-3x" aria-hidden="true"></i>
+                        
+						<div class="title">
+							<h4>Github</h4>
+						</div>
+					 </div>
+				</div>
+		
+		</div>		
     </div>
-</nav>
-
-<h2>Collapsible Sidebar Using Bootstrap 4</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-</div>
-</div>
-
 @endsection
