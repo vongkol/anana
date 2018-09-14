@@ -23,8 +23,8 @@
 							<form method="POST" action="{{url('member/signin')}}">
 								{{csrf_field()}}
 								<div class="form-group">
-									<label for="id">Email <span class="text-danger">*</span></label>
-									<input id="email" type="email" class="form-control" name="email" value="" required autofocus>
+									<label>Username <span class="text-danger">*</span></label>
+									<input id="username" type="username" class="form-control" name="username" value="" required autofocus>
 									
 								</div>
 								<div class="form-group">

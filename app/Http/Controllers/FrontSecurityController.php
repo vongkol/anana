@@ -23,12 +23,13 @@ class FrontSecurityController extends Controller
      */
     public function sign_up(Request $r)
     {
-        if($r->ref)
+        $data['sponsor_id'] = "";
+        if($r->sponsor)
         {
-            $r->session()->put('ref', $r->ref);
+           $data['sponsor_id'] = $_GET['sponsor'];
         }
         
-        return view('fronts.sign-up');
+        return view('fronts.sign-up', $data);
     }
 
     /**

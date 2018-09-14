@@ -9,16 +9,7 @@
 						<div class="card-body">
 							<h4 class="card-title">Sign Up</h4>
 							<hr>
-							@if(Session::has('sms'))
-								<div class="alert alert-success" role="alert">
-									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-									<div>
-										{{session('sms')}}
-									</div>
-								</div>
-							@endif
+							
 							@if(Session::has('sms1'))
 								<div class="alert alert-danger" role="alert">
 									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -29,69 +20,69 @@
 									</div>
 								</div>
 							@endif
-
+						
 							<?php
 								$countries = DB::table('countries')->orderBy('name')->get();
 							?>
 							<form method="POST" action="{{url('/member/register')}}">
 								{{csrf_field()}}
-								
-								<div class="form-group">
-									<div class="row">
-										<div class="col-md-4 px-1">
-											<label for="first_name">First Name <span class="text-danger">*</span></label>
-											<input id="first_name" type="text" class="form-control" name="first_name" required autofocus value="{{old('first_name')}}">
-										</div>
-										<div class="col-md-4 px-1">
-											<label for="last_name">Last Name <span class="text-danger">*</span></label>
-											<input id="last_name" type="last_name" class="form-control" name="last_name" required value="{{old('last_name')}}">
-										</div>
-										<div class="col-md-4 px-1">
-											<label for="">Gender <span class="text-danger">*</span></label>
-											<select name="gender" id="gender" class="form-control">
-												<option value="Male">Male</option>
-												<option value="Female">Female</option>
-											</select>
-										</div>
-									</div>
+								<div class="form-group row">
+									<label>
+										<strong>Sponsor ID</strong>
+										<input type="text" class="form-control" name="sponsor_id" value="{{$sponsor_id}}">
+									</label>
 								</div>
-								<div class="form-group">
-									<div class="row">
-									
-										<div class="col-md-4 px-1">
-											<label for="">Phone</label>
-											<input type="text" class="form-control" id="phone" name="phone" value="{{old('phone')}}">
-										</div>
-										<div class="col-md-4 px-1">
-											<label for="">City</label>
-											<input type="text" class="form-control" id="city" name="city" value="{{old('city')}}">
-										</div>
-										<div class="col-md-4 px-1">
-											<label for="country">Country <span class="text-danger">*</span></label>
-											<select class="form-control">
-												@foreach($countries as $c)
-													<option value="{{$c->id}}">{{$c->name}}</option>
-												@endforeach
-											</select>
-										</div>
-									</div>
+								<div class="form-group row">
+									<label for="">
+										<strong>Full Name <span class="text-danger">*</span></strong>
+										<input type="text" class="form-control" required autofocus name="full_name" value="{{old('full_name')}}">
+									</label>
 								</div>
-								<div class="form-group">
-									<div class="row">
-									
-										<div class="col-md-4 px-1">
-											<label for="">Email <span class="text-danger">*</span></label>
-											<input type="text" class="form-control" name="email" id="email" required value="{{old('email')}}">
-										</div>
-										<div class="col-md-4 px-1">
-											<label for="password">New Password <span class="text-danger">*</span></label>
-											<input id="password" type="password" class="form-control" name="password"  required  data-eye>
-										</div>
-										<div class="col-md-4 px-1">
-											<label for="cpassword">Confirm Password <span class="text-danger">*</span></label>
-											<input id="cpassword" type="password" class="form-control" name="cpassword" required data-eye>
-										</div>
-									</div>
+								<div class="form-group row">
+									<label for="">
+										<strong>Username <span class="text-danger">*</span></strong>
+										<input type="text" class="form-control" required name="username" value="{{old('username')}}">
+									</label>
+								</div>
+								<div class="form-group row">
+									<label for="">
+										<strong>Email <span class="text-danger">*</span></strong>
+										<input type="email" class="form-control" required name="email" value="{{old('email')}}">
+									</label>
+								</div>
+								<div class="form-group row">
+									<label for="">
+										<strong>Phone </strong>
+										<input type="text" class="form-control" name="phone" value="{{old('phone')}}">
+									</label>
+								</div>
+								<div class="form-group row">
+									<label for="">
+										<strong>Country <span class="text-danger">*</span> </strong>
+										<select name="contry" id="country" class="form-control">
+											@foreach($countries as $c)
+												<option value="{{$c->name}}">{{$c->name}}</option>
+											@endforeach
+										</select>
+									</label>
+								</div>
+								<div class="form-group row">
+									<label for="">
+										<strong>Password <span class="text-danger">*</span> </strong>
+										<input type="password" class="form-control" name="password" required value="{{old('password')}}">
+									</label>
+								</div>
+								<div class="form-group row">
+									<label for="">
+										<strong>Confirm Password <span class="text-danger">*</span> </strong>
+										<input type="password" class="form-control" name="cpassword" required>
+									</label>
+								</div>
+								<div class="form-group row">
+									<label for="">
+										<strong>Security PIN <span class="text-danger">*</span> </strong>
+										<input type="password" class="form-control" name="security_pin" required value="{{old('security_pin')}}">
+									</label>
 								</div>
 								<div class="form-group">
 									<label>

@@ -9,21 +9,34 @@ class MemberController extends Controller
 {
     public function Register(Request $r)
     {
+        if($r->password!=$r->cpassword)
+        {
+            $r->session()->flash('sms1', "The password and confirm password is not match!");
+            return redirect('/sign-up')->withInput();
+        }
+        $m = DB::table('members')->where('username', $r->user)->first();
+        if($m!=null)
+        {
+            if($r->password!=$r->cpassword)
+            {
+                $r->session()->flash('sms1', "The username is already exist. Please use a different one!");
+                return redirect('/sign-up')->withInput();
+            } 
+        }
+
         $data = array(
-            'first_name' => $r->first_name,
-            'last_name' => $r->last_name,
-            'gender' => $r->gender,
+            'full_name' => $r->full_name,
             'email' => $r->email,
             'phone' => $r->phone,
+            'email' => $r->email,
             'country' => $r->country,
-            'city' => $r->city,
-            'password' => bcrypt($r->password)
+            'username' => $r->username,
+            'security_pin' => $r->security_pin,
+            'password' => bcrypt($r->password),
+            'sponsor_id' => $r->sponsor_id
         );
 
-        if(session('ref')!=null)
-        {
-            $data['referal'] = session('ref');
-        }
+       
         $m = DB::table('members')->where('email', $r->email)->first();
         if($m!=null)
         {
@@ -35,11 +48,7 @@ class MemberController extends Controller
             $r->session()->flash('sms1', 'Please accept the license agreement!');
             return redirect('/sign-up')->withInput();
         }
-        if($r->password!=$r->cpassword)
-        {
-            $r->session()->flash('sms1', 'The password and confirm password is not matched!');
-            return redirect('/sign-up')->withInput();
-        }
+       
         if (!filter_var($r->email, FILTER_VALIDATE_EMAIL)) {
             $r->session()->flash('sms1', "Your email is invalid. Check it again!");
             return redirect('/sign-up')->withInput();
@@ -70,16 +79,18 @@ EOT;
             return redirect('/sign-up')->withInput();
         }
     }
+
     public function confirm($id)
     {
-        DB::statement("UPDATE members set is_verified=1 where md5(id)='{$id}'");
+        // DB::statement("UPDATE members set is_verified=1 where md5(id)='{$id}'");
+        DB::table('members')->where(DB::raw('md5(id)'), $id)->update(['is_verified'=>1]);
         return redirect('/sign-in');
     }
     public function signin(Request $r)
     {
-        $username = $r->email;
+        $username = $r->username;
         $pass = $r->password;
-        $member = DB::table('members')->where('active',1)->where('email', $username)->first();
+        $member = DB::table('members')->where('active',1)->where('username', $username)->first();
       
         if($member!=null)
         {  
