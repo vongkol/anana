@@ -51,7 +51,7 @@
                 <td colspan="2">
                     <a href="#" class="btn btn-sm btn-primary">Reset Password</a>
                     <a href="#" class="btn btn-sm btn-warning">Reset Security Pin</a>
-                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="{{url('anana-admin/member/delete/'.$member->id)}}" onclick="return confirm('You want to delete?')" class="btn btn-danger btn-sm">Delete</a>
                 </td>
             </tr>
         </table>

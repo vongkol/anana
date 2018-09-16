@@ -22,4 +22,10 @@ class MemberAdminController extends Controller
         $data['member'] = DB::table('members')->where('id', $id)->first();
         return view('admins.members.detail', $data);
     }
+    public function delete($id, Request $r)
+    {
+        DB::table('members')->where('id', $id)->update(['active'=>0]);
+        $r->session()->flash('sms', 'The member has been removed successfully!');
+        return redirect('anana-admin/member');
+    }
 }

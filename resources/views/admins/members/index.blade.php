@@ -61,7 +61,7 @@
                     <td>
                         <a href="{{url('anana-admin/member/detail/'.$m->id)}}" 
                                 class="btn btn-success btn-xs" title="View"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;
-                        <a href="{{url('anana-admin/member/delete?id='.$m->id.'&page='.@$_GET['page'])}}" class="btn btn-danger btn-xs" 
+                        <a href="{{url('anana-admin/member/delete/'.$m->id.'&page='.@$_GET['page'])}}" class="btn btn-danger btn-xs" 
                             title="Delete" onclick="return confirm('You want to delete?')">
                         <i class="fa fa-trash"></i></a>
                        
