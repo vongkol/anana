@@ -92,4 +92,8 @@ Route::prefix('anana-admin')->group(function () {
     Route::get('member/transfer', "MemberAdminController@transfer");
     Route::get('member/delete/{id}', "MemberAdminController@delete");
     Route::get('member/detail/{id}', "MemberAdminController@detail");
+    Route::get('/member/reset-password/{id}', "MemberAdminController@reset_password");
+    Route::post('/member/change-password', "MemberAdminController@change_password");
+    Route::get('/member/reset-security-pin/{id}', "MemberAdminController@reset_pin");
+    Route::post('/member/change-security-pin', "MemberAdminController@change_pin");
 });

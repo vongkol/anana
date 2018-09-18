@@ -115,6 +115,7 @@ class UserController extends Controller
             return redirect('anana-admin/user');
         }
     }
+
     public function profile($id)
     {
         $data['user'] = DB::table('users')

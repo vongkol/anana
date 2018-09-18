@@ -31,16 +31,14 @@
     <![endif]-->
 
 </head>
-<body>
+<body style="background: #232321;">
     <div class="container">
         <p>&nbsp;</p>
-        <h1 class="text-danger text-center">Nana Payment</h1>
-        <h3 class="text-center">Administration</h3>
-        <hr>
+        <h1 style="color: #fff;"><img src="{{asset('images/logo.png')}}" alt=""> Anana Capital</h1>
     </div>
         <div class="container" style="margin-top: 45px;">
             <div class="row">
-                <div class="col-md-7 col-md-offset-3">
+                <div class="col-md-5">
                     <div class="panel panel-default">
                         <div class="panel-heading">User Login</div>
         
@@ -48,10 +46,11 @@
                             <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                                 {{ csrf_field() }}
                                 <p></p>
-                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                                    <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                                <div class="{{ $errors->has('email') ? ' has-error' : '' }}">
+                                   
         
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
+                                    <label for="email">E-Mail Address</label>
                                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
         
                                         @if ($errors->has('email'))
@@ -62,10 +61,11 @@
                                     </div>
                                 </div>
         
-                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                    <label for="password" class="col-md-4 control-label">Password</label>
+                                <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
+                                   
         
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <label for="password">Password</label>
                                         <input id="password" type="password" class="form-control" name="password" required>
         
                                         @if ($errors->has('password'))
@@ -75,9 +75,9 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="col-md-8 col-md-offset-4">
-                                        <button type="submit" class="btn btn-success">
+                                <div class="group-form">
+                                    <div class="col-md-12 " style="padding-top: 15px;">
+                                        <button type="submit" class="form-control btn btn-success">
                                             Login
                                         </button>
                                     </div>
