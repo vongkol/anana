@@ -134,7 +134,7 @@
                             <a href="{{url('/anana-admin/dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Members</a>
+                            <a href="{{url('anana-admin/member')}}"><i class="fa fa-user fa-fw"></i> Members</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
