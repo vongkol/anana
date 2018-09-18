@@ -4,13 +4,19 @@
     <div class="col-sm-12">
         <h3 class="page-header">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-6">
                     <i class="fa fa-user"></i> Members 
                 </div>
-                <div class="col-sm-7">
+                <div class="col-sm-6">
                     <form action="#">
-                        <input type="text" placeholder="search...">
-                        <button>Search</button>
+                        <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
                     </form>
                 </div>
             </div>
