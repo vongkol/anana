@@ -52,7 +52,7 @@
                     <a href="{{url('anana-admin/member/reset-password/'.$member->id)}}" class="btn btn-sm btn-primary">Reset Password</a>
                     <a href="{{url('anana-admin/member/reset-security-pin/'.$member->id)}}" class="btn btn-sm btn-warning">Reset Security Pin</a>
                     <a href="{{url('anana-admin/member/delete/'.$member->id)}}" onclick="return confirm('You want to delete?')" class="btn btn-danger btn-sm">Delete</a> 
-                    <a href="#" class="btn btn-success btn-sm">Add Credit</a>
+                    <a href="{{url('anana-admin/member/credit/'.$member->id)}}" class="btn btn-success btn-sm">Add Credit</a>
                 </td>
             </tr>
         </table>
@@ -60,24 +60,58 @@
     </div>
     <div class="col-sm-1"></div>
     <div class="col-sm-4">
-        <h4>Actions</h4>
+        <h4>Member Wallet</h4>
         <table class="table table-sm">
             <tr>
                 <td>
-                    
+                    Cash Wallet
+                </td>
+                <td>
+                    : $ {{$member->cash_wallet}}
                 </td>
             </tr>
             <tr>
                 <td>
-                    
+                    Register Wallet
+                </td>
+                <td>
+                    : $ {{$member->register_wallet}}
                 </td>
             </tr>
             <tr>
                 <td>
-                    
+                    Buy Back Wallet
+                </td>
+                <td>
+                    : $ {{ $member->token_wallet}}
                 </td>
             </tr>
         </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Investment</h3>
+        @if($investment==null)
+            <p class="text-danger">This member does not have an investment yet!</p>
+        @else
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Package Name</th>
+                        <th>Price</th>
+                        <th>Pay Rate</th>
+                        <th>Duration</th>
+                        <th>Invest Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        @endif
     </div>
 </div>
 @endsection

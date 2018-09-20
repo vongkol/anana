@@ -96,4 +96,7 @@ Route::prefix('anana-admin')->group(function () {
     Route::post('/member/change-password', "MemberAdminController@change_password");
     Route::get('/member/reset-security-pin/{id}', "MemberAdminController@reset_pin");
     Route::post('/member/change-security-pin', "MemberAdminController@change_pin");
+    // credit
+    Route::get('member/credit/{id}', 'MemberAdminController@credit');
+    Route::post('member/credit/save', 'MemberAdminController@save_credit');
 });

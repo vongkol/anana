@@ -20,6 +20,12 @@ class MemberAdminController extends Controller
     public function detail($id)
     {
         $data['member'] = DB::table('members')->where('id', $id)->first();
+        // get member investment
+        $data['investment'] = DB::table('investments')
+            ->join('packages','investments.package_id', 'packages.id')
+            ->where('investments.member_id', $id)
+            ->where('investments.status', 1)
+            ->first();
         return view('admins.members.detail', $data);
     }
     public function delete($id, Request $r)
@@ -78,5 +84,36 @@ class MemberAdminController extends Controller
         }
         return redirect('anana-admin/member/reset-security-pin/'.$id);
       
+      }
+      public function credit($id)
+      {
+          $data['member'] = DB::table('members')->where('id', $id)->first();
+          return view('admins.members.credit', $data);
+      }
+      public function save_credit(Request $r)
+      {
+          $m = DB::table('members')->where('id', $r->id)->first();
+          $r_wallet = $m->register_wallet + $r->credit;
+          $data = array(
+              'register_wallet' => $r_wallet
+          );
+          $i = DB::table('members')->where('id', $m->id)->update($data);
+          if($i)
+          {
+              $dd = array(
+                  'from_username' => Auth::user()->email,
+                  'to_username' => $m->username,
+                  'wallet_type' => 'register_wallet',
+                  'amount' => $r_wallet,
+                  'transfer_date' => date('Y-m-d')
+              );
+              DB::table('transfer_transactions')->insert($dd);
+              $r->session()->flash('sms', 'Credit already transferred!');
+              return redirect('anana-admin/member/credit/'.$m->id);
+          }
+          else{
+              $r->session()->flash('sms1', 'Fail to transfer. Please check your input!');
+              return redirect('anana-admin/member/credit/'.$m->id);
+          }
       }
 }
