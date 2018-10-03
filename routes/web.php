@@ -30,7 +30,11 @@ Route::get('/member/logout', "MemberController@logout");
 Route::post('/member/register', 'MemberController@register');
 Route::post('/member/signin', 'MemberController@signin');
 Route::get('/member/profile/{id}', 'MemberController@profile');
-
+Route::get('/member/account/{id}', 'MemberController@my_account');
+// investment
+Route::get('member/investment/start', 'InvestmentController@start');
+Route::post('member/investment/save', 'InvestmentController@save');
+Route::get('member/investment/{id}', 'InvestmentController@index');
 // Admin Route
 Route::prefix('anana-admin')->group(function () {
     Route::get('/', "DashboardController@index");

@@ -96,11 +96,10 @@ EOT;
         {  
             if(password_verify($pass, $member->password) && $member->is_verified==1)
             {
-              
                 
                 if($r->session()->get('member')!=NULL)
                 {
-                    $r->session()->forget('membership');
+                    $r->session()->forget('member');
                     $r->session()->flush();
                 }
                 // save user to session
@@ -136,8 +135,24 @@ EOT;
     }
     public function profile($id)
     {
+        $member = session('member');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
         $data['profile'] = DB::table('members')->where('id', $id)->first();
         $data['countries'] = DB::table('countries')->get();
         return view('fronts.members.profile', $data);
     }
+    public function my_account($id)
+    {
+        $member = session('member');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data['account'] = DB::table('members')->where('id', $id)->first();
+        return view('fronts.members.account', $data);
+    }
+    
 }

@@ -108,7 +108,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    <tr>
+                        <td>{{$investment->name}}</td>
+                    </tr>
                 </tbody>
             </table>
         @endif
