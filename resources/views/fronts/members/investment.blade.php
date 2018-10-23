@@ -18,7 +18,7 @@
                         @if($investment!=null)
                                 <tr>
                                         <td>{{$investment->name}}</td>
-                                        <td>{{$investment->price}}</td>
+                                        <td>$ {{$investment->price}}</td>
                                         <td>{{$investment->monthly_payout}}%</td>
                                         <td>{{$investment->duration}}</td>
                                         <td>{{$investment->order_date}}</td>

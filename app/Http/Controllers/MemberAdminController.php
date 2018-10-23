@@ -24,7 +24,7 @@ class MemberAdminController extends Controller
         $data['investment'] = DB::table('investments')
             ->join('packages','investments.package_id', 'packages.id')
             ->where('investments.member_id', $id)
-            ->where('investments.status', 1)
+            ->select('investments.*', 'packages.name', 'packages.price', 'packages.monthly_payout', 'packages.duration')
             ->first();
         return view('admins.members.detail', $data);
     }

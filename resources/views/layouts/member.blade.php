@@ -37,7 +37,9 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">Contact Us</a>
                     </li>
-                   
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white bg-secondary">Exchange Rate: 1 ANC = {{$exc->rate}} $</a>
+                    </li>
                 </ul>
                 {{-- <form class="form-inline my-2 my-lg-0">&nbsp; &nbsp;&nbsp;  
                     <i class="fa fa-search text-white"></i>

@@ -125,6 +125,10 @@ return [
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
+    /* 
+        Store a list of day to allow payment request
+    */
+    'days' => [1, 10, 20],
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

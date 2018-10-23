@@ -29,9 +29,7 @@
 								</div>
 								<div class="form-group">
 									<label for="password">Password <span class="text-danger">*</span>
-										<a href="{{url('forgot-password')}}" class="float-right">
-											Forgot Password?
-										</a>
+										
 									</label>
 									<input id="password" type="password" class="form-control" name="password" required data-eye>
 								</div>
@@ -41,7 +39,13 @@
 									</button>
 								</div>
 								<div class="margin-top20 text-center">
-									Don't have an account? <a href="{{url('sign-up')}}">Click here to sign up!</a>
+									Don't have an account? <a href="{{url('sign-up')}}" class="text-info">Click here to sign up!</a>
+									<p>
+										Forget your password? 
+										<a href="#" class="text-primary">
+											Reset password!
+										</a>
+									</p>
 								</div>
 							</form>
 						</div>

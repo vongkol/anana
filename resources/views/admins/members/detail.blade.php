@@ -103,13 +103,17 @@
                         <th>Pay Rate</th>
                         <th>Duration</th>
                         <th>Invest Date</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Expired On</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>{{$investment->name}}</td>
+                        <td>{{$investment->price}} $</td>
+                        <td>{{$investment->monthly_payout}}%</td>
+                        <td>{{$investment->duration}} days</td>
+                        <td>{{$investment->order_date}}</td>
+                        <td>{{$investment->expired_on}}</td>
                     </tr>
                 </tbody>
             </table>

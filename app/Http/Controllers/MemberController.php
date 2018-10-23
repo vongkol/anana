@@ -9,21 +9,36 @@ class MemberController extends Controller
 {
     public function Register(Request $r)
     {
+        $sponsor = "";
+        $m = DB::table('members')->where('username', $r->user)->first();
+        // check if username exist
+        if($m!=null)
+        {
+            $r->session()->flash('sms1', "The username is already exist. Please use a different one!");
+            return redirect('/sign-up')->withInput();
+        }
+        // check if email exist
+        $m1 = DB::table('members')->where('email', $r->email)->first();
+         if($m1!=null)
+        {
+            $r->session()->flash('sms1', "The email is already exist. Please use a different one!");
+            return redirect('/sign-up')->withInput();
+        }
         if($r->password!=$r->cpassword)
         {
             $r->session()->flash('sms1', "The password and confirm password is not match!");
             return redirect('/sign-up')->withInput();
         }
-        $m = DB::table('members')->where('username', $r->user)->first();
-        if($m!=null)
+        // check if sponsor has an investment
+        $sp = DB::table('members')->where('username', $r->sponsor_id)->first();
+        if($sp!=null)
         {
-            if($r->password!=$r->cpassword)
+            $inv = DB::table('investments')->where('member_id', $sp->id)->where('active', 1)->first();
+            if($inv!=null)
             {
-                $r->session()->flash('sms1', "The username is already exist. Please use a different one!");
-                return redirect('/sign-up')->withInput();
-            } 
+                $sponsor = $r->sponsor_id;
+            }
         }
-
         $data = array(
             'full_name' => $r->full_name,
             'email' => $r->email,
@@ -33,7 +48,7 @@ class MemberController extends Controller
             'username' => $r->username,
             'security_pin' => $r->security_pin,
             'password' => bcrypt($r->password),
-            'sponsor_id' => $r->sponsor_id
+            'sponsor_id' => $sponsor
         );
 
        

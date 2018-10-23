@@ -17,4 +17,8 @@ class FrontController extends Controller
         return view('fronts.investment', $data);
 
     }
+    public function term()
+    {
+        return view('fronts.term');
+    }
 }

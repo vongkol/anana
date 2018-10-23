@@ -38,7 +38,9 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">Contact Us</a>
                     </li>
-                   
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white bg-secondary">Exchange Rate: 1 ANC = {{$exc->rate}} $</a>
+                    </li>
                 </ul>
                 
                 @if(Session::has('member'))

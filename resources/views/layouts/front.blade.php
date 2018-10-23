@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset('fronts/css/custom.css')}}">
     </head>
     <body>
+    <?php $exc = DB::table('rates')->where('id',1)->first();?>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{url('/')}}">
@@ -36,6 +37,9 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white bg-secondary">Exchange Rate: 1 ANC = {{$exc->rate}} $</a>
                     </li>
                    
                 </ul>

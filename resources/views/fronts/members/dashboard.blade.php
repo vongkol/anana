@@ -55,7 +55,7 @@
 				
 				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                
-					<a href="#" class="text-primary">
+					<a href="{{url('member/earning')}}" class="text-primary">
 						<div class="box-part text-center">
                         
 							<i class="fa fa-star text-warning fa-3x" aria-hidden="true"></i>
@@ -69,7 +69,7 @@
 				
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                
-					<a href="#" class="text-primary">
+					<a href="{{url('member/network')}}" class="text-primary">
 						<div class="box-part text-center">
                         
 							<i class="fa fa-th text-warning  fa-3x" aria-hidden="true"></i>
@@ -83,7 +83,7 @@
 				
 				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                
-					<a href="#" class="text-primary">
+					<a href="{{url('member/transaction')}}" class="text-primary">
 						<div class="box-part text-center">
 					    
 							<i class="fa fa-plane text-warning  fa-3x" aria-hidden="true"></i>
@@ -97,7 +97,7 @@
 				
 				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                
-					<a href="#" class="text-primary">
+					<a href="{{url('term')}}" class="text-primary">
 						<div class="box-part text-center">
                         
 							<i class="fa fa-file text-warning  fa-3x" aria-hidden="true"></i>

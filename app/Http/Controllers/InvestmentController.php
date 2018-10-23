@@ -19,7 +19,7 @@ class InvestmentController extends Controller
             ->join('packages', 'investments.package_id', 'packages.id')
             ->where('investments.member_id', $id)
             ->where('is_expired', 0)
-            ->select('investments.order_date', 'packages.*')
+            ->select('investments.order_date', 'investments.expired_on', 'packages.*')
             ->first();
         
         return view('fronts.members.investment', $data);
@@ -65,6 +65,21 @@ class InvestmentController extends Controller
             $r->session()->flash('sms1', 'Your security pin is not correct!');
             return redirect('member/investment/start');
         }
+        // save to investment
+        $data = array(
+            'package_id' => $r->package,
+            'member_id' => $member->id,
+            'order_date' => date('Y-m-d')
+        );
+        // update register wallet
+        $rem = $rwallet->register_wallet - $p->price;
+        DB::table('members')->where('id', $member->id)->update(['register_wallet'=>$rem]);
+        $dd = date('Y-m-d', strtotime("+ 365 day"));
+        $data['expired_on'] = $dd;
 
+        $i = DB::table('investments')->insertGetId($data);
+        // generate payment schedule
+        Investment::generate_schedule($i);
+        return redirect('member/investment/'.$m->id);
     }
 }

@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('fronts.index');
 });
+Route::get('term', 'FrontController@term');
 Route::get('/dashboard', "MemberController@dashboard");
 Auth::routes();
 
@@ -35,6 +36,29 @@ Route::get('/member/account/{id}', 'MemberController@my_account');
 Route::get('member/investment/start', 'InvestmentController@start');
 Route::post('member/investment/save', 'InvestmentController@save');
 Route::get('member/investment/{id}', 'InvestmentController@index');
+// wallet
+Route::get('member/earning', 'EarningController@index');
+// transfer
+Route::get('member/transfer/register', "MemberTransferController@to_own_register_wallet");
+Route::get('member/transfer/bwallet', "MemberTransferController@to_b_wallet");
+Route::get('member/transfer/anc', "MemberTransferController@to_anc");
+Route::get('member/transfer/anywallet', "MemberTransferController@to_any_wallet");
+Route::get('member/transfer/anyregister', "MemberTransferController@to_any_register");
+Route::post('member/transfer/anyregister/save', "MemberTransferController@save_register");
+Route::post('member/transfer/anc/save', "MemberTransferController@save_to_anc");
+Route::post('member/transfer/bwallet/save', "MemberTransferController@save_b_wallet");
+Route::post('member/transfer/register/save', "MemberTransferController@save_register_wallet");
+Route::post('member/transfer/anywallet/save', "MemberTransferController@save_any_wallet");
+// payment request
+Route::get('member/payment', "PaymentController@index");
+Route::post('member/payment/save', "PaymentController@save");
+// transaction
+Route::get('member/transaction', 'TransactionController@index');
+// network
+Route::get('member/network', 'NetworkController@index');
+// get rate api
+Route::get('rate/get', 'RateController@index');
+
 // Admin Route
 Route::prefix('anana-admin')->group(function () {
     Route::get('/', "DashboardController@index");

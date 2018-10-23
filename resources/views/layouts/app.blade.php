@@ -134,34 +134,37 @@
                             <a href="{{url('/anana-admin/dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
+                            <a href="{{url('#')}}"><i class="fa fa-star fa-fw"></i> Payment Request</a>
+                        </li>
+                        <li>
+                            <a href="{{url('#')}}"><i class="fa fa-star fa-fw"></i> Transaction</a>
+                        </li>
+                        <li>
+                            <a href="{{url('#')}}"><i class="fa fa-star fa-fw"></i> Member Investment</a>
+                        </li>
+                        <li>
+                            <a href="{{url('#')}}"><i class="fa fa-star fa-fw"></i> Member Sponsor</a>
+                        </li>
+                        <li>
                             <a href="{{url('anana-admin/member')}}"><i class="fa fa-user fa-fw"></i> Members</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Withdrawal</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-dollar"></i> Admin Earnings<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Panels and Wells</a>
+                                    <a href="#">Earning</a>
                                 </li>
                                 <li>
-                                    <a href="#">Buttons</a>
+                                    <a href="#">Admin Fee</a>
                                 </li>
                                 <li>
-                                    <a href="#">Notifications</a>
+                                    <a href="#">Transfer Transactions</a>
                                 </li>
                                 <li>
-                                    <a href="#">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="#"> Icons</a>
-                                </li>
-                                <li>
-                                    <a href="#">Grid</a>
+                                    <a href="#">Earning Detail</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -180,6 +183,9 @@
                                 </li>
                                 <li>
                                     <a href="{{url('anana-admin/exchange')}}"><i class="fa fa-dollar"></i> Exchange</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('#')}}"><i class="fa fa-dollar"></i> ANC Rate</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
