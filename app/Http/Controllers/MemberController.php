@@ -46,7 +46,7 @@ class MemberController extends Controller
             'email' => $r->email,
             'country' => $r->country,
             'username' => $r->username,
-            'security_pin' => $r->security_pin,
+            'security_pin' => bcrypt($r->security_pin),
             'password' => bcrypt($r->password),
             'sponsor_id' => $sponsor
         );
@@ -167,8 +167,11 @@ EOT;
             return redirect('/sign-in');
         }
         $data['account'] = DB::table('members')->where('id', $id)->first();
+        $data['bank'] = DB::table('banks')->where('member_id', $id)->first();
         return view('fronts.members.account', $data);
     }
+
+
     /**
      * Show the sign up front page
      *
@@ -200,5 +203,25 @@ EOT;
             }
             return redirect('/member/recovery')->withInput();
         }
+    }
+    // save address for bank
+    public function save_address(Request $r)
+    {
+        $member = session('member');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data = array(
+            'member_id' => $member->id,
+            'bank_name' => $r->bank_name,
+            'full_name' => $r->full_name,
+            'account_no' => $r->account_no,
+            'branch_name' => $r->branch_name,
+            'swift_code' => $r->swift_code,
+            'address' => $r->address
+        );
+        DB::table('banks')->insert($data);
+        return redirect('member/account/'.$member->id);
     }
 }

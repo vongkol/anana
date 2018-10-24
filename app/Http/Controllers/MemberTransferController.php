@@ -168,11 +168,16 @@ class MemberTransferController extends Controller
              $r->session()->flash('sms1', "You don't have enough fund to transfer!");
              return redirect('member/transfer/anyregister');
          }
-         if($pin!=$m->security_pin)
+         // check security pin
+         if(!password_verify($pin, $m->security_pin))
          {
-             $r->session()->flash('sms1', "Invalid security PIN!");
-             return redirect('member/transfer/anyregister');
+            $r->session()->flash('sms1', "Invalid security PIN!");
+            return redirect('member/transfer/anyregister');
          }
+        //  if($pin!=$m->security_pin)
+        //  {
+            
+        //  }
          $to_account = DB::table('members')->where('username', $account)->where('active', 1)->first();
          if($to_account==null)
          {
