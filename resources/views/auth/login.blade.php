@@ -33,12 +33,14 @@
 </head>
 <body style="background: #232321;">
     <div class="container">
-        <p>&nbsp;</p>
-        <h1 style="color: #fff;"><img src="{{asset('images/logo.png')}}" alt=""> Anana Capital</h1>
     </div>
-        <div class="container" style="margin-top: 45px;">
+        <div class="container" style="margin-top: 100px;">
             <div class="row">
-                <div class="col-md-5">
+            <h1 style="color: #f9ad19;" class="text-center">
+            
+                <img src="{{asset('images/logo.png')}}" alt=""> Ana Lee Capital</h1>
+                <div class="col-md-4 col-md-offset-4">
+               
                     <div class="panel panel-default">
                         <div class="panel-heading">User Login</div>
         

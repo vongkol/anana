@@ -169,5 +169,36 @@ EOT;
         $data['account'] = DB::table('members')->where('id', $id)->first();
         return view('fronts.members.account', $data);
     }
-    
+    /**
+     * Show the sign up front page
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function recovery()
+    {
+        return view('fronts.members.recovery');
+    }
+
+    public function recovery_send_to_email(Request $r)
+    {
+        $member_email = $r->email;
+        // check if email exist
+        $result = DB::table("members")->where("email", $member_email)->first();
+        if ($result!=null)
+        {
+            $id = md5($result->id);
+            $i = Right::send_email($member_email, $id);
+           
+            DB::table("employees")->where("id", $result->id)->update(['is_verified'=>1]);
+            return view("fronts.member.send-success");
+        }
+        else{
+            if ($r->session()->get('lang')=='en') {
+                $r->session()->flash("sms1", "Your email does not exist in our system!");
+            } else {
+                $r->session()->flash("sms1", "អុីម៉ែលរបស់អ្នកមិនមាននៅក្នុងប្រព័ន្ធយើងទេ!");
+            }
+            return redirect('/member/recovery')->withInput();
+        }
+    }
 }

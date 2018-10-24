@@ -15,7 +15,7 @@ html,body {
 }
 
 .my-login-page .card-wrapper {
-	width: 400px;
+	width: 450px;
 }
 
 .my-sign-up .card-wrapper{
@@ -59,4 +59,9 @@ html,body {
 	margin: 40px 0;
 	color: #888;
 	text-align: center;
+}
+@media (max-width: 479px) {
+	.main-page-login {
+    	margin-top: 80px;
+	}
 }

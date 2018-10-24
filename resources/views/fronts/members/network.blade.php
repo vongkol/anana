@@ -2,13 +2,18 @@
 @section('content')
 <link rel="stylesheet" href="{{asset('tree/Treant.css')}}">
 <link rel="stylesheet" href="{{asset('tree/examples/basic-example/basic-example.css')}}">
-    
-<div class="container" style="margin-top:150px">
-    <h3>My Network <a href="{{url('dashboard')}}" class="btn btn-success btn-sm">Back</a></h3>
-    <p></p>
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="chart" id="tree"></div>
+<div class="container">
+    <div class="earning-dashboard">
+        <h3 style="font-size: 25px;">
+            <img src="{{asset('images/mynetwork.png')}}" alt="" width="50"> 
+            &nbsp; <strong >My Network </strong>  &nbsp;
+            <a href="{{url('dashboard')}}" class="btn btn-success btn-sm"> <i class="fa fa-arrow-left"></i>  Back</a>
+        </h3>
+        <p></p>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="chart" id="tree"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -125,5 +130,4 @@
     ];
         new Treant( chart_config );
     </script>
-
 @stop

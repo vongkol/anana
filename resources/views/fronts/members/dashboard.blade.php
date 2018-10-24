@@ -1,114 +1,70 @@
 @extends('layouts.page')
 @section('content')
-    <style>
-    span{
-    font-size:15px;
-}
-.box{
-    padding:60px 0px;
-}
-
-.box-part{
-    border-radius:0;
-    margin:30px 0px;
-    padding: 25px;
-    background: #f5f5f5;
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
-}
-
-.text{
-    margin:20px 0px;
-}
-
-</style>
 <div class="box">
     <div class="container">
+		<h3 class="text-center"><i class="fa fa-tachometer"></i> Dashboard</h3>
      	<div class="row">
-			 
-			    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-					<a href="{{url('member/account/'.session('member')->id)}}" class="text-primary">
-						<div class="box-part text-center">
-                        
-							<i class="fa fa-user text-warning fa-3x" aria-hidden="true"></i>
-							
-							<div class="title">
-								<h4>My Account</h4>
-							</div>
-						 </div>
-					</a>
-				</div>	 
-				
-				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-					<a href="{{url('member/investment/'.session('member')->id)}}" class="text-primary">
-						<div class="box-part text-center">
-					    
-							<i class="fa fa-dollar text-warning fa-3x" aria-hidden="true"></i>
-						
-							<div class="title">
-								<h4>Investment</h4>
-							</div>
-						 </div>
-					</a>
-				</div>	 
-				
-				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-					<a href="{{url('member/earning')}}" class="text-primary">
-						<div class="box-part text-center">
-                        
-							<i class="fa fa-star text-warning fa-3x" aria-hidden="true"></i>
-							
-							<div class="title">
-								<h4>Earning</h4>
-							</div>
-						 </div>
-					</a>
-				</div>	 
-				
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-					<a href="{{url('member/network')}}" class="text-primary">
-						<div class="box-part text-center">
-                        
-							<i class="fa fa-th text-warning  fa-3x" aria-hidden="true"></i>
-							
-							<div class="title">
-								<h4>My Network</h4>
-							</div>  
-						 </div>
-					</a>
-				</div>	 
-				
-				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-					<a href="{{url('member/transaction')}}" class="text-primary">
-						<div class="box-part text-center">
-					    
-							<i class="fa fa-plane text-warning  fa-3x" aria-hidden="true"></i>
-						
-							<div class="title">
-								<h4>Transactions</h4>
-							</div>
-						 </div>
-					</a>
-				</div>	 
-				
-				 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               
-					<a href="{{url('term')}}" class="text-primary">
-						<div class="box-part text-center">
-                        
-							<i class="fa fa-file text-warning  fa-3x" aria-hidden="true"></i>
-							
-							<div class="title">
-								<h4>Terms & Conditions</h4>
-							</div>
-						 </div>
-					</a>
-				</div>
-		
+			<div class="col-lg-4 col-md-4 col-sm-4 col-6">
+				<a href="{{url('member/account/'.session('member')->id)}}" class="text-primarye" style="text-decoration:none;">
+					<div class="box-part text-center">
+						<img src="{{asset('images/myaccount.png')}}" width="80" alt="">
+						<div class="title">
+							<h4 class="mobile-font-h4">My Account</h4>
+						</div>
+					</div>
+				</a>
+			</div>	 
+			<div class="col-lg-4 col-md-4 col-sm-4 col-6">
+				<a href="{{url('member/investment/'.session('member')->id)}}" class="text-primary" style="text-decoration:none;">
+					<div class="box-part text-center">
+						<img src="{{asset('images/invesment.png')}}" width="80" alt="">
+						<div class="title">
+							<h4 class="mobile-font-h4">Investment</h4>
+						</div>
+					</div>
+				</a>
+			</div>	 
+				<div class="col-lg-4 col-md-4 col-sm-4 col-6">
+				<a href="{{url('member/earning')}}" class="text-primary" style="text-decoration:none;">
+					<div class="box-part text-center">
+						<img src="{{asset('images/earning.png')}}" width="80" alt="">
+						<div class="title">
+							<h4 class="mobile-font-h4">Earning</h4>
+						</div>
+					</div>
+				</a>
+			</div>	 
+			<div class="col-lg-4 col-md-4 col-sm-4 col-6">
+				<a href="{{url('member/network')}}" class="text-primary" style="text-decoration:none;">
+					<div class="box-part text-center">
+						<img src="{{asset('images/mynetwork.png')}}" width="80" alt="">
+						<div class="title">
+							<h4 class="mobile-font-h4">My Network</h4>
+						</div>  
+					</div>
+				</a>
+			</div>	 
+				<div class="col-lg-4 col-md-4 col-sm-4 col-6">
+				<a href="{{url('member/transaction')}}" class="text-primary" style="text-decoration:none;">
+					<div class="box-part text-center">
+						<img src="{{asset('images/transactions.png')}}" width="80" alt="">
+						<div class="title">
+							<h4 class="mobile-font-h4">Transactions</h4>
+						</div>
+					</div>
+				</a>
+			</div>	 
+				<div class="col-lg-4 col-md-4 col-sm-4 col-6">
+				<a href="{{url('term')}}" class="text-primary" style="text-decoration:none;">
+					<div class="box-part text-center">
+						<img src="{{asset('images/termandcondiction.png')}}" width="77" alt="">
+						<div class="title">
+							<h4 class="mobile-font-h4">Terms & Conditions</h4>
+						</div>
+					</div>
+				</a>
+			</div>
 		</div>		
     </div>
+</div>
 @endsection

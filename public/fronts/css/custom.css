@@ -4,7 +4,6 @@ body {
   }
   
   p {
-	line-height: 1.5;
 	margin: 30px 0;
 	font-weight: 100;
   }
@@ -80,14 +79,14 @@ body {
   
   #mainNav {
 	position: absolute;
-	border-bottom: 1px solid #e9ecef;
-	background-color: white;
+    border-bottom: 1px solid #666;
+    background-color: #232321;
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
   #mainNav .navbar-brand {
 	font-weight: 800;
-	color: #343a40;
+	color: #feb82f;
 	font-size: 25px;
   }
   
@@ -96,13 +95,15 @@ body {
 	font-weight: 800;
 	padding: 13px;
 	text-transform: uppercase;
-	color: #343a40;
+	color: #fff;
   }
   
   #mainNav .navbar-nav > li.nav-item > a {
 	font-size: 1rem;
 	font-weight: 600;
 	letter-spacing: 1px;
+	padding: 10px;
+
 	}
 	.navbar {
     padding: 0 1rem;
@@ -114,17 +115,17 @@ body {
 	  background: transparent;
 	}
 	#mainNav .navbar-brand {
-	  color: #fff;
+		color: #feb82f;
 	}
 	#mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-	  color: rgba(255, 255, 255, 0.8);
+	  color: #f9ad19;
 	}
 	#mainNav .navbar-nav > li.nav-item > a {
 	  padding: 10px 20px;
 	  color: #fff;
 	}
 	#mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
-	  color: rgba(255, 255, 255, 0.8);
+	  color: #ffec49;
 	}
   }
   
@@ -144,23 +145,20 @@ body {
 	#mainNav.is-fixed {
 	  /* when the user scrolls down, we hide the header right above the viewport */
 	  position: fixed;
-	  top: -102px;
+	  top: -110px;
 	  -webkit-transition: -webkit-transform 0.2s;
 	  -moz-transition: -moz-transform 0.2s;
 	  transition: transform 0.2s;
 	  background-color: #232321;
 	}
 	#mainNav.is-fixed .navbar-brand {
-	  color: #fff;
+	  color: #feb82f;
 	}
 	#mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
-	  color: #0085A1;
+	  color: #f9ad19;
 	}
 	#mainNav.is-fixed .navbar-nav > li.nav-item > a {
 	  color: #fff;
-	}
-	#mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-	  color: #0085A1;
 	}
 	#mainNav.is-visible {
 	  /* if the user changes the scrolling direction, we show the header */
@@ -174,7 +172,7 @@ body {
   
   header.masthead {
 	background: no-repeat center center;
-	background-color: #232321;
+	background-color: #212529;
 	background-attachment: scroll;
 	position: relative;
 	-webkit-background-size: cover;
@@ -388,14 +386,13 @@ header.masthead .page-heading h1, header.masthead .site-heading h1 {
     opacity: 0.9;
 		font-weight: 100;
 }
-
+.title-page {
+	margin-top: -100px;
+	padding-bottom: 50px;
+}
 .btn-white {
 	background: rgba(255, 255, 255, 0.38);
 	padding: 15px 20px;
-}
-.set {
-	background: #feb82f;
-	padding: 25px;
 }
 .my4 {
 	margin-top: 100px;
@@ -424,6 +421,76 @@ aside {
 	padding-bottom: 50px;
 	padding-top: 50px;
 }
-.sm-h{
-	
+.navbar-light .navbar-nav .nav-link {
+	color: #fff;
+}
+.navbar-light .navbar-toggler {
+	border-color: #ffc107;
+}
+.box{
+	padding:35px 0px;
+}
+
+.box-part{
+	border-radius:0;
+	margin:30px 0px;
+	padding: 25px;
+	background: #f5f5f5;
+color: #000;
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+.box-part:hover{
+	border-radius:0;
+	margin:30px 0px;
+	padding: 25px;
+	background: #ccc;
+	color: #000;
+	box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+.text{
+	margin:20px 0px;
+}
+.earning-dashboard{
+	margin-top: 150px;
+}
+
+@media (max-width: 479px) {
+	.box {
+			padding: 15px 0px;
+	}
+	.box-part {
+    margin: 10px 0px;
+		padding: 10px;
+	}
+	.mobile-font-h4 {
+		font-size: 13px;
+	}
+	.logo {
+		width: 60px;
+	}
+	#mainNav .navbar-brand {
+		font-size: 18px;
+	}
+	.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+		color: #f9ad19;
+	}
+	footer {
+    padding: 0 0 20px 0;
+	}
+	.section2 {
+    padding-bottom: 20px;
+    padding-top: 20px;
+	}
+	#mainNav .navbar-nav > li.nav-item > a {
+		font-size: 14px;
+	}
+	.earning-dashboard {
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+	.title-page {
+		font-size: 15px;
+		margin-top:-30px;
+		margin-bottom: -80px;
+	}
 }

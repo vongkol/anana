@@ -7,7 +7,7 @@
 				<div class="card-wrapper">
 					<div class="card fat">
 						<div class="card-body">
-							<h4 class="card-title">Signin to Anana Capitals</h4>
+							<h4 class="card-title">Recovery password </h4>
 							<hr>
 							@if(Session::has('sms1'))
 								<div class="alert alert-danger" role="alert">
@@ -20,30 +20,22 @@
 								</div>
 							@endif
 
-							<form method="POST" action="{{url('member/signin')}}">
+							<form method="POST" action="{{url('member/recovery/send')}}">
 								{{csrf_field()}}
 								<div class="form-group">
-									<label>Username <span class="text-danger">*</span></label>
-									<input id="username" type="username" class="form-control" name="username" value="" required autofocus>
-									
-								</div>
-								<div class="form-group">
-									<label for="password">Password <span class="text-danger">*</span>
-										
-									</label>
-									<input id="password" type="password" class="form-control" name="password" required data-eye>
+									<label>Enter your backup email <span class="text-danger">*</span></label>
+									<input id="email" type="text" class="form-control" name="email" value="" required autofocus>
 								</div>
 								<div class="form-group no-margin">
 									<button type="submit" class="btn-learn btn btn-dark btn-block">
-										Login
+										Send
 									</button>
 								</div>
 								<div class="margin-top20 text-center">
-									Don't have an account? <a href="{{url('sign-up')}}" class="text-info">Click here to sign up!</a>
 									<p>
-										Forget your password? 
-										<a href="{{url('/member/recovery')}}" class="text-primary">
-											Reset password!
+									Back to login account!
+										<a href="{{url('sign-in')}}" class="text-primary">
+											Back
 										</a>
 									</p>
 								</div>

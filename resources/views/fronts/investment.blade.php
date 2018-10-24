@@ -1,9 +1,11 @@
 @extends('layouts.page')
 @section('content')
-
-<div class="container-fluit set">
+<div class="container-fluit">
+<img src="{{asset('images/back1.png')}}" width="100%" alt="">
     <section class="container text-center">
-       <h1>Investment Plans</h1>
+       <h1 class="title-page">
+           <span class="px-3 bg-light rounded shadow">Investment Plans</span> 
+        </h1>
     </section>
 </div>
 <div class="container my-5">

@@ -27,62 +27,72 @@
 							<form method="POST" action="{{url('/member/register')}}">
 								{{csrf_field()}}
 								<div class="form-group row">
-									<label>
-										<strong>Sponsor ID</strong>
-										<input type="text" class="form-control" name="sponsor_id" value="{{$sponsor_id}}">
-									</label>
+									<div class="col-md-6">
+										<label>
+											<strong>Sponsor ID</strong>
+											<input type="text" class="form-control" name="sponsor_id" value="{{$sponsor_id}}">
+										</label>
+									</div>
+									<div class="col-md-6">
+										<label for="">
+											<strong>Full Name <span class="text-danger">*</span></strong>
+											<input type="text" class="form-control" required autofocus name="full_name" value="{{old('full_name')}}">
+										</label>
+									</div>
 								</div>
 								<div class="form-group row">
-									<label for="">
-										<strong>Full Name <span class="text-danger">*</span></strong>
-										<input type="text" class="form-control" required autofocus name="full_name" value="{{old('full_name')}}">
-									</label>
+									<div class="col-md-6">
+										<label for="">
+											<strong>Username <span class="text-danger">*</span></strong>
+											<input type="text" class="form-control" required name="username" value="{{old('username')}}">
+										</label>
+									</div>
+									<div class="col-md-6">
+										<label for="">
+											<strong>Email <span class="text-danger">*</span></strong>
+											<input type="email" class="form-control" required name="email" value="{{old('email')}}">
+										</label>
+									</div>
 								</div>
 								<div class="form-group row">
-									<label for="">
-										<strong>Username <span class="text-danger">*</span></strong>
-										<input type="text" class="form-control" required name="username" value="{{old('username')}}">
-									</label>
+									<div class="col-md-6">
+										<label for="">
+											<strong>Phone </strong>
+											<input type="text" class="form-control" name="phone" value="{{old('phone')}}">
+										</label>
+									</div>
+									<div class="col-md-6">
+										<label for="">
+											<strong>Country <span class="text-danger">*</span> </strong>
+											<select name="country" id="country" class="form-control">
+												@foreach($countries as $c)
+													<option value="{{$c->name}}">{{$c->name}}</option>
+												@endforeach
+											</select>
+										</label>
+									</div>
 								</div>
 								<div class="form-group row">
-									<label for="">
-										<strong>Email <span class="text-danger">*</span></strong>
-										<input type="email" class="form-control" required name="email" value="{{old('email')}}">
-									</label>
+									<div class="col-md-6">
+										<label for="">
+											<strong>Password <span class="text-danger">*</span> </strong>
+											<input type="password" class="form-control" name="password" required value="{{old('password')}}">
+										</label>
+									</div>
+									<div class="col-md-6">
+										<label for="">
+											<strong>Confirm Password <span class="text-danger">*</span> </strong>
+											<input type="password" class="form-control" name="cpassword" required>
+										</label>
+									</div>
 								</div>
 								<div class="form-group row">
-									<label for="">
-										<strong>Phone </strong>
-										<input type="text" class="form-control" name="phone" value="{{old('phone')}}">
-									</label>
-								</div>
-								<div class="form-group row">
-									<label for="">
-										<strong>Country <span class="text-danger">*</span> </strong>
-										<select name="country" id="country" class="form-control">
-											@foreach($countries as $c)
-												<option value="{{$c->name}}">{{$c->name}}</option>
-											@endforeach
-										</select>
-									</label>
-								</div>
-								<div class="form-group row">
-									<label for="">
-										<strong>Password <span class="text-danger">*</span> </strong>
-										<input type="password" class="form-control" name="password" required value="{{old('password')}}">
-									</label>
-								</div>
-								<div class="form-group row">
-									<label for="">
-										<strong>Confirm Password <span class="text-danger">*</span> </strong>
-										<input type="password" class="form-control" name="cpassword" required>
-									</label>
-								</div>
-								<div class="form-group row">
-									<label for="">
-										<strong>Security PIN <span class="text-danger">*</span> </strong>
-										<input type="password" class="form-control" name="security_pin" required value="{{old('security_pin')}}">
-									</label>
+									<div class="col-md-12">
+										<label for="">
+											<strong>Security PIN <span class="text-danger">*</span> </strong>
+											<input type="password" class="form-control" name="security_pin" required value="{{old('security_pin')}}">
+										</label>
+									</div>
 								</div>
 								<div class="form-group">
 									<label>
@@ -105,6 +115,7 @@
 		</div>
 	</div>
 </div>
+
 @endsection
 @section('js')
 <script>

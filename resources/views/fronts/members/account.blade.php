@@ -1,10 +1,12 @@
 @extends('layouts.page')
 @section('content')
    <div class="container" style="margin-top:150px">
-    <h3>My Account
-         <a href="{{url('dashboard')}}" class="btn btn-success btn-sm">Back</a>
+    <h3>
+        <img src="{{asset('images/myaccount.png')}}" alt="" width="50">
+        My Account
+         <a href="{{url('dashboard')}}" class="btn btn-success btn-sm"><i class="fa fa-arrow-left"></i> Back</a>
     </h3>
-    <hr>
+    <p></p>
     <div class="row">
         <div class="col-sm-6">
             <div>

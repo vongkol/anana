@@ -23,6 +23,7 @@ Route::get('/sign-in', 'FrontSecurityController@sign_in');
 Route::get('/sign-up', 'FrontSecurityController@sign_up');
 Route::get('/forgot-password', 'FrontSecurityController@forget');
 Route::get('/reset', 'FrontSecurityController@reset');
+
 // investment
 Route::get('/investment', "FrontController@investment");
 // member route
@@ -32,6 +33,9 @@ Route::post('/member/register', 'MemberController@register');
 Route::post('/member/signin', 'MemberController@signin');
 Route::get('/member/profile/{id}', 'MemberController@profile');
 Route::get('/member/account/{id}', 'MemberController@my_account');
+Route::get('/member/recovery', 'MemberController@recovery');
+Route::get('/member/recovery/send', 'MemberController@recovery_send_to_email');
+
 // investment
 Route::get('member/investment/start', 'InvestmentController@start');
 Route::post('member/investment/save', 'InvestmentController@save');
