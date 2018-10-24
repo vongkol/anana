@@ -32,6 +32,7 @@ Route::post('/member/register', 'MemberController@register');
 Route::post('/member/signin', 'MemberController@signin');
 Route::get('/member/profile/{id}', 'MemberController@profile');
 Route::get('/member/account/{id}', 'MemberController@my_account');
+Route::post('member/address/save', 'MemberController@save_address');
 // investment
 Route::get('member/investment/start', 'InvestmentController@start');
 Route::post('member/investment/save', 'InvestmentController@save');

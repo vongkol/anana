@@ -71,18 +71,18 @@ class MemberAdminController extends Controller
   
       public function change_pin(Request $r)
       {
-          $id = $r->id;
-          $pin = $r->pin;
-        $data = array(
-            'security_pin' => $pin
-        );
-        $i = DB::table('members')->where('id', $id)->update($data);
-        if($i) {
-            $r->session()->flash('sms',"Reset security pin successfully!");
-        } else {
-        $r->session()->flash('sms1',"Fail to reset security pin, please check again.");
-        }
-        return redirect('anana-admin/member/reset-security-pin/'.$id);
+            $id = $r->id;
+            $pin = $r->pin;
+            $data = array(
+                'security_pin' => bcrypt($pin)
+            );
+            $i = DB::table('members')->where('id', $id)->update($data);
+            if($i) {
+                $r->session()->flash('sms',"Reset security pin successfully!");
+            } else {
+            $r->session()->flash('sms1',"Fail to reset security pin, please check again.");
+            }
+            return redirect('anana-admin/member/reset-security-pin/'.$id);
       
       }
       public function credit($id)

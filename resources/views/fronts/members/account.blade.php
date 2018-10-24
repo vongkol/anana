@@ -110,43 +110,44 @@
                     </div>
                 </div> -->
                 <p>Or you can be paid by bank transfer.</p>
-                <form action="#">
+                <form action="{{url('member/address/save')}}" method="POST">
+                    {{csrf_field()}}
                     <div class="form-group row">
                     <label for="" class="col-sm-3">Bank Name</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name='bank_name'>
+                        <input type="text" class="form-control" name='bank_name' value="{{$bank->bank_name}}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="col-sm-3">Bank Branch Name</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name='bank_branch_name'>
+                        <input type="text" class="form-control" name='branch_name' value="{{$bank->branch_name}}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="col-sm-3">Swift Code</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name='swift_code'>
+                        <input type="text" class="form-control" name='swift_code' value="{{$bank->swift_code}}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="col-sm-3">Bank Address</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name='address'>
+                        <input type="text" class="form-control" name='address' value="{{$bank->address}}">
                     </div>
                 </div>
                 
                 <div class="form-group row">
                     <label for="" class="col-sm-3">Full Name</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name='account_no'>
+                        <input type="text" class="form-control" name='full_name' value="{{$bank->full_name}}">
                     </div>
                 </div>
                 
                 <div class="form-group row">
                     <label for="" class="col-sm-3">Account No</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name='account_no'>
+                        <input type="text" class="form-control" name='account_no' value="{{$bank->account_no}}">
                     </div>
                 </div>
 

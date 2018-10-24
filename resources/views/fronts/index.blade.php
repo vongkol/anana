@@ -5,9 +5,9 @@
             <div class="row">
             <div class="col-md-12">
                 <div class="site-heading">
-                <h1 class="text-warning">Connecting the world to Crypto</h1>
+                <h1 class="text-warning">Connecting the world to e-share</h1>
                 <span class="subheading">The easy way to send, receive, store, and trade digital currencies</span><br>
-                <a class="btn btn-outline-dark btn-white flat" >Create Your Wallet</a>
+                <a class="btn btn-outline-dark btn-white flat" >Sign up</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
             </div>
         </section>
     </div>
-    <div class="container my4 container-c">
+    <!-- <div class="container my4 container-c">
         <div class="row">
             <div class="col-lg-5 col-md-5" >
                 <div class="post-preview">
@@ -103,13 +103,13 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluit content2">
+    </div> -->
+    <!-- <div class="container-fluit content2">
         <div class="col-md-12 text-center">
             <h3>Enter the Future of Finance</h3>
             <p>Empowering individuals, investors, and developers to join the revolution</p>
             <a class="btn btn-outline-dark btn-white text-white flat" >Create Your Wallet</a>
             <a class="btn btn-outline-dark btn-learn text-white flat" >Learn More <i class="fa fa-arrow-right"></i></a>
         </div>
-    </div>
+    </div> -->
 @endsection

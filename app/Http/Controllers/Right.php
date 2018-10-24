@@ -43,7 +43,7 @@ class Right
         }
         return $arr;
     }
-    public static function send_sms($to, $subject, $message)
+    public static function send_email($to, $subject, $message)
     {
         $mail = new PHPMailer(true); // notice the \  you have to use root namespace here
         try {
@@ -51,11 +51,11 @@ class Right
             $mail->CharSet = "utf-8"; // set charset to utf8
             $mail->SMTPAuth = true;  // use smpt auth
             $mail->SMTPSecure = "ssl"; // or ssl
-            $mail->Host = "sg06.tmd.cloud";
+            $mail->Host = "mail.ananacapitals.com";
             $mail->Port = 465; 
-            $mail->Username = "sales@bill-trade.com";
-            $mail->Password = "Khmer@123";
-            $mail->setFrom("sales@bill-trade.com", "BT Team");
+            $mail->Username = "support@ananacapitals.com";
+            $mail->Password = "Khmer@123.com";
+            $mail->setFrom("support@ananacapitals.com", "Anana Capitals");
             $mail->Subject = $subject;
             $mail->MsgHTML($message);
             $mail->addAddress($to, $to);
@@ -90,30 +90,7 @@ class Right
         }
         return 1;
     }
-    public static function send_email($to, $subject, $message)
-    {
-        $mail = new PHPMailer(true); 
-        try {
-            $mail->isSMTP(); 
-            $mail->CharSet = "utf-8"; 
-            $mail->SMTPAuth = true; 
-            $mail->SMTPSecure = "ssl";
-            $mail->Host = "sg06.tmd.cloud";
-            $mail->Port = 465; 
-            $mail->Username = "sales@bill-trade.com";
-            $mail->Password = "Khmer@123";
-            $mail->setFrom("sales@bill-trade.com", "sales@bill-trade.com");
-            $mail->Subject = $subject;
-            $mail->MsgHTML($message);
-            $mail->addAddress($to, $to);
-            $mail->send();
-        } catch (phpmailerException $e) {
-//            dd($e);
-        } catch (Exception $e) {
-//            dd($e);
-        }
-        return 1;
-    }
+   
     public static function send_email_membership($send_to, $id)
     {
         $a = 'https://bill-trade.com/membership/service/reset/'.$id;
