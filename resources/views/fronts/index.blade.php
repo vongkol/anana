@@ -12,7 +12,7 @@
             </div>
         </div>
     </header>
-    <div class="container-fluit set">
+    <div class="container-fluit set-wallets">
         <section class="container text-center font-weight-bold">
             <div class="row">
                 <div class="col-md-3">

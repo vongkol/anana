@@ -33,13 +33,9 @@ Route::post('/member/register', 'MemberController@register');
 Route::post('/member/signin', 'MemberController@signin');
 Route::get('/member/profile/{id}', 'MemberController@profile');
 Route::get('/member/account/{id}', 'MemberController@my_account');
-<<<<<<< HEAD
 Route::get('/member/recovery', 'MemberController@recovery');
 Route::get('/member/recovery/send', 'MemberController@recovery_send_to_email');
-
-=======
 Route::post('member/address/save', 'MemberController@save_address');
->>>>>>> afee283a544c88518f7cfb45c1701e86e1b4107f
 // investment
 Route::get('member/investment/start', 'InvestmentController@start');
 Route::post('member/investment/save', 'InvestmentController@save');

@@ -453,7 +453,10 @@ color: #000;
 .earning-dashboard{
 	margin-top: 150px;
 }
-
+.set-wallets {
+	padding: 25px; 
+	background: #feb82f;
+}
 @media (max-width: 479px) {
 	.box {
 			padding: 15px 0px;
