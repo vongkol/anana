@@ -41,7 +41,6 @@
                         <a href="#" class="nav-link text-white bg-secondary">Exchange Rate: 1 ANC = {{$exc->rate}} $</a>
                     </li>
                 </ul>
-                
                 @if(Session::has('member'))
                 <ul class="ml-auto navbar-nav">
                     <li class="nav-item dropdown">
@@ -55,13 +54,15 @@
                     </li>
                 </ul>
                 @else
-                <ul class="ml-auto">
-                    <a href="{{url('sign-in')}}" class="btn btn-outline-dark flat">
-                        Login
-                    </a>
-                    <a href="{{url('sign-up')}}" class="btn btn-outline-dark flat">
-                        Sign Up
-                    </a>
+                <ul class="ml-auto navbar-nav">
+                    <li class="nav-item mt-3 mb-3">
+                        <a href="{{url('sign-in')}}" class="btn btn-outline-dark flat">
+                            Login
+                        </a>
+                        <a href="{{url('sign-up')}}" class="btn btn-outline-dark flat">
+                            Sign Up
+                        </a>
+                    </li>
                 </ul>
                 @endif
                 </div>
