@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="sorvichey">
-        <title>Anana Capitals</title>
+        <title>Ana Lee Capital</title>
         <link href="{{asset('fronts/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('fronts/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('fronts/css/clean-blog.css')}}" rel="stylesheet">
@@ -107,7 +107,7 @@
             </section>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h2 style="color:#563d7c;padding: 20px;">Anana Capitals</h2>
+                        <h2 style="color:#563d7c;padding: 20px;">Ana Lee Capital</h2>
                     </div>
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <ul class="list-inline text-center">

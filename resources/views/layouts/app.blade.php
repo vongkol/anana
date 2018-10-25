@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Anana Capital | Admin</title>
+    <title>Ana Lee Capital | Admin</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('admin/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="{{url('anana-admin')}}">
-                    <img src="{{asset('admin/logo.png')}}" alt="Anana Capital" width="40" style="display: inline"> <span>Anana Capital </span>
+                    <img src="{{asset('admin/logo.png')}}" alt="Ana Lee Capital" width="40" style="display: inline"> <span>Ana Lee Capital </span>
                 </a>
             </div>
             <!-- /.navbar-header -->
