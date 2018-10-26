@@ -38,7 +38,7 @@
                         <a href="#" class="nav-link">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-white bg-secondary">Exchange Rate: 1 ANC = {{$exc->rate}} $</a>
+                        <a href="#" class="nav-link text-white bg-secondary">1 ALC = $ {{$exc->rate}}</a>
                     </li>
                 </ul>
                 @if(Session::has('member'))
@@ -163,10 +163,10 @@
                         <ul class="list-inline text-center">
                         <li class="list-inline-item">
                             <a href="#">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
                             </a>
                         </li>
                         <li class="list-inline-item">
@@ -190,8 +190,6 @@
                 </div>
             </div>
         </footer>
-
-        <!-- Bootstrap core JavaScript -->
         <script src="{{asset('fronts/vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{asset('fronts/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('fronts/js/clean-blog.min.js')}}"></script>

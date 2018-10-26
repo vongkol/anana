@@ -97,7 +97,10 @@ body {
 	text-transform: uppercase;
 	color: #fff;
   }
-  
+	
+	.slideshow {
+		margin-top: 109px;
+	}
   #mainNav .navbar-nav > li.nav-item > a {
 	font-size: 1rem;
 	font-weight: 600;
@@ -112,7 +115,7 @@ body {
   @media only screen and (min-width: 992px) {
 	#mainNav {
 	  border-bottom: 1px solid transparent;
-	  background: transparent;
+	  background: #212529;
 	}
 	#mainNav .navbar-brand {
 		color: #feb82f;
@@ -351,9 +354,13 @@ body {
   form .form-group:first-child .floating-label-form-group {
 	border-top: 1px solid #dee2e6;
   }
-  
+  .term-footer {
+		background: #000;
+		color: #fff;
+	}
   footer {
 	padding: 50px 0 65px 0;
+	background: #212529;
   }
   
   footer .list-inline {
@@ -430,7 +437,9 @@ aside {
 .box{
 	padding:35px 0px;
 }
-
+b, strong {
+	font-weight: 700;
+}
 .box-part{
 	border-radius:0;
 	margin:30px 0px;
@@ -478,7 +487,7 @@ color: #000;
 		color: #f9ad19;
 	}
 	footer {
-    padding: 0 0 20px 0;
+		padding: 0 0 20px 0;
 	}
 	.section2 {
     padding-bottom: 20px;

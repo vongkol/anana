@@ -14,7 +14,6 @@ body { background: #fff; }
      width: 100%;
     overflow-x: auto;
 }
-.Treant > .node {  }
 .Treant > p { font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: bold; font-size: 12px; }
 .node-name { font-weight: bold;}
 

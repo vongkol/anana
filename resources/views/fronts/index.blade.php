@@ -1,15 +1,34 @@
 @extends('layouts.front')
 @section('content')
    <header class="masthead">
-        <div class="container">
-            <div class="row">
-            <div class="col-md-12">
-                <div class="site-heading">
-                <h1 class="text-warning">Connecting the world to e-share</h1>
-                <span class="subheading">The easy way to send, receive, store, and trade digital currencies</span><br>
-                <a class="btn btn-outline-dark btn-white flat" >Sign up</a>
+        <div class="container-fluit slideshow">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{asset('images/banner.jpg')}}" alt="" width="100%">
+                        </div>
+                        <div class="carousel-item">
+                        <img class="d-block w-100" src="{{asset('images/banner.jpg')}}" alt="" width="100%">
+                        </div>
+                        <div class="carousel-item">
+                        <img class="d-block w-100" src="{{asset('images/banner.jpg')}}" alt="" width="100%">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-            </div>
+
         </div>
     </header>
     <div class="container-fluit set-wallets">

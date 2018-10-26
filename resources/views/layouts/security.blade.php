@@ -40,7 +40,7 @@
                         <a href="#" class="nav-link">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-white bg-secondary">Exchange Rate: 1 ANC = {{$exc->rate}} $</a>
+                        <a href="#" class="nav-link text-white bg-secondary">1 ALC = $ {{$exc->rate}}</a>
                     </li>
                 </ul>
                 @if(Session::has('member'))
@@ -71,7 +71,7 @@
             </div>
         </nav>
 
-							@yield('content')
+		@yield('content')
 					
     <script src="{{asset('fronts/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('fronts/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
