@@ -149,7 +149,7 @@
             </section>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h2 style="color:#563d7c;padding: 20px;">Anana Capitals</h2>
+                        <h2 style="color:#563d7c;padding: 20px;">Ana Lee Capital</h2>
                     </div>
                     <div class="col-lg-8 col-md-10 mx-auto">
                         <ul class="list-inline text-center">

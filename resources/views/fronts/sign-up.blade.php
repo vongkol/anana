@@ -95,8 +95,12 @@
 									</div>
 								</div>
 								<div class="form-group">
+									<label for=""><strong>Terms and Conditions</strong></label>
+									<textarea name="term" id="term" cols="30" rows="5" class="form-control" readonly>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, aut error! Odio ipsum voluptatem facere.</textarea>
+								</div>
+								<div class="form-group">
 									<label>
-										<input type="checkbox" name="agree" value="1" id='agree'> <small>I have read and agree to the <a href="#" class="text-primary">Terms of Service</small></a>
+										<input type="checkbox" name="agree" value="1" id='agree'> <small>I have read and agreed to the Terms and Conditions</small></a>
 									</label>
 								</div>
 								<div class="form-group no-margin">
@@ -132,4 +136,4 @@
 		});
 	});
 </script>
-@endsection
+@endsection	
