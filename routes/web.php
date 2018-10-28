@@ -64,7 +64,7 @@ Route::get('member/network', 'NetworkController@index');
 Route::get('rate/get', 'RateController@index');
 
 // Admin Route
-Route::prefix('anana-admin')->group(function () {
+Route::prefix('analee-admin')->group(function () {
     Route::get('/', "DashboardController@index");
 
     Route::get('login', function(){

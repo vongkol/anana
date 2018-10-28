@@ -4,12 +4,12 @@
     <div class="col-sm-12">
         <h3 class="page-header">
             <i class="fa fa-cube"></i> Create Block 
-            <a href="{{url('anana-admin/block')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
+            <a href="{{url('analee-admin/block')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
         </h3>
         
     </div>
 </div>
-<form action="{{url('anana-admin/block/save')}}" class="form-horizontal" method="POST">
+<form action="{{url('analee-admin/block/save')}}" class="form-horizontal" method="POST">
     {{csrf_field()}}
     <div class="row">
         <div class="col-sm-7">

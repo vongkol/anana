@@ -4,12 +4,12 @@
     <div class="col-sm-12">
         <h3 class="page-header">
             <i class="fa fa-upload"></i> Edit Package 
-            <a href="{{url('anana-admin/package')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
+            <a href="{{url('analee-admin/package')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
         </h3>
         
     </div>
 </div>
-<form action="{{url('anana-admin/package/update')}}" class="form-horizontal" method="POST">
+<form action="{{url('analee-admin/package/update')}}" class="form-horizontal" method="POST">
     {{csrf_field()}}
     <input type="hidden" value="{{$package->id}}" name="id">
     <div class="row">

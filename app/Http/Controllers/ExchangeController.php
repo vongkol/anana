@@ -35,18 +35,18 @@ class ExchangeController extends Controller
         if($i)
         {
             $r->session()->flash('sms', 'New exchange has been created successfully!');
-            return redirect('anana-admin/exchange/create');
+            return redirect('analee-admin/exchange/create');
         }
         else{
             $r->session()->flash('sms1', 'Fail create new exchange. Please check your input again!');
-            return redirect('anana-admin/exchange/create')->withInput();
+            return redirect('analee-admin/exchange/create')->withInput();
         }
     }
     public function delete(Request $r)
     {
         DB::table('exchanges')->where('id', $r->id)->delete();
         $r->session()->flash('sms', 'An exchange has been removed successfully!');
-        return redirect('anana-admin/exchange');
+        return redirect('analee-admin/exchange');
     }
     public function update(Request $r)
     {
@@ -58,11 +58,11 @@ class ExchangeController extends Controller
         if($i)
         {
             $r->session()->flash('sms', 'All changes have been saved!');
-            return redirect('anana-admin/exchange/edit/'.$r->id);
+            return redirect('analee-admin/exchange/edit/'.$r->id);
         }
         else{
             $r->session()->flash('sms1', 'Fail to save changes. You might not make any change!');
-            return redirect('anana-admin/exchange/edit/'.$r->id);
+            return redirect('analee-admin/exchange/edit/'.$r->id);
         }
     }
 }

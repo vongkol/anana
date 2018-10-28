@@ -57,7 +57,7 @@
                 <tr>
                     <td>{{$i++}}</td>
                     <td>
-                        <a href="{{url('anana-admin/member/detail/'.$m->id)}}" class="text-primary">{{$m->full_name}}</a>    
+                        <a href="{{url('analee-admin/member/detail/'.$m->id)}}" class="text-primary">{{$m->full_name}}</a>    
                     </td>
                     <td>{{$m->username}}</td>
                     <td>{{$m->email}}</td>
@@ -65,9 +65,9 @@
                     <td>{{$m->country}}</td>
                     <td>{{$m->sponsor_id}}</td>
                     <td>
-                        <a href="{{url('anana-admin/member/detail/'.$m->id)}}" 
+                        <a href="{{url('analee-admin/member/detail/'.$m->id)}}" 
                                 class="btn btn-success btn-xs" title="View"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;
-                        <a href="{{url('anana-admin/member/delete/'.$m->id.'&page='.@$_GET['page'])}}" class="btn btn-danger btn-xs" 
+                        <a href="{{url('analee-admin/member/delete/'.$m->id.'&page='.@$_GET['page'])}}" class="btn btn-danger btn-xs" 
                             title="Delete" onclick="return confirm('You want to delete?')">
                         <i class="fa fa-trash"></i></a>
                        

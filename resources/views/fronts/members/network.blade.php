@@ -17,117 +17,116 @@
         </div>
     </div>
 </div>
+
 <script src="{{asset('tree/vendor/raphael.js')}}"></script>
-    <script src="{{asset('tree/Treant.js')}}"></script>
+<script src="{{asset('tree/Treant.js')}}"></script>
     
-    <script>
+<script>
 
-        var config = {
-            container: "#tree",
-            
-            connectors: {
-                type: 'step'
-            },
-            node: {
-                HTMLclass: 'nodeExample1'
-            }
-        };
-
-
-        var ceo = {
-            text: {
-                name: "Vongkol",
-                title: "",
-                contact: "",
-            },
-            image: "/images/icon.png"
-        };
-
-    var cto = {
-        parent: ceo,
-        text:{
-            name: "Oudom",
-            title: "",
+    var config = {
+        container: "#tree",
+        
+        connectors: {
+            type: 'step'
         },
-        stackChildren: true,
-        image: "/images/icon.png"
+        node: {
+            HTMLclass: 'nodeExample1'
+        }
     };
 
-    var cbo = {
-        parent: ceo,
-        stackChildren: true,
-        text:{
-            name: "Linda May",
-            title: "Chief Business Officer",
-        },
-        image: "../headshots/5.jpg"
-    },
-    cdo = {
-        parent: ceo,
-        text:{
-            name: "John Green",
-            title: "Chief accounting officer",
-            contact: "Tel: 01 213 123 134",
-        },
-        image: "../headshots/6.jpg"
-    };
-    
-    var cio = {
-        parent: cto,
-        text:{
-            name: "Ron Blomquist",
-            title: "Chief Information Security Officer"
-        },
-        image: "../headshots/8.jpg"
-    };
-    var ciso = {
-        parent: cto,
-        text:{
-            name: "Michael Rubin",
-            title: "Chief Innovation Officer",
-            contact: {val: "we@aregreat.com", href: "mailto:we@aregreat.com"}
-        },
-        image: "../headshots/9.jpg"
-    };
-    var cio2 = {
-        parent: cdo,
-        text:{
-            name: "Erica Reel",
-            title: "Chief Customer Officer"
-        },
-        image: "../headshots/10.jpg"
-    };
-    var ciso2 = {
-        parent: cbo,
-        text:{
-            name: "Alice Lopez",
-            title: "Chief Communications Officer"
-        },
-        image: "../headshots/7.jpg"
-    };
-    var ciso3 = {
-        parent: cbo,
-        text:{
-            name: "Mary Johnson",
-            title: "Chief Brand Officer"
-        },
-        image: "../headshots/4.jpg"
-    };
-    var ciso4 = {
-        parent: cbo,
-        text:{
-            name: "Kirk Douglas",
-            title: "Chief Business Development Officer"
-        },
-        image: "../headshots/11.jpg"
-    };
 
+    // grand pa node
+    var papa = {
+         text: {
+            name: "{{$m->username}}"
+               
+        },
+        image: "{{asset('images/icon.png')}}"
+    };
+    // initial config
     chart_config = [
         config,
-        ceo,
-        cto,
-       
+        papa
     ];
+
+    // first gen 1 node
+    <?php
+        $gen1 = DB::table('members')->where('sponsor_id', $m->username)->get();
+    ?>
+    @foreach($gen1 as $g1)
+        var gen1 = {
+           parent: papa,
+           text: {
+                name: "{{$g1->username}}"
+           },
+           image: "{{asset('images/icon.png')}}"
+        };
+        // push the gen1 to array
+        chart_config.push(gen1);
+        // find the gen2
+        <?php $gen2 = DB::table('members')->where('sponsor_id', $g1->username)->get(); ?>
+        @foreach($gen2 as $g2)
+            var gen2 = {
+                parent: gen1,
+                text: {
+                    name: "{{$g2->username}}"
+                },
+                image: "{{asset('images/icon.png')}}"
+            };
+            chart_config.push(gen2);
+            // find the gen3
+            <?php $gen3 = DB::table('members')->where('sponsor_id', $g2->username)->get(); ?>
+            @foreach($gen3 as $g3)
+                var gen3 = {
+                    parent: gen2,
+                    text: {
+                        name: "{{$g3->username}}"
+                    },
+                    image: "{{asset('images/icon.png')}}"
+                };
+                chart_config.push(gen3);
+                // find the gen4
+                <?php $gen4 = DB::table('members')->where('sponsor_id', $g3->username)->get(); ?>
+                @foreach($gen4 as $g4)
+                    var gen4 = {
+                        parent: gen3,
+                        text: {
+                            name: "{{$g4->username}}"
+                        },
+                        image: "{{asset('images/icon.png')}}"
+                    };
+                    chart_config.push(gen4);
+                    // find the gen 5
+                    <?php $gen5 = DB::table('members')->where('sponsor_id', $g4->username)->get(); ?>
+                    @foreach($gen5 as $g5)
+                        var gen5 = {
+                            parent: gen4,
+                            text: {
+                                name: "{{$g5->username}}"
+                            },
+                            image: "{{asset('images/icon.png')}}"
+                        };
+                        chart_config.push(gen5);
+                        // find the gen 6
+                        <?php $gen6 = DB::table('members')->where('sponsor_id', $g5->username)->get(); ?>
+                        @foreach($gen6 as $g6)
+                            var gen6 = {
+                                parent: gen5,
+                                text: {
+                                    name: "{{$g6->username}}"
+                                },
+                                image: "{{asset('images/icon.png')}}"
+                            };
+                            chart_config.push(gen6);
+                         
+                            
+                        @endforeach
+                    @endforeach
+                @endforeach
+            @endforeach
+        @endforeach
+    @endforeach
+
         new Treant( chart_config );
     </script>
 @stop

@@ -4,12 +4,12 @@
     <div class="col-sm-12">
         <h3 class="page-header">
             <i class="fa fa-dollar"></i> Create Exchange 
-            <a href="{{url('anana-admin/exchange')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
+            <a href="{{url('analee-admin/exchange')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
         </h3>
         
     </div>
 </div>
-<form action="{{url('anana-admin/exchange/save')}}" class="form-horizontal" method="POST">
+<form action="{{url('analee-admin/exchange/save')}}" class="form-horizontal" method="POST">
     {{csrf_field()}}
     <div class="row">
         <div class="col-sm-7">

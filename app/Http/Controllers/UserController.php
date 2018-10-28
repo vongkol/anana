@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         Auth::logout();
         $request->session()->flush();
-        return redirect('/anana-admin/login');
+        return redirect('/analee-admin/login');
     }
     public function index()
     {
@@ -45,18 +45,18 @@ class UserController extends Controller
         if(count($users)>0)
         {
             $r->session()->flash('sms1', 'User email already exist. Please use a different one!');
-            return redirect('anana-admin/user/create')->withInput();
+            return redirect('analee-admin/user/create')->withInput();
         }
         $i = DB::table('users')->insert($data);
         if($i)
         {
             $r->session()->flash('sms', 'New user has been created successfully!');
-            return redirect('anana-admin/user/create');
+            return redirect('analee-admin/user/create');
         }
         else
         {
             $r->session()->flash('sms1', 'Fail to create new user. Please check your input again!');
-            return redirect('anana-admin/user/create')->withInput();
+            return redirect('analee-admin/user/create')->withInput();
         }
     }
     public function edit($id)
@@ -87,18 +87,18 @@ class UserController extends Controller
             if(count($users)>0)
             {
                 $r->session()->flash('sms1', 'User email already exist. Please use a different one!');
-                return redirect('anana-admin/user/edit/'.$r->id);
+                return redirect('analee-admin/user/edit/'.$r->id);
             }
             else{
                 $i = DB::table('users')->where('id', $r->id)->update($data);
                 $r->session()->flash('sms', 'All changes have been saved successfully!');
-                return redirect('anana-admin/user/edit/'.$r->id);
+                return redirect('analee-admin/user/edit/'.$r->id);
             }            
         }
         else{
             $i = DB::table('users')->where('id', $r->id)->update($data);
             $r->session()->flash('sms', 'All changes have been saved successfully!');
-            return redirect('anana-admin/user/edit/'.$r->id);
+            return redirect('analee-admin/user/edit/'.$r->id);
         }   
     }
     public function delete(Request $r)
@@ -108,11 +108,11 @@ class UserController extends Controller
         if($r->page>0)
         {
             $r->session()->flash('sms', 'A user has been removed successfully!');
-            return redirect('anana-admin/user?page='.$r->page);
+            return redirect('analee-admin/user?page='.$r->page);
         }
         else{
             $r->session()->flash('sms', 'A user has been removed successfully!');
-            return redirect('anana-admin/user');
+            return redirect('analee-admin/user');
         }
     }
 

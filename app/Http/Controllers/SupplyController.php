@@ -39,11 +39,11 @@ class SupplyController extends Controller
         if($i)
         {
             $r->session()->flash('sms', "All changes have been saved successfully!");
-            return redirect('anana-admin/supply/edit/'.$r->id);
+            return redirect('analee-admin/supply/edit/'.$r->id);
         }
         else{
             $r->session()->flash('sms1', "Fail to save changes. You might not make any change!");
-            return redirect('anana-admin/supply/edit/'.$r->id);
+            return redirect('analee-admin/supply/edit/'.$r->id);
         }
     }
   

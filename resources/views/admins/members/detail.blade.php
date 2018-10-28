@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-sm-5">
                     <i class="fa fa-user"></i> Member Detail 
-                    <a href="{{url('anana-admin/member')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
+                    <a href="{{url('analee-admin/member')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
                 <div class="col-sm-7">
                     <form action="#">
@@ -49,10 +49,10 @@
             </tr>
             <tr>
                 <td colspan="2">
-                    <a href="{{url('anana-admin/member/reset-password/'.$member->id)}}" class="btn btn-sm btn-primary">Reset Password</a>
-                    <a href="{{url('anana-admin/member/reset-security-pin/'.$member->id)}}" class="btn btn-sm btn-warning">Reset Security Pin</a>
-                    <a href="{{url('anana-admin/member/delete/'.$member->id)}}" onclick="return confirm('You want to delete?')" class="btn btn-danger btn-sm">Delete</a> 
-                    <a href="{{url('anana-admin/member/credit/'.$member->id)}}" class="btn btn-success btn-sm">Add Credit</a>
+                    <a href="{{url('analee-admin/member/reset-password/'.$member->id)}}" class="btn btn-sm btn-primary">Reset Password</a>
+                    <a href="{{url('analee-admin/member/reset-security-pin/'.$member->id)}}" class="btn btn-sm btn-warning">Reset Security Pin</a>
+                    <a href="{{url('analee-admin/member/delete/'.$member->id)}}" onclick="return confirm('You want to delete?')" class="btn btn-danger btn-sm">Delete</a> 
+                    <a href="{{url('analee-admin/member/credit/'.$member->id)}}" class="btn btn-success btn-sm">Add Credit</a>
                 </td>
             </tr>
         </table>
