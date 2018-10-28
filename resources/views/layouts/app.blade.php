@@ -185,7 +185,7 @@
                                     <a href="{{url('analee-admin/exchange')}}"><i class="fa fa-dollar"></i> Exchange</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('#')}}"><i class="fa fa-dollar"></i> ANC Rate</a>
+                                    <a href="{{url('#')}}"><i class="fa fa-dollar"></i> ALC Rate</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

@@ -20,7 +20,7 @@
                 <tr>
                     <th>&numero;</th>
                     <th>Title</th>
-                    <th>Total Token</th>
+                    <th>Total E-share</th>
                     <th>Actions</th>
                 </tr>
             </thead>

@@ -16,7 +16,7 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{url('/')}}">
-                    <img src="{{asset('images/logo.png')}}" alt="" class="logo py-1"> Ana Lee Capital
+                    <img src="{{asset('images/logo.png')}}" alt="" class="logo py-1" width="60"> Ana Lee Capital
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -28,24 +28,27 @@
                         <a href="{{url('/')}}" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{url('investment')}}" class="nav-link">Investment</a>
-                    </li>
-                   
-                    <li class="nav-item">
                         <a href="#" class="nav-link">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">White Paper</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url('investment')}}" class="nav-link">Investment</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-white bg-secondary">1 ALC = $ {{$exc->rate}}</a>
+                        <a href="#" class="nav-link text-white bg-secondary">1 ALC = <span class="text-warning">USD {{$exc->rate}}</span></a>
                     </li>
                 </ul>
                 @if(Session::has('member'))
                 <ul class="ml-auto navbar-nav">
                     <li class="nav-item dropdown">
+                       
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{session('member')->username}}
+                        <img src="{{asset('images/logo.png')}}" width="40" alt=""> {{session('member')->username}}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{url('/dashboard')}}">Dashboard</a>
@@ -70,7 +73,7 @@
         </nav>
 
         @yield('content')
-
+        
         <footer>
             <div class="container">
                 <section class="section2  text-white">
@@ -116,6 +119,7 @@
                         <a href=""></a>
                         <i class="fa fa-facebook"></i>
                         <i class="fa fa-linkedin"></i>
+                        <small>&nbsp;&nbsp; | &nbsp;&nbsp; {{date('Y-m-d H:i:s')}}</small>
                     </div>
                 </div>
             </div>

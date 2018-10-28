@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="total_token" class="col-sm-3 control-label">Total Token <span class="text-danger">*</span></label>
+                <label for="total_token" class="col-sm-3 control-label">Total E-share <span class="text-danger">*</span></label>
                 <div class="col-sm-9">
                     <input type="text" class="form-control" required autofocus name="total_token" value="{{$supply->total_token}}">
                 </div>
