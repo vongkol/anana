@@ -1,7 +1,7 @@
 @extends('layouts.page')
 @section('content')
 <div class="container" style="margin-top:150px">
-        <h3>Start An Investment <a href="{{url('dashboard')}}" class="btn btn-success btn-sm">Back</a></h3>
+        <h3>Start An Investment <a href="{{url('dashboard')}}" class="btn btn-success btn-sm">  <i class="fa fa-arrow-left" aria-hidden="true"></i>  Back</a></h3>
         <hr>
         <form action="{{url('member/investment/save')}}" method="POST">
             {{csrf_field()}}
