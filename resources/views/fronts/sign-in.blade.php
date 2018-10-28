@@ -1,13 +1,12 @@
 @extends('layouts.security')
 @section('content')
 <body class="my-login-page main-page-login">
-	<section class="h-100">
-		<div class="container h-100">
-			<div class="row justify-content-md-center  h-100">
+		<div class="container">
+			<div class="row justify-content-md-center login">
 				<div class="card-wrapper">
 					<div class="card fat">
 						<div class="card-body">
-							<h4 class="card-title">Signin to Anana Capitals</h4>
+							<h4 class="card-title">Sign in to ANA LEE CAPITAL</h4>
 							<hr>
 							@if(Session::has('sms1'))
 								<div class="alert alert-danger" role="alert">

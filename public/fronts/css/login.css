@@ -1,9 +1,12 @@
-html,body {
-	height: 100%;
-}
 
 .my-login-page {
-	background-color: #212529;
+	background-image: url('../../images/login.jpg');
+	background-size: 100%;
+	background-position: center;
+ background-position-y: 87px;
+/* Full height */
+    height: 100%; 
+	background-repeat: no-repeat;
 }
 
 .my-login-page .brand {
@@ -26,9 +29,13 @@ html,body {
 	border-color: transparent;
 	box-shadow: 0 0 40px rgba(0,0,0,.05);
 }
+.login {
+	padding-bottom: 20px;
 
+}
 .my-login-page .card.fat {
 	padding: 10px;
+	margin-top: 110px;
 }
 
 .my-login-page .card .card-title {
