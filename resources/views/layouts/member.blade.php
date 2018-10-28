@@ -182,7 +182,19 @@
                 </div>
             </div>
         </footer>
-
+        <div class="container-fluit term-footer">
+            <div class="container">
+                <div class="col-md-12 py-3">
+                    All Rights Reserved by ANA LEE CAPITAL Co., LTD	Privacy Policy 
+                    <div>
+                        <a href=""></a>
+                        <i class="fa fa-facebook"></i>
+                        <i class="fa fa-linkedin"></i>
+                        <small>&nbsp;&nbsp; | &nbsp;&nbsp; {{date('Y-m-d H:i:s')}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Bootstrap core JavaScript -->
         <script src="{{asset('fronts/vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{asset('fronts/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

@@ -1,6 +1,7 @@
 @extends('layouts.page')
 @section('content')
-   <div class="container" style="margin-top:150px">
+   <div class="container">
+    <div class="earning-dashboard">
     <h3>
         <img src="{{asset('images/myaccount.png')}}" alt="" width="50">
         My Account
@@ -162,6 +163,7 @@
                 </form>
             </div>
         </div>
+   </div>
    </div>
    <script>
        function doCopy()

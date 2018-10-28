@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{asset('tree/examples/basic-example/basic-example.css')}}">
 <div class="container">
     <div class="earning-dashboard">
-        <h3 style="font-size: 25px;">
+        <h3>
             <img src="{{asset('images/mynetwork.png')}}" alt="" width="50"> 
             &nbsp; <strong >My Network </strong>  &nbsp;
             <a href="{{url('dashboard')}}" class="btn btn-success btn-sm"> <i class="fa fa-arrow-left"></i>  Back</a>

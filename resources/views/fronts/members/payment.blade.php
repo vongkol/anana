@@ -1,6 +1,7 @@
 @extends('layouts.page')
 @section('content')
-<div class="container" style="margin-top:150px">
+<div class="container">
+<div class="earning-dashboard">
     <h3>Cash Withdraw Request <a href="{{url('member/earning')}}" class="btn btn-success btn-sm">  <i class="fa fa-arrow-left" aria-hidden="true"></i>  Back</a></h3>
     <p></p>
     <div class="row">
@@ -54,6 +55,7 @@
                 </div>
             </form>
         </div>
+    </div>
     </div>
 </div>
 @stop

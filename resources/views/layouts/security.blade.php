@@ -73,7 +73,6 @@
                 </div>
             </div>
         </nav>
-
 		@yield('content')
 					
     <script src="{{asset('fronts/vendor/jquery/jquery.min.js')}}"></script>
