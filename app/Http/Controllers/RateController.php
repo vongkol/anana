@@ -9,6 +9,6 @@ class RateController extends Controller
     public function index()
     {
         $rate = DB::table('rates')->where('id',1)->first();
-        return $rate->rate;
+        return json_encode($rate);
     }
 }

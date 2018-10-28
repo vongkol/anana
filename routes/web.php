@@ -34,7 +34,9 @@ Route::post('/member/signin', 'MemberController@signin');
 Route::get('/member/profile/{id}', 'MemberController@profile');
 Route::get('/member/account/{id}', 'MemberController@my_account');
 Route::get('/member/recovery', 'MemberController@recovery');
-Route::get('/member/recovery/send', 'MemberController@recovery_send_to_email');
+Route::get('/member/reset/{id}', 'MemberController@reset');
+Route::post('/member/recovery/send', 'MemberController@reset_password');
+Route::post('/member/reset/save', 'MemberController@save_reset');
 Route::post('member/address/save', 'MemberController@save_address');
 // investment
 Route::get('member/investment/start', 'InvestmentController@start');

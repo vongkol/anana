@@ -70,8 +70,8 @@ class MemberController extends Controller
                 </p>
 EOT;
                 // send email confirmation
-               // Right::sms($r->email, $sms);
-                return view('fronts.confirm');
+            Right::sms($r->email, $sms);
+            return view('fronts.confirm');
         }
         else{
             $r->session()->flash('sms1', 'Fail to sign you up, please check your input again!');
@@ -207,5 +207,58 @@ EOT;
         );
         DB::table('banks')->insert($data);
         return redirect('member/account/'.$member->id);
+    }
+    public function reset_password(Request $r)
+    {
+        $email = $r->email;
+
+        $m = DB::table('members')->where('email', $email)->first();
+        $id = Helper::encryptor('encrypt', $m->id);
+        if($m!=null)
+        {
+            $sms =<<<EOT
+                <h2>Reset Your Password</h2>
+                <hr>
+                <p>
+                    Please click the link below to reset your password.
+                </p>
+                <p>
+                    <a href="https://analeecapital.com/member/reset/{$id}" target="_blank">https://analeecapital.com/member/reset/{$id}</a>
+                </p>
+EOT;
+                // send email confirmation
+            Right::sms($r->email, $sms);
+            $data['sms'] = 'Please check your email, we have sent you the reset password link.';
+            return view('fronts.members.thank', $data);
+        }
+        else{
+            $r->session()->flash('sms1', 'The email you provided does not exist.');
+            return redirect('member/recovery');
+        }
+    }
+    public function reset($id)
+    {
+        $data['id'] = $id;
+        return view('fronts.members.reset', $data);
+    }
+    public function save_reset(Request $r)
+    {
+        $validateData = $r->validate([
+            'password' => "required|min:6"
+        ]);
+        $id = Helper::encryptor('decrypt', $r->id);
+        if($r->password!=$r->cpassword)
+        {
+            $r->session()->flash('sms1', 'The password and confirm password is not matched!');
+            return redirect('member/reset/'.$r->id);
+        }
+        else{
+            $data = array(
+                'password' => bcrypt($r->password)
+            );
+            $i = DB::table('members')->where('id', $id)->update($data);
+            $r->session()->flash('sms', 'Your pass word has been reset. Please login again!');
+            return redirect('sign-in');
+        }
     }
 }
