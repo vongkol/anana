@@ -1,7 +1,7 @@
 @extends('layouts.page')
 @section('content')
 <div class="container" style="margin-top:150px">
-    <h3>From C-Wallet To B-Wallet <a href="{{url('member/earning')}}" class="btn btn-success btn-sm">Back</a></h3>
+    <h3>From C-Wallet To B-Wallet <a href="{{url('member/earning')}}" class="btn btn-success btn-sm">  <i class="fa fa-arrow-left" aria-hidden="true"></i>  Back</a></h3>
     <p></p>
     <div class="row">
         <div class="col-sm-9">

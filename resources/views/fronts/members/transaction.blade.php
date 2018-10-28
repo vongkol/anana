@@ -4,7 +4,7 @@
     <div class="earning-dashboard">
         <h3>
             <img src="{{asset('images/transactions.png')}}" width="55" alt="">
-        My Transaction <a href="{{url('dashboard')}}" class="btn btn-success btn-sm"> <i class="fa fa-arrow-left"></i> Back</a></h3>
+        My Transaction <a href="{{url('dashboard')}}" class="btn btn-success btn-sm"> <i class="fa fa-arrow-left"></i>   <i class="fa fa-arrow-left" aria-hidden="true"></i>  Back</a></h3>
         <p></p>
         <div class="row">
             <div class="col-sm-12">
