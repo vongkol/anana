@@ -32,10 +32,10 @@
                     </li>
                    
                     <li class="nav-item">
-                        <a href="#" class="nav-link">About Us</a>
+                        <a href="{{url('page/about')}}" class="nav-link">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Contact Us</a>
+                        <a href="{{url('page/contact')}}" class="nav-link">Contact Us</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link text-white bg-secondary">1 ALC = $ {{$exc->rate}}</a>

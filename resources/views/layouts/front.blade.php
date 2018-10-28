@@ -28,16 +28,16 @@
                         <a href="{{url('/')}}" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">About Us</a>
+                        <a href="{{url('page/about')}}" class="nav-link">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">White Paper</a>
+                        <a href="{{url('page/white-paper')}}" class="nav-link">White Paper</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{url('investment')}}" class="nav-link">Investment</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Contact Us</a>
+                        <a href="{{url('page/contact')}}" class="nav-link">Contact Us</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link text-white bg-secondary">1 ALC = <span class="text-warning">USD {{$exc->rate}}</span></a>
