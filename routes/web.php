@@ -62,6 +62,10 @@ Route::get('member/transaction', 'TransactionController@index');
 Route::get('member/network', 'NetworkController@index');
 // get rate api
 Route::get('rate/get', 'RateController@index');
+// page
+Route::get('page/about', "PageController@about");
+Route::get('page/contact', "PageController@contact");
+Route::get('page/white-paper', "PageController@white_paper");
 
 // Admin Route
 Route::prefix('analee-admin')->group(function () {
