@@ -7,23 +7,20 @@ use DB;
 use Session;
 class MemberController extends Controller
 {
-    public function Register(Request $r)
+   
+    public function register(Request $r)
     {
+         $validatedData = $r->validate([
+            'full_name' => 'required',
+            'email' => 'required|unique:members',
+            'username' => 'required|min:3|max:30|unique:members',
+            'password' => 'required|min:6',
+            'security_pin' => 'required|min:4'
+        ]);
+
         $sponsor = "";
         $m = DB::table('members')->where('username', $r->user)->first();
-        // check if username exist
-        if($m!=null)
-        {
-            $r->session()->flash('sms1', "The username is already exist. Please use a different one!");
-            return redirect('/sign-up')->withInput();
-        }
-        // check if email exist
-        $m1 = DB::table('members')->where('email', $r->email)->first();
-         if($m1!=null)
-        {
-            $r->session()->flash('sms1', "The email is already exist. Please use a different one!");
-            return redirect('/sign-up')->withInput();
-        }
+        
         if($r->password!=$r->cpassword)
         {
             $r->session()->flash('sms1', "The password and confirm password is not match!");
@@ -33,7 +30,7 @@ class MemberController extends Controller
         $sp = DB::table('members')->where('username', $r->sponsor_id)->first();
         if($sp!=null)
         {
-            $inv = DB::table('investments')->where('member_id', $sp->id)->where('active', 1)->first();
+            $inv = DB::table('investments')->where('member_id', $sp->id)->first();
             if($inv!=null)
             {
                 $sponsor = $r->sponsor_id;
@@ -51,19 +48,6 @@ class MemberController extends Controller
             'sponsor_id' => $sponsor
         );
 
-       
-        $m = DB::table('members')->where('email', $r->email)->first();
-        if($m!=null)
-        {
-            $r->session()->flash('sms1', 'The email is already in used. Please use a different one!');
-            return redirect('/sign-up')->withInput();
-        }
-        if(!$r->agree)
-        {
-            $r->session()->flash('sms1', 'Please accept the license agreement!');
-            return redirect('/sign-up')->withInput();
-        }
-       
         if (!filter_var($r->email, FILTER_VALIDATE_EMAIL)) {
             $r->session()->flash('sms1', "Your email is invalid. Check it again!");
             return redirect('/sign-up')->withInput();
@@ -86,7 +70,7 @@ class MemberController extends Controller
                 </p>
 EOT;
                 // send email confirmation
-                Right::sms($r->email, $sms);
+               // Right::sms($r->email, $sms);
                 return view('fronts.confirm');
         }
         else{

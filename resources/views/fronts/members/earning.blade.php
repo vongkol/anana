@@ -62,7 +62,7 @@
                 <hr>
                 <h4 class="text-success"><i class="fa fa-money"></i> Bonus</h4>
                 <hr>
-                <strong class="text-success">0 $</strong>
+                <strong class="text-success">{{$bonus}} $</strong>
             </div>
         </div>
     </div> 

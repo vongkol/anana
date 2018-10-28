@@ -4,12 +4,12 @@
     <div class="col-sm-12">
         <h3 class="page-header">
             <i class="fa fa-lock"></i> Add Credit To [{{$member->username}}] 
-            <a href="{{url('anana-admin/member/detail/'.$member->id)}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
+            <a href="{{url('analee-admin/member/detail/'.$member->id)}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
         </h3>
         
     </div>
 </div>
-<form action="{{url('anana-admin/member/credit/save')}}" class="form-horizontal" method="POST" onsubmit="return confirm('You want to transfer?')">
+<form action="{{url('analee-admin/member/credit/save')}}" class="form-horizontal" method="POST" onsubmit="return confirm('You want to transfer?')">
     {{csrf_field()}}
     <input type="hidden" value="{{$member->id}}" name="id">
     <div class="row">

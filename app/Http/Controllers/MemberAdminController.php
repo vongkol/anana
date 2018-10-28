@@ -32,7 +32,7 @@ class MemberAdminController extends Controller
     {
         DB::table('members')->where('id', $id)->update(['active'=>0]);
         $r->session()->flash('sms', 'The member has been removed successfully!');
-        return redirect('anana-admin/member');
+        return redirect('analee-admin/member');
     }
      // load reset password form
      public function reset_password($id)
@@ -49,7 +49,7 @@ class MemberAdminController extends Controller
          if ($new_password!=$confirm_password)
          {
                 $r->session()->flash('sms1',"The password is not matched, please check again.");
-                return redirect('anana-admin/member/reset-password/'.$id);
+                return redirect('analee-admin/member/reset-password/'.$id);
          }
          else{
              $data = array(
@@ -59,7 +59,7 @@ class MemberAdminController extends Controller
              if($i) {
                  $r->session()->flash('sms',"Reset password successfully!");
              }
-             return redirect('anana-admin/member/reset-password/'.$id);
+             return redirect('analee-admin/member/reset-password/'.$id);
          }
      }
       // load reset password form
@@ -82,7 +82,7 @@ class MemberAdminController extends Controller
             } else {
             $r->session()->flash('sms1',"Fail to reset security pin, please check again.");
             }
-            return redirect('anana-admin/member/reset-security-pin/'.$id);
+            return redirect('analee-admin/member/reset-security-pin/'.$id);
       
       }
       public function credit($id)
@@ -109,11 +109,11 @@ class MemberAdminController extends Controller
               );
               DB::table('transfer_transactions')->insert($dd);
               $r->session()->flash('sms', 'Credit already transferred!');
-              return redirect('anana-admin/member/credit/'.$m->id);
+              return redirect('analee-admin/member/credit/'.$m->id);
           }
           else{
               $r->session()->flash('sms1', 'Fail to transfer. Please check your input!');
-              return redirect('anana-admin/member/credit/'.$m->id);
+              return redirect('analee-admin/member/credit/'.$m->id);
           }
       }
 }

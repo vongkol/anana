@@ -4,7 +4,7 @@
     <div class="col-sm-12">
         <h3 class="page-header">
             <i class="fa fa-key"></i> User Profile
-            <a href="{{url('anana-admin/user')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
+            <a href="{{url('analee-admin/user')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
         </h3>
         
     </div>

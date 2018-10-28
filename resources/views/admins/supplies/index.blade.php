@@ -37,7 +37,7 @@
                     <td>{{$r->title}}</td>
                     <td>{{$r->total_token}}</td>
                     <td>
-                        <a href="{{url('anana-admin/supply/edit/'.$r->id)}}" 
+                        <a href="{{url('analee-admin/supply/edit/'.$r->id)}}" 
                             class="btn btn-success btn-xs" title="Edit"><i class="fa fa-pencil"></i></a>
                     </td>
                 </tr>

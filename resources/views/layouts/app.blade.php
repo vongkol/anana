@@ -47,7 +47,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{url('anana-admin')}}">
+                <a class="navbar-brand" href="{{url('analee-admin')}}">
                     <img src="{{asset('admin/logo.png')}}" alt="Ana Lee Capital" width="40" style="display: inline"> <span>Ana Lee Capital </span>
                 </a>
             </div>
@@ -102,12 +102,12 @@
                         <li class="user-photo">
                             <img src="{{asset('uploads/users/profiles/default.png')}}" alt="">
                         </li>
-                        <li><a href="{{url('anana-admin/user/profile/'. Auth::user()->id)}}"><i class="fa fa-user fa-fw text-success"></i> My Profile</a>
+                        <li><a href="{{url('analee-admin/user/profile/'. Auth::user()->id)}}"><i class="fa fa-user fa-fw text-success"></i> My Profile</a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw text-warning"></i> Reset Password</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="{{url('/anana-admin/logout')}}"><i class="fa fa-sign-out fa-fw text-danger"></i> Logout</a>
+                        <li><a href="{{url('/analee-admin/logout')}}"><i class="fa fa-sign-out fa-fw text-danger"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -131,7 +131,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="{{url('/anana-admin/dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{url('/analee-admin/dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href="{{url('#')}}"><i class="fa fa-star fa-fw"></i> Payment Request</a>
@@ -146,7 +146,7 @@
                             <a href="{{url('#')}}"><i class="fa fa-star fa-fw"></i> Member Sponsor</a>
                         </li>
                         <li>
-                            <a href="{{url('anana-admin/member')}}"><i class="fa fa-user fa-fw"></i> Members</a>
+                            <a href="{{url('analee-admin/member')}}"><i class="fa fa-user fa-fw"></i> Members</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i> Withdrawal</a>
@@ -173,16 +173,16 @@
                             <a href="#"><i class="fa fa-cog text-success"></i> Settings<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('anana-admin/supply')}}"><i class="fa fa-ambulance"></i> Supply</a>
+                                    <a href="{{url('analee-admin/supply')}}"><i class="fa fa-ambulance"></i> Supply</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('anana-admin/block')}}"><i class="fa fa-cube"></i> Block</a>
+                                    <a href="{{url('analee-admin/block')}}"><i class="fa fa-cube"></i> Block</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('anana-admin/package')}}"><i class="fa fa-upload"></i> Package</a>
+                                    <a href="{{url('analee-admin/package')}}"><i class="fa fa-upload"></i> Package</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('anana-admin/exchange')}}"><i class="fa fa-dollar"></i> Exchange</a>
+                                    <a href="{{url('analee-admin/exchange')}}"><i class="fa fa-dollar"></i> Exchange</a>
                                 </li>
                                 <li>
                                     <a href="{{url('#')}}"><i class="fa fa-dollar"></i> ALC Rate</a>
@@ -194,10 +194,10 @@
                             <a href="#"><i class="fa fa-key text-danger"></i> Security<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{url('anana-admin/role')}}"><i class="fa fa-shield"></i> User Roles</a>
+                                    <a href="{{url('analee-admin/role')}}"><i class="fa fa-shield"></i> User Roles</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('anana-admin/user')}}"><i class="fa fa-users"></i> Users</a>
+                                    <a href="{{url('analee-admin/user')}}"><i class="fa fa-users"></i> Users</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

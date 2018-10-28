@@ -20,11 +20,22 @@
 									</div>
 								</div>
 							@endif
-						
+							@if ($errors->any())
+								<div class="alert alert-danger" role="alert">
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+									<ul>
+										@foreach ($errors->all() as $error)
+											<li>{{ $error }}</li>
+										@endforeach
+									</ul>
+								</div>
+							@endif
 							<?php
 								$countries = DB::table('countries')->orderBy('name')->get();
 							?>
-							<form method="POST" action="{{url('/member/register')}}">
+							<form method="POST" action="{{url('/member/register')}}" name="frm" id="frm">
 								{{csrf_field()}}
 								<div class="form-group row">
 									<div class="col-md-6">
@@ -94,18 +105,10 @@
 										</label>
 									</div>
 								</div>
-								<div class="form-group">
-									<label for=""><strong>Terms and Conditions</strong></label>
-									<textarea name="term" id="term" cols="30" rows="5" class="form-control" readonly>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, aut error! Odio ipsum voluptatem facere.</textarea>
-								</div>
-								<div class="form-group">
-									<label>
-										<input type="checkbox" name="agree" value="1" id='agree'> <small>I have read and agreed to the Terms and Conditions</small></a>
-									</label>
-								</div>
+							
 								<div class="form-group no-margin">
-									<button type="submit" class="btn btn-learn btn-primary btn-block" disabled id="btnSubmit">
-										Sign Up Now
+									<button type="button" class="btn btn-learn btn-primary btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">
+										Continue
 									</button>
 								</div>
 								<div class="margin-top20 text-center">
@@ -120,20 +123,58 @@
 	</div>
 </div>
 
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Terms and Conditions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+		Similique et rerum quia praesentium facilis quas. Autem, 
+		quae provident libero expedita, rem ipsa dolore, dolorem aliquid 
+		asperiores illum minima obcaecati dicta magnam facilis! Dolor quas, 
+		illum ipsam, modi error ratione tenetur expedita mollitia libero voluptates 
+		quibusdam rem nihil quod esse consequatur vitae aperiam maiores 
+		at reiciendis veritatis perspiciatis excepturi odio! Accusantium 
+		assumenda animi odio optio fugiat explicabo est nulla! Reiciendis 
+		architecto voluptas esse laborum expedita quisquam tempore iure 
+		asperiores, placeat cupiditate accusantium explicabo veritatis fuga, 
+		optio, animi officiis quasi eligendi doloribus officia dolores sit 
+		ducimus inventore molestias. Sit atque ea ipsam cupiditate nesciunt 
+		maxime velit laudantium laboriosam placeat sint soluta officia 
+		explicabo repellat ratione iure ad, vero eum sapiente dolore consequuntur 
+		architecto nisi enim aperiam? Architecto deserunt, perspiciatis voluptatem 
+		veritatis tenetur illo labore quo laudantium velit distinctio fugit 
+		voluptate perferendis hic aspernatur accusantium repellendus reprehenderit 
+		sunt cumque quae ullam praesentium id?
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo tenetur deserunt quod dolor, culpa cupiditate ab quia voluptates dolore quam. Voluptatem laborum quisquam architecto nulla neque sapiente praesentium, tenetur recusandae. Quas, doloremque quia veniam temporibus fugit sequi est deserunt laboriosam eos esse ab quos asperiores aliquid quae voluptatibus atque enim, nemo voluptas odio ipsam illum! Optio, natus? Temporibus error consequatur, pariatur atque ipsum sequi harum ea maxime eligendi? Voluptates nostrum sed corporis alias sint deserunt ea placeat culpa esse, quo, nihil illum, blanditiis iste. Veniam laborum velit ab dolores animi sit aperiam numquam sequi commodi non suscipit voluptate eveniet doloremque sunt optio, dolore aspernatur soluta alias. Excepturi facere aut tempora ab qui ipsum blanditiis natus possimus est expedita distinctio veniam odio cupiditate eaque, ut ea explicabo hic beatae, sapiente, soluta delectus quisquam placeat? Architecto, provident itaque? Incidunt temporibus amet molestias dolor, magnam non, ab doloribus illo obcaecati quam laboriosam repudiandae molestiae quidem, dolorum sapiente error. Dignissimos atque commodi rerum non, voluptatibus excepturi praesentium reiciendis recusandae. Assumenda, ullam esse reiciendis cum modi in possimus atque quas eaque consectetur ducimus nobis quos iusto vitae sit impedit fugit perspiciatis corrupti unde placeat minima sint earum. Amet dolores dolore veniam atque beatae nostrum sunt!
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste autem dolor quae natus nesciunt incidunt. Veniam, ad, libero error et eligendi maxime sunt officiis perferendis vero doloribus molestiae aperiam neque commodi, repellat ipsum temporibus ipsam ullam odit quae architecto nisi dolor dolores possimus quaerat. Quidem reprehenderit libero exercitationem recusandae quos hic pariatur, harum cum ducimus ipsam. Eos est harum doloremque suscipit autem error ex, ducimus, assumenda repudiandae unde earum ipsum, quis at eligendi? Expedita dolore, deleniti sed omnis blanditiis eligendi eum impedit inventore corporis aliquam cum? Nulla ut porro accusamus. Non a quos earum reiciendis corrupti blanditiis delectus voluptas. Eum illum asperiores neque maxime enim eius aut, molestiae laudantium expedita architecto quidem temporibus possimus qui, placeat repellendus explicabo in officia impedit consectetur esse vel voluptas non rem incidunt? Ullam commodi hic porro possimus quia consectetur et eius vero tempora dicta doloremque, eos, minus dolore enim culpa sunt magnam ea amet.
+		</p>
+      </div>
+	  
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="btn">I have read and agreed.</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 @endsection
 @section('js')
-<script>
-	$(document).ready(function(){
-		$("#agree").change(function(){
-			var val = this.checked;
-			if(val)
-			{
-				$("#btnSubmit").removeAttr("disabled");
-			}
-			else{
-				$("#btnSubmit").attr("disabled", "disabled");
-			}
+	<script>
+		$(document).ready(function(){
+			$("#btn").click(function(){
+				$("#frm").submit();
+			});
 		});
-	});
-</script>
-@endsection	
+	</script>
+@stop

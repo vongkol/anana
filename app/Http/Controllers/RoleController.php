@@ -44,11 +44,11 @@ class RoleController extends Controller
         if($i)
         {
             $r->session()->flash('sms', "New role has been created successfully!");
-            return redirect('anana-admin/role/create');
+            return redirect('analee-admin/role/create');
         }
         else{
             $r->session()->flash('sms1', "Fail to create new role. Please check your input again!");
-            return redirect('anana-admin/role/create')->withInput();
+            return redirect('analee-admin/role/create')->withInput();
         }
     }
     public function update(Request $r)
@@ -60,11 +60,11 @@ class RoleController extends Controller
         if($i)
         {
             $r->session()->flash('sms', "All changes have been saved successfully!");
-            return redirect('anana-admin/role/edit/'.$r->id);
+            return redirect('analee-admin/role/edit/'.$r->id);
         }
         else{
             $r->session()->flash('sms1', "Fail to save changes. You might not make any change!");
-            return redirect('anana-admin/role/edit/'.$r->id);
+            return redirect('analee-admin/role/edit/'.$r->id);
         }
     }
     public function edit($id)
@@ -85,6 +85,6 @@ class RoleController extends Controller
         // }
         DB::table('roles')->where('id', $r->id)->delete();
         $r->session()->flash('sms', 'A role has been removed successfully!');
-        return redirect('anana-admin/role');
+        return redirect('analee-admin/role');
     }
 }

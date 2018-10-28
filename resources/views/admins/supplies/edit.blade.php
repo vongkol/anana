@@ -4,12 +4,12 @@
     <div class="col-sm-12">
         <h3 class="page-header">
             <i class="fa  fa-ambulance"></i> Edit Role 
-            <a href="{{url('anana-admin/supply')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
+            <a href="{{url('analee-admin/supply')}}" class="btn btn-success btn-xs"><i class="fa fa-arrow-left"></i> Back</a>
         </h3>
         
     </div>
 </div>
-<form action="{{url('anana-admin/supply/update')}}" accept-charset="UTF-8" class="form-horizontal" method="POST">
+<form action="{{url('analee-admin/supply/update')}}" accept-charset="UTF-8" class="form-horizontal" method="POST">
     {{csrf_field()}}
     <input type="hidden" name="id" value="{{$supply->id}}">
     <div class="row">

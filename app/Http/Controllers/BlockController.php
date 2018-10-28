@@ -32,18 +32,18 @@ class BlockController extends Controller
         if($i)
         {
             $r->session()->flash('sms', "New block has been created successfully!");
-            return redirect('anana-admin/block/create');
+            return redirect('analee-admin/block/create');
         }
         else{
             $r->session()->flash('sms1', "Fail to create new block. Please check your input again!");
-            return redirect('anana-admin/block/create')->withInput();
+            return redirect('analee-admin/block/create')->withInput();
         }
     }
     public function delete(Request $r)
     {
         DB::table('blocks')->where('id', $r->id)->update(['active'=>0]);
         $r->session()->flash('sms', 'A block has been removed successfully!');
-        return redirect('anana-admin/block');
+        return redirect('analee-admin/block');
     }
     public function edit($id)
     {
@@ -68,12 +68,12 @@ class BlockController extends Controller
         if($i)
         {
             $r->session()->flash('sms', 'All changes have saved!');
-            return redirect('/anana-admin/block/edit/'.$r->id);
+            return redirect('/analee-admin/block/edit/'.$r->id);
         }
         else
         {
             $r->session()->flash('sms1', 'Fail to save changes. You might not change anything!');
-            return redirect('/anana-admin/block/edit/'.$r->id);
+            return redirect('/analee-admin/block/edit/'.$r->id);
         }
     }
 }

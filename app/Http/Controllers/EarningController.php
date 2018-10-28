@@ -35,6 +35,7 @@ class EarningController extends Controller
             ->sum('amount');
         $data['rate'] = DB::table('rates')->where('id', 1)->first();
         $data['wallet'] = DB::table('members')->where('id', $member->id)->first();
+        $data['bonus'] = Investment::bonus($member->id);
         return view('fronts.members.earning', $data);
     }
 }
