@@ -14,6 +14,7 @@ class InvestmentController extends Controller
         {
             return redirect('/sign-in');
         }
+        $id = Helper::encryptor('decrypt', $id);
         // get investment
         $data['investment'] = DB::table('investments')
             ->join('packages', 'investments.package_id', 'packages.id')
@@ -54,7 +55,7 @@ class InvestmentController extends Controller
         }
         // check if R wallet has enough balance or not
         $rwallet = DB::table('members')->where('id', $member->id)->first();
-        if($rwallet->register_wallet<$p->price)
+        if(Helper::encryptor('decrypt', $rwallet->register_wallet)<$p->price)
         {
             $r->session()->flash('sms1', 'Your register wallet does not have enough balance!');
             return redirect('member/investment/start');
@@ -72,8 +73,8 @@ class InvestmentController extends Controller
             'order_date' => date('Y-m-d')
         );
         // update register wallet
-        $rem = $rwallet->register_wallet - $p->price;
-        DB::table('members')->where('id', $member->id)->update(['register_wallet'=>$rem]);
+        $rem = Helper::encryptor('decrypt', $rwallet->register_wallet) - $p->price;
+        DB::table('members')->where('id', $member->id)->update(['register_wallet'=>Helper::encryptor('encrypt', $rem)]);
         $dd = date('Y-m-d', strtotime("+ 365 day"));
         $data['expired_on'] = $dd;
 

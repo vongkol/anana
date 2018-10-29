@@ -59,15 +59,16 @@ class Investment
             DB::table('admin_earning_transactions')->insert($data);
             // member earning transaction
             $m = DB::table('members')->where('id', $mid)->first();
-            $c = $m->cash_wallet + $c_wallet;
-            $r = $m->register_wallet + $r_wallet;
-            $t = $m->token_wallet + $t_wallet;
+            $c = Helper::encryptor('decrypt', $m->cash_wallet) + $c_wallet;
+            $r = Helper::encryptor('decrypt', $m->register_wallet) + $r_wallet;
+            $t = Helper::encryptor('decrypt', $m->token_wallet) + $t_wallet;
             $data = array(
-                'cash_wallet' => $c,
-                'register_wallet' => $r,
-                'token_wallet' => $t
+                'cash_wallet' => Helper::encryptor('encrypt', $c),
+                'register_wallet' => Helper::encryptor('encrypt', $r),
+                'token_wallet' => Helper::encryptor('encrypt', $t)
             );
             DB::table('members')->where('id', $mid)->update($data);
+
             DB::table('payment_schedules')->where('id', $pay->id)->update(['is_paid'=>1]);
             //save transaction
             $data = array(
@@ -117,8 +118,8 @@ class Investment
             {
                 $r = $rate/100;
                 $earn = $p->price * $r;
-                $total = $gen1->cash_wallet + $earn;
-                DB::table('members')->where('id', $gen1->id)->update(['cash_wallet'=>$total]);
+                $total = Helper::encryptor('decrypt', $gen1->cash_wallet) + $earn;
+                DB::table('members')->where('id', $gen1->id)->update(['cash_wallet'=>Helper::encryptor('encrypt',$total)]);
                 $data = array(
                     'from_id' => $mid,
                     'to_id' => $gen1->id,
@@ -137,8 +138,8 @@ class Investment
                     {
                         $r1 = $rate1/100;
                         $earn1 = $p->price*$r1;
-                        $total1 = $gen2->cash_wallet + $earn1;
-                        DB::table('members')->where('id', $gen2->id)->update(['cash_wallet'=>$total1]);
+                        $total1 = Helper::encryptor('decrypt', $gen2->cash_wallet) + $earn1;
+                        DB::table('members')->where('id', $gen2->id)->update(['cash_wallet'=>Helper::encryptor('encrypt', $total1)]);
                         $data = array(
                             'from_id' => $mid,
                             'to_id' => $gen2->id,
@@ -155,8 +156,8 @@ class Investment
                         {
                             $r2 = $rate2/100;
                             $earn2 = $p->price*$r2;
-                            $total2 = $gen3->cash_wallet + $earn2;
-                            DB::table('members')->where('id', $gen3->id)->update(['cash_wallet'=>$total2]);
+                            $total2 = Helper::encryptor('decrypt', $gen3->cash_wallet) + $earn2;
+                            DB::table('members')->where('id', $gen3->id)->update(['cash_wallet'=>Helper::encryptor('encrypt',$total2)]);
                             $data = array(
                                 'from_id' => $mid,
                                 'to_id' => $gen3->id,
@@ -173,8 +174,8 @@ class Investment
                             {
                                 $r3 = $rate3/100;
                                 $earn3 = $p->price*$r3;
-                                $total3 = $gen4->cash_wallet + $earn3;
-                                DB::table('members')->where('id', $gen4->id)->update(['cash_wallet'=>$total3]);
+                                $total3 = Helper::encryptor('decrypt', $gen4->cash_wallet) + $earn3;
+                                DB::table('members')->where('id', $gen4->id)->update(['cash_wallet'=>Helper::encryptor('encrypt', $total3)]);
                                 $data = array(
                                     'from_id' => $mid,
                                     'to_id' => $gen4->id,
@@ -191,8 +192,8 @@ class Investment
                                 {
                                     $r4 = $rate4/100;
                                     $earn4 = $p->price*$r4;
-                                    $total4 = $gen4->cash_wallet + $earn4;
-                                    DB::table('members')->where('id', $gen5->id)->update(['cash_wallet'=>$total4]);
+                                    $total4 = Helper::encryptor('decrypt', $gen5->cash_wallet) + $earn4;
+                                    DB::table('members')->where('id', $gen5->id)->update(['cash_wallet'=>Helper::encryptor('encrypt', $total4)]);
                                     $data = array(
                                         'from_id' => $mid,
                                         'to_id' => $gen5->id,
@@ -209,8 +210,8 @@ class Investment
                                     {
                                         $r5 = $rate5/100;
                                         $earn5 = $p->price*$r5;
-                                        $total5 = $gen6->cash_wallet + $earn5;
-                                        DB::table('members')->where('id', $gen6->id)->update(['cash_wallet'=>$total5]);
+                                        $total5 = Helper::encryptor('decrypt', $gen6->cash_wallet) + $earn5;
+                                        DB::table('members')->where('id', $gen6->id)->update(['cash_wallet'=>Helper::encryptor('encrypt', $total5)]);
                                         $data = array(
                                             'from_id' => $mid,
                                             'to_id' => $gen6->id,
@@ -310,9 +311,9 @@ class Investment
                 );
                 DB::table('monthly_bonus')->insert($data);
                 // add to wallet
-                $bwallet = $m->token_wallet + $rate1->alc;
-                $cwallet = $m->cash_wallet + $amount;
-                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>$cwallet, 'token_wallet'=>$bwallet]);
+                $bwallet = Helper::encryptor('decrypt', $m->token_wallet) + $rate1->alc;
+                $cwallet = Helper::encryptor('decrypt', $m->cash_wallet) + $amount;
+                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>Helper::encryptor('encrypt', $cwallet), 'token_wallet'=>Helper::encryptor('encrypt', $bwallet)]);
                 $data1 = array(
                     'member_id' => $mid,
                     'amount' => $rate1->alc,
@@ -343,9 +344,9 @@ class Investment
                 );
                 DB::table('monthly_bonus')->insert($data);
                 // add to wallet
-                $bwallet = $m->token_wallet + $rate2->alc;
-                $cwallet = $m->cash_wallet + $amount;
-                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>$cwallet, 'token_wallet'=>$bwallet]);
+                $bwallet = Helper::encryptor('decrypt', $m->token_wallet) + $rate2->alc;
+                $cwallet = Helper::encryptor('decrypt', $m->cash_wallet) + $amount;
+                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>Helper::encryptor('encrypt', $cwallet), 'token_wallet'=>Helper::encryptor('encrypt', $bwallet)]);
                 $data1 = array(
                     'member_id' => $mid,
                     'amount' => $rate2->alc,
@@ -375,9 +376,9 @@ class Investment
                 );
                 DB::table('monthly_bonus')->insert($data);
                 // add to wallet
-                $bwallet = $m->token_wallet + $rate3->alc;
-                $cwallet = $m->cash_wallet + $amount;
-                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>$cwallet, 'token_wallet'=>$bwallet]);
+                $bwallet = Helper::encryptor('decrypt', $m->token_wallet) + $rate3->alc;
+                $cwallet = Helper::encryptor('decrypt', $m->cash_wallet) + $amount;
+                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>Helper::encryptor('encrypt', $cwallet), 'token_wallet'=>Helper::encryptor('encrypt', $bwallet)]);
                 $data1 = array(
                     'member_id' => $mid,
                     'amount' => $rate3->alc,
@@ -407,9 +408,9 @@ class Investment
                 );
                 DB::table('monthly_bonus')->insert($data);
                 // add to wallet
-                $bwallet = $m->token_wallet + $rate4->alc;
-                $cwallet = $m->cash_wallet + $amount;
-                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>$cwallet, 'token_wallet'=>$bwallet]);
+                $bwallet = Helper::encryptor('decrypt', $m->token_wallet) + $rate4->alc;
+                $cwallet = Helper::encryptor('decrypt', $m->cash_wallet) + $amount;
+                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>Helper::encryptor('encrypt', $cwallet), 'token_wallet'=>Helper::encryptor('encrypt', $bwallet)]);
                 $data1 = array(
                     'member_id' => $mid,
                     'amount' => $rate4->alc,
@@ -439,9 +440,9 @@ class Investment
                 );
                 DB::table('monthly_bonus')->insert($data);
                 // add to wallet
-                $bwallet = $m->token_wallet + $rate5->alc;
-                $cwallet = $m->cash_wallet + $amount;
-                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>$cwallet, 'token_wallet'=>$bwallet]);
+                $bwallet = Helper::encryptor('decrypt', $m->token_wallet) + $rate5->alc;
+                $cwallet = Helper::encryptor('decrypt', $m->cash_wallet) + $amount;
+                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>Helper::encryptor('encrypt', $cwallet), 'token_wallet'=>Helper::encryptor('encrypt', $bwallet)]);
                 $data1 = array(
                     'member_id' => $mid,
                     'amount' => $rate5->alc,
@@ -471,9 +472,10 @@ class Investment
                 );
                 DB::table('monthly_bonus')->insert($data);
                 // add to wallet
-                $bwallet = $m->token_wallet + $rate6->alc;
-                $cwallet = $m->cash_wallet + $amount;
-                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>$cwallet, 'token_wallet'=>$bwallet]);
+                $bwallet = Helper::encryptor('decrypt', $m->token_wallet) + $rate6->alc;
+                $cwallet = Helper::encryptor('decrypt', $m->cash_wallet) + $amount;
+                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>Helper::encryptor('encrypt', $cwallet), 'token_wallet'=>Helper::encryptor('encrypt', $bwallet)]);
+                
                 $data1 = array(
                     'member_id' => $mid,
                     'amount' => $rate6->alc,
@@ -503,9 +505,10 @@ class Investment
                 );
                 DB::table('monthly_bonus')->insert($data);
                 // add to wallet
-                $bwallet = $m->token_wallet + $rate7->alc;
-                $cwallet = $m->cash_wallet + $amount;
-                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>$cwallet, 'token_wallet'=>$bwallet]);
+               $bwallet = Helper::encryptor('decrypt', $m->token_wallet) + $rate7->alc;
+                $cwallet = Helper::encryptor('decrypt', $m->cash_wallet) + $amount;
+                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>Helper::encryptor('encrypt', $cwallet), 'token_wallet'=>Helper::encryptor('encrypt', $bwallet)]);
+                
                 $data1 = array(
                     'member_id' => $mid,
                     'amount' => $rate7->alc,
@@ -535,8 +538,8 @@ class Investment
                 );
                 DB::table('monthly_bonus')->insert($data);
                 // add to wallet
-                $cwallet = $m->cash_wallet + $amount;
-                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>$cwallet]);
+                $cwallet = Helper::encryptor('decrypt', $m->cash_wallet) + $amount;
+                DB::table('members')->where('id', $mid)->update(['cash_wallet'=>Helper::encryptor('encrypt', $cwallet)]);
               
                 $data = array(
                     'member_id' => $mid,

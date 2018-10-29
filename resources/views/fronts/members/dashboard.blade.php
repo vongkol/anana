@@ -5,7 +5,7 @@
 		<h3 class="text-center"><i class="fa fa-tachometer"></i> Dashboard</h3>
      	<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-4 col-6">
-				<a href="{{url('member/account/'.session('member')->id)}}" class="text-primarye" style="text-decoration:none;">
+				<a href="{{url('member/account/'.$id)}}" class="text-primarye" style="text-decoration:none;">
 					<div class="box-part text-center">
 						<img src="{{asset('images/myaccount.png')}}" width="80" alt="">
 						<div class="title">
@@ -15,7 +15,7 @@
 				</a>
 			</div>	 
 			<div class="col-lg-4 col-md-4 col-sm-4 col-6">
-				<a href="{{url('member/investment/'.session('member')->id)}}" class="text-primary" style="text-decoration:none;">
+				<a href="{{url('member/investment/'.$id)}}" class="text-primary" style="text-decoration:none;">
 					<div class="box-part text-center">
 						<img src="{{asset('images/invesment.png')}}" width="80" alt="">
 						<div class="title">

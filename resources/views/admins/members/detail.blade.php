@@ -67,7 +67,7 @@
                     Cash Wallet
                 </td>
                 <td>
-                    : $ {{$member->cash_wallet}}
+                    : $ {{\App\Http\Controllers\Helper::encryptor('decrypt', $member->cash_wallet)}}
                 </td>
             </tr>
             <tr>
@@ -75,7 +75,7 @@
                     Register Wallet
                 </td>
                 <td>
-                    : $ {{$member->register_wallet}}
+                    : $ {{\App\Http\Controllers\Helper::encryptor('decrypt', $member->register_wallet)}}
                 </td>
             </tr>
             <tr>
@@ -83,7 +83,7 @@
                     Buy Back Wallet
                 </td>
                 <td>
-                    : $ {{ $member->token_wallet}}
+                    : $ {{ \App\Http\Controllers\Helper::encryptor('decrypt', $member->token_wallet)}}
                 </td>
             </tr>
         </table>

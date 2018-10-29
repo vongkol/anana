@@ -27,15 +27,15 @@ class MemberTransferController extends Controller
         $m = DB::table('members')->where('id', $member->id)->first();
         $amount = $r->amount;
         // check if have enough balance or not
-        if($amount>$m->cash_wallet)
+        if($amount>Helper::encryptor('decrypt', $m->cash_wallet))
         {
             $r->session()->flash('sms1', "You don't have enough fund to transfer!");
             return redirect('member/transfer/register');
         }
 
         // start transfer
-        $rw = $m->register_wallet + $amount;
-        $cw = $m->cash_wallet - $amount;
+        $rw = Helper::encryptor('decrypt', $m->register_wallet) + $amount;
+        $cw = Helper::encryptor('decrypt', $m->cash_wallet) - $amount;
 
         $data = array(
             'cash_wallet' => $cw,
@@ -163,7 +163,7 @@ class MemberTransferController extends Controller
         $pin = $r->pin;
         $fee = DB::table('transaction_fees')->where('id', 1)->first();
          // check if have enough balance or not
-         if(($amount + $fee->fee)>$m->register_wallet)
+         if(($amount + $fee->fee)>Helper::encryptor('decrypt', $m->register_wallet))
          {
              $r->session()->flash('sms1', "You don't have enough fund to transfer!");
              return redirect('member/transfer/anyregister');
@@ -187,12 +187,12 @@ class MemberTransferController extends Controller
 
         // start transfer
         $data = array(
-            'register_wallet' => ($to_account->register_wallet + $amount)
+            'register_wallet' => Helper::encryptor('encrypt', (Helper::encryptor('decrypt', $to_account->register_wallet) + $amount))
         );
         DB::table('members')->where('id', $to_account->id)->update($data);
         // cut money from sender, $m
         $data1 = array(
-            'register_wallet' => $m->register_wallet - ($amount+$fee->fee)
+            'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->register_wallet) - ($amount+$fee->fee))
         );
         DB::table('members')->where('id', $m->id)->update($data1);
         if($fee->fee>0)
@@ -249,18 +249,18 @@ class MemberTransferController extends Controller
         $m = DB::table('members')->where('id', $member->id)->first();
         $amount = $r->amount;
         // check if have enough balance or not
-        if($amount>$m->cash_wallet)
+        if($amount>Helper::encryptor('decrypt', $m->cash_wallet))
         {
             $r->session()->flash('sms1', "You don't have enough fund to transfer!");
             return redirect('member/transfer/bwallet');
         }
         $data = array(
-            'token_wallet' => $m->token_wallet + $amount
+            'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->token_wallet) + $amount)
         );
         DB::table('members')->where('id', $m->id)->update($data);
         // cut money
         $data1 = array(
-            'cash_wallet' => $m->cash_wallet - $amount
+            'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->cash_wallet) - $amount)
         );
         DB::table('members')->where('id', $m->id)->update($data1);
         // save transaction log

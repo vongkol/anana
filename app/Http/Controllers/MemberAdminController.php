@@ -93,9 +93,9 @@ class MemberAdminController extends Controller
       public function save_credit(Request $r)
       {
           $m = DB::table('members')->where('id', $r->id)->first();
-          $r_wallet = $m->register_wallet + $r->credit;
+          $r_wallet = Helper::encryptor('decrypt', $m->register_wallet) + $r->credit;
           $data = array(
-              'register_wallet' => $r_wallet
+              'register_wallet' => Helper::encryptor('encrypt', $r_wallet)
           );
           $i = DB::table('members')->where('id', $m->id)->update($data);
           if($i)

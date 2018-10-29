@@ -87,6 +87,10 @@ EOT;
     }
     public function signin(Request $r)
     {
+        $validateData = $r->validate([
+            'username' => 'required|min:3',
+            'password' => 'required|min:6'
+        ]);
         $username = $r->username;
         $pass = $r->password;
         $member = DB::table('members')->where('active',1)->where('username', $username)->first();
@@ -129,8 +133,8 @@ EOT;
         {
             return redirect('/sign-in');
         }
-
-        return view('fronts.members.dashboard');
+        $data['id'] = Helper::encryptor('encrypt', $member->id);
+        return view('fronts.members.dashboard', $data);
     }
     public function profile($id)
     {
@@ -150,6 +154,7 @@ EOT;
         {
             return redirect('/sign-in');
         }
+        $id = Helper::encryptor("decrypt", $id);
         $data['account'] = DB::table('members')->where('id', $id)->first();
         $data['bank'] = DB::table('banks')->where('member_id', $id)->first();
         return view('fronts.members.account', $data);
@@ -260,5 +265,77 @@ EOT;
             $r->session()->flash('sms', 'Your pass word has been reset. Please login again!');
             return redirect('sign-in');
         }
+    }
+    public function change_password()
+    {
+        $member = session('member');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data['id'] = Helper::encryptor('encrypt', $member->id);
+        return view('fronts.members.change-password', $data);
+    }
+    public function change_password_save(Request $r)
+    {
+        $validateData = $r->validate([
+            'password' => 'required|min:6'
+        ]);
+        $member = session('member');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data['id'] = Helper::encryptor('encrypt', $member->id);
+        $pass = $r->password;
+        $cpass = $r->cpassword;
+        if($pass!=$cpass)
+        {
+            $r->session()->flash('sms1', 'The password and confirm password is not matched!');
+            return redirect('member/change-password')->withInput();
+        }
+        $data = array(
+            'password' => bcrypt($pass)
+        );
+        DB::table('members')->where('id', $member->id)->update($data);
+        $r->session()->flash('sms', 'Your password has been changed!');
+
+        return redirect('member/change-password');
+    }
+     public function change_pin()
+    {
+        $member = session('member');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data['id'] = Helper::encryptor('encrypt', $member->id);
+        return view('fronts.members.change-pin', $data);
+    }
+    public function change_pin_save(Request $r)
+    {
+        $validateData = $r->validate([
+            'security_pin' => 'required|min:4'
+        ]);
+        $member = session('member');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data['id'] = Helper::encryptor('encrypt', $member->id);
+        $pass = $r->security_pin;
+        $cpass = $r->cpin;
+        if($pass!=$cpass)
+        {
+            $r->session()->flash('sms1', 'The PIN and confirm PIN is not matched!');
+            return redirect('member/change-pin')->withInput();
+        }
+        $data = array(
+            'password' => bcrypt($pass)
+        );
+        DB::table('members')->where('id', $member->id)->update($data);
+        $r->session()->flash('sms', 'Your security PIN has been changed!');
+
+        return redirect('member/change-pin');
     }
 }

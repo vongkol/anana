@@ -28,9 +28,10 @@
                         </div>
                     @endif
                     <div class="form-group row">
-                        <label for="" class="col-sm-4">My Register Wallet</label>
+                        <label for="" class="col-sm-4">My R-Wallet</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="r_wallet" value="{{$member->register_wallet}}" readonly>
+                            <input type="text" class="form-control" name="r_wallet" 
+                                value="{{\App\Http\Controllers\Helper::encryptor('decrypt', $member->register_wallet)}}" readonly>
                         </div>
                     </div>
                     <div class="form-group row">

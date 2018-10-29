@@ -29,7 +29,7 @@ class PaymentController extends Controller
         $m = DB::table('members')->where('id', $member->id)->first();
         $amount = $r->amount;
         $pin = $r->pin;
-        if($amount>$m->cash_wallet)
+        if($amount>Helper::encryptor('decrypt', $m->cash_wallet))
         {
             $r->session()->flash('sms1', "You don't have enough balance!");
             return redirect('member/payment');
@@ -61,8 +61,8 @@ class PaymentController extends Controller
             'request_date' => date('Y-m-d')
         );
         DB::table('payment_requests')->insert($data);
-        $cw = $m->cash_wallet - $amount;
-        DB::table('members')->where('id', $m->id)->update(['cash_wallet'=>$cw]);
+        $cw = Helper::encryptor('decrypt', $m->cash_wallet) - $amount;
+        DB::table('members')->where('id', $m->id)->update(['cash_wallet'=>Helper::encryptor('encrypt', $cw)]);
         $r->session()->flash('sms', "Your request has sent!");
         return redirect('member/payment');
     }

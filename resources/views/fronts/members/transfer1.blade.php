@@ -31,7 +31,8 @@
                     <div class="form-group row">
                         <label for="" class="control-label col-sm-3">Cash Wallet</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" readonly value="{{$member->cash_wallet}}">
+                            <input type="text" class="form-control" readonly 
+                                value="{{\App\Http\Controllers\Helper::encryptor('decrypt', $member->cash_wallet)}}">
                         </div>
                     </div>
                     <div class="form-group row">

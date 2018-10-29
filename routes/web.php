@@ -47,7 +47,7 @@ Route::get('member/earning', 'EarningController@index');
 // transfer
 Route::get('member/transfer/register', "MemberTransferController@to_own_register_wallet");
 Route::get('member/transfer/bwallet', "MemberTransferController@to_b_wallet");
-Route::get('member/transfer/anc', "MemberTransferController@to_anc");
+Route::get('member/transfer/alc', "MemberTransferController@to_anc");
 Route::get('member/transfer/anywallet', "MemberTransferController@to_any_wallet");
 Route::get('member/transfer/anyregister', "MemberTransferController@to_any_register");
 Route::post('member/transfer/anyregister/save', "MemberTransferController@save_register");
@@ -55,6 +55,10 @@ Route::post('member/transfer/anc/save', "MemberTransferController@save_to_anc");
 Route::post('member/transfer/bwallet/save', "MemberTransferController@save_b_wallet");
 Route::post('member/transfer/register/save', "MemberTransferController@save_register_wallet");
 Route::post('member/transfer/anywallet/save', "MemberTransferController@save_any_wallet");
+Route::get('member/change-password', 'MemberController@change_password');
+Route::post('member/change-password/save', 'MemberController@change_password_save');
+Route::get('member/change-pin', "MemberController@change_pin");
+Route::post('member/change-pin/save', 'MemberController@change_pin_save');
 // payment request
 Route::get('member/payment', "PaymentController@index");
 Route::post('member/payment/save', "PaymentController@save");

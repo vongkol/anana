@@ -51,10 +51,10 @@
             </div>
             <p></p>
             <div class="form-group row">
-                <a href="#" class="btn btn-primary">Change Password</a>
+                <a href="{{url('member/change-password')}}" class="btn btn-primary">Change Password</a>
             </div>
             <div class="form-group row">
-                <a href="#" class="btn btn-warning">Change Security PIN</a>
+                <a href="{{url('member/change-pin')}}" class="btn btn-warning">Change Security PIN</a>
             </div>
         </div>
     </div>
@@ -82,11 +82,11 @@
            <form action="#" method="POST">
                 {{csrf_field()}}
                 <div>
-                    <u><strong>ANC Address</strong></u>
+                    <u><strong>ALC Address</strong></u>
                 </div>
                 <p></p>
                 <div class="form-group row">
-                    <label for="" class="col-sm-3">ANC Address</label>
+                    <label for="" class="col-sm-3">ALC Address</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="anc_address" {{$account->anc_address!=null?'disabled':''}} value="{{$account->anc_address}}">
                         @if($account->anc_address==null)

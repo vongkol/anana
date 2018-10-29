@@ -8,6 +8,7 @@ class EarningController extends Controller
 {
     public function index()
     {
+        
         $member = session('member');
         if($member==null)
         {
