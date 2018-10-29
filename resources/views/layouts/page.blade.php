@@ -10,6 +10,7 @@
         <link href="{{asset('fronts/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('fronts/css/clean-blog.css')}}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{asset('fronts/css/custom.css')}}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon-32x32.png')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('fronts/css/page.css')}}">
     </head>
     <body>
@@ -17,7 +18,7 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{url('/')}}">
-                    <img src="{{asset('images/logo.png')}}" alt="" class="logo py-1" width="60"> Ana Lee Capital
+                    <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -78,11 +79,11 @@
         
         <footer>
             <div class="container">
-                <section class="section2  text-white">
+                <section class="text-white">
                     <div class="row">
                     <div class="col-md-8 text-justify">
                     <h5>
-                        <img src="{{asset('images/logo.png')}}" alt="">
+                        <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
                     </h5>
                         <aside>
                             Established in 2018 as investment company.  
@@ -92,9 +93,8 @@
                         </aside>
                     </div>
 
-                        <div class="col-md-4" style="margin-top: 70px;">
+                        <div class="col-md-4 contact-us">
                             <h5>CONTACT US</h5>
-                            <hr>
                             <aside> #A3, St.BT, Sangkat Chomchaov, Khan Porsenchey, Phnom Penh, Cambodia
                             </aside>
                             <aside class="col-md-12 ">

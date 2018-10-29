@@ -39,102 +39,69 @@
         </section>
     </div>
     <div class="container my4 container-c">
-        <!-- <div class="row">
-            <div class="col-lg-5 col-md-5" >
-                <div class="post-preview">
-                    <a href="post.html">
-                    <h2 class="post-title">
-                        Your Passport to the Future of Finance
-                    </h2>
-                    <h4 class="post-subtitle">
-                        The first and most trusted global cryptocurrency company
-                    </h4>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-7">
-                <img src="{{asset('fronts/img/home.png')}}" width="100%">
-            </div>
-        </div> -->
-        <!-- <div class="row"> -->
-            <!-- <div class="col-md-6">
-                <div class="content3">
-                    <h5>Vission</h5>
-                    <p>Exchange and transact bitcoin, ethereum, and bitcoin cash using the world’s most trusted and secure cryptocurrency wallet</p>
-                    <a href=""> Learn More <i class="fa fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="content3">
-                    <h5>Mission</h5>
-                    <p>Use the first and most popular bitcoin block explorer to search and verify transactions on Bitcoin’s blockchain.</p>
-                    <a href=""> Learn More <i class="fa fa-arrow-right"></i></a>
-                </div>
-            </div> -->
-        <!-- </div> -->
         <div class="row">
             <div class="col-md-12">
-            <h2 class="post-title text-warning">
+            <h2 class="post-title text-primary">
                        Our Projects
                     </h2>
                    <hr>
             </div>
             <div class="col-md-4">
                 <p>
-                    <img src="{{asset('images/1.jpg')}}" width="100%" alt="">
+                    <img src="{{asset('images/myp6.jpg')}}" class="w-100" alt="">
                 </p>
-                <div class="content3">
-                    <h5>Promotion Sale</h5>
+                <div class="py-3">
+                    <h5 class="text-primary">Hotel and Resort</h5>
                     <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
                 <p>
-                    <img src="{{asset('images/2.jpg')}}" width="100%" alt="">
+                    <img src="{{asset('images/myp1.jpg')}}" class="w-100" alt="">
                 </p>
-                <div class="content3">
-                    <h5>Promotion Sale</h5>
+                <div class="py-3">
+                    <h5 class="text-primary">Twin Villa</h5>
                     <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
                 <p>
-                    <img src="{{asset('images/3.jpg')}}" width="100%" alt="">
+                    <img src="{{asset('images/myp2.jpg')}}" width="100%" alt="">
                 </p>
-                <div class="content3">
-                    <h5>Promotion Sale</h5>
+                <div class="py-3">
+                    <h5 class="text-primary">Villa</h5>
                     <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
                 <p>
-                    <img src="{{asset('images/5.jpg')}}" width="100%" alt="">
+                    <img src="{{asset('images/myp3.jpg')}}" width="100%" alt="">
                 </p>
-                <div class="content3">
-                    <h5>Promotion Sale</h5>
+                <div class="py-3">
+                    <h5 class="text-primary">Platinum Villa</h5>
                     <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
                 <p>
-                    <img src="{{asset('images/6.jpg')}}" width="100%" alt="">
+                    <img src="{{asset('images/myp4.jpg')}}" width="100%" alt="">
                 </p>
-                <div class="content3">
-                    <h5>Promotion Sale</h5>
+                <div class="py-3">
+                    <h5 class="text-primary">Shop House</h5>
                     <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-4">
                 <p>
-                    <img src="{{asset('images/4.jpg')}}" width="100%" alt="">
+                    <img src="{{asset('images/myp5.jpg')}}" width="100%" alt="">
                 </p>
-                <div class="content3">
-                    <h5>Promotion Sale</h5>
+                <div class="py-3">
+                    <h5 class="text-primary">Link House</h5>
                     <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>

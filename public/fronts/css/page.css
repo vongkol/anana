@@ -3,8 +3,11 @@
 }
 .main-page {
     margin-top: 80px;
-    margin-bottom: 20px;
 }
 .main-page-login {
     margin-top: 140px;
+}
+.bg-investment {
+	background: linear-gradient(to left, #ffffff 0%, #ffc107 100%);
+	padding: 10px;
 }

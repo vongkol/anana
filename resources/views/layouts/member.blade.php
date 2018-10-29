@@ -9,13 +9,14 @@
         <link href="{{asset('fronts/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('fronts/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('fronts/css/clean-blog.css')}}" rel="stylesheet">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon-32x32.png')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('fronts/css/custom.css')}}">
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{url('/')}}">
-                <img src="{{asset('images/logo.png')}}" alt="" class="logo py-1"> Ana Lee Capital
+                    <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -115,7 +116,7 @@
         </div>
         <footer>
             <div class="container">
-                <section class="section2 text-center">
+                <section class="text-center">
                     <div class="row">
                     <div class="col-md-3">
                     <h5>PRODUCTS</h5>
