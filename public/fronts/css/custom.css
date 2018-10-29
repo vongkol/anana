@@ -364,11 +364,10 @@ body {
   footer {
 	padding: 15px 0;
 	background: #212529;
-	margin-top: 59px;
 	}
 	.card {
-		background-color: #ffffffeb;
-	}
+    background-color: #ffffffb8;
+}
   
   footer .list-inline {
 	margin: 0;
@@ -554,4 +553,5 @@ color: #000;
 	footer {
     padding: 0;
 }
+
 }

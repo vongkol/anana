@@ -1,24 +1,28 @@
 
 .my-login-page {
+	margin-top: 87px;
+}
+.bg-login {
 	background-image: url('../../images/login.jpg');
 	background-size: 100%;
 	background-position: center;
- background-position-y: 87px;
-/* Full height */
     height: 100%; 
 	background-repeat: no-repeat;
 }
-
 .my-login-page .brand {
 	margin: 40px auto;
 }
 
-.my-login-page .brand img {
+.layer-login {
 	width: 100%;
+	position: relative;
+	background: #00000096;
+	height: 100%;
 }
 
 .my-login-page .card-wrapper {
 	width: 450px;
+	padding: 10px;
 }
 
 .my-sign-up .card-wrapper{
@@ -69,6 +73,9 @@
 }
 @media (max-width: 479px) {
 	.main-page-login {
-    	margin-top: 80px;
+    	margin-top: 35px;
+	}
+	.bg-login {
+		background-size: 1734px
 	}
 }

@@ -7,38 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
-
+    <meta name="author" content="sorvichey">
     <title>User Login</title>
-
-    <!-- Bootstrap Core CSS -->
     <link href="{{asset('admin/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
     <link href="{{asset('admin/vendor/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
-
-    <!-- Custom CSS -->
     <link href="{{asset('admin/dist/css/sb-admin-2.css')}}" rel="stylesheet">
-
-    <!-- Custom Fonts -->
     <link href="{{asset('admin/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
 <body style="background: #232321;">
-    <div class="container">
-    </div>
         <div class="container" style="margin-top: 100px;">
             <div class="row">
             <h1 style="color: #f9ad19;" class="text-center">
             
-                <img src="{{asset('images/logo.png')}}" alt=""> Ana Lee Capital</h1>
+                <img src="{{asset('images/alc-logo.png')}}" alt=""></h1>
                 <div class="col-md-4 col-md-offset-4">
                
                     <div class="panel panel-default">
