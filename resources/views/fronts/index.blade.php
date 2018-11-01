@@ -53,10 +53,10 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-6">
-                        <iframe class="video-ana-lee" src="https://www.youtube.com/embed/MAjtMkvgiVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="video-ana-lee" src="https://www.youtube.com/embed/p8dzJSJZ7EE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="col-md-6">
-                        <iframe class="video-ana-lee" src="https://www.youtube.com/embed/MAjtMkvgiVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="video-ana-lee" src="https://www.youtube.com/embed/V-9FwVqhves" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                     <img src="{{asset('images/myp4.jpg')}}" width="100%" alt="">
                 </p>
                 <div class="py-3">
-                    <h5 class="text-primary">Shop House</h5>
+                    <h5 class="text-primary">Ana Lee Flat</h5>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                     <img src="{{asset('images/myp5.jpg')}}" width="100%" alt="">
                 </p>
                 <div class="py-3">
-                    <h5 class="text-primary">Link House</h5>
+                    <h5 class="text-primary">Ana Lee LC</h5>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>

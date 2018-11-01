@@ -25,7 +25,7 @@
                         </div>
                         <div class="px-2">
                             support@analeecapital.com <br>
-                            service@analeecapital.com
+                            sales@analeecapital.com
                         </div>
                     </div>
                 </aside>
