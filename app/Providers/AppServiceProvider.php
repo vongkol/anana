@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
             $role_id = Auth::user()->role_id;
             $q = DB::table('role_permissions')
                 ->join('permissions', 'permissions.id', '=', 'role_permissions.permission_id')
-                ->select('role_permissions.list','role_permissions.insert','role_permissions.delete','role_permissions.update')
+                ->select('role_permissions.*')
                 ->where(['role_permissions'.'.role_id' => $role_id, 'permissions.name' => $expression])
                 ->where('role_permissions.list', 1);
 
@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
             $role_id = Auth::user()->role_id;
             $q = DB::table('role_permissions')
                 ->join('permissions', 'permissions.id', '=', 'role_permissions.permission_id')
-                ->select('role_permissions.list','role_permissions.insert','role_permissions.delete','role_permissions.update')
+                ->select('role_permissions.*')
                 ->where(['role_permissions'.'.role_id' => $role_id, 'permissions.name' => $expression])
                 ->where('role_permissions.insert', 1);
 
@@ -54,7 +54,7 @@ class AppServiceProvider extends ServiceProvider
             $role_id = Auth::user()->role_id;
             $q = DB::table('role_permissions')
                 ->join('permissions', 'permissions.id', '=', 'role_permissions.permission_id')
-                ->select('role_permissions.list','role_permissions.insert','role_permissions.delete','role_permissions.update')
+                ->select('role_permissions.*')
                 ->where(['role_permissions'.'.role_id' => $role_id, 'permissions.name' => $expression])
                 ->where('role_permissions.update', 1);
 
@@ -71,7 +71,7 @@ class AppServiceProvider extends ServiceProvider
             $role_id = Auth::user()->role_id;
             $q = DB::table('role_permissions')
                 ->join('permissions', 'permissions.id', '=', 'role_permissions.permission_id')
-                ->select('role_permissions.list','role_permissions.insert','role_permissions.delete','role_permissions.update')
+                ->select('role_permissions.*')
                 ->where(['role_permissions'.'.role_id' => $role_id, 'permissions.name' => $expression])
                 ->where('role_permissions.delete', 1);
 

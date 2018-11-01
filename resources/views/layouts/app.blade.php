@@ -45,45 +45,6 @@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                     
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
-               
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -93,9 +54,9 @@
                         <li class="user-photo">
                             <img src="{{asset('uploads/users/profiles/default.png')}}" alt="">
                         </li>
-                        <li><a href="{{url('analee-admin/user/profile/'. Auth::user()->id)}}"><i class="fa fa-user fa-fw text-success"></i> My Profile</a>
+                        <li><a href="{{url('analee-admin/user/profile/'. Auth::user()->id)}}">
+                            <i class="fa fa-user fa-fw text-success"></i> My Profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw text-warning"></i> Reset Password</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="{{url('/analee-admin/logout')}}"><i class="fa fa-sign-out fa-fw text-danger"></i> Logout</a>
@@ -110,17 +71,7 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
+                       
                         <li>
                             <a href="{{url('/analee-admin/dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
@@ -140,7 +91,7 @@
                             <a href="{{url('analee-admin/member')}}"><i class="fa fa-user fa-fw"></i> Members</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> Withdrawal</a>
+                            <a href="{{url('analee-admin/payment-request')}}"><i class="fa fa-arrow-right"></i> Withdrawal Request</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-dollar"></i> Admin Earnings<span class="fa arrow"></span></a>

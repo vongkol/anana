@@ -43,11 +43,16 @@
                     <td>{{$r->email}}</td>
                     <td>{{$r->rname}}</td>
                     <td>
+                        @delete('User')
                         <a href="{{url('analee-admin/user/delete/'.$r->id)}}" class="btn btn-danger btn-xs" 
                             title="Delete" onclick="return confirm('You want to delete?')">
                         <i class="fa fa-trash"></i></a>&nbsp;&nbsp;
+                        @enddelete
+
+                        @update('User')
                         <a href="{{url('analee-admin/user/edit/'.$r->id)}}" 
                             class="btn btn-success btn-xs" title="Edit"><i class="fa fa-pencil"></i></a>
+                        @endupdate
                     </td>
                 </tr>
                 @endforeach
