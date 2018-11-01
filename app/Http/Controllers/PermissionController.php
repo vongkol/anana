@@ -9,21 +9,15 @@ class PermissionController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(function ($request, $next) {
-            if (Auth::user()==null)
-            {
-                return redirect("/login");
-            }
-            return $next($request);
-        });
+        $this->middleware('auth');
     }
     // index
     public function index($id)
     {
-        // if(!Right::check('Permission', 'l'))
-        // {
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Permission', 'l'))
+        {
+            return view('admins.permissions.no');
+        }
         $this->data['role'] = DB::table('roles')->where('id', $id)->first();
         $this->data['permissions'] = DB::table('permissions')->orderBy('permissions.id', 'ASC')->get();
         $this->data['roles'] = DB::table('roles')->get();
@@ -46,7 +40,10 @@ class PermissionController extends Controller
     // save or update
     public function save(Request $r)
     {
-        
+        if(!Right::check('Permission', 'i'))
+        {
+            return 0;
+        }
         $i=0;
         if($r->id>0)
         {

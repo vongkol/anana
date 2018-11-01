@@ -261,7 +261,7 @@ class Investment
         $year = date('Y');
         $month = date('m');
         $bm = $month - 1;
-        // check if we already calculate already
+        // check if we already calculate
         if($month==1)
         {
             $bm = 12;
@@ -327,6 +327,7 @@ class Investment
                     'wallet_type' => 'cwallet'
                 );
                 DB::table('bonus_earning_transactions')->insert($data);
+                DB::table('members')->where('id', $mid)->update(['photo'=>'8.png']);
                 return $amount;
             }
             // queen diamound
@@ -360,6 +361,7 @@ class Investment
                     'wallet_type' => 'cwallet'
                 );
                 DB::table('bonus_earning_transactions')->insert($data);
+                DB::table('members')->where('id', $mid)->update(['photo'=>'7.png']);
                 return $amount;
             }
              // diamound
@@ -392,6 +394,7 @@ class Investment
                     'wallet_type' => 'cwallet'
                 );
                 DB::table('bonus_earning_transactions')->insert($data);
+                DB::table('members')->where('id', $mid)->update(['photo'=>'6.png']);
                 return $amount;
             }
              // gold
@@ -424,6 +427,7 @@ class Investment
                     'wallet_type' => 'cwallet'
                 );
                 DB::table('bonus_earning_transactions')->insert($data);
+                DB::table('members')->where('id', $mid)->update(['photo'=>'5.png']);
                 return $amount;
             }
             // platinuim
@@ -456,6 +460,7 @@ class Investment
                     'wallet_type' => 'cwallet'
                 );
                 DB::table('bonus_earning_transactions')->insert($data);
+                DB::table('members')->where('id', $mid)->update(['photo'=>'4.png']);
                 return $amount;
             }
             // silver
@@ -489,6 +494,7 @@ class Investment
                     'wallet_type' => 'cwallet'
                 );
                 DB::table('bonus_earning_transactions')->insert($data);
+                DB::table('members')->where('id', $mid)->update(['photo'=>'3.png']);
                 return $amount;
             }
              // fronze
@@ -522,6 +528,7 @@ class Investment
                     'wallet_type' => 'cwallet'
                 );
                 DB::table('bonus_earning_transactions')->insert($data);
+                DB::table('members')->where('id', $mid)->update(['photo'=>'2.png']);
                 return $amount;
             }
             // fronze
@@ -540,7 +547,6 @@ class Investment
                 // add to wallet
                 $cwallet = Helper::encryptor('decrypt', $m->cash_wallet) + $amount;
                 DB::table('members')->where('id', $mid)->update(['cash_wallet'=>Helper::encryptor('encrypt', $cwallet)]);
-              
                 $data = array(
                     'member_id' => $mid,
                     'transaction_date' => date('Y-m-d'),
@@ -548,6 +554,8 @@ class Investment
                     'wallet_type' => 'cwallet'
                 );
                 DB::table('bonus_earning_transactions')->insert($data);
+                DB::table('members')->where('id', $mid)->update(['photo'=>'1.png']);
+
                 return $amount;
             }
             else{
