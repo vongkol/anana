@@ -4,7 +4,10 @@
     <div class="col-sm-12">
         <h3 class="page-header">
             <i class="fa fa-user"></i> User 
+            @insert('User')
             <a href="{{url('analee-admin/user/create')}}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> New</a>
+            @endinsert
+            
         </h3>
         @if(Session::has('sms'))
             <div class="alert alert-success" role="alert">
@@ -40,7 +43,7 @@
                     <td>{{$r->email}}</td>
                     <td>{{$r->rname}}</td>
                     <td>
-                        <a href="{{url('analee-admin/user/delete?id='.$r->id.'&page='.@$_GET['page'])}}" class="btn btn-danger btn-xs" 
+                        <a href="{{url('analee-admin/user/delete/'.$r->id)}}" class="btn btn-danger btn-xs" 
                             title="Delete" onclick="return confirm('You want to delete?')">
                         <i class="fa fa-trash"></i></a>&nbsp;&nbsp;
                         <a href="{{url('analee-admin/user/edit/'.$r->id)}}" 

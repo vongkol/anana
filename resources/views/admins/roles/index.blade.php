@@ -36,7 +36,7 @@
                     <td>{{$i++}}</td>
                     <td>{{$r->name}}</td>
                     <td>
-                        <a href="#" class="btn btn-primary btn-xs" title="Permission"><i class="fa fa-key"></i></a>
+                        <a href="{{url('analee-admin/role/permission/'.$r->id)}}" class="btn btn-primary btn-xs" title="Permission"><i class="fa fa-key"></i></a>
                         &nbsp;
                         <a href="{{url('analee-admin/role/delete?id='.$r->id)}}" class="btn btn-danger btn-xs" 
                             title="Delete" onclick="return confirm('You want to delete?')">

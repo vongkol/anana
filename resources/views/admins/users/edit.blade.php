@@ -59,7 +59,9 @@
             <div class="form-group">
                 <label for="password" class="col-sm-2 control-label">Password</label>
                 <div class="col-sm-10">
+                    <span class="text-small">Keep this field blank to use the old password.</span>
                     <input type="password" class="form-control" name="password" value="">
+                    
                 </div>
             </div>
             <div class="form-group">
