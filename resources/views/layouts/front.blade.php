@@ -13,15 +13,15 @@
         <link rel="stylesheet" type="text/css" href="{{asset('fronts/css/custom.css')}}">
     </head>
     <body>
-    <?php $exc = DB::table('rates')->where('id',1)->first();?>
+        <?php $exc = DB::table('rates')->where('id',1)->first();?>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{url('/')}}">
                     <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fa fa-bars"></i>
+                    Menu
+                    <i class="fa fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
@@ -47,7 +47,6 @@
                 @if(Session::has('member'))
                 <ul class="ml-auto navbar-nav">
                     <li class="nav-item dropdown">
-                       
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="{{asset('images/logo.png')}}" width="40" alt=""> {{session('member')->username}}
                         </a>
@@ -72,43 +71,42 @@
                 </div>
             </div>
         </nav>
-
         @yield('content')
-        
         <footer>
             <div class="container">
                 <section class="text-white">
                     <div class="row">
-                    <div class="col-md-8 text-justify">
-                    <h5>
-                        <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
-                    </h5>
-                        <aside>
-                            Established in 2018 as investment company.  
-                        </aside>
-                        <aside>
-                            Ana Lee Capital aim to the creation of an environment where investors are focused more on getting in an out of an E-share for quick financial gains rather than having a legitimate, vested interested and belief in the platform they are contributing financial support to.
-                        </aside>
-                    </div>
-
+                        <div class="col-md-8 text-justify">
+                            <h5>
+                                <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
+                            </h5>
+                            <aside>
+                                Established in 2018 as investment company.  
+                            </aside>
+                            <aside>
+                                Ana Lee Capital aim to the creation of an 
+                                environment where investors are focused more on
+                                getting in an out of an E-share for quick financial 
+                                gains rather than having a legitimate, vested interested 
+                                and belief in the platform they are contributing financial support to.
+                            </aside>
+                        </div>
                         <div class="col-md-4 contact-us">
                             <h5>CONTACT US</h5>
-                            <aside> #A3, St.BT, Sangkat Chomchaov, Khan Porsenchey, Phnom Penh, Cambodia
-                            </aside>
+                            <aside> #A3, St.BT, Sangkat Chomchaov, Khan Porsenchey, Phnom Penh, Cambodia</aside>
                             <aside class="col-md-12 ">
                                 <div class="row">
-                                <div>
-                                Email:
-                                </div>
-                                <div class="px-2">
-                                    support@analeecapital.com <br>
-                                    service@analeecapital.com
-                                </div>
+                                    <div>
+                                        Email:
+                                    </div>
+                                    <div class="px-2">
+                                        support@analeecapital.com <br>
+                                        service@analeecapital.com
+                                    </div>
                                 </div>
                             </aside>
                         </div>
                 </section>
-               
             </div>
         </footer>
         <div class="container-fluit term-footer">
@@ -124,7 +122,6 @@
                 </div>
             </div>
         </div>
-        <!-- Bootstrap core JavaScript -->
         <script src="{{asset('fronts/vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{asset('fronts/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('fronts/js/clean-blog.min.js')}}"></script>

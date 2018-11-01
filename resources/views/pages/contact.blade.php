@@ -7,14 +7,14 @@
                 <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Contact</li>
             </ol>
-            <h4 class="pull-right page-title text-primary">
+            <h4 class="pull-right page-title">
                 CONTACT US
             </h4>
         </nav>
     </div>
 </div>
 
-<div class="container-fluit page-background-color2 text-white">
+<div class="container-fluit page-background-color">
     <div class="container text-center">
         <div class="main-container-page">
             <h5 class="sub-title-image">The Rise of Legend</h5>

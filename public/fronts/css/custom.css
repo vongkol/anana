@@ -477,23 +477,13 @@ color: #000;
 .page-title {
 	margin-top: -50px;
 }
-.text-pink {
-	color: #e850e7;
-}
+
 .investment-name {
 	margin-top: 35px;
 }
 
-.page-background-color1 {
-	background: linear-gradient(to left, #f00 0%, #feed4a 100%);
-	padding: 50px;
-}
-.page-background-color2 {
-	background: linear-gradient(to left, #0037ff 0%, #fdef4d 100%);
-	padding: 50px;
-}
-.page-background-color3 {
-	background: linear-gradient(to left, #fb00ff 0%, #ff5500 100%);
+.page-background-color {
+	background: linear-gradient(to left, #ffffff 0%, #ffc107 100%);
 	padding: 50px;
 }
 .logo {
@@ -504,6 +494,9 @@ color: #000;
 }
 .contact-us {
 	margin-top: 81px;
+}
+.my-sign-up {
+	background: linear-gradient(to left, #ffffff 0%, #ffc107 100%);
 }
 @media (max-width: 479px) {
 	.navbar-nav .dropdown-menu {
