@@ -22,6 +22,7 @@
     <link href="{{asset('admin/vendor/morrisjs/morris.css')}}" rel="stylesheet">
     <link href="{{asset('admin/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{asset('admin/style.css')}}">
+    <link rel="stylesheet" href="{{asset('admin/custom.css')}}">
 </head>
 
 <body>
@@ -183,12 +184,16 @@
                         <li>
                             <a href="#"><i class="fa fa-key text-danger"></i> Security<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                                @view('Role')
                                 <li>
-                                    <a href="{{url('analee-admin/role')}}"><i class="fa fa-shield"></i> User Roles</a>
+                                    <a href="{{url('analee-admin/role')}}"><i class="fa fa-shield"></i> Roles</a>
                                 </li>
+                                @endview
+                                @view('User')
                                 <li>
                                     <a href="{{url('analee-admin/user')}}"><i class="fa fa-users"></i> Users</a>
                                 </li>
+                                @endview
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -225,12 +230,15 @@
     <script src="{{asset('admin/vendor/metisMenu/metisMenu.min.js')}}"></script>
 
     <!-- Morris Charts JavaScript -->
-    <script src="{{asset('admin/vendor/raphael/raphael.min.js')}}"></script>
+    <!-- <script src="{{asset('admin/vendor/raphael/raphael.min.js')}}"></script>
     <script src="{{asset('admin/vendor/morrisjs/morris.min.js')}}"></script>
-    <script src="{{asset('admin/data/morris-data.js')}}"></script>
+    <script src="{{asset('admin/data/morris-data.js')}}"></script> -->
 
     <!-- Custom Theme JavaScript -->
     <script src="{{asset('admin/dist/js/sb-admin-2.js')}}"></script>
+    <script>
+        var burl = "{{url('/')}}";
+    </script>
     @yield('js')
 
 </body>

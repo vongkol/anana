@@ -87,10 +87,10 @@ EOT;
     }
     public function signin(Request $r)
     {
-        $validateData = $r->validate([
-            'username' => 'required|min:3',
-            'password' => 'required|min:6'
-        ]);
+        // $validateData = $r->validate([
+        //     'username' => 'required|min:3',
+        //     'password' => 'required|min:6'
+        // ]);
         $username = $r->username;
         $pass = $r->password;
         $member = DB::table('members')->where('active',1)->where('username', $username)->first();

@@ -91,7 +91,7 @@ Route::prefix('analee-admin')->group(function () {
 
     Route::get('user', 'UserController@index');
     Route::get('user/create', 'UserController@create');
-    Route::get('user/delete', 'UserController@delete');
+    Route::get('user/delete/{id}', 'UserController@delete');
     Route::get('user/edit/{id}', 'UserController@edit');
     Route::get('user/profile/{id}', 'UserController@profile');
     Route::post('user/save', 'UserController@save');
@@ -103,7 +103,8 @@ Route::prefix('analee-admin')->group(function () {
     Route::post('role/save', "RoleController@save");
     Route::get('role/edit/{id}', "RoleController@edit");
     Route::post('role/update', "RoleController@update");
-
+    Route::get('/role/permission/{id}', "PermissionController@index");
+    Route::post('/rolepermission/save', "PermissionController@save");
     // supply
     Route::get('supply', "SupplyController@index");
     Route::get('supply/edit/{id}', "SupplyController@edit");

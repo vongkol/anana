@@ -19,24 +19,27 @@ class RoleController extends Controller
     // index
     public function index()
     {
-        // if(!Right::check('Role', 'l'))
-        // {
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Role', 'l'))
+        {
+            return view('admins.permissions.no');
+        }
         $data['roles'] = DB::table('roles')->get();
         return view('admins.roles.index', $data);
     }
     public function create()
     {
-        // if(!Right::check('Role', 'i'))
-        // {
-        //     return view('admins.permissions.no');
-        // }
+        if(!Right::check('Role', 'i'))
+        {
+            return view('admins.permissions.no');
+        }
         return view('admins.roles.create');
     }
     public function save(Request $r)
     {
-       
+       if(!Right::check('Role', 'i'))
+        {
+            return view('admins.permissions.no');
+        }
         $data = array(
             'name' => $r->name
         );
@@ -53,6 +56,10 @@ class RoleController extends Controller
     }
     public function update(Request $r)
     {
+        if(!Right::check('Role', 'u'))
+        {
+            return view('admins.permissions.no');
+        }
         $data = array(
             'name' => $r->name
         );
@@ -69,20 +76,20 @@ class RoleController extends Controller
     }
     public function edit($id)
     {
-        // if(!Right::check('Role', 'u'))
-        // {
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Role', 'u'))
+        {
+            return view('admins.permissions.no');
+        }
         $data['role'] = DB::table('roles')->where('id', $id)->first();
         return view('admins.roles.edit', $data);
     }
     // delete a role by id
     public function delete(Request $r)
     {
-        // if(!Right::check('Role', 'd'))
-        // {
-        //     return view('permissions.no');
-        // }
+        if(!Right::check('Role', 'd'))
+        {
+            return view('admins.permissions.no');
+        }
         DB::table('roles')->where('id', $r->id)->delete();
         $r->session()->flash('sms', 'A role has been removed successfully!');
         return redirect('analee-admin/role');
