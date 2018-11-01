@@ -8,7 +8,6 @@
         <title>Ana Lee Capital</title>
         <link href="{{asset('fronts/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('fronts/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-		<link href="{{asset('fronts/css/clean-blog.css')}}" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="{{asset('fronts/css/custom.css')}}">
         <link rel="stylesheet" href="{{asset('fronts/css/page.css')}}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon-32x32.png')}}">

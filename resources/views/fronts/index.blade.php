@@ -38,6 +38,30 @@
             </div>
         </section>
     </div>
+    <div class="container container-c">
+        <div class="row">
+            <div class="col-md-12 my-4 text-center">
+                <h2 class="text-warning">Welcome to Ana Lee Capital</h2> 
+                <aside>
+                Your only solution to digital money, 
+                turning your cryptocurrencies into real money.
+                We are legit, we are solid, we are the real deal.</aside>
+                <aside>
+                Cash out your cryptocurrencies with our bank partners in
+                Cambodia, and count them all in your own hand. Ana Lee Capital.</aside>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <iframe class="video-ana-lee" src="https://www.youtube.com/embed/MAjtMkvgiVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-6">
+                        <iframe class="video-ana-lee" src="https://www.youtube.com/embed/MAjtMkvgiVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container my4 container-c">
         <div class="row">
             <div class="col-md-12">
@@ -51,8 +75,7 @@
                     <img src="{{asset('images/myp6.jpg')}}" class="w-100" alt="">
                 </p>
                 <div class="py-3">
-                    <h5 class="text-primary">Hotel and Resort</h5>
-                    <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
+                    <h5 class="text-primary">Ana Lee Hotel and Resort</h5>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -61,8 +84,7 @@
                     <img src="{{asset('images/myp1.jpg')}}" class="w-100" alt="">
                 </p>
                 <div class="py-3">
-                    <h5 class="text-primary">Twin Villa</h5>
-                    <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
+                    <h5 class="text-primary">Glory Villa</h5>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -71,8 +93,7 @@
                     <img src="{{asset('images/myp2.jpg')}}" width="100%" alt="">
                 </p>
                 <div class="py-3">
-                    <h5 class="text-primary">Villa</h5>
-                    <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
+                    <h5 class="text-primary">Harmonize Villa</h5>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -81,8 +102,7 @@
                     <img src="{{asset('images/myp3.jpg')}}" width="100%" alt="">
                 </p>
                 <div class="py-3">
-                    <h5 class="text-primary">Platinum Villa</h5>
-                    <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
+                    <h5 class="text-primary">Grand Villa</h5>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -92,7 +112,6 @@
                 </p>
                 <div class="py-3">
                     <h5 class="text-primary">Shop House</h5>
-                    <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -102,7 +121,6 @@
                 </p>
                 <div class="py-3">
                     <h5 class="text-primary">Link House</h5>
-                    <p>Stay on top of bitcoin and other top cryptocurrency prices, news, and market information.</p>
                     <a href="" class=""> Read More <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
@@ -129,7 +147,7 @@
             </div>
         </div>
 
-        <div class="row my-5">
+        <!-- <div class="row my-5">
             <div class="col-md-12">
             <h2 class="text-success">Business Partners</h2>
             <hr>
@@ -155,7 +173,7 @@
             <div class="col-md-2 text-center" style="line-height: 100px;">
                 <img src="{{asset('images/p7.png')}}" height="100" alt="">
             </div>
-        </div>
+        </div> -->
     </div> 
 
 
