@@ -107,7 +107,7 @@
                 </div>
             </div>
         </div>
-        <div class="row my-5">
+        <div class="row my-2 pt-3">
             <div class="col-md-12">
             <h2 class="text-primary">Payment Services</h2>
             <hr>
@@ -115,17 +115,17 @@
         </div>
         <div class="row">
             <hr>
-            <div class="col-md-3 text-center" style="line-height: 100px;">
-                <img src="{{asset('images/aba.png')}}" height="100" alt="">
+            <div class="col-md-3 p-2 text-center">
+                <img src="{{asset('images/ababank.png')}}"  alt="">
             </div>
-            <div class="col-md-2 text-center" style="line-height: 100px;">
-                <img src="{{asset('images/chbank.jpg')}}"  height="118"  alt="">
+            <div class="col-md-3 p-2 text-center">
+                <img src="{{asset('images/chbank.png')}}"    alt="">
             </div>
-            <div class="col-md-3 text-center" style="line-height: 100px;">
-                <img src="{{asset('images/sacombank.jpg')}}" height="100" alt="">
+            <div class="col-md-3 p-2 text-center">
+                <img src="{{asset('images/sacombank.png')}}"  alt="">
             </div>
-            <div class="col-md-4 text-center" style="line-height: 100px;">
-                <img src="{{asset('images/kbank.png')}}" height="100" alt="">
+            <div class="col-md-3 p-2 text-center">
+                <img src="{{asset('images/kbank.png')}}"  alt="">
             </div>
         </div>
 

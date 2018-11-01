@@ -105,7 +105,7 @@
 									</div>
 								
 									<div class="form-group no-margin">
-										<button type="button" class="btn btn-learn btn-primary btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">
+										<button type="button" class="btn btn-learn btn-dark btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">
 											Continue
 										</button>
 									</div>

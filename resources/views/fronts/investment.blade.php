@@ -14,14 +14,6 @@
         </nav>
     </div>
 </div>
-<!-- <div class="container-fluit">
-<img src="{{asset('images/back1.png')}}" width="100%" alt="">
-    <section class="container text-center">
-       <h1 class="title-page">
-           <span class="px-3 bg-light rounded shadow">Investment Plans</span> 
-        </h1>
-    </section>
-</div> -->
 <div class="bg-investment">
 <div class="container">
     <div class="pricing row">
