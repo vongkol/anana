@@ -8,7 +8,6 @@
         <title>Ana Lee Capital</title>
         <link href="{{asset('fronts/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('fronts/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-        <link href="{{asset('fronts/css/clean-blog.css')}}" rel="stylesheet">
         <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon-32x32.png')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('fronts/css/custom.css')}}">
     </head>
@@ -81,14 +80,16 @@
                                 <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
                             </h5>
                             <aside>
-                                Established in 2018 as investment company.  
+                                We are the first authorized and legal cryptocurrency representative in Cambodia.
+                                Digital Currency is taking the world by storm because It is not just the next big thing,
+                                it is THE BING THINGS. With Blockchain technology, fraud, embezzlement and other crooked 
+                                activities in business transaction is no more because it is a peer to peer, network to network where no one can break it. 
+                                This blockchain technology is now being used across the world as means of money transfer, 
+                                crowd funding, payment and more.
                             </aside>
                             <aside>
-                                Ana Lee Capital aim to the creation of an 
-                                environment where investors are focused more on
-                                getting in an out of an E-share for quick financial 
-                                gains rather than having a legitimate, vested interested 
-                                and belief in the platform they are contributing financial support to.
+                                Want to become our members in this exciting journey to generate more income, Ana Lee can help you achieve your dream goal.
+                                If you are already a Blockchain members, we can help you to get your real cash with our partners in Cambodia.
                             </aside>
                         </div>
                         <div class="col-md-4 contact-us">
