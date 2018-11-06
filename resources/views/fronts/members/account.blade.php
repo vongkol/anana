@@ -113,6 +113,7 @@
                     </div>
                 </div> -->
                 <p>Or you can be paid by bank transfer.</p>
+                @if($bank!=null)
                 <form action="{{url('member/address/save')}}" method="POST">
                     {{csrf_field()}}
                     <div class="form-group row">
@@ -161,6 +162,57 @@
                     </div>
                 </div>
                 </form>
+                @else
+
+                    <form action="{{url('member/address/save')}}" method="POST">
+                        {{csrf_field()}}
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3">Bank Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name='bank_name' value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3">Bank Branch Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name='branch_name' value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3">Swift Code</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name='swift_code' value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3">Bank Address</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name='address' value="">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3">Full Name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name='full_name' value="">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3">Account No</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name='account_no' value="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3">&nbsp;</label>
+                            <div class="col-sm-9">
+                                <button class="btn btn-sm btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                @endif
             </div>
         </div>
    </div>

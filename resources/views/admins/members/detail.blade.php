@@ -49,12 +49,32 @@
             </tr>
             <tr>
                 <td colspan="2">
+                    <p><strong class="text-danger">ALC Address:</strong></p>
+                    <p>{{$member->anc_address}}</p>
+                </td>
+            </tr>
+             <tr>
+                <td>Sale Volume</td>
+                <td>
+                    : $ {{$member->sale_volume}}
+                </td>
+            </tr>
+            <tr>
+                <td>Sale Bonus</td>
+                <td>
+                    : $ {{$member->sale_bonus}}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
                     <a href="{{url('analee-admin/member/reset-password/'.$member->id)}}" class="btn btn-sm btn-primary">Reset Password</a>
                     <a href="{{url('analee-admin/member/reset-security-pin/'.$member->id)}}" class="btn btn-sm btn-warning">Reset Security Pin</a>
                     <a href="{{url('analee-admin/member/delete/'.$member->id)}}" onclick="return confirm('You want to delete?')" class="btn btn-danger btn-sm">Delete</a> 
-                    <a href="{{url('analee-admin/member/credit/'.$member->id)}}" class="btn btn-success btn-sm">Add Credit</a>
+                    <a href="{{url('analee-admin/member/credit/'.$member->id)}}" class="btn btn-success btn-sm">Add Credit</a> 
+                    <a href="{{url('analee-admin/member/volume/'. $member->id)}}" class="btn btn-primary btn-sm">Edit Sale Volume</a>
                 </td>
             </tr>
+           
         </table>
        
     </div>
@@ -86,7 +106,63 @@
                     : $ {{ \App\Http\Controllers\Helper::encryptor('decrypt', $member->token_wallet)}}
                 </td>
             </tr>
+            
         </table>
+            <h4 class="text-danger">Bank Account</h4>
+            @if($bank!=null)
+            <table class="table table-sm">
+                <tr>
+                    <td>
+                        Bank Name
+                    </td>
+                    <td>
+                        : {{$bank->bank_name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Bank Branch Name
+                    </td>
+                    <td>
+                        : {{$bank->branch_name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Swift Code
+                    </td>
+                    <td>
+                        : {{$bank->swift_code}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Bank Address
+                    </td>
+                    <td>
+                        : {{$bank->address}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Full Name
+                    </td>
+                    <td>
+                        : {{$bank->full_name}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Account Number
+                    </td>
+                    <td>
+                        : {{$bank->account_no}}
+                    </td>
+                </tr>
+            </table>
+            @else
+                <p>No bank information!</p>
+            @endif
     </div>
 </div>
 <div class="row">

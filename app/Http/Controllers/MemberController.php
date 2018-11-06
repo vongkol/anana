@@ -211,7 +211,7 @@ EOT;
             'address' => $r->address
         );
         DB::table('banks')->insert($data);
-        return redirect('member/account/'.$member->id);
+        return redirect('member/account/'. Helper::encryptor('encrypt', $member->id));
     }
     public function reset_password(Request $r)
     {

@@ -76,41 +76,30 @@
                             <a href="{{url('/analee-admin/dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="{{url('#')}}"><i class="fa fa-star fa-fw"></i> Payment Request</a>
+                            <a href="{{url('analee-admin/earning')}}"> <i class="fa fa-arrow-right"></i> Total Earning</a>
                         </li>
                         <li>
-                            <a href="{{url('#')}}"><i class="fa fa-star fa-fw"></i> Transaction</a>
+                            <a href="{{url('analee-admin/member/payment')}}"><i class="fa fa-star fa-fw"></i> Payment Request</a>
                         </li>
-                        <li>
-                            <a href="{{url('#')}}"><i class="fa fa-star fa-fw"></i> Member Investment</a>
-                        </li>
-                        <li>
-                            <a href="{{url('#')}}"><i class="fa fa-star fa-fw"></i> Member Sponsor</a>
-                        </li>
+                        
                         <li>
                             <a href="{{url('analee-admin/member')}}"><i class="fa fa-user fa-fw"></i> Members</a>
                         </li>
                         <li>
-                            <a href="{{url('analee-admin/payment-request')}}"><i class="fa fa-arrow-right"></i> Withdrawal Request</a>
+                            <a href="{{url('analee-admin/member/fill-credit')}}">
+                                <i class="fa fa-star fa-fw"></i> Credit Transaction</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-dollar"></i> Admin Earnings<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Earning</a>
-                                </li>
-                                <li>
-                                    <a href="#">Admin Fee</a>
-                                </li>
-                                <li>
-                                    <a href="#">Transfer Transactions</a>
-                                </li>
-                                <li>
-                                    <a href="#">Earning Detail</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            <a href="{{url('analee-admin/member/transaction')}}">
+                                <i class="fa fa-arrow-right"></i> Member Earning Transaction 
+                            </a>
                         </li>
+                        <li>
+                            <a href="{{url('analee-admin/member/transfer')}}">
+                                <i class="fa fa-arrow-right"></i> Member Transfer Transaction 
+                            </a>
+                        </li>
+
                         <li>
                             <a href="#"><i class="fa fa-cog text-success"></i> Settings<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">

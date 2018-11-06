@@ -21,6 +21,7 @@ class EarningController extends Controller
         }
         // calculate earning for the current month if not pay yet.
         Investment::earning($member->id, date('Y-m-d'), $inv->package_id);
+        
         // reward for the current month
         $m = date('m');
         $y = date('Y');
