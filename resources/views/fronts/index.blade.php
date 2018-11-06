@@ -10,13 +10,10 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{asset('images/banner.jpg')}}" alt="" width="100%">
+                            <img class="d-block w-100" src="{{asset('images/banner1.jpg')}}" alt="" width="100%">
                         </div>
                         <div class="carousel-item">
-                        <img class="d-block w-100" src="{{asset('images/banner.jpg')}}" alt="" width="100%">
-                        </div>
-                        <div class="carousel-item">
-                        <img class="d-block w-100" src="{{asset('images/banner.jpg')}}" alt="" width="100%">
+                            <img class="d-block w-100" src="{{asset('images/banner2.jpg')}}" alt="" width="100%">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -41,7 +38,7 @@
     <div class="container container-c">
         <div class="row">
             <div class="col-md-12 my-4 text-center">
-                <h2 class="text-warning">Welcome to Ana Lee Capital</h2> 
+                <h2 class="text-warning mb-welcome-text">Welcome to Ana Lee Capital</h2> 
                 <aside>
                 Your only solution to digital money, 
                 turning your cryptocurrencies into real money.
