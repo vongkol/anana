@@ -13,6 +13,9 @@
                             <img class="d-block w-100" src="{{asset('images/banner1.jpg')}}" alt="" width="100%">
                         </div>
                         <div class="carousel-item">
+                            <img class="d-block w-100" src="{{asset('images/banner3.jpg')}}" alt="" width="100%">
+                        </div>
+                        <div class="carousel-item">
                             <img class="d-block w-100" src="{{asset('images/banner2.jpg')}}" alt="" width="100%">
                         </div>
                     </div>
@@ -143,46 +146,6 @@
                 <img src="{{asset('images/kbank.png')}}"  alt="">
             </div>
         </div>
-
-        <!-- <div class="row my-5">
-            <div class="col-md-12">
-            <h2 class="text-success">Business Partners</h2>
-            <hr>
-            </div>
-        </div>
-        <div class="row">
-            <hr>
-            <div class="col-md-2 text-center" style="line-height: 100px;">
-                <img src="{{asset('images/p4.png')}}" height="100" alt="">
-            </div>
-            <div class="col-md-2 text-center" style="line-height: 100px;">
-                <img src="{{asset('images/p1.png')}}" height="100" alt="">
-            </div>
-            <div class="col-md-2 text-center" style="line-height: 100px;">
-                <img src="{{asset('images/p2.png')}}"  height="100"  alt="">
-            </div>
-            <div class="col-md-2 text-center" style="line-height: 100px;">
-                <img src="{{asset('images/p3.png')}}" height="100" alt="">
-            </div>
-            <div class="col-md-2 text-center" style="line-height: 100px;">
-                <img src="{{asset('images/p5.png')}}" height="100" alt="">
-            </div>
-            <div class="col-md-2 text-center" style="line-height: 100px;">
-                <img src="{{asset('images/p7.png')}}" height="100" alt="">
-            </div>
-        </div> -->
     </div> 
-
-
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d250151.4521064407!2d104.75010230732494!3d11.57933057569886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109513dc76a6be3%3A0x9c010ee85ab525bb!2sPhnom+Penh!5e0!3m2!1sen!2skh!4v1540554478276" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-
-    <!-- <div class="container-fluit content2">
-        <div class="col-md-12 text-center">
-            <h3>Enter the Future of Finance</h3>
-            <p>Empowering individuals, investors, and developers to join the revolution</p>
-            <a class="btn btn-outline-dark btn-white text-white flat" >Create Your Wallet</a>
-            <a class="btn btn-outline-dark btn-learn text-white flat" >Learn More <i class="fa fa-arrow-right"></i></a>
-        </div>
-    </div> -->
 @endsection
