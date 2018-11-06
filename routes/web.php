@@ -142,4 +142,16 @@ Route::prefix('analee-admin')->group(function () {
     // credit
     Route::get('member/credit/{id}', 'MemberAdminController@credit');
     Route::post('member/credit/save', 'MemberAdminController@save_credit');
+    // sale volume
+    Route::get('member/volume/{id}', 'MemberAdminController@volume');
+    Route::post('member/volume/save', 'MemberAdminController@volume_save');
+    // payment request
+    Route::get('member/payment', 'Admin\PaymentRequestController@index');
+    // credit transfer transaction
+    Route::get('member/fill-credit', 'Admin\CreditController@index');
+    // ana lee earning
+    Route::get('earning', 'Admin\EarningController@index');
+    // member earning transaction
+    Route::get('member/transaction', 'Admin\TransactionController@index');
+    Route::get('member/transfer', 'Admin\TransactionController@transfer');
 });

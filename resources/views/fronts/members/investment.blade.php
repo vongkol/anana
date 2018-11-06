@@ -81,6 +81,7 @@
 				<a href="{{url('member/investment/start')}}" class="btn btn-warning btn-sm">Start Investment Now</a>
 			</p>
 		@endif
+
 	</div>
 </div>
 @stop

@@ -26,6 +26,7 @@ class MemberAdminController extends Controller
             ->where('investments.member_id', $id)
             ->select('investments.*', 'packages.name', 'packages.price', 'packages.monthly_payout', 'packages.duration')
             ->first();
+        $data['bank'] = DB::table('banks')->where('member_id', $id)->first();
         return view('admins.members.detail', $data);
     }
     public function delete($id, Request $r)
@@ -116,4 +117,20 @@ class MemberAdminController extends Controller
               return redirect('analee-admin/member/credit/'.$m->id);
           }
       }
+    // sale volume
+    public function volume($id)
+    {
+        $m = DB::table('members')->where('id', $id)->first();
+        $data['m'] = $m;
+        return view('admins.members.volume', $data);
+    }
+    public function volume_save(Request $r)
+    {
+        $data = array(
+            'sale_volume' => $r->sale_volume,
+            'sale_bonus' => $r->sale_bonus
+        );
+        DB::table('members')->where('id', $r->id)->update($data);
+        return redirect('analee-admin/member/detail/'.$r->id);
+    }
 }

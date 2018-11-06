@@ -96,11 +96,13 @@ class Investment
             );
             DB::table('member_earning_transactions')->insert($data);
             // earning for referals
-            self::network_earning($mid, $pid);
+            // self::network_earning($mid, $pid);
         }
     }
     public static function network_earning($mid, $pid)
     {
+        // $mid is the package buyer, $pid is the package
+
         $m = DB::table('members')->where('id', $mid)->first();
         $p = DB::table('packages')->where('id', $pid)->first();
         $rate = $p->gen1;
@@ -122,6 +124,7 @@ class Investment
                 DB::table('members')->where('id', $gen1->id)->update(['cash_wallet'=>Helper::encryptor('encrypt',$total)]);
                 $data = array(
                     'from_id' => $mid,
+                    'from_account' => $m->username,
                     'to_id' => $gen1->id,
                     'transaction_date' => date('Y-m-d'),
                     'amount' => $earn,
@@ -131,7 +134,7 @@ class Investment
                 );
                 DB::table('network_earning_transactions')->insert($data);
                 // sencond gen
-                $gen2 = DB::table('members')->where('sponsor_id', $gen1->sponsor_id)->first();
+                $gen2 = DB::table('members')->where('username', $gen1->sponsor_id)->first();
                 if($gen2!=null)
                 {
                     if($rate1>0)
@@ -142,6 +145,7 @@ class Investment
                         DB::table('members')->where('id', $gen2->id)->update(['cash_wallet'=>Helper::encryptor('encrypt', $total1)]);
                         $data = array(
                             'from_id' => $mid,
+                            'from_account' => $m->username,
                             'to_id' => $gen2->id,
                             'transaction_date' => date('Y-m-d'),
                             'amount' => $earn1,
@@ -151,7 +155,7 @@ class Investment
                         );
                         DB::table('network_earning_transactions')->insert($data);
                         // 3 gen
-                        $gen3 = DB::table('members')->where('sponsor_id', $gen2->sponsor_id)->first();
+                        $gen3 = DB::table('members')->where('username', $gen2->sponsor_id)->first();
                         if($gen3!=null)
                         {
                             $r2 = $rate2/100;
@@ -160,6 +164,7 @@ class Investment
                             DB::table('members')->where('id', $gen3->id)->update(['cash_wallet'=>Helper::encryptor('encrypt',$total2)]);
                             $data = array(
                                 'from_id' => $mid,
+                                'from_account' => $m->username,
                                 'to_id' => $gen3->id,
                                 'transaction_date' => date('Y-m-d'),
                                 'amount' => $earn2,
@@ -169,7 +174,7 @@ class Investment
                             );
                             DB::table('network_earning_transactions')->insert($data);
                             // gen 4
-                            $gen4 = DB::table('members')->where('sponsor_id', $gen3->sponsor_id)->first();
+                            $gen4 = DB::table('members')->where('username', $gen3->sponsor_id)->first();
                             if($gen4!=null)
                             {
                                 $r3 = $rate3/100;
@@ -178,6 +183,7 @@ class Investment
                                 DB::table('members')->where('id', $gen4->id)->update(['cash_wallet'=>Helper::encryptor('encrypt', $total3)]);
                                 $data = array(
                                     'from_id' => $mid,
+                                    'from_account' => $m->username,
                                     'to_id' => $gen4->id,
                                     'transaction_date' => date('Y-m-d'),
                                     'amount' => $earn3,
@@ -187,7 +193,7 @@ class Investment
                                 );
                                 DB::table('network_earning_transactions')->insert($data);
                                 // gen 5
-                                $gen5 = DB::table('members')->where('sponsor_id', $gen4->sponsor_id)->first();
+                                $gen5 = DB::table('members')->where('username', $gen4->sponsor_id)->first();
                                 if($gen5!=null)
                                 {
                                     $r4 = $rate4/100;
@@ -196,6 +202,7 @@ class Investment
                                     DB::table('members')->where('id', $gen5->id)->update(['cash_wallet'=>Helper::encryptor('encrypt', $total4)]);
                                     $data = array(
                                         'from_id' => $mid,
+                                        'from_account' => $m->username,
                                         'to_id' => $gen5->id,
                                         'transaction_date' => date('Y-m-d'),
                                         'amount' => $earn4,
@@ -205,7 +212,7 @@ class Investment
                                     );
                                     DB::table('network_earning_transactions')->insert($data);
                                     // gen 6
-                                    $gen6 = DB::table('members')->where('sponsor_id', $gen5->id)->first();
+                                    $gen6 = DB::table('members')->where('username', $gen5->id)->first();
                                     if($gen6!=null)
                                     {
                                         $r5 = $rate5/100;
@@ -214,6 +221,7 @@ class Investment
                                         DB::table('members')->where('id', $gen6->id)->update(['cash_wallet'=>Helper::encryptor('encrypt', $total5)]);
                                         $data = array(
                                             'from_id' => $mid,
+                                            'from_account' => $m->username,
                                             'to_id' => $gen6->id,
                                             'transaction_date' => date('Y-m-d'),
                                             'amount' => $earn5,

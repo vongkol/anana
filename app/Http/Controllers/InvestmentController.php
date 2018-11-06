@@ -62,6 +62,7 @@ class InvestmentController extends Controller
         }
         // check if security pin is correct
         if($r->pin!=$m->security_pin)
+        if(!password_verify($r->pin, $m->security_pin))
         {
             $r->session()->flash('sms1', 'Your security pin is not correct!');
             return redirect('member/investment/start');
@@ -81,6 +82,9 @@ class InvestmentController extends Controller
         $i = DB::table('investments')->insertGetId($data);
         // generate payment schedule
         Investment::generate_schedule($i);
+        // calculate earning for uper line
+        Investment::network_earning($member->id, $r->package);
+
         return redirect('member/investment/'.$m->id);
     }
 }
