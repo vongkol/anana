@@ -522,6 +522,14 @@ color: #000;
 .my-sign-up {
 	background: linear-gradient(to left, #ffffff 0%, #ffc107 100%);
 }
+@media (max-width: 768px) { 
+	.navbar-expand-lg .navbar-collapse {
+    padding-left: 15px;
+	}
+	.bg-login {
+    background-size: 1666px;
+	}
+}
 @media (max-width: 479px) {
 	.mb-welcome-text {
 		font-size: 22px;
