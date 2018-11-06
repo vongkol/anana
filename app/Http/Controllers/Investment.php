@@ -120,8 +120,18 @@ class Investment
             {
                 $r = $rate/100;
                 $earn = $p->price * $r;
-                $total = Helper::encryptor('decrypt', $gen1->cash_wallet) + $earn;
-                DB::table('members')->where('id', $gen1->id)->update(['cash_wallet'=>Helper::encryptor('encrypt',$total)]);
+                // spit to c_wallet, r_wallet and b_wallet
+                $c_wallet = $earn*0.5;
+                $r_wallet = $earn*0.3;
+                $b_wallet = $earn*0.1;
+                $admin_fee = $earn*0.1;
+                $wallet = array(
+                    'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->cash_wallet) + $c_wallet),
+                    'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->register_wallet) + $r_wallet),
+                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->token_wallet))
+                );
+              
+                DB::table('members')->where('id', $gen1->id)->update($wallet);
                 $data = array(
                     'from_id' => $mid,
                     'from_account' => $m->username,
@@ -141,8 +151,18 @@ class Investment
                     {
                         $r1 = $rate1/100;
                         $earn1 = $p->price*$r1;
-                        $total1 = Helper::encryptor('decrypt', $gen2->cash_wallet) + $earn1;
-                        DB::table('members')->where('id', $gen2->id)->update(['cash_wallet'=>Helper::encryptor('encrypt', $total1)]);
+                        // spit to c_wallet, r_wallet and b_wallet
+                        $c_wallet = $earn1*0.5;
+                        $r_wallet = $earn1*0.3;
+                        $b_wallet = $earn1*0.1;
+                        $admin_fee = $earn1*0.1;
+                        $wallet = array(
+                            'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen2->cash_wallet) + $c_wallet),
+                            'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen2->register_wallet) + $r_wallet),
+                            'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen2->token_wallet))
+                        );
+                    
+                        DB::table('members')->where('id', $gen2->id)->update($wallet);
                         $data = array(
                             'from_id' => $mid,
                             'from_account' => $m->username,
