@@ -151,7 +151,7 @@ body {
 	#mainNav.is-fixed {
 	  /* when the user scrolls down, we hide the header right above the viewport */
 	  position: fixed;
-	  top: -90px;
+	  top: -95px;
 	  -webkit-transition: -webkit-transform 0.2s;
 	  -moz-transition: -moz-transform 0.2s;
 	  transition: transform 0.2s;
@@ -458,6 +458,24 @@ color: #000;
 	color: #000;
 	box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
+.navbar-expand-lg .navbar-nav .dropdown-menu-c {
+	position: absolute;
+	padding: 3px;
+	background: #6c757d00;
+	font-size: 10px;
+}
+.dropdown-item-c {
+	padding: 3px;
+	color: #fff;
+	border: 1px solid #f1f1f1;
+	width: 75px;
+	background: #6c757d;
+	border-radius: 3px;
+}
+.language {
+	font-size: 11px;
+	padding: 3px;
+}
 .text{
 	margin:20px 0px;
 }
@@ -504,7 +522,21 @@ color: #000;
 .my-sign-up {
 	background: linear-gradient(to left, #ffffff 0%, #ffc107 100%);
 }
+@media (max-width: 768px) { 
+	.navbar-expand-lg .navbar-collapse {
+    padding-left: 15px;
+	}
+	.bg-login {
+    background-size: 1666px;
+	}
+}
 @media (max-width: 479px) {
+	.mb-welcome-text {
+		font-size: 22px;
+	}
+	.carousel-indicators li {
+		width: 10px;
+	}
 	.navbar-nav .dropdown-menu {
     margin-bottom: 10px;
 	}
@@ -523,6 +555,9 @@ color: #000;
 	}
 	#mainNav .navbar-brand {
 		font-size: 18px;
+	}
+	.slideshow {
+    margin-top: 92px;
 	}
 	.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
 		color: #f9ad19;

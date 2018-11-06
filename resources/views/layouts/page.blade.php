@@ -12,7 +12,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon-32x32.png')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('fronts/css/page.css')}}">
     </head>
-    <body>
+    <body onload=display_ct();>
     <?php $exc = DB::table('rates')->where('id',1)->first();?>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container-fluid">
@@ -59,6 +59,16 @@
                     </ul>
                     @else
                     <ul class="ml-auto navbar-nav">
+                        <li class="nav-item mt-3 mb-3 pr-2">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-outline-secondary language dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-globe" aria-hidden="true"></i> Language
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">English</a>
+                                </div>
+                            </div>
+                        </li>
                         <li class="nav-item mt-3 mb-3">
                             <a href="{{url('sign-in')}}" class="btn btn-outline-dark flat">
                                 Login
@@ -117,15 +127,29 @@
                 </section>
             </div>
         </footer>
+        <script type="text/javascript"> 
+            function display_c(){
+            var refresh=1000; // Refresh rate in milli seconds
+            mytime=setTimeout('display_ct()',refresh)
+            }
+
+            function display_ct() {
+                var x = new Date()
+            var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getYear(); 
+            x1 = x1 + " - " +  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
+            document.getElementById('ct').innerHTML = x1;
+            display_c();
+            }
+        </script>
         <div class="container-fluit term-footer">
             <div class="container">
                 <div class="col-md-12 py-3">
-                    All Rights Reserved by ANA LEE CAPITAL Co., LTD	Privacy Policy 
+                    All Rights Reserved by ANA LEE CAPITAL Privacy Policy 
                     <div>
                         <a href=""></a>
                         <i class="fa fa-facebook"></i>
                         <i class="fa fa-linkedin"></i>
-                        <small>&nbsp;&nbsp; | &nbsp;&nbsp; {{date('Y-m-d H:i:s')}}</small>
+                        <small>&nbsp;&nbsp; | &nbsp;&nbsp; <span id='ct' ></span></small>
                     </div>
                 </div>
             </div>

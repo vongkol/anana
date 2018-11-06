@@ -61,12 +61,12 @@
                 <ul class="ml-auto navbar-nav">
                     <li class="nav-item mt-3 mb-3 pr-2">
                         <div class="dropdown">
-                                <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                            <button type="button" class="btn btn-outline-secondary language dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-globe" aria-hidden="true"></i> Language
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">English</a>
-                                </div>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-c">
+                                <a class="dropdown-item dropdown-item-c" href="#">English</a>
+                            </div>
                         </div>
                     </li>
                     <li class="nav-item mt-3 mb-3">
@@ -139,7 +139,7 @@
         <div class="container-fluit term-footer">
             <div class="container">
                 <div class="col-md-12 py-3">
-                    All Rights Reserved by ANA LEE CAPITAL Co., LTD	Privacy Policy 
+                    All Rights Reserved by ANA LEE CAPITAL Privacy Policy 
                     <div>
                         <a href=""></a>
                         <i class="fa fa-facebook"></i>
