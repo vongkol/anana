@@ -139,7 +139,7 @@
         <div class="container-fluit term-footer">
             <div class="container">
                 <div class="col-md-12 py-3">
-                    All Rights Reserved by ANA LEE CAPITAL Privacy Policy 
+                    All Rights Reserved by ANA LEE CAPITAL <a href="{{asset('privacy.pdf')}}" target='_blank'>Privacy Policy </a>
                     <div>
                         <a href=""></a>
                         <i class="fa fa-facebook"></i>

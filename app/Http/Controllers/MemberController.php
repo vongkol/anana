@@ -57,7 +57,7 @@ class MemberController extends Controller
         
         if($i)
         {
-            $link = url('/confirm') .'/'.md5($i);
+            $link = 'https://analeecapital.com/confirm/'.md5($i);
                
                 $sms =<<<EOT
                 <h2>Sign Up Verification</h2>
