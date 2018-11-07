@@ -302,6 +302,14 @@ EOT;
         {
             return redirect('/sign-in');
         }
+        $old_pass = $r->old_password;
+        $m = DB::table('members')->where('id', $member->id)->first();
+        // check old password
+        if(!password_verify($old_pass, $m->password))
+        {
+            $r->session()->flash('sms1', 'The old password is not correct!');
+            return redirect('member/change-password')->withInput();
+        }
         $data['id'] = Helper::encryptor('encrypt', $member->id);
         $pass = $r->password;
         $cpass = $r->cpassword;
@@ -325,6 +333,8 @@ EOT;
         {
             return redirect('/sign-in');
         }
+       
+
         $data['id'] = Helper::encryptor('encrypt', $member->id);
         return view('fronts.members.change-pin', $data);
     }
@@ -337,6 +347,13 @@ EOT;
         if($member==null)
         {
             return redirect('/sign-in');
+        }
+        $m = DB::table('members')->where('id', $member->id)->first();
+        $old_pin = $r->old_pin;
+        if(!password_verify($old_pin, $m->security_pin))
+        {
+            $r->session()->flash('sms1', 'The old security PIN is not correct!');
+            return redirect('member/change-pin')->withInput();
         }
         $data['id'] = Helper::encryptor('encrypt', $member->id);
         $pass = $r->security_pin;

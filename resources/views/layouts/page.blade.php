@@ -55,7 +55,7 @@
                             <img src="{{asset('images/level/'. session('member')->photo)}}" width="40" alt=""> {{session('member')->username}}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="{{url('/dashboard')}}">Dashboard</a>
+                                <!-- <a class="dropdown-item" href="{{url('/dashboard')}}">Dashboard</a> -->
                                 <a class="dropdown-item" href="{{url('/member/logout')}}">Logout</a>
                             </div>
                         </li>

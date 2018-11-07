@@ -1,4 +1,4 @@
-@extends('layouts.page')
+@extends('layouts.front')
 @section('content')
 <div class="container">
     <div class="container-page">
@@ -28,7 +28,8 @@
                     <ul class="list-unstyled mb-4">
                         <h5>Payout: {{$p->monthly_payout}}%</h5>
                     </ul>
-                    <button type="button" class="btn btn-dark shadow rounded btn-blog mb-3"><img src="{{asset('images/invesment.png')}}" alt="" width="30"> <strong> Invest Now</strong></button>
+                    <a href="{{url('sign-up')}}" class="btn btn-dark shadow rounded btn-blog mb-3"><img src="{{asset('images/invesment.png')}}" alt="" 
+                     width="30"> <strong> Invest Now</strong></a>
                 </div>
             </div>
         </div>
