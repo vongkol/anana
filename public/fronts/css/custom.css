@@ -522,6 +522,9 @@ color: #000;
 .my-sign-up {
 	background: linear-gradient(to left, #ffffff 0%, #ffc107 100%);
 }
+@media(max-width:1024px) {
+
+}
 @media (max-width: 768px) { 
 	.navbar-expand-lg .navbar-collapse {
     padding-left: 15px;
@@ -529,7 +532,10 @@ color: #000;
 	.bg-login {
     background-size: 1666px;
 	}
-}
+	.slideshow {
+    margin-top: 94px;
+	}
+}	
 @media (max-width: 479px) {
 	.mb-welcome-text {
 		font-size: 22px;
@@ -587,5 +593,8 @@ color: #000;
 	footer {
     padding: 0;
 }
-
+	.mb-title {
+		font-size: 12px;
+		margin-top: -45px;
+	}
 }

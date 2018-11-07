@@ -8,7 +8,7 @@
                 <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Investment Package</li>
             </ol>
-            <h4 class="pull-right page-title text-warning">
+            <h4 class="pull-right page-title mb-title text-warning">
                 INVESTMENT PACKAGE
             </h4>
         </nav>

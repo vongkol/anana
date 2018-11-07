@@ -76,6 +76,7 @@
     background-size: 1666px;
 	}
 }
+
 @media (max-width: 479px) {
 	.main-page-login {
     	margin-top: 35px;
