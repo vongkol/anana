@@ -54,8 +54,8 @@
 					</div>
 				</a>
 			</div>	 
-				<div class="col-lg-4 col-md-4 col-sm-4 col-6">
-				<a href="{{asset('terms-conditions.pdf')}}" class="text-primary" style="text-decoration:none;" target='_blank'>
+				<!-- <div class="col-lg-4 col-md-4 col-sm-4 col-6">
+				<a href="{{asset('terms-conditions.pdf')}}" class="text-primary" style="text-decoration:none;">
 					<div class="box-part text-center">
 						<img src="{{asset('images/termandcondiction.png')}}" width="77" alt="">
 						<div class="title">
@@ -63,7 +63,7 @@
 						</div>
 					</div>
 				</a>
-			</div>
+			</div> -->
 		</div>		
     </div>
 </div>

@@ -1,4 +1,4 @@
-@extends('layouts.page')
+@extends('layouts.front')
 @section('content')
     <!-- ***** Contact Us Area Start ***** -->
     <section class="footer-contact-area section_padding_100 clearfix" id="contact">

@@ -129,8 +129,7 @@ class Investment
                     'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->cash_wallet) + $c_wallet),
                     'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->register_wallet) + $r_wallet),
                     'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->token_wallet))
-                );
-              
+                );            
                 DB::table('members')->where('id', $gen1->id)->update($wallet);
                 $data = array(
                     'from_id' => $mid,

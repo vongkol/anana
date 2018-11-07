@@ -13,6 +13,11 @@ class TransactionController extends Controller
         {
             return redirect('/sign-in');
         }
+        $inv = DB::table('investments')->where('member_id', $member->id)->first();
+        if($inv==null)
+        {
+            return redirect('member/investment/'.$member->id);
+        }
         $data['payments'] = DB::table('payment_requests')
             ->where('member_id', $member->id)
             ->orderBy('id', 'desc')

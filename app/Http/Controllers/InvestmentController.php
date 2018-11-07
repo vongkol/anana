@@ -76,7 +76,8 @@ class InvestmentController extends Controller
         // update register wallet
         $rem = Helper::encryptor('decrypt', $rwallet->register_wallet) - $p->price;
         DB::table('members')->where('id', $member->id)->update(['register_wallet'=>Helper::encryptor('encrypt', $rem)]);
-        $dd = date('Y-m-d', strtotime("+ 365 day"));
+        $p = DB::table('packages')->where('id', $r->package)->first();
+        $dd = date('Y-m-d', strtotime("+ {$p->duration} day"));
         $data['expired_on'] = $dd;
 
         $i = DB::table('investments')->insertGetId($data);

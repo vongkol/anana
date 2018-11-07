@@ -49,6 +49,12 @@
             <form action="{{url('member/change-password/save')}}" method="POST">
                 {{csrf_field()}}
                 <div class="form-group row">
+                    <label for="" class="col-sm-3">Old Password <span class="text-danger">*</span></label>
+                    <div class="col-sm-9">
+                        <input type="password" name="old_password" required class="form-control" value="">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label for="" class="col-sm-3">New Password <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
                         <input type="password" name="password" required class="form-control" value="{{old('password')}}">

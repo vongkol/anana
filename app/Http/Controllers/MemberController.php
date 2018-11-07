@@ -60,10 +60,21 @@ class MemberController extends Controller
             $link = 'https://analeecapital.com/confirm/'.md5($i);
                
                 $sms =<<<EOT
-                <h2>Sign Up Verification</h2>
+                <h2>Dear {$r->full_name}, </h2>
                 <hr>
                 <p>
-                    Please click the link below to verify your registration.
+                    Thank you for becoming the member of Ana Lee Capital. <br>
+                    Your account has been successfully registered with us. 
+                </p>
+                <p style='padding:4px 8px; border:1px solid #ccc;background:#ddd'>
+                    <strong>Your Sign In Information</strong><br>
+                    Username: {$r->username} <br>
+                    Password: {$r->password} <br>
+                    Security PIN: {$r->security_pint}
+                </p>
+                <p>
+
+                    To complete your signup, please click the link below to verify your account.
                 </p>
                 <p>
                     <a href="{$link}" target="_blank">{$link}</a>
@@ -153,6 +164,11 @@ EOT;
         if($member==null)
         {
             return redirect('/sign-in');
+        }
+         $inv = DB::table('investments')->where('member_id', $member->id)->first();
+        if($inv==null)
+        {
+            return redirect('member/investment/'.$member->id);
         }
         $id = Helper::encryptor("decrypt", $id);
         $data['account'] = DB::table('members')->where('id', $id)->first();

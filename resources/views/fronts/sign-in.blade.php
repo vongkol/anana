@@ -44,7 +44,7 @@
 											<input id="password" type="password" class="form-control" name="password" required data-eye>
 										</div>
 										<div class="form-group no-margin">
-											<button type="submit" class="btn-learn btn btn-dark btn-block">
+											<button type="submit" class="btn-learn btn btn-primary btn-block">
 												Login
 											</button>
 										</div>

@@ -13,6 +13,11 @@ class NetworkController extends Controller
         {
             return redirect('/sign-in');
         }
+        $inv = DB::table('investments')->where('member_id', $member->id)->first();
+        if($inv==null)
+        {
+            return redirect('member/investment/'.$member->id);
+        }
         $data['m'] = DB::table('members')->where('id', $member->id)->first();
 
         return view('fronts.members.network', $data);

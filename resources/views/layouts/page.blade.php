@@ -26,19 +26,22 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="{{url('/')}}" class="nav-link">Home</a>
+                            <a href="{{url('/dashboard')}}" class="nav-link">Dashboard</a>
+                        </li>
+                         <li class="nav-item">
+                            <a href="{{url('member/account/'. \App\Http\Controllers\Helper::encryptor('encrypt', session('member')->id))}}" class="nav-link">My Account</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('page/about')}}" class="nav-link">About Us</a>
+                            <a href="{{url('member/investment/'. \App\Http\Controllers\Helper::encryptor('encrypt', session('member')->id))}}" class="nav-link">Investment</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('page/white-paper')}}" class="nav-link">White Paper</a>
+                            <a href="{{url('member/earning')}}" class="nav-link">Earning</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('investment')}}" class="nav-link">Investment</a>
+                            <a href="{{url('member/network')}}" class="nav-link">Network</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('page/contact')}}" class="nav-link">Contact Us</a>
+                            <a href="{{url('member/transaction')}}" class="nav-link">Transaction</a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link text-white bg-secondary">1 ALC = <span class="text-warning">USD {{$exc->rate}}</span></a>
@@ -144,7 +147,7 @@
         <div class="container-fluit term-footer">
             <div class="container">
                 <div class="col-md-12 py-3">
-                    All Rights Reserved by ANA LEE CAPITAL <a href="{{asset('privacy.pdf')}}" target='_blank'>Privacy Policy </a>
+                    All Rights Reserved by ANA LEE CAPITAL <a href="{{asset('privacy.pdf')}}">Privacy Policy </a>
                     <div>
                         <a href=""></a>
                         <i class="fa fa-facebook"></i>

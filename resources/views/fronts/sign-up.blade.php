@@ -105,7 +105,7 @@
 									</div>
 								
 									<div class="form-group no-margin">
-										<button type="button" class="btn btn-learn btn-dark btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">
+										<button type="button" class="btn btn-learn btn-primary btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">
 											Continue
 										</button>
 										<!-- <button type="submit" class="btn btn-learn btn-dark btn-block">
@@ -178,7 +178,7 @@
 			<p class="text-justify">
 				To the extent that you legally download or use the Software on your computer, device, or other platform as part of the purchase and use of ALC's products and services, or utilize the online platform, ALC grants you a revocable, non-exclusive, non-transferable and non-sub licensable free and limited license to use this software in accordance with these terms and conditions and the additional rules applicable to the product or service, for the sole use of you. You may not sell, rent, lend or otherwise make these rights of use available to any other person. You must keep the Software in its delivered condition and may not modify, reproduce, distribute, display, publish, reverse engineer or otherwise influence it in any way.  If ALC should rely on you for the provision of its products and services for intellectual property rights or other intellectual property rights, you grant ALC a free and limited right of use for the purpose of the service rendered by ALC and for the duration necessary for service provision.
 			</p>
-			<h4 class="text-primmary">
+			<h4 class="text-primary">
 				5. ALC as a cryptocurrency
 			</h4>
 			<p class="text-justify">
