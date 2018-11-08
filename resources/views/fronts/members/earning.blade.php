@@ -40,9 +40,9 @@
                 <hr>
                 <strong class="text-danger">{{\App\Http\Controllers\Helper::encryptor('decrypt', $wallet->token_wallet)}} $ = {{\App\Http\Controllers\Helper::encryptor('decrypt', $wallet->token_wallet)/$rate->rate}} ALC</strong>
                 <p></p>
-                <div>
+                <!-- <div>
                     <a href="{{url('member/transfer/alc')}}" class="text-primary"> <i class="fa fa-arrow-right"></i> Withdraw To ALC</a>
-                </div>
+                </div> -->
             </div>
         </div>  
 
