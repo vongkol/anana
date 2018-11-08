@@ -70,7 +70,7 @@ class MemberController extends Controller
                     <strong>Your Sign In Information</strong><br>
                     Username: {$r->username} <br>
                     Password: {$r->password} <br>
-                    Security PIN: {$r->security_pint}
+                    Security PIN: {$r->security_pin}
                 </p>
                 <p>
 

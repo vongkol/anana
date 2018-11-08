@@ -74,11 +74,11 @@ class Right
             $mail->CharSet = "utf-8"; // set charset to utf8
             $mail->SMTPAuth = true;  // use smpt auth
             $mail->SMTPSecure = "ssl"; // or ssl
-            $mail->Host = "c01.tmdcloud.asia";
+            $mail->Host = "mail.analeecapital.com";
             $mail->Port = 465; 
-            $mail->Username = "no-reply@support.analeecapital.com";
+            $mail->Username = "support@analeecapital.com";
             $mail->Password = "Khmer@123";
-            $mail->setFrom("no-reply@support.analeecapital.com", "Welcome to Ana Lee Capital!");
+            $mail->setFrom("support@analeecapital.com", "Ana Lee Capital: Signup Confirmation!");
             $mail->Subject = "Thanks for your registration.";
             $mail->MsgHTML($message);
             $mail->addAddress($to, $to);

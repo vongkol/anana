@@ -155,3 +155,5 @@ Route::prefix('analee-admin')->group(function () {
     Route::get('member/transaction', 'Admin\TransactionController@index');
     Route::get('member/transfer', 'Admin\TransactionController@transfer');
 });
+
+Route::get('test', 'TestController@test');

@@ -430,10 +430,14 @@
 			<p>
 				<strong class="text-primary">Ana Lee Capital</strong>
 			</p>
+			<p style="font-weight:bold;font-size:15px">
+				<label for="ch1">
+					<input type="checkbox" id="ch1" name="ch1"> I have read and agreed.
+				</label>
+			</p>
 		</div>
-		
-		<div class="modal-footer">
-			<button type="button" class="btn btn-primary" data-dismiss="modal" id="btn">I have read and agreed.</button>
+		<div class="modal-footer text-left">
+			<button type="button" class="btn btn-primary" data-dismiss="modal" id="btn" disabled>Confirm Registration</button>
 		</div>
 
 		</div>
@@ -447,6 +451,16 @@
 		$(document).ready(function(){
 			$("#btn").click(function(){
 				$("#frm").submit();
+			});
+			$("#ch1").change(function(){
+			
+				if($("#ch1").prop('checked'))
+				{
+					$("#btn").removeAttr("disabled");
+				}
+				else{
+					$("#btn").attr("disabled","disabled");
+				}
 			});
 		});
 	</script>
