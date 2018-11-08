@@ -488,6 +488,7 @@ color: #000;
 }
 .earning-dashboard{
 	margin-top: 150px;
+	margin-bottom: 150px;
 }
 .set-wallets {
 	padding: 2px; 
@@ -586,9 +587,9 @@ color: #000;
 		font-size: 14px;
 	}
 	.earning-dashboard {
-		margin-top: 100px;
-		margin-bottom: 50px;
-	}
+    margin-top: 120px;
+    margin-bottom: 50px;
+}
 	.contact-us {
     margin-top: 20px;
 }
