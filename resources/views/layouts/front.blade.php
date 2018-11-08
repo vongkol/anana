@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
-        <meta name="author" content="sorvichey">
+        <meta name="author" content="sor vichey">
         <title>Ana Lee Capital</title>
         <link href="{{asset('fronts/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('fronts/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
@@ -20,7 +20,7 @@
                 @else
                 <a class="navbar-brand" href="{{url('/')}}">
                 @endif
-                    <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
+                <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
@@ -43,11 +43,6 @@
                     <li class="nav-item">
                         <a href="{{url('page/contact')}}" class="nav-link">Contact Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white bg-secondary">1 ALC = <span class="text-warning">USD {{$exc->rate}}</span></a>
-                    </li>
-                   
-                   
                 </ul>
                 @if(Session::has('member'))
                 <ul class="ml-auto navbar-nav">
@@ -62,8 +57,8 @@
                         </li>
                     </ul>
                 @else
-                <ul class="ml-auto navbar-nav">
-                    <li class="nav-item mt-3 mb-3 pr-2">
+                <ul class="ml-auto navbar-nav px-2">
+                    <li class="nav-item mt-3 mb-3 pr-2"> <span class="text-white font-weight-bold">1 ALC = <span class="text-warning">USD {{$exc->rate}}</span></span>
                         <div class="dropdown">
                             <button type="button" class="btn btn-outline-secondary language dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-globe" aria-hidden="true"></i> Language
@@ -74,10 +69,10 @@
                         </div>
                     </li>
                     <li class="nav-item mt-3 mb-3">
-                        <a href="{{url('sign-in')}}" class="btn btn-outline-dark flat">
+                        <a href="{{url('sign-in')}}" class="btn btn-outline-dark">
                             Login
                         </a>
-                        <a href="{{url('sign-up')}}" class="btn btn-outline-dark flat">
+                        <a href="{{url('sign-up')}}" class="btn btn-outline-dark">
                             Sign Up
                         </a>
                     </li>
@@ -142,13 +137,18 @@
         </script>
         <div class="container-fluit term-footer">
             <div class="container">
-                <div class="col-md-12 py-3">
-                    Copyright &copy; ANA LEE CAPITAL (ALC). All rights reserved. <span class="text-warning"> | </span> <a href="{{asset('privacy.pdf')}}">Privacy Policy </a>
-                    <div>
-                        <a href=""></a>
-                        <i class="fa fa-facebook"></i>
-                        <i class="fa fa-linkedin"></i>
-                        <small>&nbsp;&nbsp; | &nbsp;&nbsp; <span id='ct' ></span></small>
+                <div class="row">
+                    <div class="col-md-12 py-3">
+                        Copyright &copy; ANA LEE CAPITAL (ALC). All rights reserved. <span class="text-warning"> | </span> <a href="{{asset('privacy.pdf')}}">Privacy Policy </a>
+                        <div>
+                            <a href="https://www.facebook.com/analeecapital/" class="btn btn-outline-warning btn-sm pt-0 pb-0 mt-1" target="_blank">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="btn btn-outline-warning btn-sm pt-0 pb-0 mt-1" target="_blank">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <small class="mt-1">&nbsp;&nbsp; | &nbsp;&nbsp; <span id='ct' ></span></small>
+                        </div>
                     </div>
                 </div>
             </div>

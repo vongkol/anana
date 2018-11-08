@@ -45,14 +45,10 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">Contact Us</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white bg-secondary">1 ALC = <span class="text-warning">USD {{$exc->rate}}</span></a>
-                    </li>
                 </ul>
                 @if(Session::has('member'))
                 <ul class="ml-auto navbar-nav">
                         <li class="nav-item dropdown">
-                        
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="{{asset('images/level/'. session('member')->photo)}}" width="40" alt=""> {{session('member')->username}}
                             </a>
@@ -63,22 +59,22 @@
                         </li>
                     </ul>
                 @else
-                <ul class="ml-auto navbar-nav">
-                    <li class="nav-item mt-3 mb-3 pr-2">
+                <ul class="ml-auto navbar-nav px-3">
+                    <li class="nav-item mt-3 mb-3 pr-2"> <span class="text-white font-weight-bold">1 ALC = <span class="text-warning">USD {{$exc->rate}}</span></span>
                         <div class="dropdown">
                             <button type="button" class="btn btn-outline-secondary language dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-globe" aria-hidden="true"></i> Language
                             </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">English</a>
+                            <div class="dropdown-menu dropdown-menu-c">
+                                <a class="dropdown-item dropdown-item-c" href="#">English</a>
                             </div>
                         </div>
                     </li>
                     <li class="nav-item mt-3 mb-3">
-                        <a href="{{url('sign-in')}}" class="btn btn-outline-dark flat">
+                        <a href="{{url('sign-in')}}" class="btn btn-outline-dark">
                             Login
                         </a>
-                        <a href="{{url('sign-up')}}" class="btn btn-outline-dark flat">
+                        <a href="{{url('sign-up')}}" class="btn btn-outline-dark">
                             Sign Up
                         </a>
                     </li>
@@ -110,8 +106,6 @@
                                 If you are already a Blockchain members, we can help you to get your real cash with our partners in Cambodia.
                             </aside>
                         </div>
-      
-
                         <div class="col-md-3 contact-us">
                             <h6>CONTACT US</h6>
                             <aside> #A3, St.BT, Sangkat Chomchaov, Khan Porsenchey, Phnom Penh, Cambodia
@@ -129,7 +123,6 @@
                             </aside>
                         </div>
                 </section>
-               
             </div>
         </footer>
         <script type="text/javascript"> 
@@ -146,20 +139,24 @@
             display_c();
             }
         </script>
-        <div class="container-fluit term-footer">
+       <div class="container-fluit term-footer">
             <div class="container">
-                <div class="col-md-12 py-3">
-                Copyright &copy; ANA LEE CAPITAL (ALC). All rights reserved. <span class="text-warning"> | </span> <a href="{{asset('privacy.pdf')}}">Privacy Policy </a>
-                    <div>
-                        <a href=""></a>
-                        <i class="fa fa-facebook"></i>
-                        <i class="fa fa-linkedin"></i>
-                        <small>&nbsp;&nbsp; | &nbsp;&nbsp; <span id='ct' ></span></small>
+                <div class="row">
+                    <div class="col-md-12 py-3">
+                        Copyright &copy; ANA LEE CAPITAL (ALC). All rights reserved. <span class="text-warning"> | </span> <a href="{{asset('privacy.pdf')}}">Privacy Policy </a>
+                        <div>
+                            <a href="https://www.facebook.com/analeecapital/" class="btn btn-outline-warning btn-sm pt-0 pb-0 mt-1" target="_blank">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="https://www.facebook.com/analeecapital/" class="btn btn-outline-warning btn-sm pt-0 pb-0 mt-1" target="_blank">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <small class="mt-1">&nbsp;&nbsp; | &nbsp;&nbsp; <span id='ct' ></span></small>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-			
     <script src="{{asset('fronts/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('fronts/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 	<script src="{{asset('fronts/js/login.js')}}"></script>

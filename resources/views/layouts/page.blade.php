@@ -21,7 +21,7 @@
                 @else
                 <a class="navbar-brand" href="{{url('/')}}">
                 @endif
-                    <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
+                <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
@@ -48,39 +48,38 @@
                             <a href="{{url('member/transaction')}}" class="nav-link">Transaction</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-white bg-secondary">1 ALC = <span class="text-warning">USD {{$exc->rate}}</span></a>
+                           
                         </li>
                     </ul>
                     @if(Session::has('member'))
                     <ul class="ml-auto navbar-nav">
                         <li class="nav-item dropdown">
-                        
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="{{asset('images/level/'. session('member')->photo)}}" width="40" alt=""> {{session('member')->username}}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <!-- <a class="dropdown-item" href="{{url('/dashboard')}}">Dashboard</a> -->
+                                <a class="dropdown-item" href="{{url('/dashboard')}}">Dashboard</a>
                                 <a class="dropdown-item" href="{{url('/member/logout')}}">Logout</a>
                             </div>
                         </li>
                     </ul>
                     @else
-                    <ul class="ml-auto navbar-nav">
-                        <li class="nav-item mt-3 mb-3 pr-2">
+                    <ul class="ml-auto navbar-nav px-3">
+                        <li class="nav-item mt-3 mb-3 pr-2"> <span class="text-white font-weight-bold">1 ALC = <span class="text-warning">USD {{$exc->rate}}</span></span>
                             <div class="dropdown">
                                 <button type="button" class="btn btn-outline-secondary language dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-globe" aria-hidden="true"></i> Language
                                 </button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">English</a>
+                                <div class="dropdown-menu dropdown-menu-c">
+                                    <a class="dropdown-item dropdown-item-c" href="#">English</a>
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item mt-3 mb-3">
-                            <a href="{{url('sign-in')}}" class="btn btn-outline-dark flat">
+                            <a href="{{url('sign-in')}}" class="btn btn-outline-dark">
                                 Login
                             </a>
-                            <a href="{{url('sign-up')}}" class="btn btn-outline-dark flat">
+                            <a href="{{url('sign-up')}}" class="btn btn-outline-dark">
                                 Sign Up
                             </a>
                         </li>
@@ -150,13 +149,18 @@
         </script>
         <div class="container-fluit term-footer">
             <div class="container">
-                <div class="col-md-12 py-3">
-                    Copyright &copy; ANA LEE CAPITAL (ALC). All rights reserved. <span class="text-warning"> | </span> <a href="{{asset('privacy.pdf')}}">Privacy Policy </a>
-                    <div>
-                        <a href=""></a>
-                        <i class="fa fa-facebook"></i>
-                        <i class="fa fa-linkedin"></i>
-                        <small>&nbsp;&nbsp; | &nbsp;&nbsp; <span id='ct' ></span></small>
+                <div class="row">
+                    <div class="col-md-12 py-3">
+                        Copyright &copy; ANA LEE CAPITAL (ALC). All rights reserved. <span class="text-warning"> | </span> <a href="{{asset('privacy.pdf')}}">Privacy Policy </a>
+                        <div>
+                            <a href="https://www.facebook.com/analeecapital/" class="btn btn-outline-warning btn-sm pt-0 pb-0 mt-1" target="_blank">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="https://www.facebook.com/analeecapital/" class="btn btn-outline-warning btn-sm pt-0 pb-0 mt-1" target="_blank">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <small class="mt-1">&nbsp;&nbsp; | &nbsp;&nbsp; <span id='ct' ></span></small>
+                        </div>
                     </div>
                 </div>
             </div>

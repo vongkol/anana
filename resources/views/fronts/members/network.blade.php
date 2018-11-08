@@ -5,11 +5,13 @@
 <div class="container">
     <div class="earning-dashboard">
         <h3>
-            <img src="{{asset('images/mynetwork.png')}}" alt="" width="50"> 
-            &nbsp; <strong >My Network </strong>  &nbsp;
-            <a href="{{url('dashboard')}}" class="btn btn-success btn-sm"> <i class="fa fa-arrow-left"></i>  Back</a>
+        <span class="text-warning" style="font-size: 1.75rem;font-weight:600;">
+             MY NETWORK
+        </span> &nbsp;
+            <a href="{{url('dashboard')}}" class="btn btn-success btn-alc"> <i class="fa fa-arrow-left"></i>  Back</a>
+            <hr class="hr-alc">
         </h3>
-        <p></p>
+        <br>
         <div class="row">
             <div class="col-sm-12">
                 <div class="chart" id="tree"></div>

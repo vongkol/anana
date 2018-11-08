@@ -71,6 +71,17 @@
 	color: #888;
 	text-align: center;
 }
+@media(max-width:1024px) {
+	.bg-login {
+		background-size: 1656px;
+	}
+	.navbar-expand-lg .navbar-collapse {
+		padding-left: 0;
+	}
+	#mainNav .navbar-nav > li.nav-item > a {
+		font-size: 12px;
+	}
+}
 @media (max-width: 768px) { 
 	.bg-login {
     background-size: 1666px;
