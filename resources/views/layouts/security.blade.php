@@ -17,7 +17,11 @@
     <?php $exc = DB::table('rates')->where('id',1)->first();?>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container-fluid">
+                    @if(Session::has('member'))
+                <a class="navbar-brand" href="{{url('/dashboard')}}">
+                @else
                 <a class="navbar-brand" href="{{url('/')}}">
+                @endif
                     <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,17 +51,17 @@
                 </ul>
                 @if(Session::has('member'))
                 <ul class="ml-auto navbar-nav">
-                    <li class="nav-item dropdown">
-                       
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="{{asset('images/logo.png')}}" width="40" alt=""> {{session('member')->username}}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{url('/dashboard')}}">Dashboard</a>
-                            <a class="dropdown-item" href="{{url('/member/logout')}}">Logout</a>
-                        </div>
-                    </li>
-                </ul>
+                        <li class="nav-item dropdown">
+                        
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="{{asset('images/level/'. session('member')->photo)}}" width="40" alt=""> {{session('member')->username}}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="{{url('/dashboard')}}">Dashboard</a>
+                                <a class="dropdown-item" href="{{url('/member/logout')}}">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
                 @else
                 <ul class="ml-auto navbar-nav">
                     <li class="nav-item mt-3 mb-3 pr-2">
@@ -109,7 +113,7 @@
       
 
                         <div class="col-md-3 contact-us">
-                            <h5>CONTACT US</h5>
+                            <h6>CONTACT US</h6>
                             <aside> #A3, St.BT, Sangkat Chomchaov, Khan Porsenchey, Phnom Penh, Cambodia
                             </aside>
                             <aside class="col-md-12 ">
@@ -145,7 +149,7 @@
         <div class="container-fluit term-footer">
             <div class="container">
                 <div class="col-md-12 py-3">
-                    All Rights Reserved by ANA LEE CAPITAL Privacy Policy 
+                Copyright &copy; ANA LEE CAPITAL (ALC). All rights reserved. <span class="text-warning"> | </span> <a href="{{asset('privacy.pdf')}}">Privacy Policy </a>
                     <div>
                         <a href=""></a>
                         <i class="fa fa-facebook"></i>

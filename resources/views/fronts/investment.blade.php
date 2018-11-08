@@ -1,4 +1,4 @@
-@extends('layouts.page')
+@extends('layouts.front')
 @section('content')
 <div class="container">
     <div class="container-page">
@@ -35,5 +35,5 @@
         @endforeach
     </div>
     </div>
-</div>
+</div><br>
 @endsection

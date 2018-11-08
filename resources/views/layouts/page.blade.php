@@ -16,7 +16,11 @@
     <?php $exc = DB::table('rates')->where('id',1)->first();?>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container-fluid">
+                @if(Session::has('member'))
+                <a class="navbar-brand" href="{{url('/dashboard')}}">
+                @else
                 <a class="navbar-brand" href="{{url('/')}}">
+                @endif
                     <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,7 +97,7 @@
                 <section class="text-white">
                     <div class="row">
                         <div class="col-md-9 text-justify">
-                            <h5>
+                            <h>
                                 <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
                             </h5>
                             <aside>
@@ -110,7 +114,7 @@
                             </aside>
                         </div>
                         <div class="col-md-3 contact-us">
-                            <h5>CONTACT US</h5>
+                            <h6>CONTACT US</h6>
                             <aside> 
                                 #A3, St.BT, Sangkat Chomchaov, Khan Porsenchey, Phnom Penh, Cambodia
                             </aside>
@@ -147,7 +151,7 @@
         <div class="container-fluit term-footer">
             <div class="container">
                 <div class="col-md-12 py-3">
-                    All Rights Reserved by ANA LEE CAPITAL <a href="{{asset('privacy.pdf')}}">Privacy Policy </a>
+                    Copyright &copy; ANA LEE CAPITAL (ALC). All rights reserved. <span class="text-warning"> | </span> <a href="{{asset('privacy.pdf')}}">Privacy Policy </a>
                     <div>
                         <a href=""></a>
                         <i class="fa fa-facebook"></i>
