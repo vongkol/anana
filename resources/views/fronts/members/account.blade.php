@@ -199,7 +199,7 @@
                         </div>
                         
                         <div class="form-group row">
-                            <label for="" class="col-sm-3">Account No</label>
+                            <label for="" class="col-sm-3">Account Number</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" name='account_no' value="">
                             </div>
