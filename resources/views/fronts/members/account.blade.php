@@ -80,9 +80,10 @@
             <h4>REFERRAL LINK</h4>
             <hr class="hr-alc">
             <div class="form-group row">
-                <label for="" class="col-sm-3">Referral Link</label>
+                <label for="" class="col-sm-3">Referral Link <span class="float-right">:</span></label>
                 <div class="col-sm-9">
                     <input type="text" readonly value="{{url('/sign-up?sponsor='.$account->username)}}" class="form-control border-radius-22" id="link">
+                    <br>
                     <button class="btn btn-secondary btn-alc" style="margin-top:9px" onclick="doCopy()">Copy Link</button>
                 </div>
             </div>
@@ -98,7 +99,7 @@
                 <h4>REFERRAL LINK</h4>
                 <hr class="hr-alc">
                 <div class="form-group row">
-                    <label for="" class="col-sm-3">ALC Address</label>
+                    <label for="" class="col-sm-3">ALC Address <span class="float-right">:</span></label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control border-radius-22" name="anc_address" {{$account->anc_address!=null?'disabled':''}} value="{{$account->anc_address}}">
                         @if($account->anc_address==null)
@@ -115,10 +116,14 @@
     <div class="row">
             <div class="col-sm-12">
             <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
-                <h4>PAYMENT METHOD</h4>
+                <h4>PAYMENT INFORMATION</h4>
                 <hr class="hr-alc">
-                <h6 class="text-secondary">Please specify the payment method and detail information for your cash out.</h6>
-                <h6 class="text-secondary">Or you can be paid by bank transfer.</h6><br>
+                
+                <h6 class="text-primary">
+                    <br>
+                    Please accurately complete your payment information in the form below:
+                </h6>
+                <p>&nbsp;</p>
                 <!-- <div class="form-group row">
                     <label for="" class="col-sm-3">BTC Address</label>
                     <div class="col-sm-9">
@@ -129,37 +134,37 @@
                 <form action="{{url('member/address/save')}}" method="POST">
                     {{csrf_field()}}
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Bank Name</label>
+                        <label for="" class="col-sm-3">Bank Name <span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='bank_name' value="{{$bank->bank_name}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Bank Branch Name</label>
+                        <label for="" class="col-sm-3">Bank Branch Name <span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='branch_name' value="{{$bank->branch_name}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Swift Code</label>
+                        <label for="" class="col-sm-3">Swift Code <span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='swift_code' value="{{$bank->swift_code}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Bank Address</label>
+                        <label for="" class="col-sm-3">Bank Address <span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='address' value="{{$bank->address}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Full Name</label>
+                        <label for="" class="col-sm-3">Full Name <span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='full_name' value="{{$bank->full_name}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Account No</label>
+                        <label for="" class="col-sm-3">Account Number <span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='account_no' value="{{$bank->account_no}}">
                         </div>

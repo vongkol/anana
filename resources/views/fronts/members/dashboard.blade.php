@@ -2,7 +2,11 @@
 @section('content')
     <div class="container">
 		<div class="earning-dashboard">
-		<h3 class="text-center"><i class="fa fa-tachometer"></i> DASHBOARD</h3>
+		<h3>
+			<span class="text-warning">DASHBOARD</span> &nbsp;
+			<hr class="hr-alc">
+		</h3>
+		<br>
      	<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-4 col-6">
 				<a href="{{url('member/account/'.$id)}}" style="text-decoration:none;">
