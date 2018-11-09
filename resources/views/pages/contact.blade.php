@@ -12,7 +12,7 @@
 </div>
 <div class="container-fluit page-background-color">
     <div class="container text-center">
-    <div class="bg-light box-part font-weight-bold shadow-alc p-3 border-radius-15"><br>
+    <div class="bg-light box-part shadow-alc p-3 border-radius-15"><br>
         <div class="main-container-page">
             <h5 class="sub-title-image">CONTACT US</h5>
             <div class="row my-5">

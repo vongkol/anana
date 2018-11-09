@@ -48,27 +48,29 @@
                 <form action="{{url('member/change-pin/save')}}" method="POST">
                     {{csrf_field()}}
                     <div class="form-group row">
-                        <label class="col-md-3">Old Security PIN <span class="text-danger">*</span></label>
+                        <label class="col-md-3">OLD SECURITY PIN<span class="text-danger">*</span></label>
                         <div class="col-sm-9">
                             <input type="password" name="old_pin" required class="form-control border-radius-22" value="">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">New Security PIN <span class="text-danger">*</span></label>
+                        <label class="col-md-3">NRE SECURITY PIN<span class="text-danger">*</span></label>
                         <div class="col-sm-9">
                             <input type="password" name="security_pin" required class="form-control border-radius-22" value="{{old('security_pin')}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">Confirm New Security PIN <span class="text-danger">*</span></label>
+                        <label class="col-md-3">CONFIRM NEW SECRITY PIN<span class="text-danger">*</span></label>
                         <div class="col-sm-9">
                             <input type="password" name="cpin" required class="form-control border-radius-22" value="{{old('cpin')}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">&nbsp;</label>
-                        <div class="col-sm-9">
-                            <button class="btn btn-warning btn-alc">Change</button>
+                       
+                            <label for="" class="col-sm-9 mb-none">&nbsp;</label>
+                      
+                        <div class="col-sm-3">
+                            <button class="btn btn-warning btn-alc">CHANGE</button>
                         </div>
                     </div>
                 </form>

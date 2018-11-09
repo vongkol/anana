@@ -1,12 +1,11 @@
 @extends('layouts.security')
 @section('content')
-<body class="my-login-page main-page-login">
-	<section class="h-100">
-		<div class="container h-100">
-			<div class="row justify-content-md-center  h-100">
-				<div class="card-wrapper">
-					<div class="card fat">
-						<div class="card-body">
+<div class="my-login-page my-sign-up main-page-login">
+			<div class="container">
+				<div class="row  justify-content-md-center login">
+					<div class="card-wrapper ">
+						<div class="card box-part fat">
+							<div class="card-body">
 							<h4 class="card-title">Recovery password </h4>
 							<hr>
 							@if(Session::has('sms1'))
@@ -24,10 +23,10 @@
 								{{csrf_field()}}
 								<div class="form-group">
 									<label>Enter your backup email <span class="text-danger">*</span></label>
-									<input id="email" type="text" class="form-control" name="email" value="" required autofocus>
+									<input id="email" type="email" class="form-control border-radius-22" name="email" value="" required autofocus>
 								</div>
 								<div class="form-group no-margin">
-									<button type="submit" class="btn-learn btn btn-dark btn-block">
+									<button type="submit" class=" btn btn-warning btn-block border-radius-22">
 										Send
 									</button>
 								</div>
@@ -46,5 +45,6 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 @endsection

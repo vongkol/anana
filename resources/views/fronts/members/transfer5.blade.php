@@ -46,7 +46,6 @@
                         <input type="number" class="form-control" name="amount" min="0.000" step="0.001" required>
                     </div>
                 </div>
-                
                 <div class="form-group row">
                     <label for="" class="control-label col-sm-3">&nbsp;</label>
                     <div class="col-sm-8">
