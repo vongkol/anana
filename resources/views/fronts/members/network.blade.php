@@ -6,7 +6,7 @@
     <div class="earning-dashboard">
         <h3>
         <span class="text-warning" style="font-size: 1.75rem;font-weight:600;">
-             MY NETWORK
+            NETWORK
         </span> &nbsp;
             <a href="{{url('dashboard')}}" class="btn btn-success btn-alc"> <i class="fa fa-arrow-left"></i>  Back</a>
             <hr class="hr-alc">

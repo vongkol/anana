@@ -30,22 +30,22 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="{{url('/dashboard')}}" class="nav-link">Dashboard</a>
+                            <a href="{{url('/dashboard')}}" class="nav-link">DASHBOARD</a>
                         </li>
                          <li class="nav-item">
-                            <a href="{{url('member/account/'. \App\Http\Controllers\Helper::encryptor('encrypt', session('member')->id))}}" class="nav-link">My Account</a>
+                            <a href="{{url('member/account/'. \App\Http\Controllers\Helper::encryptor('encrypt', session('member')->id))}}" class="nav-link">MY ACCOUNT</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('member/investment/'. \App\Http\Controllers\Helper::encryptor('encrypt', session('member')->id))}}" class="nav-link">Investment</a>
+                            <a href="{{url('member/investment/'. \App\Http\Controllers\Helper::encryptor('encrypt', session('member')->id))}}" class="nav-link">INVENSTMENT</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('member/earning')}}" class="nav-link">Earning</a>
+                            <a href="{{url('member/earning')}}" class="nav-link">EARNING</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('member/network')}}" class="nav-link">Network</a>
+                            <a href="{{url('member/network')}}" class="nav-link">NETWORK</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('member/transaction')}}" class="nav-link">Transaction</a>
+                            <a href="{{url('member/transaction')}}" class="nav-link">TRANSACTION</a>
                         </li>
                         <li class="nav-item">
                            
@@ -90,7 +90,7 @@
         <div class="main-page">
             @yield('content')
         </div>
-        <footer>
+        <!-- <footer>
             <div class="container">
                 <section class="text-white">
                     <div class="row">
@@ -131,7 +131,7 @@
                     </div>
                 </section>
             </div>
-        </footer>
+        </footer> -->
         <script type="text/javascript"> 
             function display_c(){
             var refresh=1000; // Refresh rate in milli seconds

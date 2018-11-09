@@ -1,4 +1,4 @@
-@extends('layouts.security')
+@extends('layouts.page')
 @section('content')
 <body class="my-login-page main-page-login">
 	<section class="h-100">
@@ -9,9 +9,7 @@
 						<div class="card-body">
 							<h4 class="card-title">Recovery password </h4>
 							<hr>
-							
 							<form action="#">
-	
 								<div class="form-group">
 									{{$sms}}
 								</div>

@@ -15,7 +15,7 @@
 <div class="container-fluit page-background-color">
     <div class="container text-center">
         <div class="main-container-page">
-        <div class="bg-light  height-450 font-weight-bold shadow-alc p-3 border-radius-15"><br>
+        <div class="bg-light  height-450 box-part font-weight-bold shadow-alc p-3 border-radius-15"><br>
             <h5 class="sub-title-image">ABOUT US</h5>
             <div class="description text-justify padding-alc">
                 <p>

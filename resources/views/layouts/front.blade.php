@@ -84,12 +84,12 @@
         @yield('content')
         <footer>
             <div class="container">
+            <div class="footer-margin">
                 <section class="text-white">
                     <div class="row">
                         <div class="col-md-9 text-justify">
-                            <h5>
+                            
                                 <img src="{{asset('images/alc-logo.png')}}" alt="" class="logo py-1">
-                            </h5>
                             <aside>
                                 We are the first authorized and legal cryptocurrency representative in Cambodia.
                                 Digital Currency is taking the world by storm because It is not just the next big thing,
@@ -102,7 +102,8 @@
                                 Want to become our members in this exciting journey to generate more income, Ana Lee can help you achieve your dream goal.
                                 If you are already a Blockchain members, we can help you to get your real cash with our partners in Cambodia.
                             </aside>
-                        </div>
+                            </div>
+                    
                         <div class="col-md-3 contact-us">
                             <h6>CONTACT US</h6>
                             <aside> #A3, St.BT, Sangkat Chomchaov, Khan Porsenchey, Phnom Penh, Cambodia</aside>
@@ -118,7 +119,8 @@
                                 </div>
                             </aside>
                         </div>
-                </section>
+                </section>   
+             </div>
             </div>
         </footer>
         <script type="text/javascript"> 

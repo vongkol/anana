@@ -10,103 +10,111 @@
     <br>
     <div class="row">
         <div class="col-sm-6">
-            <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
-            <div>
-                <h4>PROFILE INFORMATION</h4>
-                <hr class="hr-alc">
-            </div>
-            <div class="form-group row ">
-                <label for="" class="col-sm-3 col-4">Username</label>
-                <div class="col-sm-9 col-8">
-                    : {{$account->username}}
+			<div class="bg-light alc-box font-weight-bold shadow-alc mb-5 border-radius-15">
+            <h4 class="card-header">PROFILE INFORMATION</h4>
+                <div class="p-3 text-blue font-size-16">
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-4">USERNAME</label>
+                        <div class="col-sm-9 col-8 p-2">
+                            :  &nbsp; {{$account->username}}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-4">FULL NAME</label>
+                        <div class="col-sm-9 col-8 p-2">
+                            :  &nbsp; {{$account->full_name}}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-4">EMAIL</label>
+                        <div class="col-sm-9 col-8 p-2">
+                            :  &nbsp; {{$account->email}}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-4">PHONE</label>
+                        <div class="col-sm-9  col-8 p-2">
+                            : &nbsp; {{$account->phone}}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-4">COUNTRY</label>
+                        <div class="col-sm-9 col-8 p-2">
+                            :  &nbsp; {{$account->country}}
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <label for="" class="col-sm-3 col-4">Full Name</label>
-                <div class="col-sm-9 col-8">
-                    : {{$account->full_name}}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="" class="col-sm-3 col-4">Email</label>
-                <div class="col-sm-9 col-8">
-                    : {{$account->email}}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="" class="col-sm-3 col-4">Phone</label>
-                <div class="col-sm-9  col-8">
-                    : {{$account->phone}}
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="" class="col-sm-3 col-4">Country</label>
-                <div class="col-sm-9 col-8">
-                    : {{$account->country}}
-                </div>
-            </div>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="row">
-            <div class="col-sm-12">
-            <div class="bg-light shadow-alc p-3 mb-4 border-radius-15">
-                <h4>ACCOUNT PASSWORD</h4>
-                <hr class="hr-alc">
-                <div class="form-group">
-                    <a href="{{url('member/change-password')}}" class="btn btn-warning btn-alc">Change Password</a>
+                <div class="col-sm-12">
+                    <div class="bg-light alc-box font-weight-bold shadow-alc mb-5 border-radius-15">
+                        <h4 class="card-header">ACCOUNT PASSWORD</h4>
+                        <div class="p-3 mt-2">
+                        <div class="form-group">
+                            <a href="{{url('member/change-password')}}" class="btn btn-warning btn-alc font-weight-bold">CHANGE PASSWORD</a>
+                        </div>
+                    </div>
                 </div>
-               
-            </div>
-            </div>
-            <div class="col-sm-12">
-            <div class="bg-light shadow-alc p-3 mb-5 border-radius-15">
-                <h4>ACCOUNT SECURITY PIN</h4>
-                <hr class="hr-alc">
-                <div class="form-group">
-                    <a href="{{url('member/change-pin')}}" class="btn btn-warning btn-alc">Change Security PIN</a>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="bg-light alc-box font-weight-bold shadow-alc mb-5 border-radius-15">
+                            <h4 class="card-header">ACCOUNT SECURITY PIN</h4>
+                            <div class="p-3 mt-2">
+                                <div class="form-group">
+                                    <a href="{{url('member/change-pin')}}" class="btn btn-warning btn-alc font-weight-bold">CHANGE SECURITY PIN</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div>
         </div>
     </div>
+</div>
 <?php $ivs = DB::table('investments')->where('member_id', $account->id)->first(); ?>
 
     @if($ivs!=null)
     <div class="row">
         <div class="col-sm-12">
-            <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
-            <h4>REFERRAL LINK</h4>
-            <hr class="hr-alc">
-            <div class="form-group row">
-                <label for="" class="col-sm-3">Referral Link <span class="float-right">:</span></label>
-                <div class="col-sm-9">
-                    <input type="text" readonly value="{{url('/sign-up?sponsor='.$account->username)}}" class="form-control border-radius-22" id="link">
-                    <br>
-                    <button class="btn btn-secondary btn-alc" style="margin-top:9px" onclick="doCopy()">Copy Link</button>
+            <div class="bg-light alc-box font-weight-bold shadow-alc mb-5 border-radius-15">
+                <h4 class="card-header">REFERRAL LINK</h4>
+                <div class="p-3 font-size-16">
+                    <div class="form-group row">
+                        <label class="col-sm-3 text-blue">REFERRAL LINK<span class="float-right">:</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" readonly value="{{url('/sign-up?sponsor='.$account->username)}}" class="form-control border-radius-22" id="link">
+                            <button class="btn btn-warning btn-alc font-weight-bold" style="margin-top:9px" onclick="doCopy()">COPY LINK</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
     @endif
     <div class="row">
         <div class="col-sm-12">
-        <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
-           <form action="#" method="POST">
+            <div class="bg-light alc-box font-weight-bold shadow-alc mb-5 border-radius-15">
+            <form action="#" method="POST">
+                <h4 class="card-header">WALLET ADDRESS</h4>
                 {{csrf_field()}}
-                <h4>REFERRAL LINK</h4>
-                <hr class="hr-alc">
-                <div class="form-group row">
-                    <label for="" class="col-sm-3">ALC Address <span class="float-right">:</span></label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control border-radius-22" name="anc_address" {{$account->anc_address!=null?'disabled':''}} value="{{$account->anc_address}}">
-                        @if($account->anc_address==null)
-                        <p>
-                            <button class="btn btn-primary btn-alc">Save</button>
-                        </p>
-                        @endif
+                <div class="p-3 text-blue font-size-16">
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3">ALC ADDRESS <span class="float-right">:</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control border-radius-22" name="anc_address" {{$account->anc_address!=null?'disabled':''}} value="{{$account->anc_address}}">
+                            @if($account->anc_address==null)
+                            <div class="from-group row">
+                                <div class="mb-none">
+                                    <label for="" class="col-sm-8">&nbsp;</label>
+                                </div>
+                                <div class="col-sm-3"><p></p>
+                                    <button type="button" class="btn btn-warning btn-alc disabled font-weight-bold">SAVE</button>
+                                </div>
+                            </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
            </form>
@@ -115,13 +123,12 @@
     </div>
     <div class="row">
             <div class="col-sm-12">
-            <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
-                <h4>PAYMENT INFORMATION</h4>
-                <hr class="hr-alc">
-                
+            <div class="bg-light alc-box font-weight-bold shadow-alc mb-5 border-radius-15">
+                <h4 class="card-header">PAYMENT INFORMATION</h4>
+                <div class="p-3 text-blue font-size-16">
                 <h6 class="text-primary">
                     <br>
-                    Please accurately complete your payment information in the form below:
+                    PLEASE ACCURATELY COMPLETE YOUR PAYMENT INFORMATION IN THE FORM BELOW:
                 </h6>
                 <p>&nbsp;</p>
                 <!-- <div class="form-group row">
@@ -134,50 +141,53 @@
                 <form action="{{url('member/address/update')}}" method="POST">
                     {{csrf_field()}}
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Bank Name <span class="float-right">:</span></label>
+                        <label for="" class="col-sm-3">BANK NAME<span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='bank_name' value="{{$bank->bank_name}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Bank Branch Name <span class="float-right">:</span></label>
+                        <label for="" class="col-sm-3">BANK BRANCH NAME <span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='branch_name' value="{{$bank->branch_name}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Swift Code <span class="float-right">:</span></label>
+                        <label for="" class="col-sm-3">SWIFT CODE <span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='swift_code' value="{{$bank->swift_code}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Bank Address <span class="float-right">:</span></label>
+                        <label for="" class="col-sm-3">BANK ADDRESS <span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='address' value="{{$bank->address}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Full Name <span class="float-right">:</span></label>
+                        <label for="" class="col-sm-3">FULL NAME<span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='full_name' value="{{$bank->full_name}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">Account Number <span class="float-right">:</span></label>
+                        <label for="" class="col-sm-3">ACCOUNT NUMBER<span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name='account_no' value="{{$bank->account_no}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-3">&nbsp;</label>
-                        <div class="col-sm-9">
-                            <button class="btn btn-primary btn-alc">Save</button>
+                        <div class="mb-none">
+                            <label for="" class="col-sm-9">&nbsp;</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <button class="btn btn-warning btn-alc font-weight-bold">SAVE</button>
                         </div>
                     </div>
                 </form>
+                </div>
                 @else
-
+                    <div class="p-3">
                     <form action="{{url('member/address/save')}}" method="POST">
                         {{csrf_field()}}
                         <div class="form-group row">
@@ -218,10 +228,11 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-9">
-                                <button class="btn btn-primary btn-alc">Save</button>
+                                <button class="btn btn-primary btn-alc font-weight-bold">SAVE</button>
                             </div>
                         </div>
                     </form>
+                    </div>
                 @endif
             </div>
         </div>

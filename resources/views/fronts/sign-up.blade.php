@@ -4,7 +4,7 @@
 			<div class="container">
 				<div class="row  justify-content-md-center login">
 					<div class="card-wrapper ">
-						<div class="card fat">
+						<div class="card box-part fat">
 							<div class="card-body">
 								<h4 class="card-title">Sign Up</h4>
 								<hr>
@@ -44,7 +44,7 @@
 										</div>
 										<div class="col-md-6">
 											<label for="">
-												<strong>Full Name <span class="text-danger">*</span></strong>
+												<strong>Full Name<span class="text-danger">*</span></strong>
 												<input type="text" class="form-control" required autofocus name="full_name" value="{{old('full_name')}}">
 											</label>
 										</div>
@@ -52,13 +52,13 @@
 									<div class="form-group row">
 										<div class="col-md-6">
 											<label for="">
-												<strong>Username <span class="text-danger">*</span></strong>
+												<strong>Username<span class="text-danger">*</span></strong>
 												<input type="text" class="form-control" required name="username" value="{{old('username')}}">
 											</label>
 										</div>
 										<div class="col-md-6">
 											<label for="">
-												<strong>Email <span class="text-danger">*</span></strong>
+												<strong>Email<span class="text-danger">*</span></strong>
 												<input type="email" class="form-control" required name="email" value="{{old('email')}}">
 											</label>
 										</div>
@@ -66,13 +66,13 @@
 									<div class="form-group row">
 										<div class="col-md-6">
 											<label for="">
-												<strong>Phone </strong>
-												<input type="text" class="form-control" name="phone" value="{{old('phone')}}">
+												<strong>Phone<span class="text-danger">*</span></strong>
+												<input type="text" class="form-control" required name="phone" value="{{old('phone')}}">
 											</label>
 										</div>
 										<div class="col-md-6">
 											<label for="">
-												<strong>Country <span class="text-danger">*</span> </strong>
+												<strong>Country<span class="text-danger">*</span> </strong>
 												<select name="country" id="country" class="form-control">
 													@foreach($countries as $c)
 														<option value="{{$c->name}}">{{$c->name}}</option>
@@ -105,7 +105,7 @@
 									</div>
 								
 									<div class="form-group no-margin">
-										<button type="button" class="btn btn-learn btn-primary btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">
+										<button type="button" class="btn btn-learn btn-warning border-radius-22 btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">
 											Continue
 										</button>
 										<!-- <button type="submit" class="btn btn-learn btn-dark btn-block">
@@ -437,7 +437,7 @@
 			</p>
 		</div>
 		<div class="modal-footer text-left">
-			<button type="button" class="btn btn-primary" data-dismiss="modal" id="btn" disabled>Confirm Registration</button>
+			<button type="button" class="btn btn-warning" data-dismiss="modal" id="btn" disabled>Confirm Registration</button>
 		</div>
 
 		</div>
