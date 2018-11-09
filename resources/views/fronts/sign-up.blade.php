@@ -39,13 +39,13 @@
 										<div class="col-md-6">
 											<label>
 												<strong>Sponsor ID</strong>
-												<input type="text" class="form-control" name="sponsor_id" value="{{$sponsor_id}}">
+												<input type="text" class="form-control border-radius-22" name="sponsor_id" value="{{$sponsor_id}}">
 											</label>
 										</div>
 										<div class="col-md-6">
 											<label for="">
 												<strong>Full Name<span class="text-danger">*</span></strong>
-												<input type="text" class="form-control" required autofocus name="full_name" value="{{old('full_name')}}">
+												<input type="text" class="form-control border-radius-22" required autofocus name="full_name" value="{{old('full_name')}}">
 											</label>
 										</div>
 									</div>
@@ -53,13 +53,13 @@
 										<div class="col-md-6">
 											<label for="">
 												<strong>Username<span class="text-danger">*</span></strong>
-												<input type="text" class="form-control" required name="username" value="{{old('username')}}">
+												<input type="text" class="form-control border-radius-22" required name="username" value="{{old('username')}}">
 											</label>
 										</div>
 										<div class="col-md-6">
 											<label for="">
 												<strong>Email<span class="text-danger">*</span></strong>
-												<input type="email" class="form-control" required name="email" value="{{old('email')}}">
+												<input type="email" class="form-control border-radius-22" required name="email" value="{{old('email')}}">
 											</label>
 										</div>
 									</div>
@@ -67,13 +67,13 @@
 										<div class="col-md-6">
 											<label for="">
 												<strong>Phone<span class="text-danger">*</span></strong>
-												<input type="text" class="form-control" required name="phone" value="{{old('phone')}}">
+												<input type="text" class="form-control border-radius-22" required name="phone" value="{{old('phone')}}">
 											</label>
 										</div>
 										<div class="col-md-6">
 											<label for="">
 												<strong>Country<span class="text-danger">*</span> </strong>
-												<select name="country" id="country" class="form-control">
+												<select name="country" id="country" class="form-control border-radius-22">
 													@foreach($countries as $c)
 														<option value="{{$c->name}}">{{$c->name}}</option>
 													@endforeach
@@ -85,13 +85,13 @@
 										<div class="col-md-6">
 											<label for="">
 												<strong>Password <span class="text-danger">*</span> </strong>
-												<input type="password" class="form-control" name="password" required value="{{old('password')}}">
+												<input type="password" class="form-control border-radius-22" name="password" required value="{{old('password')}}">
 											</label>
 										</div>
 										<div class="col-md-6">
 											<label for="">
 												<strong>Confirm Password <span class="text-danger">*</span> </strong>
-												<input type="password" class="form-control" name="cpassword" required>
+												<input type="password" class="form-control border-radius-22" name="cpassword" required>
 											</label>
 										</div>
 									</div>
@@ -99,7 +99,7 @@
 										<div class="col-md-12">
 											<label for="">
 												<strong>Security PIN <span class="text-danger">*</span> </strong>
-												<input type="password" class="form-control" name="security_pin" required value="{{old('security_pin')}}">
+												<input type="password" class="form-control border-radius-22" name="security_pin" required value="{{old('security_pin')}}">
 											</label>
 										</div>
 									</div>

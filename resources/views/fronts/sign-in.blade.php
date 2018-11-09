@@ -6,7 +6,7 @@
 				<div class="container">
 					<div class="row justify-content-md-center login">
 						<div class="card-wrapper">
-							<div class="card alc-box fat">
+							<div class="card box-part  alc-box fat">
 								<div class="card-body">
 									<h4 class="card-title">Sign in to ANA LEE CAPITAL</h4>
 									<hr>
@@ -33,15 +33,12 @@
 									<form method="POST" action="{{url('member/signin')}}">
 										{{csrf_field()}}
 										<div class="form-group">
-											<label>Username <span class="text-danger">*</span></label>
-											<input id="username" type="username" class="form-control" name="username" value="" required autofocus>
-											
+											<label>Username<span class="text-danger">*</span></label>
+											<input id="username" type="username" class="form-control border-radius-22" name="username" value="" required autofocus>
 										</div>
 										<div class="form-group">
-											<label for="password">Password <span class="text-danger">*</span>
-												
-											</label>
-											<input id="password" type="password" class="form-control" name="password" required data-eye>
+											<label for="password">Password<span class="text-danger">*</span></label>
+											<input id="password" type="password" class="form-control form-control border-radius-22" name="password" required data-eye>
 										</div>
 										<div class="form-group no-margin">
 											<button type="submit" class="btn-learn btn btn-warning border-radius-22 btn-block">
