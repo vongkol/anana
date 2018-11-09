@@ -18,18 +18,14 @@ class TransactionController extends Controller
         {
             return redirect('member/investment/'.$member->id);
         }
-        $data['payments'] = DB::table('payment_requests')
-            ->where('member_id', $member->id)
-            ->orderBy('id', 'desc')
-            ->get();
-        $data['trans'] = DB::table('member_transfer_transactions')
-            ->where('from_id', $member->id)
-            ->orderBy('id', 'desc')
-            ->get();
-        $data['trans1'] = DB::table('member_transfer_transactions')
-            ->where('to_id', $member->id)
-            ->orderBy('id', 'desc')
-            ->get();
+        
+        // get all 5 transaction types into one and select top 100
+        // 1. investment reward
+        // 2. commission reward
+        // 3. matching reward
+        // 4. transfer transaction
+        // 5. payment request transaction
+        
         return view('fronts.members.transaction', $data);
     }
 }
