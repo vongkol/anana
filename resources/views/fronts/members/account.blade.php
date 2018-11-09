@@ -64,6 +64,7 @@
                             <div class="p-3 mt-2">
                                 <div class="form-group">
                                     <a href="{{url('member/change-pin')}}" class="btn btn-warning btn-alc font-weight-bold">CHANGE SECURITY PIN</a>
+                                    <a href="{{url('member/reset-pin')}}" class="btn btn-warning btn-alc font-weight-bold">RESET</a>
                                 </div>
                             </div>
                         </div>
