@@ -145,7 +145,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 py-3">
-                        Copyright &copy; ANA LEE CAPITAL (ALC). All rights reserved. <span class="text-warning"> | </span> <a href="{{asset('privacy.pdf')}}">Privacy Policy </a>
+                        Copyright &copy; ANA LEE CAPITAL (ALC). All rights reserved. <span class="text-warning"> | </span> <a href="{{url('page/privacy-policy')}}">Privacy Policy </a>
                         <div>
                             <a href="https://www.facebook.com/analeecapital/" class="btn btn-outline-warning btn-sm pt-0 pb-0 mt-1" target="_blank">
                                 <i class="fa fa-facebook"></i>

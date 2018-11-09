@@ -73,6 +73,7 @@ Route::get('rate/get', 'RateController@index');
 Route::get('page/about', "PageController@about");
 Route::get('page/contact', "PageController@contact");
 Route::get('page/white-paper', "PageController@white_paper");
+Route::get('page/privacy-policy', "PageController@private");
 
 // Admin Route
 Route::prefix('analee-admin')->group(function () {

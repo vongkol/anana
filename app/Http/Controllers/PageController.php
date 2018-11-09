@@ -18,4 +18,8 @@ class PageController extends Controller
     {
         return view('pages.white-paper');
     }
+    public function private()
+    {
+        return view('pages.private');
+    }
 }

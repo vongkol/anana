@@ -8,7 +8,7 @@
 						<div class="card-wrapper">
 							<div class="card box-part  alc-box fat">
 								<div class="card-body">
-									<h4 class="card-title">Sign in to ANA LEE CAPITAL</h4>
+									<h4 class="card-title">Login to ANA LEE CAPITAL</h4>
 									<hr>
 									@if(Session::has('sms1'))
 										<div class="alert alert-danger" role="alert">
