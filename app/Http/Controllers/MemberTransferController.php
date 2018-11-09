@@ -38,8 +38,8 @@ class MemberTransferController extends Controller
         $cw = Helper::encryptor('decrypt', $m->cash_wallet) - $amount;
 
         $data = array(
-            'cash_wallet' => $cw,
-            'register_wallet' => $rw
+            'cash_wallet' => Helper::encryptor('encrypt', $cw),
+            'register_wallet' => Helper::encryptor('encrypt', $rw)
         );
         DB::table('members')->where('id', $m->id)->update($data);
         // save transaction
@@ -297,6 +297,5 @@ class MemberTransferController extends Controller
         }
         $m = DB::table('members')->where('id', $member->id)->first();
         $amount = $r->amount;
-        
     }
 }

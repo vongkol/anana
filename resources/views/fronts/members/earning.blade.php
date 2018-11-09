@@ -15,6 +15,7 @@
             <div class="bg-light  height-200 font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
                 <h4><span class="text-warning">$</span> C-WALLET</h4>
                 <hr class="hr-alc">
+               
                 <h5><span class="text-warning">$</span> {{\App\Http\Controllers\Helper::encryptor('decrypt', $wallet->cash_wallet)}} </h5>
               
                     <div class="py-2">

@@ -131,7 +131,7 @@
                     </div>
                 </div> -->
                 @if($bank!=null)
-                <form action="{{url('member/address/save')}}" method="POST">
+                <form action="{{url('member/address/update')}}" method="POST">
                     {{csrf_field()}}
                     <div class="form-group row">
                         <label for="" class="col-sm-3">Bank Name <span class="float-right">:</span></label>

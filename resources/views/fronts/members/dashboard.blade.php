@@ -48,7 +48,7 @@
 					</div>
 				</a>
 			</div>	 
-				<div class="col-lg-4 col-md-4 col-sm-4 col-6">
+			<div class="col-lg-4 col-md-4 col-sm-4 col-6">
 				<a href="{{url('member/transaction')}}" style="text-decoration:none;">
 					<div class="box-part shadow-alc text-center">
 						<img src="{{asset('images/transactions.png')}}" width="80" alt="">
@@ -58,16 +58,7 @@
 					</div>
 				</a>
 			</div>	 
-				<!-- <div class="col-lg-4 col-md-4 col-sm-4 col-6">
-				<a href="{{asset('terms-conditions.pdf')}}" class="text-primary" style="text-decoration:none;">
-					<div class="box-part text-center">
-						<img src="{{asset('images/termandcondiction.png')}}" width="77" alt="">
-						<div class="title">
-							<h4 class="mobile-font-h4">Terms & Conditions</h4>
-						</div>
-					</div>
-				</a>
-			</div> -->
+				
 		</div>		
     </div>
 </div>

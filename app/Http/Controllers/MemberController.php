@@ -229,6 +229,25 @@ EOT;
         DB::table('banks')->insert($data);
         return redirect('member/account/'. Helper::encryptor('encrypt', $member->id));
     }
+    // save address for bank
+    public function update_address(Request $r)
+    {
+        $member = session('member');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data = array(
+            'bank_name' => $r->bank_name,
+            'full_name' => $r->full_name,
+            'account_no' => $r->account_no,
+            'branch_name' => $r->branch_name,
+            'swift_code' => $r->swift_code,
+            'address' => $r->address
+        );
+        DB::table('banks')->where('member_id',$member->id)->update($data);
+        return redirect('member/account/'. Helper::encryptor('encrypt', $member->id));
+    }
     public function reset_password(Request $r)
     {
         $email = $r->email;
