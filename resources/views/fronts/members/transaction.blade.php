@@ -3,9 +3,10 @@
 <div class="container">
     <div class="earning-dashboard">
         <h3>
-            <img src="{{asset('images/transactions.png')}}" width="55" alt="">
-        My Transaction <a href="{{url('dashboard')}}" class="btn btn-success btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i>  Back</a></h3>
-        <p></p>
+        <span class="text-warning">MY TRANSACTION</span> &nbsp;
+        <a href="{{url('dashboard')}}" class="btn btn-success btn-alc"><i class="fa fa-arrow-left" aria-hidden="true"></i>  Back</a>
+        <hr class="hr-alc">
+    </h3>
         <div class="row">
             <div class="col-sm-12">
                 <strong class="text-primary">Withdrawal History</strong>

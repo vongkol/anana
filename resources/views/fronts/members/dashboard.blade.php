@@ -1,55 +1,55 @@
 @extends('layouts.page')
 @section('content')
-<div class="box">
     <div class="container">
-		<h3 class="text-center"><i class="fa fa-tachometer"></i> Dashboard</h3>
+		<div class="earning-dashboard">
+		<h3 class="text-center"><i class="fa fa-tachometer"></i> DASHBOARD</h3>
      	<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-4 col-6">
-				<a href="{{url('member/account/'.$id)}}" class="text-primarye" style="text-decoration:none;">
-					<div class="box-part text-center">
+				<a href="{{url('member/account/'.$id)}}" style="text-decoration:none;">
+					<div class="box-part shadow-alc text-center">
 						<img src="{{asset('images/myaccount.png')}}" width="80" alt="">
 						<div class="title">
-							<h4 class="mobile-font-h4">My Account</h4>
+							<h4 class="mobile-font-h4">MY ACCOUNT</h4>
 						</div>
 					</div>
 				</a>
 			</div>	 
 			<div class="col-lg-4 col-md-4 col-sm-4 col-6">
-				<a href="{{url('member/investment/'.$id)}}" class="text-primary" style="text-decoration:none;">
-					<div class="box-part text-center">
+				<a href="{{url('member/investment/'.$id)}}"  style="text-decoration:none;">
+					<div class="box-part shadow-alc text-center">
 						<img src="{{asset('images/invesment.png')}}" width="80" alt="">
 						<div class="title">
-							<h4 class="mobile-font-h4">Investment</h4>
+							<h4 class="mobile-font-h4">INVESMENT</h4>
 						</div>
 					</div>
 				</a>
 			</div>	 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-6">
-				<a href="{{url('member/earning')}}" class="text-primary" style="text-decoration:none;">
-					<div class="box-part text-center">
+				<a href="{{url('member/earning')}}"style="text-decoration:none;">
+					<div class="box-part shadow-alc text-center">
 						<img src="{{asset('images/earning.png')}}" width="80" alt="">
 						<div class="title">
-							<h4 class="mobile-font-h4">Earning</h4>
+							<h4 class="mobile-font-h4">EARNING</h4>
 						</div>
 					</div>
 				</a>
 			</div>	 
 			<div class="col-lg-4 col-md-4 col-sm-4 col-6">
-				<a href="{{url('member/network')}}" class="text-primary" style="text-decoration:none;">
-					<div class="box-part text-center">
+				<a href="{{url('member/network')}}" style="text-decoration:none;">
+					<div class="box-part shadow-alc text-center">
 						<img src="{{asset('images/mynetwork.png')}}" width="80" alt="">
 						<div class="title">
-							<h4 class="mobile-font-h4">My Network</h4>
+							<h4 class="mobile-font-h4">MY NETWORK</h4>
 						</div>  
 					</div>
 				</a>
 			</div>	 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-6">
-				<a href="{{url('member/transaction')}}" class="text-primary" style="text-decoration:none;">
-					<div class="box-part text-center">
+				<a href="{{url('member/transaction')}}" style="text-decoration:none;">
+					<div class="box-part shadow-alc text-center">
 						<img src="{{asset('images/transactions.png')}}" width="80" alt="">
 						<div class="title">
-							<h4 class="mobile-font-h4">Transactions</h4>
+							<h4 class="mobile-font-h4">TRANSACTION</h4>
 						</div>
 					</div>
 				</a>

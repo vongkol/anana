@@ -3,77 +3,79 @@
 <div class="container">
 	<div class="earning-dashboard">
 		<h3>
-			<img src="{{asset('images/invesment.png')}}" alt="" width="50"> 
-			My Investment 
-			<a href="{{url('dashboard')}}" class="btn btn-success btn-sm"> <i class="fa fa-arrow-left"></i> Back</a>
+			<span class="text-warning">
+			MY INVESTMENT
+			</span>&nbsp;
+			<a href="{{url('dashboard')}}" class="btn btn-success btn-alc"> <i class="fa fa-arrow-left"></i> Back</a>
+			<hr class="hr-alc">
         </h3>
-        <p></p>
+        <br>
 		<div class="row">
-            <div class="col-sm-2 col-6">
-                <hr>
-                <h6>Investment Package</h4>
-                <hr>
-                <strong>
-					@if($investment!=null)
-					<i class="fa fa-gift text-warning"></i> {{$investment->name}}
-					@endif
-				</strong>
-                <p></p>
+            <div class="col-sm-4">
+				 <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
+					<h4>INVESTMENT PACKAGE</h4>
+					<hr class="hr-alc">
+					<strong>
+						@if($investment!=null)
+						<h5><i class="fa fa-diamond"></i> {{$investment->name}}</h5>
+						@endif
+					</strong>
+				</div>
 			</div>
-			<div class="col-sm-2 col-6">
-                <hr>
-                <h6>IInvest Amount</h4>
-                <hr>
-                <strong>
-					@if($investment!=null)
-						$ {{$investment->price}}
-					@endif
-				</strong>
-                <p></p>
+			<div class="col-sm-4">
+				 <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
+					<h4>INVEST AMOUNT</h4>
+					<hr class="hr-alc">
+					<strong>
+						@if($investment!=null)
+						<h4><span class="text-warning">$</span> {{$investment->price}}</h4>
+						@endif
+					</strong>
+				</div>
 			</div>
-			<div class="col-sm-2 col-6">
-                <hr>
-                <h6>Monthly Payout Rate</h4>
-                <hr>
-                <strong>
-					@if($investment!=null)
-						{{$investment->monthly_payout}} %
-					@endif
-				</strong>
-                <p></p>
+			<div class="col-sm-4">
+				 <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
+					<h4>MONTHLY PAYOUT RATE</h4>
+					<hr class="hr-alc">
+					<strong>
+						@if($investment!=null)
+						<h4>{{$investment->monthly_payout}} <span class="text-warning">%</span></h4>
+						@endif
+					</strong>
+				</div>
 			</div>
-			<div class="col-sm-2 col-6">
-                <hr>
-                <h6>Day Of Contract</h4>
-                <hr>
-                <strong>
-					@if($investment!=null)
-						{{$investment->duration}}
-					@endif
-				</strong>
-                <p></p>
+			<div class="col-sm-4">
+				<div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
+					<h4>DAY OF CONTRACT</h4>
+					<hr class="hr-alc">
+					<strong>
+						@if($investment!=null)
+						<h4>{{$investment->duration}} 	<small class="text-secondary"> Days</small>	</h4>
+						@endif
+					</strong>
+				</div>
 			</div>
-			<div class="col-sm-2 col-6">
-                <hr>
-                <h6>Invest Date</h4>
-                <hr>
-                <strong class="text-success">
-					@if($investment!=null)
-						{{$investment->order_date}}
-					@endif
-				</strong>
-                <p></p>
+			<div class="col-sm-4">
+				 <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
+					<h4>INVEST DATE</h4>
+					<hr class="hr-alc">
+					<strong class="text-success">
+						@if($investment!=null)
+							<h4>{{$investment->order_date}}</h4> 
+						@endif
+					</strong>
+				</div>
 			</div>
-			<div class="col-sm-2 col-6">
-                <hr>
-                <h6>Expired On</h4>
-                <hr>
-                <strong class="text-danger">
-					@if($investment!=null)
-						{{$investment->expired_on}}
-					@endif
-				</strong>
-                <p></p>
+			<div class="col-sm-4">
+				 <div class="bg-light font-weight-bold shadow-alc p-3 border-radius-15">
+					<h4>EXPIRED ON</h4>
+					<hr class="hr-alc">
+					<strong class="text-danger">
+						@if($investment!=null)
+						<h4>{{$investment->expired_on}}</h4>
+						@endif
+					</strong>
+				</div>
 			</div>
 		</div>
         @if($investment==null)

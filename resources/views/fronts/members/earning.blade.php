@@ -3,66 +3,64 @@
 <div class="container">
     <div class="earning-dashboard">
         <h3>
-            <img src="{{asset('images/earning.png')}}" alt="" width="50"> My Earning 
-            <a href="{{url('dashboard')}}" class="btn btn-success btn-sm">
+        <span class="text-warning">MY EARNING </span> &nbsp;
+            <a href="{{url('dashboard')}}" class="btn btn-success btn-alc"> 
                 <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
             </a>
+            <hr class="hr-alc">
         </h3>
-        <p></p>
+        <br>
         <div class="row">
-            <div class="col-sm-4">
-                <hr>
-                <h4 class="text-info"><i class="fa fa-money"></i> C-Wallet</h4>
-                <hr>
-                <strong class="text-info">{{\App\Http\Controllers\Helper::encryptor('decrypt', $wallet->cash_wallet)}} $</strong>
-                <p></p>
-                <div>
-                    <a href="{{url('member/transfer/register')}}" class="text-primary"><i class="fa fa-arrow-right"></i> To R-Wallet</a>
-                    <br>
-                    <a href="{{url('member/transfer/bwallet')}}" class="text-primary"><i class="fa fa-arrow-right"></i>  To B-Wallet</a>
-                    <br>
-                    <a href="{{url('member/payment')}}" class="text-primary"><i class="fa fa-arrow-right"></i>  Withdraw To Cash </a>
-                </div>
+        <div class="col-sm-4">
+            <div class="bg-light  height-200 font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
+                <h4><span class="text-warning">$</span> C-WALLET</h4>
+                <hr class="hr-alc">
+                <h5><span class="text-warning">$</span> {{\App\Http\Controllers\Helper::encryptor('decrypt', $wallet->cash_wallet)}} </h5>
+              
+                    <div class="py-2">
+                    <a href="{{url('member/transfer/register')}}" class="btn btn-warning btn-alc"> To R-Wallet</a>
+                    </div>
+                    <div class="py-2">
+                        <a href="{{url('member/transfer/bwallet')}}" class="btn btn-warning btn-alc"> To B-Wallet</a>
+                    </div>
+                    <div class="py-2">
+                        <a href="{{url('member/payment')}}" class="btn btn-warning btn-alc"> Withdraw To Cash </a>
+                    </div>
+       
             </div>
-            <div class="col-sm-4">
-                <hr>
-                <h4 class="text-warning"><i class="fa fa-money"></i> R-Wallet</h4>
-                <hr>
-                <strong class="text-warning">{{\App\Http\Controllers\Helper::encryptor('decrypt', $wallet->register_wallet)}} $</strong>
-                <p></p>
-                <div>
-                    <a href="{{url('member/transfer/anyregister')}}" class="text-primary"><i class="fa fa-arrow-right"></i>  R-Wallet To R-Wallet</a>
-                </div>
+        </div>
+        <div class="col-sm-4 ">
+            <div class="bg-light  height-200 font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
+                <h4><span class="text-warning">$</span>  R-WALLET</h4>
+                <hr class="hr-alc">
+                <h5><span class="text-warning">$</span> {{\App\Http\Controllers\Helper::encryptor('decrypt', $wallet->register_wallet)}}  </h5>
+                <div class="py-2">
+                    <a href="{{url('member/transfer/anyregister')}}" class="btn btn-warning btn-alc">R-Wallet To R-Wallet</a>
+                    </div>
             </div>
+        </div>
             <div class="col-sm-4">
-                <hr>
-                <h4 class="text-danger"><i class="fa fa-money"></i> B-Wallet</h4>
-                <hr>
-                <strong class="text-danger">{{\App\Http\Controllers\Helper::encryptor('decrypt', $wallet->token_wallet)}} $ = {{\App\Http\Controllers\Helper::encryptor('decrypt', $wallet->token_wallet)/$rate->rate}} ALC</strong>
-                <p></p>
-                <!-- <div>
-                    <a href="{{url('member/transfer/alc')}}" class="text-primary"> <i class="fa fa-arrow-right"></i> Withdraw To ALC</a>
-                </div> -->
+            <div class="bg-light height-200 font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
+                <h4><span class="text-warning">$</span>  B-WALLET</h4>
+                <hr class="hr-alc">
+                <h5>{{\App\Http\Controllers\Helper::encryptor('decrypt', $wallet->token_wallet)}} $ = {{\App\Http\Controllers\Helper::encryptor('decrypt', $wallet->token_wallet)/$rate->rate}} ALC</h5>
             </div>
         </div>  
 
-        <div class="row">
-            <!-- <div class="col-sm-4">
-                <h4>Reward This Month</h4>
-                <hr>
-                <strong class="text-warning">{{$reward}} $</strong>
-            </div> -->
-            <div class="col-sm-6">
-                <hr>
-                <h4><i class="fa fa-money"></i> Sponsor</h4>
-                <hr>
-                <strong>{{$network}} $</strong>
+        <div class="col-sm-6">
+            <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
+            <h4><span class="text-warning">$</span> SPONSOR</h4>
+            <hr class="hr-alc">
+                <h5><span class="text-warning">$</span> {{$network}} </h5>
             </div>
-            <div class="col-sm-6">
-                <hr>
-                <h4 class="text-success"><i class="fa fa-money"></i> Bonus</h4>
-                <hr>
-                <strong class="text-success">{{$bonus}} $</strong>
+        </div>
+
+
+  <div class="col-sm-6">
+            <div class="bg-light font-weight-bold shadow-alc p-3 border-radius-15">
+            <h4><span class="text-warning">$</span> BONUS</h4>
+            <hr class="hr-alc">
+                <h5><span class="text-warning">$</span> {{$bonus}}</h5>
             </div>
         </div>
     </div> 

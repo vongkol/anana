@@ -11,8 +11,9 @@
     </div>
 </div>
 
-<div class="container-fluit page-background-color">
+<div class="container-fluit page-white-paper">
     <div class="container text-center">
+    <div class="bg-light  font-weight-bold shadow-alc p-3 border-radius-15"><br>
         <div class="main-container-page">
             <h5 class="sub-title-image">WHITE PAPER</h5>
             <div class="description">
@@ -39,7 +40,6 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="16"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="17"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="18"></li>
-
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -108,7 +108,7 @@
                     </div>
                 </p>
             </div>
-        </div>
+        </div></div>
     </div>
 </div>
 @stop
