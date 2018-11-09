@@ -31,7 +31,7 @@ class PaymentController extends Controller
         $pin = $r->pin;
         if($amount>Helper::encryptor('decrypt', $m->cash_wallet))
         {
-            $r->session()->flash('sms1', "You don't have enough balance!");
+            $r->session()->flash('sms1', "Sorry, you do not have enough balance!");
             return redirect('member/payment');
         }
         // check security pin
@@ -51,7 +51,7 @@ class PaymentController extends Controller
         $day = date('d');
         if($day!=$days[0] || $day!=$days[1] || $day!=$days[2])
         {
-            $r->session()->flash('sms1', "You can withdraw only on day {$days[0]} or {$days[1]} or {$days[2]} of the month!");
+            $r->session()->flash('sms1', "Sorry, your withdrawal can be proceeded on {$days[0]}st, {$days[1]}th or {$days[2]}th of the month!");
             return redirect('member/payment');
         }
         // send request

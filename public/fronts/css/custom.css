@@ -544,7 +544,9 @@ strong {
 .contact-us {
   margin-top: 81px;
 }
-
+.my-sign-up {
+  background: linear-gradient(to left, #ffffff 0%, #ffc107 100%);
+}
 @media (max-width: 1024px) {
   .bg-login {
     background-size: 1656px;
@@ -572,19 +574,19 @@ strong {
   .page-background-color {
     padding: 40px 0;
   }
+  .mb-none {
+    display: none;
+  }
   .height-450 {
     height: 384px;
   }
 }
 @media (max-width: 479px) {
-  .mb-none {
-    display: none;
-  }
-  .footer-margin {
-      margin-bottom: 100px;
-  }
   .mb-welcome-text {
     font-size: 22px;
+  }
+  .mb-none {
+    display: none;
   }
   .carousel-indicators li {
     width: 10px;

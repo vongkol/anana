@@ -35,30 +35,28 @@
             <form action="{{url('member/payment/save')}}" method="POST">
                 {{csrf_field()}}
                 <div class="form-group row">
-                    <label for="" class="control-label col-sm-3">AVAILABLE BALANCE</label>
+                    <label for="" class="control-label col-sm-3">AVAILABLE BALANCE &nbsp; ( USD )</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control border-radius-22" readonly value="$ {{\App\Http\Controllers\Helper::encryptor('decrypt', $member->cash_wallet)}}">
+                        <input type="text" class="form-control border-radius-22" readonly value="{{\App\Http\Controllers\Helper::encryptor('decrypt', $member->cash_wallet)}}">
                     </div>
                 </div>
                
                 <div class="form-group row">
                     <label for="" class="control-label col-sm-3">REQUEST AMOUNT<span class="text-danger">*</span></label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control border-radius-22" name="amount" placeholder="$" min="0.000" step="0.001" required>
+                        <input type="number" class="form-control border-radius-22" name="amount" placeholder="USD" min="0.000" step="0.001" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="control-label col-sm-3">SECURITY PIN<span class="text-danger">*</span></label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control border-radius-22" placeholder="$" name="pin" required>
+                        <input type="password" class="form-control border-radius-22" placeholder="****" name="pin" required>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="mb-none">
-                        <label for="" class="control-label col-sm-9">&nbsp;</label>
-                    </div>
+                    <label for="" class="control-label col-sm-9 mb-none">&nbsp;</label>
                     <div class="col-sm-3">
-                        <button class="btn btn-warning btn-alc">Request</button>
+                        <button class="btn btn-warning btn-alc">REQUEST</button>
                     </div>
                 </div>
             </form>

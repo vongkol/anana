@@ -59,7 +59,7 @@
 				</a>
 			</div>	 
 			<div class="col-lg-4 col-md-4 col-sm-4 col-6">
-				<a href="{{asset('terms-conditions.pdf')}}" class="text-primary" style="text-decoration:none;">
+				<a href="#" class="text-primary" style="text-decoration:none;">
 					<div class="box-part shadow-alc mb-5  text-center">
 						<img src="{{asset('images/termandcondiction.png')}}" width="76" alt="">
 						<div class="title"><br>

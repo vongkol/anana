@@ -35,16 +35,16 @@
             <form action="{{url('member/transfer/anyregister/save')}}" method="POST">
                 {{csrf_field()}}
                 <div class="form-group row">
-                    <label for="" class="control-label col-sm-3">R-WALLET AMOUNT</label>
+                    <label for="" class="control-label col-sm-3">R-WALLET AMOUNT <span class="text-warning">USD</span></label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control border-radius-22" readonly 
-                            value="$ {{\App\Http\Controllers\Helper::encryptor('decrypt', $member->register_wallet)}}">
+                            value="{{\App\Http\Controllers\Helper::encryptor('decrypt', $member->register_wallet)}}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="" class="control-label col-sm-3">RECEIVED ACCOUNT<span class="text-danger">*</span></label>
+                    <label for="" class="control-label col-sm-3">RECEIVED USER<span class="text-danger">*</span></label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control border-radius-22" name="account" placeholder="$"  required>
+                        <input type="text" class="form-control border-radius-22" name="account" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -60,9 +60,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="mb-none">
-                        <label for="" class="control-label col-sm-9">&nbsp;</label>
-                    </div>
+                    <label for="" class="control-label col-sm-9 mb-none">&nbsp;</label>
                     <div class="col-sm-3">
                         <button class="btn btn-warning btn-alc">TRANSFER</button>
                     </div>

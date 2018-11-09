@@ -158,5 +158,7 @@
         <script src="{{asset('fronts/vendor/jquery/jquery.min.js')}}"></script>
         <script src="{{asset('fronts/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('fronts/js/clean-blog.min.js')}}"></script>
+        <!-- <script type="text/javascript" src="{{asset('fronts/js/particles.js')}}"></script>
+        <script type="text/javascript" src="{{asset('fronts/js/app2.js')}}"></script> -->
     </body>
 </html>

@@ -35,7 +35,7 @@
                 <form action="{{url('member/transfer/register/save')}}" method="POST">
                     {{csrf_field()}}<br>
                     <div class="form-group row">
-                        <label class="col-md-3">CASH WALLET</label> 
+                        <label class="col-md-3">CASH WALLET &nbsp; ( USD )</span></label> 
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" readonly 
                             value="{{\App\Http\Controllers\Helper::encryptor('decrypt', $member->cash_wallet)}}">
@@ -44,12 +44,12 @@
                     <div class="form-group row">
                         <label class="col-md-3">AMOUNT TO TRANSFER<span class="text-danger">*</span></label> 
                         <div class="col-sm-9">
-                            <input type="number" class="form-control border-radius-22" placeholder="$" name="amount" min="0.000" step="0.001" required>
+                            <input type="number" class="form-control border-radius-22" placeholder="USD" name="amount" min="0.000" step="0.001" required>
                         </div>
                     </div>
                     <div class="form-group row">
-                         <div class="mb-none">
-                        <label for="" class="control-label col-sm-9">&nbsp;</label></div>
+                       
+                        <label for="" class="control-label col-sm-9 mb-none">&nbsp;</label>
                         <div class="col-sm-3">
                             <button class="btn btn-warning btn-alc">TRANSFER</button>
                         </div>

@@ -66,8 +66,8 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-3">&nbsp;</label>
-                    <div class="col-sm-9">
+                    <label class="col-sm-9 mb-none">&nbsp;</label>
+                    <div class="col-sm-3">
                         <button class="btn btn-warning btn-alc">CHANGE</button>
                     </div>
                 </div>

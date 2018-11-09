@@ -85,7 +85,7 @@
                         <label class="col-sm-3 text-blue">REFERRAL LINK<span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" readonly value="{{url('/sign-up?sponsor='.$account->username)}}" class="form-control border-radius-22" id="link">
-                            <button class="btn btn-warning btn-alc font-weight-bold" style="margin-top:9px" onclick="doCopy()">COPY LINK</button>
+                            <button class="btn btn-primary btn-alc" style="margin-top:9px" onclick="doCopy()">Copy Link</button>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,6 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="bg-light alc-box font-weight-bold shadow-alc mb-5 border-radius-15">
-            <form action="#" method="POST">
                 <h4 class="card-header">WALLET ADDRESS</h4>
                 {{csrf_field()}}
                 <div class="p-3 text-blue font-size-16">
@@ -105,10 +104,10 @@
                         <div class="col-sm-9">
                             <input type="text" class="form-control border-radius-22" name="anc_address" {{$account->anc_address!=null?'disabled':''}} value="{{$account->anc_address}}">
                             @if($account->anc_address==null)
-                            <div class="from-group row">
-                                <label for="" class="col-sm-8 mb-none">&nbsp;</label>
-                                <div class="col-sm-3"><p></p>
-                                    <button type="button" class="btn btn-warning btn-alc disabled font-weight-bold">SAVE</button>
+                            <div class=" frow">
+                                <label for="" class="col-sm-9">&nbsp;</label>
+                                <div class="col-sm-3">
+                                    <button class="btn btn-warning btn-alc">Save</button>
                                 </div>
                             </div>
                             @endif
@@ -126,7 +125,7 @@
                 <div class="p-3 text-blue font-size-16">
                 <h6 class="text-primary">
                     <br>
-                    PLEASE ACCURATELY COMPLETE YOUR PAYMENT INFORMATION IN THE FORM BELOW:
+                    Please accurately complete your payment information in the form below:
                 </h6>
                 <p>&nbsp;</p>
                 <!-- <div class="form-group row">
@@ -136,7 +135,7 @@
                     </div>
                 </div> -->
                 @if($bank!=null)
-                <form action="{{url('member/address/update')}}" method="POST">
+                <form action="{{url('member/address/save')}}" method="POST">
                     {{csrf_field()}}
                     <div class="form-group row">
                         <label for="" class="col-sm-3">BANK NAME<span class="float-right">:</span></label>
@@ -175,9 +174,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="" class="col-sm-9 mb-none">&nbsp;</label>
+                        <label for="" class="col-sm-9">&nbsp;</label>
                         <div class="col-sm-3">
-                            <button class="btn btn-warning btn-alc font-weight-bold">SAVE</button>
+                            <button class="btn btn-warning btn-alc">Save</button>
                         </div>
                     </div>
                 </form>
@@ -187,44 +186,44 @@
                     <form action="{{url('member/address/save')}}" method="POST">
                         {{csrf_field()}}
                         <div class="form-group row">
-                            <label for="" class="col-sm-3">BANK NAME</label>
+                            <label for="" class="col-sm-3">Bank Name</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control border-radius-22" name='bank_name' value="">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="" class="col-sm-3">BANK BRAND NAME</label>
+                            <label for="" class="col-sm-3">Bank Branch Name</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control border-radius-22" name='branch_name' value="">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="swift_code" class="col-sm-3">SWIFT CODE</label>
+                            <label for="" class="col-sm-3">Swift Code</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control border-radius-22" name='swift_code' value="">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="" class="col-sm-3">BANK ADDRESS</label>
+                            <label for="" class="col-sm-3">Bank Address</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control border-radius-22" name='address' value="">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="" class="col-sm-3">FULL NAME</label>
+                            <label for="" class="col-sm-3">Full Name</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control border-radius-22" name='full_name' value="">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="" class="col-sm-3">ACCOUNT MEMBER</label>
+                            <label for="" class="col-sm-3">Account Number</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control border-radius-22" name='account_no' value="">
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-9">
-                                <button class="btn btn-primary btn-alc font-weight-bold">SAVE</button>
+                                <button class="btn btn-primary btn-alc">Save</button>
                             </div>
                         </div>
                     </form>

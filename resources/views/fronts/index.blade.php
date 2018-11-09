@@ -8,6 +8,7 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
+                <!-- <div id="particles-js"></div> -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img class="d-block w-100" src="{{asset('images/banner1.jpg')}}" alt="" width="100%">
