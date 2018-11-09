@@ -81,7 +81,7 @@ class MemberController extends Controller
                 </p>
 EOT;
                 // send email confirmation
-            Right::sms($r->email, $sms);
+            // Right::sms($r->email, $sms);
             return view('fronts.confirm');
         }
         else{

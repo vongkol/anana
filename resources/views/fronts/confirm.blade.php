@@ -1,20 +1,21 @@
-@extends('layouts.front')
+@extends('layouts.message')
 @section('content')
-    <!-- ***** Contact Us Area Start ***** -->
+<div class="earning-dashboard">
     <section class="footer-contact-area section_padding_100 clearfix" id="contact">
         <div class="container">
             <h2 class="text-white">Sign Up Completion</h2>
         </div>
     </section>
     <section>
-        <div class="container" style="margin-top: 54px">
-           <h3 class="text-success">
-               Thanks for your sign up. Please check your email to verify and complete the registration!
+        <div class="container">
+           <h3 class="text-blue">
+               THANKS YOU FOR YOUR SIGN UP. <br><br>
+               PLEASE CHECK YOUR EMAIL TO VERIFY YOUR LOGIN!
            </h3>
         </div>
         <p>&nbsp;</p>
         <hr>
         <p>&nbsp;</p>
     </section>
-
+</div>
 @endsection

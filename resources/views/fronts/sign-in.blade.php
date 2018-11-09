@@ -6,7 +6,7 @@
 				<div class="container">
 					<div class="row justify-content-md-center login">
 						<div class="card-wrapper">
-							<div class="card fat">
+							<div class="card alc-box fat">
 								<div class="card-body">
 									<h4 class="card-title">Sign in to ANA LEE CAPITAL</h4>
 									<hr>
@@ -44,7 +44,7 @@
 											<input id="password" type="password" class="form-control" name="password" required data-eye>
 										</div>
 										<div class="form-group no-margin">
-											<button type="submit" class="btn-learn btn btn-primary btn-block">
+											<button type="submit" class="btn-learn btn btn-warning border-radius-22 btn-block">
 												Login
 											</button>
 										</div>

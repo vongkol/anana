@@ -13,7 +13,7 @@
 
 <div class="container-fluit page-white-paper">
     <div class="container text-center">
-    <div class="bg-light  font-weight-bold shadow-alc p-3 border-radius-15"><br>
+    <div class="bg-light box-part font-weight-bold shadow-alc p-3 border-radius-15"><br>
         <div class="main-container-page">
             <h5 class="sub-title-image">WHITE PAPER</h5>
             <div class="description">

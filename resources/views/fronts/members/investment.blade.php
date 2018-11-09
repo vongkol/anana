@@ -4,77 +4,60 @@
 	<div class="earning-dashboard">
 		<h3>
 			<span class="text-warning">
-			MY INVESTMENT
+			INVESTMENT
 			</span>&nbsp;
 			<a href="{{url('dashboard')}}" class="btn btn-success btn-alc"> <i class="fa fa-arrow-left"></i> Back</a>
 			<hr class="hr-alc">
         </h3>
         <br>
 		<div class="row">
-            <div class="col-sm-4">
-				 <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
-					<h4>INVESTMENT PACKAGE</h4>
-					<hr class="hr-alc">
-					<strong>
+		<div class="col-sm-4">
+			<div class="bg-light alc-box text-center font-weight-bold shadow-alc mb-5 border-radius-15">
+            	<h4 class="card-header">INVESTMENT PACKAGE</h4>
+					@if($investment!=null)
+					<h5 class="p-3 text-warning  margin-top-8  font-size-23">{{$investment->name}}</h5>
+					@endif
+				</div>
+			</div>
+			<div class="col-sm-4">
+			<div class="bg-light alc-box text-center font-weight-bold shadow-alc mb-5 border-radius-15">
+            	<h4 class="card-header">INVEST AMOUNT</h4>
 						@if($investment!=null)
-						<h5><i class="fa fa-diamond"></i> {{$investment->name}}</h5>
+						<h5 class="p-3 text-warning  margin-top-8  font-size-23"> $ {{$investment->price}}</h5>
 						@endif
 					</strong>
 				</div>
 			</div>
 			<div class="col-sm-4">
-				 <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
-					<h4>INVEST AMOUNT</h4>
-					<hr class="hr-alc">
-					<strong>
-						@if($investment!=null)
-						<h4><span class="text-warning">$</span> {{$investment->price}}</h4>
-						@endif
-					</strong>
+			<div class="bg-light alc-box text-center font-weight-bold shadow-alc mb-5 border-radius-15">
+            	<h4 class="card-header">MONTHLY MEMBERSHIP</h4>
+					@if($investment!=null)
+					<h5 class="p-3 text-warning  margin-top-8  font-size-23">{{$investment->monthly_payout}} <span class="text-warning">%</span></h5>
+					@endif
 				</div>
 			</div>
 			<div class="col-sm-4">
-				 <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
-					<h4>MONTHLY PAYOUT RATE</h4>
-					<hr class="hr-alc">
-					<strong>
-						@if($investment!=null)
-						<h4>{{$investment->monthly_payout}} <span class="text-warning">%</span></h4>
-						@endif
-					</strong>
+			<div class="bg-light alc-box text-center font-weight-bold shadow-alc mb-5 border-radius-15">
+            	<h4 class="card-header ">DAY OF CONTRACT</h4>
+					@if($investment!=null)
+					<h5 class="p-3 text-warning  margin-top-8  font-size-23">{{$investment->duration}} 	DAYS</h5>
+					@endif
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
-					<h4>DAY OF CONTRACT</h4>
-					<hr class="hr-alc">
-					<strong>
-						@if($investment!=null)
-						<h4>{{$investment->duration}} 	<small class="text-secondary"> Days</small>	</h4>
-						@endif
-					</strong>
+			<div class="bg-light alc-box text-center font-weight-bold shadow-alc mb-5 border-radius-15">
+            	<h4 class="card-header ">INVESTMENT DATE</h4>
+					@if($investment!=null)
+					<h5 class="p-3 text-warning  margin-top-8  font-size-23">{{$investment->order_date}}</h5>
+					@endif
 				</div>
 			</div>
 			<div class="col-sm-4">
-				 <div class="bg-light font-weight-bold shadow-alc p-3 mb-5 border-radius-15">
-					<h4>INVEST DATE</h4>
-					<hr class="hr-alc">
-					<strong class="text-success">
-						@if($investment!=null)
-							<h4>{{$investment->order_date}}</h4> 
-						@endif
-					</strong>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				 <div class="bg-light font-weight-bold shadow-alc p-3 border-radius-15">
-					<h4>EXPIRED ON</h4>
-					<hr class="hr-alc">
-					<strong class="text-danger">
-						@if($investment!=null)
-						<h4>{{$investment->expired_on}}</h4>
-						@endif
-					</strong>
+				<div class="bg-light alc-box text-center font-weight-bold mb-5 shadow-alc border-radius-15">
+					<h4 class="card-header ">EXPIRY</h4>
+					@if($investment!=null)
+					<h5 class="p-3 text-warning  margin-top-8  font-size-23">{{$investment->expired_on}}</h5>
+					@endif
 				</div>
 			</div>
 		</div>
