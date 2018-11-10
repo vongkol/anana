@@ -22,15 +22,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td> <p></p>$ 1000</td>
-                            <td> <p></p>WALLET DESCRIPTION</td>
-                            <td> <p></p>2018-28-11</td>
-                            <td> <p></p>
-                                PENDING
-                            </td>
-                        </tr>
-                       
+                       @foreach($trans as $t)
+                            <tr>
+                                <td> <p></p>$ {{$t->amount}}</td>
+                                <td> <p></p>{{$t->description}}</td>
+                                <td> <p></p>{{date_format(date_create($t->create_at), 'Y-m-d')}}</td>
+                                <td> <p></p>
+                                @if($t->status==1)
+                                    Completed
+                                @else
+                                    Pending
+                                @endif
+                                </td> 
+                            </tr>
+                       @endforeach
                     </tbody>
                 </table>
                 </div>

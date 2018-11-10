@@ -38,8 +38,8 @@
 									<div class="form-group row">
 										<div class="col-md-6">
 											<label>
-												<strong>Sponsor ID</strong>
-												<input type="text" class="form-control border-radius-22" name="sponsor_id" value="{{$sponsor_id}}">
+												<strong>Sponsor ID <span class="text-danger">*</span></strong>
+												<input type="text" class="form-control border-radius-22" required name="sponsor_id" value="{{$sponsor_id}}">
 											</label>
 										</div>
 										<div class="col-md-6">

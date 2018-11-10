@@ -11,6 +11,7 @@ class MemberController extends Controller
     public function register(Request $r)
     {
          $validatedData = $r->validate([
+             'sponsor_id' => 'required|min:3',
             'full_name' => 'required',
             'email' => 'required|unique:members',
             'username' => 'required|min:3|max:30|unique:members',
@@ -179,7 +180,7 @@ EOT;
         {
             return redirect('member/investment/'. $member->id);
         }
-        $id = Helper::encryptor("decrypt", $id);
+        // $id = Helper::encryptor("decrypt", $id);
         $data['account'] = DB::table('members')->where('id', $id)->first();
         $data['bank'] = DB::table('banks')->where('member_id', $id)->first();
         return view('fronts.members.account', $data);
@@ -326,7 +327,7 @@ EOT;
         {
             return redirect('/sign-in');
         }
-        $data['id'] = Helper::encryptor('encrypt', $member->id);
+        $data['id'] = $member->id;
         return view('fronts.members.change-password', $data);
     }
     public function change_password_save(Request $r)
@@ -372,7 +373,7 @@ EOT;
         }
        
 
-        $data['id'] = Helper::encryptor('encrypt', $member->id);
+        $data['id'] = $member->id;
         return view('fronts.members.change-pin', $data);
     }
     public function change_pin_save(Request $r)
@@ -407,5 +408,23 @@ EOT;
         $r->session()->flash('sms', 'Your security PIN has been changed!');
 
         return redirect('member/change-pin');
+    }
+    // save alc address
+    public function save_alc(Request $r)
+    {
+        $validateData = $r->validate([
+            'anc_address' => 'required|min:8'
+        ]);
+        $member = session('member');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $data = array(
+            'anc_address' => $r->anc_address
+        );
+        DB::table('members')->where('id', $member->id)->update($data);
+        $r->session()->flash('sms', 'You ALC address has ben saved successfully!');
+        return redirect('member/account/'.$member->id);
     }
 }

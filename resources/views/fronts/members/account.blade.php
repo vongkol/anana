@@ -8,7 +8,40 @@
         <hr class="hr-alc">
     </h3>
     <br>
+    @if(Session::has('sms'))
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div>
+                {{session('sms')}}
+            </div>
+        </div>
+    @endif
+    @if(Session::has('sms1'))
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div>
+                {{session('sms1')}}
+            </div>
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="row">
+       
         <div class="col-sm-6">
 			<div class="bg-light alc-box font-weight-bold shadow-alc mb-5 border-radius-15">
             <h4 class="card-header">PROFILE INFORMATION</h4>
@@ -96,26 +129,42 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="bg-light alc-box font-weight-bold shadow-alc mb-5 border-radius-15">
+            @if($account->anc_address!=null)
             <form action="#" method="POST">
                 <h4 class="card-header">WALLET ADDRESS</h4>
-                {{csrf_field()}}
                 <div class="p-3 text-blue font-size-16">
                     <div class="form-group row">
                         <label for="" class="col-sm-3">ALC ADDRESS <span class="float-right">:</span></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control border-radius-22" name="anc_address" {{$account->anc_address!=null?'disabled':''}} value="{{$account->anc_address}}">
-                            @if($account->anc_address==null)
-                            <div class="from-group row">
-                                <label for="" class="col-sm-8 mb-none">&nbsp;</label>
-                                <div class="col-sm-3"><p></p>
-                                    <button type="button" class="btn btn-warning btn-alc disabled font-weight-bold">SAVE</button>
-                                </div>
-                            </div>
-                            @endif
+                            <input type="text" class="form-control border-radius-22" 
+                             disabled name="anc_address" value="{{$account->anc_address}}">
+                           
                         </div>
                     </div>
                 </div>
            </form>
+           @else
+            <form action="{{url('member/alc/save')}}" method="POST" onsubmit="return confirm('You want to save change?')">
+                    <h4 class="card-header">WALLET ADDRESS</h4>
+                    {{csrf_field()}}
+                    <div class="p-3 text-blue font-size-16">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3">ALC ADDRESS <span class="float-right">:</span></label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control border-radius-22" name="anc_address">
+                               
+                                <div class="from-group row">
+                                    <label for="" class="col-sm-8 mb-none">&nbsp;</label>
+                                    <div class="col-sm-3"><p></p>
+                                        <button type="submit" class="btn btn-warning btn-alc font-weight-bold">SAVE</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+            </form>
+           @endif
         </div>
         </div>
     </div>
@@ -129,12 +178,6 @@
                     PLEASE ACCURATELY COMPLETE YOUR PAYMENT INFORMATION IN THE FORM BELOW:
                 </h6>
                 <p>&nbsp;</p>
-                <!-- <div class="form-group row">
-                    <label for="" class="col-sm-3">BTC Address</label>
-                    <div class="col-sm-9">
-                        <input type="text" class="form-control" name='btc_address'>
-                    </div>
-                </div> -->
                 @if($bank!=null)
                 <form action="{{url('member/address/update')}}" method="POST">
                     {{csrf_field()}}

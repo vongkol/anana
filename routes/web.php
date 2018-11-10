@@ -39,6 +39,7 @@ Route::post('/member/recovery/send', 'MemberController@reset_password');
 Route::post('/member/reset/save', 'MemberController@save_reset');
 Route::post('member/address/save', 'MemberController@save_address');
 Route::post('member/address/update', 'MemberController@update_address');
+Route::post('member/alc/save', 'MemberController@save_alc');
 // investment
 Route::get('member/investment/start', 'InvestmentController@start');
 Route::post('member/investment/save', 'InvestmentController@save');
