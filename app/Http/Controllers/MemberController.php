@@ -428,4 +428,9 @@ EOT;
         $r->session()->flash('sms', 'You ALC address has ben saved successfully!');
         return redirect('member/account/'.$member->id);
     }
+    // reset pin and send to email
+    public function pin_reset()
+    {
+        
+    }
 }

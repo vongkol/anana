@@ -14,7 +14,7 @@ class InvestmentController extends Controller
         {
             return redirect('/sign-in');
         }
-        $id = Helper::encryptor('decrypt', $id);
+        $id = $id;
         // get investment
         $data['investment'] = DB::table('investments')
             ->join('packages', 'investments.package_id', 'packages.id')
