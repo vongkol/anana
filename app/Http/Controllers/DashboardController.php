@@ -13,6 +13,10 @@ class DashboardController extends Controller
     }
     public function index()
     {
+        if(!Right::check('Dashboard', 'l'))
+        {
+            return view('admins.permissions.no');
+        }
         return view('admins.dashboard');
     }
 }

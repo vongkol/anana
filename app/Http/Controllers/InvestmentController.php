@@ -9,6 +9,7 @@ class InvestmentController extends Controller
 {
     public function index($id)
     {
+       
         $member = session('member');
         if($member==null)
         {

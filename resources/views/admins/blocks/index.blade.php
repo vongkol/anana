@@ -4,7 +4,9 @@
     <div class="col-sm-12">
         <h3 class="page-header">
             <i class="fa fa-cube"></i> Block 
+            @insert('Block')
             <a href="{{url('analee-admin/block/create')}}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> New</a>
+            @endinsert
         </h3>
         @if(Session::has('sms'))
             <div class="alert alert-success" role="alert">
@@ -40,11 +42,15 @@
                     <td>{{$r->total_token}}</td>
                     <td>{{$r->balance}}</td>
                     <td>
+                        @delete('Block')
                         <a href="{{url('analee-admin/block/delete?id='.$r->id.'&page='.@$_GET['page'])}}" class="btn btn-danger btn-xs" 
                             title="Delete" onclick="return confirm('You want to delete?')">
                         <i class="fa fa-trash"></i></a>&nbsp;&nbsp;
+                        @enddelete
+                        @update('Block')
                         <a href="{{url('analee-admin/block/edit/'.$r->id)}}" 
                             class="btn btn-success btn-xs" title="Edit"><i class="fa fa-pencil"></i></a>
+                        @endupdate
                     </td>
                 </tr>
                 @endforeach

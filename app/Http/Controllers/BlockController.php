@@ -13,16 +13,27 @@ class BlockController extends Controller
     }
     public function index()
     {
+        if(!Right::check('Block', 'l'))
+        {
+            return view('admins.permissions.no');
+        }
         $data['blocks'] = DB::table('blocks')->where('active', 1)->paginate(18);
         return view('admins.blocks.index', $data);
     }
     public function create()
     {
+        if(!Right::check('Block', 'i'))
+        {
+            return view('admins.permissions.no');
+        }
         return view('admins.blocks.create');
     }
     public function save(Request $r)
     {
-       
+       if(!Right::check('Block', 'i'))
+        {
+            return view('admins.permissions.no');
+        }
         $data = array(
             'title' => $r->title,
             'total_token' => $r->total_token,
@@ -41,17 +52,29 @@ class BlockController extends Controller
     }
     public function delete(Request $r)
     {
+        if(!Right::check('Block', 'd'))
+        {
+            return view('admins.permissions.no');
+        }
         DB::table('blocks')->where('id', $r->id)->update(['active'=>0]);
         $r->session()->flash('sms', 'A block has been removed successfully!');
         return redirect('analee-admin/block');
     }
     public function edit($id)
     {
+        if(!Right::check('Block', 'u'))
+        {
+            return view('admins.permissions.no');
+        }
         $data['block'] = DB::table('blocks')->where('id', $id)->first();
         return view('admins.blocks.edit', $data);
     }
     public function update(Request $r)
     {
+        if(!Right::check('Block', 'u'))
+        {
+            return view('admins.permissions.no');
+        }
         $old_block = DB::table('blocks')->where('id', $r->id)->first();
         $old_value = $old_block->total_token;
         $new_value = $r->total_token;

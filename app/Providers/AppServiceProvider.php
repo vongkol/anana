@@ -70,7 +70,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('delete', function ($expression) {
             $role_id = Auth::user()->role_id;
             $q = DB::table('role_permissions')
-                ->join('permissions', 'permissions.id', '=', 'role_permissions.permission_id')
+                ->join('permissions', 'permissions.id', 'role_permissions.permission_id')
                 ->select('role_permissions.*')
                 ->where(['role_permissions'.'.role_id' => $role_id, 'permissions.name' => $expression])
                 ->where('role_permissions.delete', 1);

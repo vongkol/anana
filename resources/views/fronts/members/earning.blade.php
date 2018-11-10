@@ -53,9 +53,15 @@
         <div class="col-sm-6">
                     <div class="bg-light alc-box text-center alc-backgrfont-weight-bold mb-5 shadow-alc border-radius-15">
                     <h4 class="card-header">BONUS</h4>
-                        <h5 class="p-3 margin-top-8  font-size-23">USD {{$bonus}}</h5>
+                        <h5 class="p-3 margin-top-8  font-size-23">USD 
+                        @if($bonus!=null)
+                            {{$bonus->amount + $bonus->alc}}
+                        @else
+                            0
+                        @endif
+                        </h5>
                     </div>
                 </div>
-            </div> 
+            </div>  
         </div>
 @stop

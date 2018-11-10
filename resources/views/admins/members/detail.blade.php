@@ -67,11 +67,19 @@
             </tr>
             <tr>
                 <td colspan="2">
+                    @update('Member')
                     <a href="{{url('analee-admin/member/reset-password/'.$member->id)}}" class="btn btn-sm btn-primary">Reset Password</a>
+                    
                     <a href="{{url('analee-admin/member/reset-security-pin/'.$member->id)}}" class="btn btn-sm btn-warning">Reset Security Pin</a>
-                    <a href="{{url('analee-admin/member/delete/'.$member->id)}}" onclick="return confirm('You want to delete?')" class="btn btn-danger btn-sm">Delete</a> 
-                    <a href="{{url('analee-admin/member/credit/'.$member->id)}}" class="btn btn-success btn-sm">Add Credit</a> 
+                     
                     <a href="{{url('analee-admin/member/volume/'. $member->id)}}" class="btn btn-primary btn-sm">Edit Sale Volume</a>
+                    @endupdate
+                    @delete('Member')
+                    <a href="{{url('analee-admin/member/delete/'.$member->id)}}" onclick="return confirm('You want to delete?')" class="btn btn-danger btn-sm">Delete</a>
+                    @enddelete
+                    @view('Add Credit')
+                    <a href="{{url('analee-admin/member/credit/'.$member->id)}}" class="btn btn-success btn-sm">Add Credit</a>
+                    @endview
                 </td>
             </tr>
            

@@ -71,24 +71,30 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                       
+                       @view('Dashboard')
                         <li>
                             <a href="{{url('/analee-admin/dashboard')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
+                        @endview
+                        @view('Total Earning')
                         <li>
                             <a href="{{url('analee-admin/earning')}}"> <i class="fa fa-arrow-right"></i> Total Earning</a>
                         </li>
+                        @endview
                         <li>
                             <a href="{{url('analee-admin/member/payment')}}"><i class="fa fa-star fa-fw"></i> Payment Request</a>
                         </li>
-                        
+                        @view('Member')
                         <li>
                             <a href="{{url('analee-admin/member')}}"><i class="fa fa-user fa-fw"></i> Members</a>
                         </li>
+                        @endview
+                        @view('Credit Transaction')
                         <li>
                             <a href="{{url('analee-admin/member/fill-credit')}}">
                                 <i class="fa fa-star fa-fw"></i> Credit Transaction</a>
                         </li>
+                        @endview
                         <li>
                             <a href="{{url('analee-admin/member/transaction')}}">
                                 <i class="fa fa-arrow-right"></i> Member Earning Transaction 
@@ -103,18 +109,26 @@
                         <li>
                             <a href="#"><i class="fa fa-cog text-success"></i> Settings<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                                @view('Supply')
                                 <li>
                                     <a href="{{url('analee-admin/supply')}}"><i class="fa fa-ambulance"></i> Supply</a>
                                 </li>
+                                @endview
+                                @view('Block')
                                 <li>
                                     <a href="{{url('analee-admin/block')}}"><i class="fa fa-cube"></i> Block</a>
                                 </li>
+                                @endview
+                                @view('Package')
                                 <li>
                                     <a href="{{url('analee-admin/package')}}"><i class="fa fa-upload"></i> Package</a>
                                 </li>
+                                @endview
+                                @view('Exchange')
                                 <li>
                                     <a href="{{url('analee-admin/exchange')}}"><i class="fa fa-dollar"></i> Exchange</a>
                                 </li>
+                                @endview
                                 <li>
                                     <a href="{{url('#')}}"><i class="fa fa-dollar"></i> ALC Rate</a>
                                 </li>

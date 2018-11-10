@@ -8,13 +8,7 @@ class RoleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(function ($request, $next) {
-            if (Auth::user()==null)
-            {
-                return redirect("/login");
-            }
-            return $next($request);
-        });
+        $this->middleware('auth');
     }
     // index
     public function index()

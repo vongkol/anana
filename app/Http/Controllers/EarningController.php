@@ -25,10 +25,14 @@ class EarningController extends Controller
         $m = date('m');
         $y = date('Y');
 
-        $data['reward'] = DB::table('member_earning_transactions')
-            ->where(DB::raw('month(transaction_date)'), $m)
-            ->where(DB::raw('year(transaction_date)'), $y)
-            ->sum('amount');
+        // // monthly investment earning
+        // $data['reward'] = DB::table('member_earning_transactions')
+        //     ->where(DB::raw('month(transaction_date)'), $m)
+        //     ->where(DB::raw('year(transaction_date)'), $y)
+        //     ->sum('amount');
+
+        
+        // monthy commission earning from sponsor
         $data['network'] = DB::table('network_earning_transactions')
             ->where(DB::raw('month(transaction_date)'), $m)
             ->where(DB::raw('year(transaction_date)'), $y)
@@ -36,7 +40,21 @@ class EarningController extends Controller
             ->sum('amount');
         $data['rate'] = DB::table('rates')->where('id', 1)->first();
         $data['wallet'] = DB::table('members')->where('id', $member->id)->first();
-        $data['bonus'] = Investment::bonus($member->id);
+        // monthly bonus earning
+        $year = date('Y');
+        $month = date('m');
+        $bm = $month - 1;
+        // check if we already calculate
+        if($month==1)
+        {
+            $bm = 12;
+            $year = $year - 1;
+        }
+        $data['bonus'] = DB::table('monthly_bonus')->where('member_id', $member->id)
+            ->where('month', $bm)
+            ->where('year', $year)
+            ->first();
+        
         return view('fronts.members.earning', $data);
     }
 }

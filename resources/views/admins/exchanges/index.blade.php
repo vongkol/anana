@@ -4,7 +4,9 @@
     <div class="col-sm-12">
         <h3 class="page-header">
             <i class="fa fa-dollar"></i> Exchange 
+            @insert('Exchange')
             <a href="{{url('analee-admin/exchange/create')}}" class="btn btn-primary btn-xs"><i class="fa fa-plus"></i> New</a>
+            @endinsert
         </h3>
         @if(Session::has('sms'))
             <div class="alert alert-success" role="alert">
@@ -38,11 +40,15 @@
                     <td>{{$r->currency}}</td>
                     <td>{{$r->rate}}</td>
                     <td>
+                        @delete('Exchange')
                         <a href="{{url('analee-admin/exchange/delete?id='.$r->id.'&page='.@$_GET['page'])}}" class="btn btn-danger btn-xs" 
                             title="Delete" onclick="return confirm('You want to delete?')">
                         <i class="fa fa-trash"></i></a>&nbsp;&nbsp;
+                        @enddelete
+                        @update('Exchange')
                         <a href="{{url('analee-admin/exchange/edit/'.$r->id)}}" 
                             class="btn btn-success btn-xs" title="Edit"><i class="fa fa-pencil"></i></a>
+                        @endupdate
                     </td>
                 </tr>
                 @endforeach

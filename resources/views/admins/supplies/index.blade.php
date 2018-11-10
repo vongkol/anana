@@ -37,8 +37,10 @@
                     <td>{{$r->title}}</td>
                     <td>{{$r->total_token}}</td>
                     <td>
+                    @update('Supply')
                         <a href="{{url('analee-admin/supply/edit/'.$r->id)}}" 
                             class="btn btn-success btn-xs" title="Edit"><i class="fa fa-pencil"></i></a>
+                    @endupdate
                     </td>
                 </tr>
                 @endforeach

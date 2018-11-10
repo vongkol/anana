@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h3 class="page-header">
-            <i class="fa fa-upload"></i> Credit Fill Transaction
+            <i class="fa fa-upload"></i> Credit Transaction
         </h3>
        
         <table class="table table-condensed table-responsive">

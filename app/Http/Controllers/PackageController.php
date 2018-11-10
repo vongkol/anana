@@ -13,15 +13,27 @@ class PackageController extends Controller
     }
     public function index()
     {
+        if(!Right::check('Package', 'l'))
+        {
+            return view('admins.permissions.no');
+        }
         $data['packages'] = DB::table('packages')->where('active', 1)->paginate(18);
         return view('admins.packages.index', $data);
     }
     public function create()
     {
+        if(!Right::check('Package', 'i'))
+        {
+            return view('admins.permissions.no');
+        }
         return view('admins.packages.create');
     }
     public function save(Request $r)
     {
+        if(!Right::check('Package', 'i'))
+        {
+            return view('admins.permissions.no');
+        }
         $data = array(
             'name' => $r->name,
             'price' => $r->price,
@@ -42,6 +54,10 @@ class PackageController extends Controller
     }
     public function update(Request $r)
     {
+        if(!Right::check('Package', 'u'))
+        {
+            return view('admins.permissions.no');
+        }
         $data = array(
             'name' => $r->name,
             'price' => $r->price,
@@ -62,12 +78,20 @@ class PackageController extends Controller
     }
     public function delete(Request $r)
     {
+        if(!Right::check('Package', 'd'))
+        {
+            return view('admins.permissions.no');
+        }
         DB::table('packages')->where('id', $r->id)->update(['active'=>0]);
         $r->session()->flash('sms', 'A package has been removed successfully!');
         return redirect('analee-admin/package');
     }
     public function edit($id)
     {
+        if(!Right::check('Package', 'u'))
+        {
+            return view('admins.permissions.no');
+        }
         $data['package'] = DB::table('packages')->where('id', $id)->first();
         return view('admins.packages.edit', $data);
     }

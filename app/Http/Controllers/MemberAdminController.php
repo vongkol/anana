@@ -13,12 +13,20 @@ class MemberAdminController extends Controller
     }
     public function index(Request $r)
     {
+        if(!Right::check('Member', 'l'))
+        {
+            return view('admins.permissions.no');
+        }
         $data['members'] = DB::table('members')->where('active', 1)->orderBy('id', 'desc')->paginate(25);
         $data['total'] = DB::table('members')->where('active', 1)->count();
         return view('admins.members.index', $data);
     }
     public function detail($id)
     {
+        if(!Right::check('Member', 'l'))
+        {
+            return view('admins.permissions.no');
+        }
         $data['member'] = DB::table('members')->where('id', $id)->first();
         // get member investment
         $data['investment'] = DB::table('investments')
@@ -31,6 +39,10 @@ class MemberAdminController extends Controller
     }
     public function delete($id, Request $r)
     {
+        if(!Right::check('Member', 'd'))
+        {
+            return view('admins.permissions.no');
+        }
         DB::table('members')->where('id', $id)->update(['active'=>0]);
         $r->session()->flash('sms', 'The member has been removed successfully!');
         return redirect('analee-admin/member');
@@ -38,12 +50,20 @@ class MemberAdminController extends Controller
      // load reset password form
      public function reset_password($id)
      {
+        if(!Right::check('Member', 'u'))
+        {
+            return view('admins.permissions.no');
+        }
         $data['member'] = DB::table('members')->where('id', $id)->first();
          return view('admins.members.reset-password', $data);
      }
  
      public function change_password(Request $r)
      {
+         if(!Right::check('Member', 'u'))
+        {
+            return view('admins.permissions.no');
+        }
          $id = $r->id;
          $new_password = $r->new_password;
          $confirm_password = $r->confirm_password;
@@ -66,12 +86,20 @@ class MemberAdminController extends Controller
       // load reset password form
       public function reset_pin($id)
       {
+          if(!Right::check('Member', 'u'))
+        {
+            return view('admins.permissions.no');
+        }
          $data['member'] = DB::table('members')->where('id', $id)->first();
           return view('admins.members.reset-pin', $data);
       }
   
       public function change_pin(Request $r)
       {
+        if(!Right::check('Member', 'u'))
+        {
+            return view('admins.permissions.no');
+        }
             $id = $r->id;
             $pin = $r->pin;
             $data = array(
@@ -88,11 +116,19 @@ class MemberAdminController extends Controller
       }
       public function credit($id)
       {
+        if(!Right::check('Add Credit', 'l'))
+        {
+            return view('admins.permissions.no');
+        }
           $data['member'] = DB::table('members')->where('id', $id)->first();
           return view('admins.members.credit', $data);
       }
       public function save_credit(Request $r)
       {
+        if(!Right::check('Add Credit', 'i'))
+        {
+            return view('admins.permissions.no');
+        }
           $m = DB::table('members')->where('id', $r->id)->first();
           $r_wallet = Helper::encryptor('decrypt', $m->register_wallet) + $r->credit;
           $data = array(
@@ -120,12 +156,20 @@ class MemberAdminController extends Controller
     // sale volume
     public function volume($id)
     {
+        if(!Right::check('Member', 'l'))
+        {
+            return view('admins.permissions.no');
+        }
         $m = DB::table('members')->where('id', $id)->first();
         $data['m'] = $m;
         return view('admins.members.volume', $data);
     }
     public function volume_save(Request $r)
     {
+        if(!Right::check('Member', 'u'))
+        {
+            return view('admins.permissions.no');
+        }
         $data = array(
             'sale_volume' => $r->sale_volume,
             'sale_bonus' => $r->sale_bonus

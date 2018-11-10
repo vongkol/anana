@@ -11,12 +11,13 @@ class MemberController extends Controller
     public function register(Request $r)
     {
          $validatedData = $r->validate([
-             'sponsor_id' => 'required|min:3',
-            'full_name' => 'required',
-            'email' => 'required|unique:members',
+            'sponsor_id' => 'required|min:3|max:30',
+            'full_name' => 'required|min:3|max:30',
+            'email' => 'required|unique:members|min:5|max:60',
             'username' => 'required|min:3|max:30|unique:members',
-            'password' => 'required|min:6',
-            'security_pin' => 'required|min:4'
+            'password' => 'required|min:6|max:30',
+            'security_pin' => 'required|min:4|max:30',
+            'phone' => 'required|min:6|max:30'
         ]);
 
         $sponsor = "";
