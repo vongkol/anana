@@ -11,7 +11,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon-32x32.png')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('fronts/css/custom.css')}}">
     </head>
-    <body  onload=display_ct();>
+    <body>
         <?php $exc = DB::table('rates')->where('id',1)->first();?>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container-fluid">
@@ -124,18 +124,11 @@
             </div>
         </footer>
         <script type="text/javascript"> 
-            function display_c(){
-            var refresh=1000; // Refresh rate in milli seconds
-            mytime=setTimeout('display_ct()',refresh)
-            }
+            setInterval(function(){
+               var x = new Date()
+                document.getElementById('ct').innerHTML = x.toLocaleDateString() + ' ' + x.toLocaleTimeString();
+           }, 1000);
 
-            function display_ct() {
-            var x = new Date()
-            var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
-            x1 = x1 + " - " +  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
-            document.getElementById('ct').innerHTML = x1;
-            display_c();
-            }
         </script>
         <div class="container-fluit term-footer">
             <div class="container">

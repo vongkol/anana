@@ -13,7 +13,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon-32x32.png')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('fronts/css/login.css')}}">
     </head>
-    <body onload=display_ct();>
+    <body>
         <div class="alc-background">
     <?php $exc = DB::table('rates')->where('id',1)->first();?>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -130,9 +130,7 @@
         <script type="text/javascript"> 
            setInterval(function(){
                var x = new Date()
-                var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
-                x1 = x1 + " - " +  x.getHours( )+ ":" +  x.getMinutes() + ":" +  x.getSeconds();
-                document.getElementById('ct').innerHTML = x1;
+                document.getElementById('ct').innerHTML = x.toLocaleDateString() + ' ' + x.toLocaleTimeString();
            }, 1000);
 
         </script>
