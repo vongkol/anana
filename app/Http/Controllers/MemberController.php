@@ -256,7 +256,8 @@ EOT;
             'address' => $r->address
         );
         DB::table('banks')->where('member_id',$member->id)->update($data);
-        return redirect('member/account/'. Helper::encryptor('encrypt', $member->id));
+        $r->session()->flash('sms', 'Your payment information has been saved successfully!');
+        return redirect('member/account/'. $member->id);
     }
     public function reset_password(Request $r)
     {
@@ -371,7 +372,6 @@ EOT;
         {
             return redirect('/sign-in');
         }
-       
 
         $data['id'] = $member->id;
         return view('fronts.members.change-pin', $data);
