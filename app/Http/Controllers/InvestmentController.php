@@ -22,7 +22,6 @@ class InvestmentController extends Controller
             ->where('is_expired', 0)
             ->select('investments.order_date', 'investments.expired_on', 'packages.*')
             ->first();
-        
         return view('fronts.members.investment', $data);
     }
     public function start()

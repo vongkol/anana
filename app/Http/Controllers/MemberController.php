@@ -222,6 +222,14 @@ EOT;
     // save address for bank
     public function save_address(Request $r)
     {
+        $validatedData = $r->validate([
+             'bank_name' => 'required|min:3|max:50',
+            'full_name' => 'required|min:3|max:30',
+            'account_no' => 'required|min:3|max:30',
+            'branch_name' => 'required|min:3|max:30',
+            'swift_code' => 'required|min:3|max:30',
+            'address' => 'max:200'
+        ]);
         $member = session('member');
         if($member==null)
         {
@@ -243,6 +251,14 @@ EOT;
     // save address for bank
     public function update_address(Request $r)
     {
+        $validatedData = $r->validate([
+             'bank_name' => 'required|min:3|max:50',
+            'full_name' => 'required|min:3|max:30',
+            'account_no' => 'required|min:3|max:30',
+            'branch_name' => 'required|min:3|max:30',
+            'swift_code' => 'required|min:3|max:30',
+            'address' => 'max:200'
+        ]);
         $member = session('member');
         if($member==null)
         {
