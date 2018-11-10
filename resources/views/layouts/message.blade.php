@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="sor vichey">
-        <title>Ana Lee Capital</title>
+        <title>ANA LEE CAPITAL</title>
         <link href="{{asset('fronts/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('fronts/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
         <link rel="icon" type="image/png" sizes="32x32" href="{{asset('images/favicon-32x32.png')}}">
@@ -83,7 +83,7 @@
         </nav>
         @yield('content')
         <script type="text/javascript"> 
-           setInterval(function(){
+              setInterval(function(){
                var x = new Date()
                 document.getElementById('ct').innerHTML = x.toLocaleDateString() + ' ' + x.toLocaleTimeString();
            }, 1000);
