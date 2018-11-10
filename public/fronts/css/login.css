@@ -12,7 +12,9 @@
 .my-login-page .brand {
 	margin: 40px auto;
 }
-
+.my-login-2  {
+	margin-top: -60px;
+}
 .layer-login {
 	width: 100%;
 	position: relative;
@@ -91,6 +93,9 @@
 @media (max-width: 479px) {
 	.main-page-login {
     	margin-top: 35px;
+	}
+	.my-login-2  {
+		margin-top: -30px;
 	}
 	.bg-login {
 		background-size: 1734px
