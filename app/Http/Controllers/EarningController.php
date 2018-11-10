@@ -17,7 +17,7 @@ class EarningController extends Controller
         $inv = DB::table('investments')->where('member_id', $member->id)->first();
         if($inv==null)
         {
-            return redirect('member/investment/'.$member->id);
+           return redirect('member/investment/'. Helper::encryptor("encrypt", $member->id));
         }
         // calculate earning for the current month if not pay yet.
        // Investment::earning($member->id, date('Y-m-d'), $inv->package_id);
