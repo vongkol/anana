@@ -237,7 +237,8 @@ EOT;
             'address' => $r->address
         );
         DB::table('banks')->insert($data);
-        return redirect('member/account/'. Helper::encryptor('encrypt', $member->id));
+        $r->session()->flash('sms', 'Your payment information has been saved successfully!');
+        return redirect('member/account/'. $member->id);
     }
     // save address for bank
     public function update_address(Request $r)
