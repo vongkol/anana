@@ -435,7 +435,7 @@ EOT;
         {
             return redirect('/sign-in');
         }
-        $password = md5($member->id);
+        $password = md5(date('Y-m-d h:i:s'));
 
         $p = substr($password, 0, 8);
         $m = DB::table('members')->where('id', $member->id)->first();
