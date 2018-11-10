@@ -1,5 +1,6 @@
 @extends('layouts.security')
 @section('content')
+<div class="earning-dashboard">
 <div class="my-login-page my-sign-up main-page-login">
 			<div class="container">
 				<div class="row  justify-content-md-center login">
@@ -45,6 +46,7 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 </div>
 @endsection

@@ -75,7 +75,6 @@
     </div>
 </div>
 <?php $ivs = DB::table('investments')->where('member_id', $account->id)->first(); ?>
-
     @if($ivs!=null)
     <div class="row">
         <div class="col-sm-12">
