@@ -35,7 +35,7 @@
             <form action="{{url('member/transfer/anyregister/save')}}" method="POST">
                 {{csrf_field()}}
                 <div class="form-group row">
-                    <label for="" class="control-label col-sm-3">R-WALLET AMOUNT <span class="text-warning">USD</span></label>
+                    <label for="" class="control-label col-sm-3">R-WALLET AMOUNT &nbsp;( USD )</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control border-radius-22" readonly 
                             value="{{\App\Http\Controllers\Helper::encryptor('decrypt', $member->register_wallet)}}">
@@ -50,19 +50,19 @@
                 <div class="form-group row">
                     <label for="" class="control-label col-sm-3">TRANSFER AMOUNT<span class="text-danger">*</span></label>
                     <div class="col-sm-9">
-                        <input type="number" class="form-control border-radius-22" name="amount" placeholder="$" min="0.000" step="0.001" required>
+                        <input type="number" class="form-control border-radius-22" name="amount" placeholder="USD" min="0.000" step="0.001" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="control-label col-sm-3">SECURITY PIN<span class="text-danger">*</span></label>
                     <div class="col-sm-9">
-                        <input type="password" class="form-control border-radius-22" name="pin" required>
+                        <input type="password" class="form-control border-radius-22" placeholder="****" name="pin" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="" class="control-label col-sm-9 mb-none">&nbsp;</label>
                     <div class="col-sm-3">
-                        <button class="btn btn-warning btn-alc">TRANSFER</button>
+                        <button class="btn btn-warning btn-alc font-weight-bold">TRANSFER</button>
                     </div>
                 </div>
             </form>

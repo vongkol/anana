@@ -62,7 +62,7 @@
                     <div class="form-group row">
                         <label class="col-md-3">CONFIRM NEW SECRITY PIN<span class="text-danger">*</span></label>
                         <div class="col-sm-9">
-                            <input type="password" name="cpin" required class="form-control border-radius-22" value="{{old('cpin')}}">
+                            <input type="password" name="cpin" required class="form-control border-radius-22" placeholder="****" value="{{old('cpin')}}">
                         </div>
                     </div>
                     <div class="form-group row">
