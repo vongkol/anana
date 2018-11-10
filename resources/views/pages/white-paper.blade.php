@@ -111,4 +111,9 @@
         </div></div>
     </div>
 </div>
+<script>
+$('.carousel').carousel({
+    interval: false;
+}); 
+</script>
 @stop
