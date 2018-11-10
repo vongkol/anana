@@ -145,24 +145,23 @@
            </form>
            @else
             <form action="{{url('member/alc/save')}}" method="POST" onsubmit="return confirm('You want to save change?')">
-                    <h4 class="card-header">WALLET ADDRESS</h4>
-                    {{csrf_field()}}
-                    <div class="p-3 text-blue font-size-16">
-                        <div class="form-group row">
-                            <label for="" class="col-sm-3">ALC ADDRESS <span class="float-right">:</span></label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control border-radius-22" name="anc_address">
-                               
-                                <div class="from-group row">
-                                    <label for="" class="col-sm-8 mb-none">&nbsp;</label>
-                                    <div class="col-sm-3"><p></p>
-                                        <button type="submit" class="btn btn-warning btn-alc font-weight-bold">SAVE</button>
-                                    </div>
+                <h4 class="card-header">WALLET ADDRESS</h4>
+                {{csrf_field()}}
+                <div class="p-3 text-blue font-size-16">
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3">ALC ADDRESS <span class="float-right">:</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control border-radius-22" name="anc_address">
+                            
+                            <div class="from-group row">
+                                <label for="" class="col-sm-8 mb-none">&nbsp;</label>
+                                <div class="col-sm-3"><p></p>
+                                    <button type="submit" class="btn btn-warning btn-alc font-weight-bold" disabled>SAVE</button>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>
+                </div>
             </form>
            @endif
         </div>

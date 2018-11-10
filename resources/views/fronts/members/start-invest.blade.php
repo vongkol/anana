@@ -62,8 +62,8 @@
                     <div class="form-group row">
                         <label for="" class="control-label mb-none col-sm-9">&nbsp;</label>
                         <div class="col-sm-3">
-                            <button class="btn btn-warning btn-alc" type="submit" 
-                             onclick="return confirm('Do you want to invest?')">Invest Now</button>
+                            <button class="btn btn-warning btn-alc font-weight-bold" type="submit" 
+                             onclick="return confirm('Do you want to invest?')">INVEST NOW</button>
                         </div>
                     </div>
                 </div>
