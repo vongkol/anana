@@ -64,7 +64,7 @@ class MemberController extends Controller
                 <hr>
                 <p>
                     Thank you for becoming the member of Ana Lee Capital. <br>
-                    Your account has been successfully registered with us. 
+                    Your account has been successfully registered. 
                 </p>
                 <p style='padding:4px 8px; border:1px solid #ccc;background:#ddd'>
                     <strong>Your Sign In Information</strong><br>
@@ -74,14 +74,14 @@ class MemberController extends Controller
                 </p>
                 <p>
 
-                    To complete your signup, please click the link below to verify your account.
+                    To complete your signup, please click the button to verify.
                 </p>
                 <p>
-                    <a href="{$link}" target="_blank">{$link}</a>
+                    <a href="{$link}" target="_blank">Verify</a>
                 </p>
 EOT;
                 // send email confirmation
-            // Right::sms($r->email, $sms);
+            Right::sms($r->email, $sms);
             return view('fronts.confirm');
         }
         else{
