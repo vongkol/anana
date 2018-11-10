@@ -448,7 +448,7 @@ EOT;
                 </p>
                 <p style='padding:4px 8px; border:1px solid #ccc;background:#ddd'>
                     <strong>New Security PIN</strong><br>
-                    PIN: {$p} <br>
+                    PIN: <span style='color: rgb(255, 0, 21); font-weight: 700;'>{$p} </span><br>
                 </p>
                 <p>
                     If you need further support, please contact us at support@analeecapital.com.
