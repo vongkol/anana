@@ -253,7 +253,7 @@ EOT;
         $email = $r->email;
 
         $m = DB::table('members')->where('email', $email)->first();
-        $id = Helper::encryptor('encrypt', $m->id);
+        $id = md5($m->id);
         if($m!=null)
         {
             $sms =<<<EOT
@@ -286,7 +286,7 @@ EOT;
         $validateData = $r->validate([
             'password' => "required|min:6"
         ]);
-        $id = Helper::encryptor('decrypt', $r->id);
+        $id = $r->id;
         if($r->password!=$r->cpassword)
         {
             $r->session()->flash('sms1', 'The password and confirm password is not matched!');
@@ -296,7 +296,7 @@ EOT;
             $data = array(
                 'password' => bcrypt($r->password)
             );
-            $i = DB::table('members')->where('id', $id)->update($data);
+            $i = DB::table('members')->where(DB::raw('md5(id)', $id))->update($data);
             $r->session()->flash('sms', 'Your pass word has been reset. Please login again!');
             return redirect('sign-in');
         }
