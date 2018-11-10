@@ -74,7 +74,7 @@ class MemberController extends Controller
                 </p>
                 <p>
 
-                    To complete your signup, please click the button to verify.
+                    To complete your signup, please click the button below to verify.
                 </p>
                 <p>
                     <a href="{$link}" target="_blank">Verify</a>
@@ -122,12 +122,12 @@ EOT;
                 return redirect('/dashboard');
             }
             else{
-                $r->session()->flash('sms1', "Invalid email or password. Try again!");
+                $r->session()->flash('sms1', "Invalid username or password. Try again!");
                 return redirect('/sign-in')->withInput();
             }
         }
         else{
-            $r->session()->flash('sms1', "Invalid email or password!");
+            $r->session()->flash('sms1', "Invalid username or password!");
             return redirect('/sign-in')->withInput();
         }
     }

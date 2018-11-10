@@ -1,4 +1,4 @@
-@extends('layouts.page')
+@extends('layouts.message')
 @section('content')
 <body class="my-login-page main-page-login">
 	<section class="h-100">
