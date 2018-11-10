@@ -373,7 +373,6 @@ EOT;
         {
             return redirect('/sign-in');
         }
-
         $data['id'] = $member->id;
         return view('fronts.members.change-pin', $data);
     }
@@ -394,7 +393,7 @@ EOT;
             $r->session()->flash('sms1', 'The old security PIN is not correct!');
             return redirect('member/change-pin')->withInput();
         }
-        $data['id'] = Helper::encryptor('encrypt', $member->id);
+        $data['id'] = $member->id;
         $pass = $r->security_pin;
         $cpass = $r->cpin;
         if($pass!=$cpass)
@@ -403,7 +402,7 @@ EOT;
             return redirect('member/change-pin')->withInput();
         }
         $data = array(
-            'password' => bcrypt($pass)
+            'security_pin' => bcrypt($pass)
         );
         DB::table('members')->where('id', $member->id)->update($data);
         $r->session()->flash('sms', 'Your security PIN has been changed!');
@@ -429,8 +428,39 @@ EOT;
         return redirect('member/account/'.$member->id);
     }
     // reset pin and send to email
-    public function pin_reset()
+    public function pin_reset(Request $r)
     {
+        $member = session('member');
+        if($member==null)
+        {
+            return redirect('/sign-in');
+        }
+        $password = md5($member->id);
+
+        $p = substr($password, 0, 8);
+        $m = DB::table('members')->where('id', $member->id)->first();
         
+        $sms =<<<EOT
+                <h2>Dear {$m->full_name}, </h2>
+                <hr>
+                <p>
+                    We have reset your security PIN as your request. Please find your new PIN below.
+                </p>
+                <p style='padding:4px 8px; border:1px solid #ccc;background:#ddd'>
+                    <strong>New Security PIN</strong><br>
+                    PIN: {$p} <br>
+                </p>
+                <p>
+                    If you need further support, please contact us at support@analeecapital.com.
+                </p>
+EOT;
+                // send email confirmation
+            Right::send_email($m->email, "Security PIN Reset", $sms);
+            $data = array(
+                'security_pin' => bcrypt($p)
+            );
+            DB::table('members')->where('id', $m->id)->update($data);
+            $r->session()->flash('sms', 'You new security PIN has been send to your email, please check it.');
+            return redirect('member/account/'.$m->id);
     }
 }
