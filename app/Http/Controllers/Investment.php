@@ -35,74 +35,11 @@ class Investment
         }
     }
 
-    public static function earning($mid, $date, $pid)
-    {
-        $pay = DB::table('payment_schedules')->where('start_date', '<=', $date)
-            ->where('end_date', '>', $date)
-            ->where('is_paid', 0)
-            ->first();
-        if($pay!=null)
-        {
-            $admin_fee = 0.1*$pay->amount;
-            $c_wallet = 0.5*$pay->amount;
-            $r_wallet = 0.3*$pay->amount;
-            $t_wallet = 0.1*$pay->amount;
-
-            // admin earning
-            $ad = DB::table('admin_earnings')->where('id', 1)->first();
-            $total = $ad->earning + $admin_fee;
-            DB::table('admin_earnings')->where('id', 1)->update(['earning'=>$total]);
-            $data = array(
-                'transaction_date' => date('Y-m-d'),
-                'amount' => $admin_fee,
-                'member_id' => $mid,
-                'package_id' => $pid
-            );
-            DB::table('admin_earning_transactions')->insert($data);
-            // member earning transaction
-            $m = DB::table('members')->where('id', $mid)->first();
-            $c = Helper::encryptor('decrypt', $m->cash_wallet) + $c_wallet;
-            $r = Helper::encryptor('decrypt', $m->register_wallet) + $r_wallet;
-            $t = Helper::encryptor('decrypt', $m->token_wallet) + $t_wallet;
-            $data = array(
-                'cash_wallet' => Helper::encryptor('encrypt', $c),
-                'register_wallet' => Helper::encryptor('encrypt', $r),
-                'token_wallet' => Helper::encryptor('encrypt', $t)
-            );
-            DB::table('members')->where('id', $mid)->update($data);
-
-            DB::table('payment_schedules')->where('id', $pay->id)->update(['is_paid'=>1]);
-            //save transaction
-            $data = array(
-                'member_id' => $mid,
-                'transaction_date' => date('Y-m-d'),
-                'amount' => $c_wallet,
-                'package_id' => $pid,
-                'wallet_type' => 'cash wallet'
-            );
-            DB::table('member_earning_transactions')->insert($data);
-            $data = array(
-                'member_id' => $mid,
-                'transaction_date' => date('Y-m-d'),
-                'amount' => $r_wallet,
-                'package_id' => $pid,
-                'wallet_type' => 'register wallet'
-            );
-            DB::table('member_earning_transactions')->insert($data);
-            $data = array(
-                'member_id' => $mid,
-                'transaction_date' => date('Y-m-d'),
-                'amount' => $t_wallet,
-                'package_id' => $pid,
-                'wallet_type' => 'token wallet'
-            );
-            DB::table('member_earning_transactions')->insert($data);
-            // earning for referals
-            // self::network_earning($mid, $pid);
-        }
-    }
     public static function network_earning($mid, $pid)
     {
+        // wallet rate
+        $wallet_rate = DB::table('wallet_rates')->where('id', 1)->first();
+
         // $mid is the package buyer, $pid is the package
         $m = DB::table('members')->where('id', $mid)->first();
         $p = DB::table('packages')->where('id', $pid)->first();
@@ -136,10 +73,10 @@ class Investment
                 $r1 = $rate1/100;
                 $earn1 = $p->price * $r1;
                 // spit to c_wallet, r_wallet and b_wallet
-                $c_wallet = $earn1*0.5;
-                $r_wallet = $earn1*0.3;
-                $b_wallet = $earn1*0.1;
-                $admin_fee = $earn1*0.1;
+                $c_wallet = $earn1*$wallet_rate->c_wallet;
+                $r_wallet = $earn1*$wallet_rate->r_wallet;
+                $b_wallet = $earn1*$wallet_rate->b_wallet;
+                $admin_fee = $earn1*$wallet_rate->admin_fee;
                 $wallet = array(
                     'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->cash_wallet) + $c_wallet),
                     'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->register_wallet) + $r_wallet),
@@ -214,10 +151,10 @@ class Investment
                         $r2 = $rate2/100;
                         $earn2 = $p->price*$r2;
                         // spit to c_wallet, r_wallet and b_wallet
-                        $c_wallet = $earn2*0.5;
-                        $r_wallet = $earn2*0.3;
-                        $b_wallet = $earn2*0.1;
-                        $admin_fee = $earn2*0.1;
+                        $c_wallet = $earn2*$wallet_rate->c_wallet;
+                        $r_wallet = $earn2*$wallet_rate->r_wallet;
+                        $b_wallet = $earn2*$wallet_rate->b_wallet;
+                        $admin_fee = $earn2*$wallet_rate->admin_fee;
                         $wallet = array(
                             'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen2->cash_wallet) + $c_wallet),
                             'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen2->register_wallet) + $r_wallet),
@@ -290,10 +227,10 @@ class Investment
                             $r3 = $rate3/100;
                             $earn3 = $p->price*$r3;
                             // spit to c_wallet, r_wallet and b_wallet
-                            $c_wallet = $earn3*0.5;
-                            $r_wallet = $earn3*0.3;
-                            $b_wallet = $earn3*0.1;
-                            $admin_fee = $earn3*0.1;
+                            $c_wallet = $earn3*$wallet_rate->c_wallet;
+                            $r_wallet = $earn3*$wallet_rate->r_wallet;
+                            $b_wallet = $earn3*$wallet_rate->b_wallet;
+                            $admin_fee = $earn3*$wallet_rate->admin_fee;
                             $wallet = array(
                                 'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen3->cash_wallet) + $c_wallet),
                                 'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen3->register_wallet) + $r_wallet),
@@ -366,10 +303,10 @@ class Investment
                                 $r4 = $rate4/100;
                                 $earn4 = $p->price*$r4;
                                 // spit to c_wallet, r_wallet and b_wallet
-                                $c_wallet = $earn4*0.5;
-                                $r_wallet = $earn4*0.3;
-                                $b_wallet = $earn4*0.1;
-                                $admin_fee = $earn4*0.1;
+                                $c_wallet = $earn4*$wallet_rate->c_wallet;
+                                $r_wallet = $earn4*$wallet_rate->r_wallet;
+                                $b_wallet = $earn4*$wallet_rate->b_wallet;
+                                $admin_fee = $earn4*$wallet_rate->admin_fee;
                                 $wallet = array(
                                     'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen4->cash_wallet) + $c_wallet),
                                     'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen4->register_wallet) + $r_wallet),
@@ -443,10 +380,10 @@ class Investment
                                     $r5 = $rate5/100;
                                     $earn5 = $p->price*$r5;
                                     // spit to c_wallet, r_wallet and b_wallet
-                                    $c_wallet = $earn5*0.5;
-                                    $r_wallet = $earn5*0.3;
-                                    $b_wallet = $earn5*0.1;
-                                    $admin_fee = $earn5*0.1;
+                                    $c_wallet = $earn5*$wallet_rate->c_wallet;
+                                    $r_wallet = $earn5*$wallet_rate->r_wallet;
+                                    $b_wallet = $earn5*$wallet_rate->b_wallet;
+                                    $admin_fee = $earn5*$wallet_rate->admin_fee;
                                     $wallet = array(
                                         'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen5->cash_wallet) + $c_wallet),
                                         'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen5->register_wallet) + $r_wallet),
@@ -519,10 +456,10 @@ class Investment
                                         $r6 = $rate6/100;
                                         $earn6 = $p->price*$r6;
                                          // spit to c_wallet, r_wallet and b_wallet
-                                        $c_wallet = $earn6*0.5;
-                                        $r_wallet = $earn6*0.3;
-                                        $b_wallet = $earn6*0.1;
-                                        $admin_fee = $earn6*0.1;
+                                        $c_wallet = $earn6*$wallet_rate->c_wallet;
+                                        $r_wallet = $earn6*$wallet_rate->r_wallet;
+                                        $b_wallet = $earn6*$wallet_rate->b_wallet;
+                                        $admin_fee = $earn6*$wallet_rate->admin_fee;
                                         $wallet = array(
                                             'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen6->cash_wallet) + $c_wallet),
                                             'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen6->register_wallet) + $r_wallet),
@@ -611,638 +548,5 @@ class Investment
         }
     }
     
-    // calculate bonus
-    public static function bonus($mid)
-    {
-        $wallet_rate = DB::table('wallet_rates')->where('id', 1)->first();
-
-        $m = DB::table('members')->where('id', $mid)->first();
-        // current date
-        $year = date('Y');
-        $month = date('m');
-        $bm = $month - 1;
-        // check if we already calculate
-        if($month==1)
-        {
-            $bm = 12;
-            $year = $year - 1;
-        }
-        $bonus = DB::table('monthly_bonus')->where('member_id', $m->id)
-            ->where('month', $bm)
-            ->where('year', $year)
-            ->first();
-        if($bonus==null)
-        {
-
-            $gens = DB::table('members')->where('sponsor_id', $m->username)->get();
-            $total = 0;
-            foreach($gens as $g)
-            {
-                $inv = DB::table('investments')
-                    ->join('packages', 'investments.package_id', 'packages.id')
-                    ->where('investments.member_id', $g->id)
-                    ->where('investments.is_expired', 0)
-                    ->select('packages.price')
-                    ->first();
-                if($inv!=null)
-                {
-                    $total = $total + $inv->price;
-                }
-            }
-            $rate1 = DB::table('commission_plans')->where('id', 8)->first();
-            $rate2 = DB::table('commission_plans')->where('id', 7)->first();
-            $rate3 = DB::table('commission_plans')->where('id', 6)->first();
-            $rate4 = DB::table('commission_plans')->where('id', 5)->first();
-            $rate5 = DB::table('commission_plans')->where('id', 4)->first();
-            $rate6 = DB::table('commission_plans')->where('id', 3)->first();
-            $rate7 = DB::table('commission_plans')->where('id', 2)->first();
-            $rate8 = DB::table('commission_plans')->where('id', 1)->first();
-            // kind diamound
-            
-            if(count($gens)>=$rate1->direct_sponsor && $total>=$rate1->sale)
-            {
-                $amount = $rate1->bonus_rate*$total;
-                $data = array(
-                    'member_id' => $mid,
-                    'amount' => $amount,
-                    'alc' => $rate1->alc,
-                    'bonus_date' => date('Y-m-d'),
-                    'month' => date('m'),
-                    'year' => date('Y')
-                );
-                DB::table('monthly_bonus')->insert($data);
-                // total bonus
-                $total1 = $amount + $rate1->alc;
-                // split to c_wallet, r_wallet, b_wallet and admin_fee
-                $c_wallet = $total1*$wallet_rate->c_wallet;
-                $r_wallet = $total1*$wallet_rate->r_wallet;
-                $b_wallet = $total1*$wallet_rate->b_wallet;
-                $admin_fee = $total1*$wallet_rate->admin_fee;
-                $data = array(
-                    'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->cash_wallet) + $c_wallet),
-                    'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->register_wallet) + $r_wallet),
-                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->token_wallet) + $b_wallet)
-                );
-
-                DB::table('members')->where('id', $mid)->update($data);
-                // transaction of cash wallet
-                $data1 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $c_wallet,
-                    'wallet_type' => 'C Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data1);
-                // transaction of register wallet
-                $data2 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $r_wallet,
-                    'wallet_type' => 'R Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data2);
-                // transaction of register wallet
-                $data3 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $b_wallet,
-                    'wallet_type' => 'B Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data3);
-                // admin earning
-                $ad = DB::table('admin_earnings')->where('id', 1)->first();
-                $total = $ad->earning + $admin_fee;
-                DB::table('admin_earnings')->where('id', 1)->update(['earning'=>$total]);
-                $data = array(
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $admin_fee,
-                    'member_id' => $mid,
-                    'package_id' => 0,
-                    'description' => 'Matching Reward'
-                );
-                DB::table('admin_earning_transactions')->insert($data);
-                DB::table('members')->where('id', $mid)->update(['photo'=>'8.png']);
-                return $amount;
-            }
-            // queen diamound
-            else if(count($gens)>=$rate2->direct_sponsor && $total>=$rate2->sale)
-            {
-                $amount = $rate2->bonus_rate*$total;
-                $data = array(
-                    'member_id' => $mid,
-                    'amount' => $amount,
-                    'alc' => $rate2->alc,
-                    'bonus_date' => date('Y-m-d'),
-                    'month' => date('m'),
-                    'year' => date('Y')
-                );
-                DB::table('monthly_bonus')->insert($data);
-
-                // total bonus
-                $total2 = $amount + $rate2->alc;
-                // split to c_wallet, r_wallet, b_wallet and admin_fee
-                $c_wallet = $total2*$wallet_rate->c_wallet;
-                $r_wallet = $total2*$wallet_rate->r_wallet;
-                $b_wallet = $total2*$wallet_rate->b_wallet;
-                $admin_fee = $total2*$wallet_rate->admin_fee;
-                $data = array(
-                    'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->cash_wallet) + $c_wallet),
-                    'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->register_wallet) + $r_wallet),
-                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->token_wallet) + $b_wallet)
-                );
-
-                DB::table('members')->where('id', $mid)->update($data);
-                // transaction of cash wallet
-                $data1 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $c_wallet,
-                    'wallet_type' => 'C Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data1);
-                // transaction of register wallet
-                $data2 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $r_wallet,
-                    'wallet_type' => 'R Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data2);
-                // transaction of register wallet
-                $data3 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $b_wallet,
-                    'wallet_type' => 'B Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data3);
-                // admin earning
-                $ad = DB::table('admin_earnings')->where('id', 1)->first();
-                $total = $ad->earning + $admin_fee;
-                DB::table('admin_earnings')->where('id', 1)->update(['earning'=>$total]);
-                $data = array(
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $admin_fee,
-                    'member_id' => $mid,
-                    'package_id' => 0,
-                    'description' => 'Matching Reward'
-                );
-                DB::table('admin_earning_transactions')->insert($data);
-
-                DB::table('members')->where('id', $mid)->update(['photo'=>'7.png']);
-                return $amount;
-            }
-             // diamound
-            else if(count($gens)>=$rate3->direct_sponsor && $total>=$rate3->sale)
-            {
-                $amount = $rate3->bonus_rate*$total;
-                $data = array(
-                    'member_id' => $mid,
-                    'amount' => $amount,
-                    'alc' => $rate3->alc,
-                    'bonus_date' => date('Y-m-d'),
-                    'month' => date('m'),
-                    'year' => date('Y')
-                );
-                DB::table('monthly_bonus')->insert($data);
-                
-                // total bonus
-                $total3 = $amount + $rate3->alc;
-                // split to c_wallet, r_wallet, b_wallet and admin_fee
-                $c_wallet = $total3*$wallet_rate->c_wallet;
-                $r_wallet = $total3*$wallet_rate->r_wallet;
-                $b_wallet = $total3*$wallet_rate->b_wallet;
-                $admin_fee = $total3*$wallet_rate->admin_fee;
-                $data = array(
-                    'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->cash_wallet) + $c_wallet),
-                    'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->register_wallet) + $r_wallet),
-                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->token_wallet) + $b_wallet)
-                );
-
-                DB::table('members')->where('id', $mid)->update($data);
-                // transaction of cash wallet
-                $data1 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $c_wallet,
-                    'wallet_type' => 'C Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data1);
-                // transaction of register wallet
-                $data2 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $r_wallet,
-                    'wallet_type' => 'R Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data2);
-                // transaction of register wallet
-                $data3 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $b_wallet,
-                    'wallet_type' => 'B Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data3);
-                // admin earning
-                $ad = DB::table('admin_earnings')->where('id', 1)->first();
-                $total = $ad->earning + $admin_fee;
-                DB::table('admin_earnings')->where('id', 1)->update(['earning'=>$total]);
-                $data = array(
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $admin_fee,
-                    'member_id' => $mid,
-                    'package_id' => 0,
-                    'description' => 'Matching Reward'
-                );
-                DB::table('admin_earning_transactions')->insert($data);
-
-                DB::table('members')->where('id', $mid)->update(['photo'=>'6.png']);
-                return $amount;
-            }
-             // gold
-            else if(count($gens)>=$rate4->direct_sponsor && $total>=$rate4->sale)
-            {
-                $amount = $rate4->bonus_rate*$total;
-                $data = array(
-                    'member_id' => $mid,
-                    'amount' => $amount,
-                    'alc' => $rate4->alc,
-                    'bonus_date' => date('Y-m-d'),
-                    'month' => date('m'),
-                    'year' => date('Y')
-                );
-                DB::table('monthly_bonus')->insert($data);
-                
-                // total bonus
-                $total4 = $amount + $rate4->alc;
-                // split to c_wallet, r_wallet, b_wallet and admin_fee
-                $c_wallet = $total4*$wallet_rate->c_wallet;
-                $r_wallet = $total4*$wallet_rate->r_wallet;
-                $b_wallet = $total4*$wallet_rate->b_wallet;
-                $admin_fee = $total4*$wallet_rate->admin_fee;
-                $data = array(
-                    'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->cash_wallet) + $c_wallet),
-                    'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->register_wallet) + $r_wallet),
-                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->token_wallet) + $b_wallet)
-                );
-
-                DB::table('members')->where('id', $mid)->update($data);
-                // transaction of cash wallet
-                $data1 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $c_wallet,
-                    'wallet_type' => 'C Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data1);
-                // transaction of register wallet
-                $data2 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $r_wallet,
-                    'wallet_type' => 'R Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data2);
-                // transaction of register wallet
-                $data3 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $b_wallet,
-                    'wallet_type' => 'B Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data3);
-                // admin earning
-                $ad = DB::table('admin_earnings')->where('id', 1)->first();
-                $total = $ad->earning + $admin_fee;
-                DB::table('admin_earnings')->where('id', 1)->update(['earning'=>$total]);
-                $data = array(
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $admin_fee,
-                    'member_id' => $mid,
-                    'package_id' => 0,
-                    'description' => 'Matching Reward'
-                );
-                DB::table('admin_earning_transactions')->insert($data);
-
-                DB::table('members')->where('id', $mid)->update(['photo'=>'5.png']);
-                return $amount;
-            }
-            // platinuim
-            else if(count($gens)>=$rate5->direct_sponsor && $total>=$rate5->sale)
-            {
-                $amount = $rate5->bonus_rate*$total;
-                $data = array(
-                    'member_id' => $mid,
-                    'amount' => $amount,
-                    'alc' => $rate5->alc,
-                    'bonus_date' => date('Y-m-d'),
-                    'month' => date('m'),
-                    'year' => date('Y')
-                );
-                DB::table('monthly_bonus')->insert($data);
-                
-                // total bonus
-                $total5 = $amount + $rate5->alc;
-                // split to c_wallet, r_wallet, b_wallet and admin_fee
-                $c_wallet = $total5*$wallet_rate->c_wallet;
-                $r_wallet = $total5*$wallet_rate->r_wallet;
-                $b_wallet = $total5*$wallet_rate->b_wallet;
-                $admin_fee = $total5*$wallet_rate->admin_fee;
-                $data = array(
-                    'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->cash_wallet) + $c_wallet),
-                    'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->register_wallet) + $r_wallet),
-                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->token_wallet) + $b_wallet)
-                );
-
-                DB::table('members')->where('id', $mid)->update($data);
-                // transaction of cash wallet
-                $data1 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $c_wallet,
-                    'wallet_type' => 'C Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data1);
-                // transaction of register wallet
-                $data2 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $r_wallet,
-                    'wallet_type' => 'R Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data2);
-                // transaction of register wallet
-                $data3 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $b_wallet,
-                    'wallet_type' => 'B Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data3);
-                // admin earning
-                $ad = DB::table('admin_earnings')->where('id', 1)->first();
-                $total = $ad->earning + $admin_fee;
-                DB::table('admin_earnings')->where('id', 1)->update(['earning'=>$total]);
-                $data = array(
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $admin_fee,
-                    'member_id' => $mid,
-                    'package_id' => 0,
-                    'description' => 'Matching Reward'
-                );
-                DB::table('admin_earning_transactions')->insert($data);
-
-                DB::table('members')->where('id', $mid)->update(['photo'=>'4.png']);
-                return $amount;
-            }
-            // silver
-            else if(count($gens)>=$rate6->direct_sponsor && $total>=$rate6->sale)
-            {
-                $amount = $rate6->bonus_rate*$total;
-                $data = array(
-                    'member_id' => $mid,
-                    'amount' => $amount,
-                    'alc' => $rate6->alc,
-                    'bonus_date' => date('Y-m-d'),
-                    'month' => date('m'),
-                    'year' => date('Y')
-                );
-                DB::table('monthly_bonus')->insert($data);
-                // add to wallet
-               
-                // total bonus
-                $total6 = $amount + $rate6->alc;
-                // split to c_wallet, r_wallet, b_wallet and admin_fee
-                $c_wallet = $total6*$wallet_rate->c_wallet;
-                $r_wallet = $total6*$wallet_rate->r_wallet;
-                $b_wallet = $total6*$wallet_rate->b_wallet;
-                $admin_fee = $total6*$wallet_rate->admin_fee;
-                $data = array(
-                    'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->cash_wallet) + $c_wallet),
-                    'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->register_wallet) + $r_wallet),
-                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->token_wallet) + $b_wallet)
-                );
-
-                DB::table('members')->where('id', $mid)->update($data);
-                // transaction of cash wallet
-                $data1 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $c_wallet,
-                    'wallet_type' => 'C Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data1);
-                // transaction of register wallet
-                $data2 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $r_wallet,
-                    'wallet_type' => 'R Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data2);
-                // transaction of register wallet
-                $data3 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $b_wallet,
-                    'wallet_type' => 'B Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data3);
-                // admin earning
-                $ad = DB::table('admin_earnings')->where('id', 1)->first();
-                $total = $ad->earning + $admin_fee;
-                DB::table('admin_earnings')->where('id', 1)->update(['earning'=>$total]);
-                $data = array(
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $admin_fee,
-                    'member_id' => $mid,
-                    'package_id' => 0,
-                    'description' => 'Matching Reward'
-                );
-                DB::table('admin_earning_transactions')->insert($data);
-                
-                DB::table('members')->where('id', $mid)->update(['photo'=>'3.png']);
-                return $amount;
-            }
-             // fronze
-            else if(count($gens)>=$rate7->direct_sponsor && $total>=$rate7->sale)
-            {
-                $amount = $rate1->bonus_rate*$total;
-                $data = array(
-                    'member_id' => $mid,
-                    'amount' => $amount,
-                    'alc' => $rate7->alc,
-                    'bonus_date' => date('Y-m-d'),
-                    'month' => date('m'),
-                    'year' => date('Y')
-                );
-                DB::table('monthly_bonus')->insert($data);
-               
-                // total bonus
-                $total7 = $amount + $rate7->alc;
-                // split to c_wallet, r_wallet, b_wallet and admin_fee
-                $c_wallet = $total7*$wallet_rate->c_wallet;
-                $r_wallet = $total7*$wallet_rate->r_wallet;
-                $b_wallet = $total7*$wallet_rate->b_wallet;
-                $admin_fee = $total7*$wallet_rate->admin_fee;
-                $data = array(
-                    'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->cash_wallet) + $c_wallet),
-                    'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->register_wallet) + $r_wallet),
-                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->token_wallet) + $b_wallet)
-                );
-
-                DB::table('members')->where('id', $mid)->update($data);
-                // transaction of cash wallet
-                $data1 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $c_wallet,
-                    'wallet_type' => 'C Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data1);
-                // transaction of register wallet
-                $data2 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $r_wallet,
-                    'wallet_type' => 'R Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data2);
-                // transaction of register wallet
-                $data3 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $b_wallet,
-                    'wallet_type' => 'B Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data3);
-                // admin earning
-                $ad = DB::table('admin_earnings')->where('id', 1)->first();
-                $total = $ad->earning + $admin_fee;
-                DB::table('admin_earnings')->where('id', 1)->update(['earning'=>$total]);
-                $data = array(
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $admin_fee,
-                    'member_id' => $mid,
-                    'package_id' => 0,
-                    'description' => 'Matching Reward'
-                );
-                DB::table('admin_earning_transactions')->insert($data);
-
-                DB::table('members')->where('id', $mid)->update(['photo'=>'2.png']);
-                return $amount;
-            }
-            // star
-            else if(count($gens)>=$rate8->direct_sponsor && $total>=$rate8->sale)
-            {
-                $amount = $rate8->bonus_rate*$total;
-                $data = array(
-                    'member_id' => $mid,
-                    'amount' => $amount,
-                    'alc' => $rate8->alc,
-                    'bonus_date' => date('Y-m-d'),
-                    'month' => date('m'),
-                    'year' => date('Y')
-                );
-                DB::table('monthly_bonus')->insert($data);
-                
-                // total bonus
-                $total8 = $amount + $rate8->alc;
-                // split to c_wallet, r_wallet, b_wallet and admin_fee
-                $c_wallet = $total8*$wallet_rate->c_wallet;
-                $r_wallet = $total8*$wallet_rate->r_wallet;
-                $b_wallet = $total8*$wallet_rate->b_wallet;
-                $admin_fee = $total8*$wallet_rate->admin_fee;
-                $data = array(
-                    'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->cash_wallet) + $c_wallet),
-                    'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->register_wallet) + $r_wallet),
-                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $m->token_wallet) + $b_wallet)
-                );
-
-                DB::table('members')->where('id', $mid)->update($data);
-                // transaction of cash wallet
-                $data1 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $c_wallet,
-                    'wallet_type' => 'C Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data1);
-                // transaction of register wallet
-                $data2 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $r_wallet,
-                    'wallet_type' => 'R Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data2);
-                // transaction of register wallet
-                $data3 = array(
-                    'member_id' => $mid,
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $b_wallet,
-                    'wallet_type' => 'B Wallet',
-                    'description' => 'Matching Reward'
-                );
-                DB::table('bonus_earning_transactions')->insert($data3);
-                // admin earning
-                $ad = DB::table('admin_earnings')->where('id', 1)->first();
-                $total = $ad->earning + $admin_fee;
-                DB::table('admin_earnings')->where('id', 1)->update(['earning'=>$total]);
-                $data = array(
-                    'transaction_date' => date('Y-m-d'),
-                    'amount' => $admin_fee,
-                    'member_id' => $mid,
-                    'package_id' => 0,
-                    'description' => 'Matching Reward'
-                );
-                DB::table('admin_earning_transactions')->insert($data);
-
-                DB::table('members')->where('id', $mid)->update(['photo'=>'1.png']);
-
-                return $amount;
-            }
-            else{
-                $data = array(
-                    'member_id' => $mid,
-                    'amount' => 0,
-                    'alc' => 0,
-                    'bonus_date' => date('Y-m-d'),
-                    'month' => date('m'),
-                    'year' => date('Y')
-                );
-                DB::table('monthly_bonus')->insert($data);
-                DB::table('members')->where('id', $mid)->update(['photo'=>'0.png']);
-                return 0;
-            }
-        }
-        else{
-            return $bonus->amount;
-        }
-    }
 
 }

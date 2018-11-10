@@ -693,6 +693,9 @@ class Member extends Command
      */
     public function handle()
     {
+        // wallet rate
+        $wallet_rate = DB::table('wallet_rates')->where('id', 1)->first();
+
         // calculate earning everyday for member with active investment
 
         // get all payment schedule need to pay today and not yet paid
@@ -703,10 +706,10 @@ class Member extends Command
         foreach($pays as $pay)
         {
             // calcuate rate, 50% for c_wallet, 30% for r_wallet, 10% for admin_fee, 10% for b_wallet
-            $admin_fee = 0.1*$pay->amount;
-            $c_wallet = 0.5*$pay->amount;
-            $r_wallet = 0.3*$pay->amount;
-            $t_wallet = 0.1*$pay->amount;
+            $admin_fee = $wallet_rate->admin_fee*$pay->amount;
+            $c_wallet = $wallet_rate->c_wallet*$pay->amount;
+            $r_wallet = $wallet_rate->r_wallet*$pay->amount;
+            $t_wallet = $wallet_rate->b_wallet*$pay->amount;
 
             // admin earning
             $ad = DB::table('admin_earnings')->where('id', 1)->first();
