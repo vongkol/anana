@@ -2,7 +2,6 @@
 @section('content')
 	<h4 class="card-title">Reset Password</h4>
 	<form method="POST">
-		
 		<div class="form-group">
 			<label for="new-password">New Password <span class="text-danger">*</span></label>
 			<input id="new-password" type="password" class="form-control" name="password" required autofocus data-eye>
