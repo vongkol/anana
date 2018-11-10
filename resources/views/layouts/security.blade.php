@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="sorvichey">
-        <title>Ana Lee Capital</title>
+        <title>ANA LEE CAPITAL</title>
         <link href="{{asset('fronts/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
         <link href="{{asset('fronts/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" type="text/css" href="{{asset('fronts/css/custom.css')}}">
