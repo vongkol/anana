@@ -106,7 +106,7 @@
                             <a href="https://www.facebook.com/analeecapital/" class="btn btn-outline-warning btn-sm pt-0 pb-0 mt-1" target="_blank">
                                 <i class="fa fa-facebook"></i>
                             </a>
-                            <a href="https://www.facebook.com/analeecapital/" class="btn btn-outline-warning btn-sm pt-0 pb-0 mt-1" target="_blank">
+                            <a href="https://www.linkedin.com/in/ana-lee-capital/" class="btn btn-outline-warning btn-sm pt-0 pb-0 mt-1" target="_blank">
                                 <i class="fa fa-linkedin"></i>
                             </a>
                             <small class="mt-1">&nbsp;&nbsp; | &nbsp;&nbsp; <span id='ct' ></span></small>
