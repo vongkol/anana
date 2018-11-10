@@ -51,7 +51,7 @@ class Right
             $mail->CharSet = "utf-8"; // set charset to utf8
             $mail->SMTPAuth = true;  // use smpt auth
             $mail->SMTPSecure = "ssl"; // or ssl
-            $mail->Host = "mail.analeecapital.com";
+            $mail->Host = "vm1160.tmdcloud.com";
             $mail->Port = 465; 
             $mail->Username = "support@analeecapital.com";
             $mail->Password = "Khmer@123";
@@ -74,7 +74,7 @@ class Right
             $mail->CharSet = "utf-8"; // set charset to utf8
             $mail->SMTPAuth = true;  // use smpt auth
             $mail->SMTPSecure = "ssl"; // or ssl
-            $mail->Host = "mail.analeecapital.com";
+            $mail->Host = "vm1160.tmdcloud.com";
             $mail->Port = 465; 
             $mail->Username = "support@analeecapital.com";
             $mail->Password = "Khmer@123";
