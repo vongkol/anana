@@ -45,7 +45,8 @@
 										<div class="col-md-6">
 											<label for="">
 												<strong>Full Name<span class="text-danger">*</span></strong>
-												<input type="text" class="form-control border-radius-22" required autofocus name="full_name" value="{{old('full_name')}}">
+												<input type="text" class="form-control border-radius-22" required autofocus 
+												 name="full_name" id="full_name" value="{{old('full_name')}}">
 											</label>
 										</div>
 									</div>
@@ -53,13 +54,15 @@
 										<div class="col-md-6">
 											<label for="">
 												<strong>Username<span class="text-danger">*</span></strong>
-												<input type="text" class="form-control border-radius-22" required name="username" value="{{old('username')}}">
+												<input type="text" class="form-control border-radius-22" required 
+													name="username" id="username" value="{{old('username')}}">
 											</label>
 										</div>
 										<div class="col-md-6">
 											<label for="">
 												<strong>Email<span class="text-danger">*</span></strong>
-												<input type="email" class="form-control border-radius-22" required name="email" value="{{old('email')}}">
+												<input type="email" class="form-control border-radius-22" required 
+												 name="email" id="email" value="{{old('email')}}">
 											</label>
 										</div>
 									</div>
@@ -67,7 +70,8 @@
 										<div class="col-md-6">
 											<label for="">
 												<strong>Phone<span class="text-danger">*</span></strong>
-												<input type="text" class="form-control border-radius-22" required name="phone" value="{{old('phone')}}">
+												<input type="text" class="form-control border-radius-22" required 
+													name="phone" value="{{old('phone')}}" id="phone">
 											</label>
 										</div>
 										<div class="col-md-6">
@@ -75,7 +79,7 @@
 												<strong>Country<span class="text-danger">*</span> </strong>
 												<select name="country" id="country" class="form-control border-radius-22">
 													@foreach($countries as $c)
-														<option value="{{$c->name}}">{{$c->name}}</option>
+														<option value="{{$c->name}}" {{$c->name=='Cambodia'?'selected':''}}>{{$c->name}}</option>
 													@endforeach
 												</select>
 											</label>
@@ -85,13 +89,15 @@
 										<div class="col-md-6">
 											<label for="">
 												<strong>Password <span class="text-danger">*</span> </strong>
-												<input type="password" class="form-control border-radius-22" name="password" required value="{{old('password')}}">
+												<input type="password" class="form-control border-radius-22" 
+												 name="password" id="password" required value="{{old('password')}}">
 											</label>
 										</div>
 										<div class="col-md-6">
 											<label for="">
 												<strong>Confirm Password <span class="text-danger">*</span> </strong>
-												<input type="password" class="form-control border-radius-22" name="cpassword" required>
+												<input type="password" class="form-control border-radius-22" name="cpassword" 
+													id="cpassword" required>
 											</label>
 										</div>
 									</div>
@@ -99,13 +105,17 @@
 										<div class="col-md-12">
 											<label for="">
 												<strong>Security PIN <span class="text-danger">*</span> </strong>
-												<input type="password" class="form-control border-radius-22" name="security_pin" required value="{{old('security_pin')}}">
+												<input type="password" class="form-control border-radius-22" 
+												 name="security_pin" id="security_pin" required value="{{old('security_pin')}}">
 											</label>
 										</div>
 									</div>
 								
 									<div class="form-group no-margin">
-										<button type="button" class="btn btn-learn btn-warning border-radius-22 btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">
+										<!-- <button type="button" class="btn btn-learn btn-warning border-radius-22 btn-block" data-toggle="modal" data-target=".bd-example-modal-lg">
+											Continue
+										</button> -->
+										<button type="button" class="btn btn-learn btn-warning border-radius-22 btn-block" id="mybtn">
 											Continue
 										</button>
 										<!-- <button type="submit" class="btn btn-learn btn-dark btn-block">
@@ -124,7 +134,7 @@
 		</div>
 	</div>
 
-	<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	<div class="modal fade bd-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 		<div class="modal-header">
@@ -448,6 +458,53 @@
 @endsection
 @section('js')
 	<script>
+		window.onload = function(){
+			let btn = document.querySelector('#mybtn');
+			btn.addEventListener('click', function(){
+				let full_name = document.querySelector('#full_name').value;
+				let username = document.querySelector('#username').value;
+				let email = document.querySelector('#email').value;
+				let phone = document.querySelector('#phone').value;
+				let password = document.querySelector('#password').value;
+				let cpass = document.querySelector('#cpassword').value;
+				let pin = document.querySelector('#security_pin').value;
+				
+				if(full_name=="")
+				{
+					alert("Full Name is required!");
+				}
+				else if(username==''){
+					alert('Username is required!');
+				}
+				else if(email=='')
+				{
+					alert('Email is required!');
+				}
+				else if(phone=='')
+				{
+					alert('Phone is required!');
+				}
+				else if(password=='')
+				{
+					alert('Password is required!');
+				}
+				else if(cpass=='')
+				{
+					alert('Confirm Password is required!');
+				}
+				else if(pin=='')
+				{
+					alert('Security PIN is required!');
+				}
+				else if(password!=cpass)
+				{
+					alert('Password and Confirm Password is not matched!');
+				}
+				else{
+					$('#modal').modal('show');
+				}
+			});
+		};
 		$(document).ready(function(){
 			$("#btn").click(function(){
 				$("#frm").submit();
