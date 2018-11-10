@@ -63,7 +63,7 @@
 		</div>
         @if($investment==null)
 			<p class="text-center text-danger">You don't have an investment yet. <br>
-				<a href="{{url('member/investment/start')}}" class="btn btn-warning btn-sm">Start Investment Now</a>
+				<a href="{{url('member/investment/start')}}" class="btn btn-warning btn-alc font-weight-bold" style="text-decoration:none;">START INVESTMENT NEW</a>
 			</p>
 		@endif
 		
