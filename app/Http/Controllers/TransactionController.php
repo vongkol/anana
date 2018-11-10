@@ -16,7 +16,7 @@ class TransactionController extends Controller
         $inv = DB::table('investments')->where('member_id', $member->id)->first();
         if($inv==null)
         {
-            return redirect('member/investment/'. Helper::encryptor("encrypt", $member->id));
+            return redirect('member/investment/'. $member->id);
         }
         
         // get all 5 transaction types into one and select top 100

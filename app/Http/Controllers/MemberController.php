@@ -144,7 +144,7 @@ EOT;
         {
             return redirect('/sign-in');
         }
-        $data['id'] = Helper::encryptor('encrypt', $member->id);
+        $data['id'] = $member->id;
         return view('fronts.members.dashboard', $data);
     }
     public function profile($id)
@@ -168,7 +168,7 @@ EOT;
          $inv = DB::table('investments')->where('member_id', $member->id)->first();
         if($inv==null)
         {
-            return redirect('member/investment/'. Helper::encryptor("encrypt", $member->id));
+            return redirect('member/investment/'. $member->id);
         }
         $id = Helper::encryptor("decrypt", $id);
         $data['account'] = DB::table('members')->where('id', $id)->first();

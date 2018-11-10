@@ -33,10 +33,10 @@
                             <a href="{{url('/dashboard')}}" class="nav-link">DASHBOARD</a>
                         </li>
                          <li class="nav-item">
-                            <a href="{{url('member/account/'. \App\Http\Controllers\Helper::encryptor('encrypt', session('member')->id))}}" class="nav-link">MY ACCOUNT</a>
+                            <a href="{{url('member/account/'. session('member')->id)}}" class="nav-link">MY ACCOUNT</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{url('member/investment/'. \App\Http\Controllers\Helper::encryptor('encrypt', session('member')->id))}}" class="nav-link">INVENSTMENT</a>
+                            <a href="{{url('member/investment/'. session('member')->id)}}" class="nav-link">INVENSTMENT</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{url('member/earning')}}" class="nav-link">EARNING</a>
