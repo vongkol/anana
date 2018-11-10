@@ -86,6 +86,6 @@ class InvestmentController extends Controller
         // calculate earning for uper line
         Investment::network_earning($member->id, $r->package);
 
-        return redirect('member/investment/'.Helper::encryptor('encrypt', $m->id));
+        return redirect('member/investment/'.$m->id);
     }
 }
