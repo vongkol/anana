@@ -113,7 +113,7 @@
 										</button> -->
 									</div>
 									<div class="margin-top20 text-center">
-										Already have an account? <a href="{{url('sign-in')}}">Sign In</a>
+										Already have an account? <a href="{{url('sign-in')}}">Login</a>
 									</div>
 								</form>
 								</div>
