@@ -77,7 +77,16 @@ class MemberController extends Controller
                     To complete your signup, please click the button below to verify.
                 </p>
                 <p>
-                    <a href="{$link}" target="_blank">Verify</a>
+                    <a style="background:#ffc107; border: none;
+                    color: white;
+                    padding: 10px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    border-radius: 22px;
+                    cursor: pointer;" href="{$link}" target="_blank">Verify</a>
                 </p>
 EOT;
                 // send email confirmation
@@ -263,7 +272,16 @@ EOT;
                     Please click the link below to reset your password.
                 </p>
                 <p>
-                    <a href="https://analeecapital.com/member/reset/{$id}" target="_blank">https://analeecapital.com/member/reset/{$id}</a>
+                    <a style="background:#ffc107; border: none;
+                    color: white;
+                    padding: 10px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    border-radius: 22px;
+                    cursor: pointer;"  href="https://analeecapital.com/member/reset/{$id}" target="_blank">Reset Password</a>
                 </p>
 EOT;
                 // send email confirmation
