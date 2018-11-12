@@ -227,8 +227,8 @@ EOT;
              'bank_name' => 'required|min:3|max:50',
             'full_name' => 'required|min:3|max:30',
             'account_no' => 'required|min:3|max:30',
-            'branch_name' => 'required|min:3|max:30',
-            'swift_code' => 'required|min:3|max:30',
+            'branch_name' => 'max:30',
+            'swift_code' => 'max:30',
             'address' => 'max:200'
         ]);
         $member = session('member');
@@ -282,9 +282,10 @@ EOT;
         $email = $r->email;
 
         $m = DB::table('members')->where('email', $email)->first();
-        $id = md5($m->id);
+        
         if($m!=null)
         {
+            $id = md5($m->id);
             $sms =<<<EOT
                 <h2>Reset Your Password</h2>
                 <hr>
@@ -305,24 +306,28 @@ EOT;
                 </p>
 EOT;
                 // send email confirmation
-            Right::sms($r->email, $sms);
+            Right::send_email($r->email, "Reset Password", $sms);
             $data['sms'] = 'Please check your email, we have sent you the reset password link.';
             return view('fronts.members.thank', $data);
         }
         else{
+
             $r->session()->flash('sms1', 'The email you provided does not exist.');
             return redirect('member/recovery');
         }
     }
     public function reset($id)
     {
+        // $m = DB::table('members')->where(DB::raw('md5(id)'), $id)->first();
+        // var_dump($m);
+        
         $data['id'] = $id;
         return view('fronts.members.reset', $data);
     }
     public function save_reset(Request $r)
     {
         $validateData = $r->validate([
-            'password' => "required|min:6"
+            'password' => "required|min:6|max:30"
         ]);
         $id = $r->id;
         if($r->password!=$r->cpassword)
@@ -334,7 +339,7 @@ EOT;
             $data = array(
                 'password' => bcrypt($r->password)
             );
-            $i = DB::table('members')->where(DB::raw('md5(id)', $id))->update($data);
+            $i = DB::table('members')->where(DB::raw('md5(id)'), $id)->update($data);
             $r->session()->flash('sms', 'Your pass word has been reset. Please login again!');
             return redirect('sign-in');
         }
@@ -479,5 +484,11 @@ EOT;
             DB::table('members')->where('id', $m->id)->update($data);
             $r->session()->flash('sms', 'You new security PIN has been send to your email, please check it.');
             return redirect('member/account/'.$m->id);
+    }
+    // get received user information by username from ajax
+    public function get_receiver($id)
+    {
+        $m = DB::table('members')->where('username', $id)->first();
+        return json_encode($m);
     }
 }

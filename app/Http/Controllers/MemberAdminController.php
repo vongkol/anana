@@ -35,6 +35,14 @@ class MemberAdminController extends Controller
             ->select('investments.*', 'packages.name', 'packages.price', 'packages.monthly_payout', 'packages.duration')
             ->first();
         $data['bank'] = DB::table('banks')->where('member_id', $id)->first();
+        // get direct download with investment info
+        $data['networks'] = DB::table('investments')
+            ->leftJoin('members', 'investments.member_id', 'members.id')
+            ->leftJoin('packages', 'investments.package_id', 'packages.id')
+            ->where('members.sponsor_id', $data['member']->username)
+            ->where('investments.is_expired',0)
+            ->select('members.*', 'packages.price', 'packages.name')
+            ->get();
         return view('admins.members.detail', $data);
     }
     public function delete($id, Request $r)
@@ -114,6 +122,7 @@ class MemberAdminController extends Controller
             return redirect('analee-admin/member/reset-security-pin/'.$id);
       
       }
+      // add cridit to member
       public function credit($id)
       {
         if(!Right::check('Add Credit', 'l'))
@@ -141,10 +150,27 @@ class MemberAdminController extends Controller
                   'from_username' => Auth::user()->email,
                   'to_username' => $m->username,
                   'wallet_type' => 'register_wallet',
-                  'amount' => $r_wallet,
+                  'amount' => $r->credit,
                   'transfer_date' => date('Y-m-d')
               );
               DB::table('transfer_transactions')->insert($dd);
+
+            // calculate admin earning
+            $ad = DB::table('admin_earnings')->where('id', 1)->first();
+            $total = $ad->earning + $r->credit;
+            $data = array(
+                'earning' => $total
+            );
+            DB::table('admin_earnings')->where('id', 1)->update($data);
+
+            $data = array(
+                'transaction_date' => date('Y-m-d'),
+                'amount' => $r->credit,
+                'member_id' => $m->id,
+                'package_id' => 0,
+                'description' => "Buy Investment"
+            );
+            DB::table('admin_earning_transactions')->insert($data);
               $r->session()->flash('sms', 'Credit already transferred!');
               return redirect('analee-admin/member/credit/'.$m->id);
           }

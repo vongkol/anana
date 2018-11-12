@@ -23,7 +23,7 @@ class FrontSecurityController extends Controller
      */
     public function sign_up(Request $r)
     {
-        $data['sponsor_id'] = "";
+        $data['sponsor_id'] = "analeecapital";
         if($r->sponsor)
         {
            $data['sponsor_id'] = $_GET['sponsor'];

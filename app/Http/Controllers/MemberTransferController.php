@@ -162,6 +162,12 @@ class MemberTransferController extends Controller
         $account = $r->account;
         $pin = $r->pin;
         $fee = DB::table('transaction_fees')->where('id', 1)->first();
+        // check if user try to send to his/her own register wallet
+        if($m->username==$account)
+        {
+             $r->session()->flash('sms1', "You cannot transfer to your own R-Wallet!");
+             return redirect('member/transfer/anyregister');
+        }
          // check if have enough balance or not
          if(($amount + $fee->fee)>Helper::encryptor('decrypt', $m->register_wallet))
          {

@@ -80,7 +80,7 @@ class Investment
                 $wallet = array(
                     'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->cash_wallet) + $c_wallet),
                     'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->register_wallet) + $r_wallet),
-                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->token_wallet))
+                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen1->token_wallet) + $b_wallet)
                 );            
                 DB::table('members')->where('id', $gen1->id)->update($wallet);
                 // transaction of cash wallet
@@ -158,7 +158,7 @@ class Investment
                         $wallet = array(
                             'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen2->cash_wallet) + $c_wallet),
                             'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen2->register_wallet) + $r_wallet),
-                            'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen2->token_wallet))
+                            'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen2->token_wallet) + $b_wallet)
                         );
                     
                         DB::table('members')->where('id', $gen2->id)->update($wallet);
@@ -234,7 +234,7 @@ class Investment
                             $wallet = array(
                                 'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen3->cash_wallet) + $c_wallet),
                                 'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen3->register_wallet) + $r_wallet),
-                                'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen3->token_wallet))
+                                'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen3->token_wallet) + $b_wallet)
                             );
                         
                             DB::table('members')->where('id', $gen3->id)->update($wallet);
@@ -310,7 +310,7 @@ class Investment
                                 $wallet = array(
                                     'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen4->cash_wallet) + $c_wallet),
                                     'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen4->register_wallet) + $r_wallet),
-                                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen4->token_wallet))
+                                    'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen4->token_wallet) + $b_wallet)
                                 );
                             
                                 DB::table('members')->where('id', $gen4->id)->update($wallet);
@@ -387,7 +387,7 @@ class Investment
                                     $wallet = array(
                                         'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen5->cash_wallet) + $c_wallet),
                                         'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen5->register_wallet) + $r_wallet),
-                                        'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen5->token_wallet))
+                                        'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen5->token_wallet) + $b_wallet)
                                     );
                                 
                                     DB::table('members')->where('id', $gen5->id)->update($wallet);
@@ -463,7 +463,7 @@ class Investment
                                         $wallet = array(
                                             'cash_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen6->cash_wallet) + $c_wallet),
                                             'register_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen6->register_wallet) + $r_wallet),
-                                            'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen6->token_wallet))
+                                            'token_wallet' => Helper::encryptor('encrypt', Helper::encryptor('decrypt', $gen6->token_wallet) + $b_wallet)
                                         );
                                     
                                         DB::table('members')->where('id', $gen6->id)->update($wallet);

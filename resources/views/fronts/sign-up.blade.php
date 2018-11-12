@@ -39,7 +39,7 @@
 										<div class="col-md-6">
 											<label>
 												<strong>Sponsor ID <span class="text-danger">*</span></strong>
-												<input type="text" class="form-control border-radius-22" required name="sponsor_id" value="{{$sponsor_id}}">
+												<input type="text" class="form-control border-radius-22" required name="sponsor_id" value="{{$sponsor_id}}" readonly>
 											</label>
 										</div>
 										<div class="col-md-6">

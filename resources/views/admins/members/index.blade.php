@@ -73,7 +73,7 @@
                         <a href="{{url('analee-admin/member/delete/'.$m->id.'&page='.@$_GET['page'])}}" class="btn btn-danger btn-xs" 
                             title="Delete" onclick="return confirm('You want to delete?')">
                         <i class="fa fa-trash"></i></a>
-                        @delete('Member')
+                        @enddelete
                        
                     </td>
                 </tr>

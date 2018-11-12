@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="bg-light alc-box font-weight-bold shadow-alc mb-5 border-radius-15">
-                <h4 class="card-header">CHANGE PASSWORD</h4>
+                <h4 class="card-header">CHANGE SECURITY PIN</h4>
             @if(Session::has('sms'))
                 <div class="alert alert-success" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3">NRE SECURITY PIN<span class="text-danger">*</span></label>
+                        <label class="col-md-3">NEW SECURITY PIN<span class="text-danger">*</span></label>
                         <div class="col-sm-9">
                             <input type="password" name="security_pin" required class="form-control border-radius-22" value="{{old('security_pin')}}">
                         </div>

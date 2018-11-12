@@ -204,4 +204,35 @@
         @endif
     </div>
 </div>
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Direct Downline</h3>
+        @if($networks==null)
+            <p class="text-danger">This member does not have any download!</p>
+        @else
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Investment Name</th>
+                        <th>Investment Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($networks as $n)
+                        <tr>
+                            <td>{{$n->full_name}}</td>
+                            <td>{{$n->username}}</td>
+                            <td>{{$n->email}}</td>
+                            <td>{{$n->name}}</td>
+                            <td>$ {{$n->price}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @endif
+    </div>
+</div>
 @endsection

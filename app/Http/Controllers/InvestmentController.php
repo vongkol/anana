@@ -9,7 +9,7 @@ class InvestmentController extends Controller
 {
     public function index($id)
     {
-       
+     
         $member = session('member');
         if($member==null)
         {
@@ -85,7 +85,6 @@ class InvestmentController extends Controller
         Investment::generate_schedule($i);
         // calculate earning for uper line
         Investment::network_earning($member->id, $r->package);
-
         return redirect('member/investment/'.$m->id);
     }
 }

@@ -118,7 +118,9 @@
                         <label class="col-sm-3 text-blue">REFERRAL LINK<span class="float-right">:</span></label>
                         <div class="col-sm-9">
                             <input type="text" readonly value="{{url('/sign-up?sponsor='.$account->username)}}" class="form-control border-radius-22" id="link">
-                            <button class="btn btn-warning btn-alc font-weight-bold" style="margin-top:9px" onclick="doCopy()">COPY LINK</button>
+                            <button class="btn btn-warning btn-alc font-weight-bold" style="margin-top:9px" 
+                              onclick="doCopy()">COPY LINK</button> 
+                              <a href="{{url('/sign-up?sponsor='.$account->username)}}" class="href btn btn-warning btn-alc font-weight-bold" style="margin-top:9px"" target="_blank">OPEN IN NEW TAB</a>
                         </div>
                     </div>
                 </div>
@@ -283,6 +285,13 @@
             document.getElementById('link').select();
             document.execCommand("copy");
             alert('Referral link is copied to the clipboard!');
+       }
+       function dbClick(evt)
+       {
+           evt.stopPropagation();
+           var url = document.getElementById('link').value;
+
+           location.href = url;
        }
    </script>
 @endsection
